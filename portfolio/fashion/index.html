@@ -21,6 +21,9 @@
 
     <!-- Light Awesome icons -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
 
@@ -52,7 +55,7 @@
             <p class="standfirst">Welcome to Europe's number one fashion retailer. No one rivals our collection of <a href="#hats">hats</a>, <a href="#scarves">scarves</a>, <a href="#t-shirts">t-shirts</a>, and <a href="#footwear">footwear</a>. And we place <a href="#satisfaction">customer satisfaction</a> at the heart of all we do.</p>
         </section>
         
-        <section class="theme-two" id="hats">
+        <section class="theme-two" id="hats" data-aos="fade-up">
             <h2>Hats</h2>
             <p>Shop our massive collection of fashion headwear, hats and caps. We are here to help you accessorise for every occasion. Add your logo or design to create your custom headwear.</p>
 
@@ -66,7 +69,7 @@
             </div>
         </section>
         
-        <section class="theme-three" id="scarves">
+        <section class="theme-three" id="scarves" data-aos="fade-up">
             <h2>Scarves</h2>
             <p>Discover our beautiful range of scarves for all occasions in a wide variety of designs. Our carefully curated selection includes merino wool, cashmere blend, linen, and silk scarves.</p>
 
@@ -80,7 +83,7 @@
             </div>
         </section>
         
-        <section class="theme-two" id="t-shirts">
+        <section class="theme-two" id="t-shirts" data-aos="fade-up">
             <h2>T-shirts</h2>
             <p>Be unique. Check out our vast collection of t-shirts ethically sourced from independent artists from around the globe. We offer the highest t-shirts on the Internet.</p>
 
@@ -94,7 +97,7 @@
             </div>
         </section>
         
-        <section class="theme-three" id="footwear">
+        <section class="theme-three" id="footwear" data-aos="fade-up">
             <h2>Footwear</h2>
             <p>Shop our fabulous selection of women’s footwear right here. Our range includes all the latest trends and brands in shoes, boots, heels, wedges, trainers, sandals, and more. We have them all. Refresh your shoe closet with a pair from our online shoe store.</p>
 
@@ -109,7 +112,7 @@
         </section>
         
         
-        <section class="container-flex theme-four text-center mobile-col-2 icon-small" id="satisfaction">
+        <section class="container-flex theme-four text-center mobile-col-2 icon-small" id="satisfaction" data-aos="fade-up">
             <div class="col-1 text-center">
                 <h2>Happy Customers</h2>
                 <h3>Over half of Super Snazzy customers are repeat purchasers.</h3>
@@ -144,6 +147,12 @@
     
     <!-- footer -->
     <footer></footer>
+    
+    <!-- scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
    
 </body>
 </html>
