@@ -153,3 +153,6 @@ body { font-family: var(--global-font) }
 .container-menu a#btn-cta:focus,
 .container-menu a#btn-cta:hover,
 .container-menu a#btn-cta:active { background-color: var(--yellow-300) }
+.container-menu.menu-sticky.menu-desktop.menu-on-scroll,
+.container-menu.menu-sticky.menu-mobile.menu-on-scroll,
+.container-menu.menu-sticky.menu-mobile ul.mobile-display { background-color: var(--red-400) }

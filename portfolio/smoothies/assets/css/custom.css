@@ -137,23 +137,23 @@
 body { font-family: 'Neucha', serif; }
 
 .hero-block h1 {
-    font-size: calc(60px + (132 - 60) * ((100vw - 320px)/ (1600 - 320)));  
+    font-size: calc(60px + (132 - 60) * ((100vw - 320px)/ (1600 - 320)));
     margin-bottom: 40px;
     letter-spacing: 2px;
 }
-                        
+
 .hero-block h2 {
-    font-size: calc(32px + (64 - 32) * ((100vw - 320px)/ (1600 - 320)));  
+    font-size: calc(32px + (64 - 32) * ((100vw - 320px)/ (1600 - 320)));
     letter-spacing: 1px;
 }
-                        
+
 .cols-2-split .col-2 h2 {
-    font-size: calc(32px + (58 - 32) * ((100vw - 320px) / (1600 - 320)));  
+    font-size: calc(32px + (58 - 32) * ((100vw - 320px) / (1600 - 320)));
     letter-spacing: 2px;
 }
-                        
+
 .cols-2-split .col-2 p {
-    font-size: calc(16px + (24 - 16) * ((100vw - 320px) / (1600 - 320)));  
+    font-size: calc(16px + (24 - 16) * ((100vw - 320px) / (1600 - 320)));
     letter-spacing: 1px;
     line-height: 1.6;
 }
@@ -162,7 +162,7 @@ body { font-family: 'Neucha', serif; }
 .theme-one li { color: var(--purple-500) }
 
 section > p.standfirst {
-    font-size: calc(24px + (36 - 24) * ((100vw - 320px) / (1600 - 320)));       
+    font-size: calc(24px + (36 - 24) * ((100vw - 320px) / (1600 - 320)));
 }
 
 .theme-two { background-color: var(--pink-200) }
@@ -178,3 +178,9 @@ section > p.standfirst {
 
 .theme-five { background-color: var(--yellow-100) }
 .theme-five .col-2 h2 { color: var(--red-500) }
+
+.container-menu.menu-sticky.menu-desktop.menu-on-scroll,
+.container-menu.menu-sticky.menu-mobile.menu-on-scroll,
+.container-menu.menu-sticky.menu-mobile ul.mobile-display { background-color: var(--red-600) }
+.container-menu.menu-on-scroll ul li a:link,
+.container-menu.menu-on-scroll ul li a:visited { color: var(--white-000) }
