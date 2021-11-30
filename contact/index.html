@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.munnelly.com/lunadoge/ui-starter/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Web Page Title</title>
+  <meta name="description" content="Sample web page description goes here.">
+
+	<!-- Preload hero image -->
+
+
+	<!-- Stylesheets -->
+  <!-- <link rel="stylesheet" href="./assets/css/global.css"> -->
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/lunadoge.min.css">
+  <link rel="stylesheet" href="../assets/css/lunadoge.css">
+
+
+	<!-- Google Fonts -->
+
+	<!-- Font Awesome 5 icons -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+
+</head>
+
+
+<body>
+
+    <!-- navigation menu -->
+    <nav></nav>
+
+    <!-- header -->
+    <header class="hero-block">
+    	<div class="hero-text-container text-center-desktop text-center-mobile">
+    		<h1 class="text-shadow fade-in">Get in touch</h1>
+    		<h2 class="text-shadow fade-in">Use the form below to let me know a little more about your objectives and I'll get back to you.</h2>
+
+        <div class="container-btn">
+          <a href="portfolio/index.html" class="btn btn-secondary btn-rounded"><i class="fas fa-file-code"></i><span>Portfolio</span></a>
+        </div>
+    	</div>
+
+      <div class="hero-bg-media">
+    		<img src="../assets/img/web-design-code-example.jpg" alt="Placeholder image">
+    	</div>
+
+      <div class="bg-overlay"></div>
+    </header>
+
+    <!-- main content with sections -->
+<main>
+
+
+
+           <section class="container-contact-form">
+
+                <!-- Contact form starts here -->
+                <form id="contact-form" name="contact-form" accept-charset="utf-8" method="post" action="https://formspree.io/f/xeqvyllo">
+
+                    <div class="contact-form-upper text-center">
+                        <h2>Get in touch</h2>
+                        <p>Use the form below to let me know a little more about your objectives and I'll get back to you.</p>
+                    </div>
+
+                    <!-- Begin contact form fields -->
+
+                    <div class="flex-row">
+                        <div class="item-name">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" name="name" id="full-name" placeholder="Your First and Last Name." required="">
+                        </div>
+                        <div class="item-email">
+                            <label for="email-address">Email</label>
+                            <input type="email" name="_replyto" id="email-address" placeholder="Your Email Address." required="">
+                        </div>
+                    </div>
+
+                    <div class="flex-row">
+                        <div class="item-textarea">
+                            <label for="message">Message</label>
+                            <textarea rows="5" name="message" id="message" placeholder="Your Message." required=""></textarea>
+                        </div>
+
+                        <div class="item-btn">
+                            <button id="btn-submit" type="submit"><span>Send</span><i class="fas fa-arrow-circle-right"></i></button>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+                    <!-- End contact form fields -->
+
+                </form><!-- Contact form ends here -->
+        </section><!-- End container for contact form -->
+
+  </main>
+
+    <!-- footer -->
+
+	<footer>
+
+		<h2>Mary Smith, web designer</h2>
+
+		<h3>Excellence in digital creation</h3>
+
+		<ul class="footer-links">
+			<li><a href="../index.html">Home</a></li>
+			<li><a href="../portfolio/index.html">Portfolio</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+
+		<ul class="footer-icons">
+			<li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+			<li><a href="https://github.com/mateusfonseca" target="_blank"><i class="fab fa-github-square"></i></a></li>
+		</ul>
+
+		<p class="privacy"><a href="../privacy.html">Privacy &amp; Legal</a></p>
+
+	</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+  <script>
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#000"
+      },
+      "button": {
+        "background": "#f1d600"
+      }
+    },
+    "content": {
+      "href": "https://mateusfonseca.github.io/privacy.html"
+    }
+  });
+  </script>
+
+</body></html>
