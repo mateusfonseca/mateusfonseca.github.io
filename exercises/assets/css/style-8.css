@@ -3,8 +3,8 @@
 *, *::before, *::after { box-sizing: border-box }
 html { height: 100%; font-size: 100%; font: inherit; vertical-align: baseline;
 scroll-behavior: smooth; scroll-padding-top: 20px }
-body { max-width: 1920px; line-height: 1.5; margin-left: auto; margin-right: auto; 
-min-height: 100vh; text-rendering: optimizeSpeed }  
+body { max-width: 1920px; line-height: 1.5; margin-left: auto; margin-right: auto;
+min-height: 100vh; text-rendering: optimizeSpeed }
 img { width: 100%; height: auto; display: block }
 h1, h2, h3, h4 { width: 100% }
 input, button, textarea, select { font: inherit }
@@ -19,8 +19,8 @@ input, button, textarea, select { font: inherit }
 
 
 /* Web page */
-body { 
-    background-color: rgb(247,233,225) 
+body {
+    background-color: rgb(247,233,225)
 }
 
 /* Main heading */
@@ -38,7 +38,7 @@ h1 {
 h2 {
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
-    color: #5b569a;    
+    color: #5b569a;
     font-size: 32px;
     text-align:center;
     margin-bottom: 42px;
@@ -57,11 +57,15 @@ h3 {
 
 /* Text paragraphs */
 p {
-   font-family: 'PT Sans', sans-serif;
-   font-weight: normal;
-   font-size: 22px;
-   line-height: 1.6;
-   margin-top: 0;
-   margin-bottom: 20px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
+/* Images */
+img {
+    margin-bottom: 32px
+}
