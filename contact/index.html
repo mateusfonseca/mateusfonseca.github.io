@@ -1,140 +1,161 @@
 <!DOCTYPE html>
 <!-- saved from url=(0055)https://www.munnelly.com/lunadoge/ui-starter/index.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sample Web Page Title</title>
-  <meta name="description" content="Sample web page description goes here.">
+  <head>
 
-	<!-- Preload hero image -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mateus Fonseca | Contact</title>
+    <meta name="description" content="Have a website project you would like to discuss? let's make something great together!">
 
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png">
+    <link rel="manifest" href="../assets/img/site.webmanifest">
 
-	<!-- Stylesheets -->
-  <!-- <link rel="stylesheet" href="./assets/css/global.css"> -->
-  <link rel="stylesheet" href="../assets/css/custom.css">
-  <link rel="stylesheet" href="../assets/css/lunadoge.min.css">
-  <link rel="stylesheet" href="../assets/css/lunadoge.css">
+    <!-- Preload hero image -->
+    <link rel="preload" href="../assets/img/web-design-code-example.webp" as="image">
 
+  	<!-- Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/custom.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../assets/css/lunadoge.min.css" media="print" onload="this.media='all'">
 
-	<!-- Google Fonts -->
+  	<!-- Google Fonts -->
 
-	<!-- Font Awesome 5 icons -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+  	<!-- Font Awesome 5 icons -->
+  	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK1SNM4XV0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-</head>
+      gtag('config', 'G-PK1SNM4XV0');
+    </script>
 
+  </head>
 
-<body>
+  <body>
 
-    <!-- navigation menu -->
-    <nav></nav>
+      <!-- navigation menu -->
+      <nav class="container-menu menu-desktop menu-sticky menu-on-scroll">
+          <a href="#"><img src="../assets/img/website-logo.png" alt="website logo"></a>
+          <ul class="">
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#" id="btn-cta" class="btn-rounded"><span>CTA Link</span><i class="fas fa-arrow-right"></i></a></li>
+          </ul>
+          <div class="item-icon">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+          </div>
+      </nav>
 
-    <!-- header -->
-    <header class="hero-block">
-    	<div class="hero-text-container text-center-desktop text-center-mobile">
-    		<h1 class="text-shadow fade-in">Get in touch</h1>
-    		<h2 class="text-shadow fade-in">Use the form below to let me know a little more about your objectives and I'll get back to you.</h2>
+      <!-- header -->
+      <header class="hero-block text-center-desktop text-center-mobile">
+        <div class="hero-text-container">
+          <h1 class="text-shadow fade-in">Get in touch</h1>
+          <h2 class="text-shadow fade-in">Use the form below to let me know a little more about your objectives and I'll get back to you.</h2>
+        </div>
 
         <div class="container-btn">
-          <a href="portfolio/index.html" class="btn btn-secondary btn-rounded"><i class="fas fa-file-code"></i><span>Portfolio</span></a>
+          <a href="../portfolio/index.html" class="btn btn-primary btn-rounded"><i class="fas fa-file-code"></i><span>Portfolio</span></a>
         </div>
-    	</div>
 
-      <div class="hero-bg-media">
-    		<img src="../assets/img/web-design-code-example.jpg" alt="Placeholder image">
-    	</div>
+        <div class="hero-bg-media">
+          <img src="../assets/img/web-design-code-example.webp" alt="Placeholder image">
+        </div>
 
-      <div class="bg-overlay"></div>
-    </header>
+        <div class="bg-overlay"></div>
+      </header>
 
-    <!-- main content with sections -->
-<main>
+      <!-- main content with sections -->
+      <main>
+         <section class="container-contact-form">
+              <!-- Contact form starts here -->
+              <form id="contact-form" name="contact-form" accept-charset="utf-8" method="post" action="https://formspree.io/f/xeqvyllo">
 
+                  <div class="contact-form-upper text-center">
+                      <h2>Get in touch</h2>
+                      <p>Use the form below to let me know a little more about your objectives and I'll get back to you.</p>
+                  </div>
 
+                  <!-- Begin contact form fields -->
+                  <div class="flex-row">
+                      <div class="item-name">
+                          <label for="full-name">Full Name</label>
+                          <input type="text" name="name" id="full-name" placeholder="Your First and Last Name." required="">
+                      </div>
+                      <div class="item-email">
+                          <label for="email-address">Email</label>
+                          <input type="email" name="_replyto" id="email-address" placeholder="Your Email Address." required="">
+                      </div>
+                  </div>
 
-           <section class="container-contact-form">
+                  <div class="flex-row">
+                      <div class="item-textarea">
+                          <label for="message">Message</label>
+                          <textarea rows="5" name="message" id="message" placeholder="Your Message." required=""></textarea>
+                      </div>
 
-                <!-- Contact form starts here -->
-                <form id="contact-form" name="contact-form" accept-charset="utf-8" method="post" action="https://formspree.io/f/xeqvyllo">
+                      <div class="item-btn">
+                          <button id="btn-submit" type="submit"><span>Send</span><i class="fas fa-arrow-circle-right"></i></button>
+                      </div>
+                  </div>
 
-                    <div class="contact-form-upper text-center">
-                        <h2>Get in touch</h2>
-                        <p>Use the form below to let me know a little more about your objectives and I'll get back to you.</p>
-                    </div>
+                  <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+                  <!-- End contact form fields -->
 
-                    <!-- Begin contact form fields -->
+              </form><!-- Contact form ends here -->
+          </section><!-- End container for contact form -->
+      </main>
 
-                    <div class="flex-row">
-                        <div class="item-name">
-                            <label for="full-name">Full Name</label>
-                            <input type="text" name="name" id="full-name" placeholder="Your First and Last Name." required="">
-                        </div>
-                        <div class="item-email">
-                            <label for="email-address">Email</label>
-                            <input type="email" name="_replyto" id="email-address" placeholder="Your Email Address." required="">
-                        </div>
-                    </div>
+      <!-- footer -->
+    	<footer>
+    		<h2>Mary Smith, web designer</h2>
 
-                    <div class="flex-row">
-                        <div class="item-textarea">
-                            <label for="message">Message</label>
-                            <textarea rows="5" name="message" id="message" placeholder="Your Message." required=""></textarea>
-                        </div>
+    		<h3>Excellence in digital creation</h3>
 
-                        <div class="item-btn">
-                            <button id="btn-submit" type="submit"><span>Send</span><i class="fas fa-arrow-circle-right"></i></button>
-                        </div>
-                    </div>
+    		<ul class="footer-links">
+    			<li><a href="../index.html">Home</a></li>
+    			<li><a href="../portfolio/index.html">Portfolio</a></li>
+    			<li><a href="#">Contact</a></li>
+    		</ul>
 
-                    <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
-                    <!-- End contact form fields -->
+    		<ul class="footer-icons">
+    			<li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+    			<li><a href="https://github.com/mateusfonseca" target="_blank"><i class="fab fa-github-square"></i></a></li>
+    		</ul>
 
-                </form><!-- Contact form ends here -->
-        </section><!-- End container for contact form -->
+    		<p class="privacy"><a href="../privacy.html">Privacy &amp; Legal</a></p>
+    	</footer>
 
-  </main>
+      <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+      <script>
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#000"
+            },
+            "button": {
+              "background": "#f1d600"
+            }
+          },
+          "content": {
+            "href": "https://mateusfonseca.github.io/privacy.html"
+          }
+        });
+      </script>
+      <script src="../assets/js/menu.js"></script>
 
-    <!-- footer -->
+  </body>
 
-	<footer>
-
-		<h2>Mary Smith, web designer</h2>
-
-		<h3>Excellence in digital creation</h3>
-
-		<ul class="footer-links">
-			<li><a href="../index.html">Home</a></li>
-			<li><a href="../portfolio/index.html">Portfolio</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-
-		<ul class="footer-icons">
-			<li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-			<li><a href="https://github.com/mateusfonseca" target="_blank"><i class="fab fa-github-square"></i></a></li>
-		</ul>
-
-		<p class="privacy"><a href="../privacy.html">Privacy &amp; Legal</a></p>
-
-	</footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
-  <script>
-  window.cookieconsent.initialise({
-    "palette": {
-      "popup": {
-        "background": "#000"
-      },
-      "button": {
-        "background": "#f1d600"
-      }
-    },
-    "content": {
-      "href": "https://mateusfonseca.github.io/privacy.html"
-    }
-  });
-  </script>
-
-</body></html>
+</html>

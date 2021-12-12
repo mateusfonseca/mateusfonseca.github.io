@@ -139,6 +139,81 @@ body { font-family: var(--global-font) }
 /* Header hero block */
 header.hero-block h1 { color: var(--white-000) }
 header.hero-block h2 { color: var(--white-000) }
+header.hero-block a.btn-primary:link,
+header.hero-block a.btn-primary:visited { color: var(--white-000) }
+
+header.hero-block a.btn-primary:focus,
+header.hero-block a.btn-primary:hover,
+header.hero-block a.btn-primary:active { color: var(--red-500) }
+
+header.hero-block a.btn-primary:link,
+header.hero-block a.btn-primary:visited { background-color: var(--black-000) }
+
+header.hero-block a.btn-primary:focus,
+header.hero-block a.btn-primary:hover,
+header.hero-block a.btn-primary:active { background-color: var(--white-000) }
+
+header.hero-block a.btn-primary:link,
+header.hero-block a.btn-primary:visited { border-color: var(--white-000) }
+
+header.hero-block a.btn-primary:focus,
+header.hero-block a.btn-primary:hover,
+header.hero-block a.btn-primary:active { border-color: var(--red-500) }
+
+header.hero-block a.btn-secondary:link,
+header.hero-block a.btn-secondary:visited { color: var(--white-000) }
+
+header.hero-block a.btn-secondary:focus,
+header.hero-block a.btn-secondary:hover,
+header.hero-block a.btn-secondary:active { color: var(--blue-500) }
+
+header.hero-block a.btn-secondary:link,
+header.hero-block a.btn-secondary:visited { background-color: var(--blue-500) }
+
+header.hero-block a.btn-secondary:focus,
+header.hero-block a.btn-secondary:hover,
+header.hero-block a.btn-secondary:active { background-color: var(--white-000) }
+
+header.hero-block a.btn-secondary:link,
+header.hero-block a.btn-secondary:visited { border-color: var(--white-000) }
+
+header.hero-block a.btn-secondary:focus,
+header.hero-block a.btn-secondary:hover,
+header.hero-block a.btn-secondary:active { border-color: var(--blue-500) }
 
 /* Main section */
 .theme-one { background-color: var(--gray-300) }
+
+.container-menu.menu-desktop { background-color: var(--black-000) }
+.container-menu.menu-mobile { background-color: var(--black-000) }
+.container-menu.menu-mobile ul.mobile-display { background-color: var(--black-000) }
+.container-menu a:link,
+.container-menu a:visited { color: var(--white-000) }
+.container-menu a:focus,
+.container-menu a:hover,
+.container-menu a:active { color: var(--red-500) }
+.container-menu a#btn-cta:link,
+.container-menu a#btn-cta:visited { border-color: var(--white-000) }
+.container-menu a#btn-cta:focus,
+.container-menu a#btn-cta:hover,
+.container-menu a#btn-cta:active { border-color: var(--red-500) }
+.container-menu a#btn-cta:link,
+.container-menu a#btn-cta:visited { color: var(--white-000) }
+.container-menu a#btn-cta:focus,
+.container-menu a#btn-cta:hover,
+.container-menu a#btn-cta:active { color: var(--red-500) }
+.container-menu a#btn-cta:link,
+.container-menu a#btn-cta:visited { background-color: var(--black-000) }
+.container-menu a#btn-cta:focus,
+.container-menu a#btn-cta:hover,
+.container-menu a#btn-cta:active { background-color: var(--white-000) }
+.container-menu .item-icon .bar1,.container-menu .item-icon .bar2,.container-menu .item-icon .bar3 { background-color: var(--white-000) }
+.container-menu.menu-sticky.menu-desktop.menu-on-scroll,
+.container-menu.menu-sticky.menu-mobile.menu-on-scroll,
+.container-menu.menu-sticky.menu-mobile ul.mobile-display { background-color: var(--white-000) }
+.container-menu.menu-on-scroll ul li a:link,
+.container-menu.menu-on-scroll ul li a:visited { color: var(--black-000) }
+.container-menu.menu-on-scroll ul li a:focus,
+.container-menu.menu-on-scroll ul li a:hover,
+.container-menu.menu-on-scroll ul li a:active { color: var(--red-500) }
+.container-menu.menu-on-scroll .item-icon .bar1,.container-menu.menu-on-scroll .item-icon .bar2,.container-menu.menu-on-scroll .item-icon .bar3 { background-color: var(--black-000) }
