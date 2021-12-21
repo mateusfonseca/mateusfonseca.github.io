@@ -9,27 +9,47 @@
 
 <url>
   <loc>https://mateusfonseca.github.io/</loc>
-  <lastmod>2021-12-07T09:20:30+00:00</lastmod>
+  <lastmod>2021-12-21T19:54:19+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://mateusfonseca.github.io/index.html</loc>
+  <lastmod>2021-12-21T19:54:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://mateusfonseca.github.io/contact/index.html</loc>
-  <lastmod>2021-12-07T09:20:30+00:00</lastmod>
+  <lastmod>2021-12-21T19:54:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://mateusfonseca.github.io/portfolio/index.html</loc>
-  <lastmod>2021-12-07T09:20:31+00:00</lastmod>
+  <lastmod>2021-12-21T19:54:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mateusfonseca.github.io/portfolio/crypto-wallet/index.html</loc>
+  <lastmod>2021-12-21T19:54:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mateusfonseca.github.io/portfolio/smoothies/index.html</loc>
+  <lastmod>2021-12-21T19:54:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mateusfonseca.github.io/portfolio/fashion/index.html</loc>
+  <lastmod>2021-12-21T19:54:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://mateusfonseca.github.io/privacy.html</loc>
-  <lastmod>2021-12-07T09:20:31+00:00</lastmod>
+  <lastmod>2021-12-21T19:54:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://mateusfonseca.github.io/index.html</loc>
-  <lastmod>2021-12-07T09:20:30+00:00</lastmod>
+  <loc>https://mateusfonseca.github.io/portfolio/van-gogh/index.html</loc>
+  <lastmod>2021-12-21T19:54:19+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
