@@ -3,15 +3,153 @@
 *, *::before, *::after { box-sizing: border-box }
 html { height: 100%; font-size: 100%; font: inherit; vertical-align: baseline;
 scroll-behavior: smooth; scroll-padding-top: 20px }
-body { max-width: 1920px; line-height: 1.5; margin-left: auto; margin-right: auto;
-min-height: 100vh; text-rendering: optimizeSpeed }
+body { max-width: 1920px; line-height: 1.5; margin-left: auto; margin-right: auto; 
+min-height: 100vh; text-rendering: optimizeSpeed }  
 img { width: 100%; height: auto; display: block }
 
 /* HTML5 container elements full viewport width */
 header, section, footer { width: 100% }
 /* Last element at bottom of header or section */
-header *:last-child, section *:last-child,
+header *:last-child, section *:last-child, 
 footer *:last-child { margin-bottom: 0 !important }
+
+/* ============ GLOBAL CUSTOM PROPERTIES ============  */
+
+:root {
+    /* Nicer than default sans-serif font */
+    --sans-serif: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Fira Sans, Ubuntu, Oxygen, Oxygen Sans, Cantarell, Droid Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Emoji, Segoe UI Symbol, Lucida Grande, Helvetica, Arial, sans-serif;
+
+    /* Color variables */
+    --black-000: #000;
+    --white-000: #fff;
+
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+
+    --blue-100: #cfe2ff;
+    --blue-200: #9ec5fe;
+    --blue-300: #6ea8fe;
+    --blue-400: #3d8bfd;
+    --blue-500: #0d6efd;
+    --blue-600: #0a58ca;
+    --blue-700: #084298;
+    --blue-800: #052c65;
+    --blue-900: #031633;
+
+    --indigo-100: #e0cffc;
+    --indigo-200: #c29ffa;
+    --indigo-300: #a370f7;
+    --indigo-400: #8540f5;
+    --indigo-500: #6610f2;
+    --indigo-600: #520dc2;
+    --indigo-700: #3d0a91;
+    --indigo-800: #290661;
+    --indigo-900: #140330;
+
+    --purple-100: #e2d9f3;
+    --purple-200: #c5b3e6;
+    --purple-300: #a98eda;
+    --purple-400: #8c68cd;
+    --purple-500: #6f42c1;
+    --purple-600: #59359a;
+    --purple-700: #432874;
+    --purple-800: #2c1a4d;
+    --purple-900: #160d27;
+
+    --pink-100: #f7d6e6;
+    --pink-200: #efadce;
+    --pink-300: #e685b5;
+    --pink-400: #de5c9d;
+    --pink-500: #d63384;
+    --pink-600: #ab296a;
+    --pink-700: #801f4f;
+    --pink-800: #561435;
+    --pink-900: #2b0a1a;
+
+    --red-100: #f8d7da;
+    --red-200: #f1aeb5;
+    --red-300: #ea868f;
+    --red-400: #e35d6a;
+    --red-500: #dc3545;
+    --red-600: #b02a37;
+    --red-700: #842029;
+    --red-800: #58151c;
+    --red-900: #2c0b0e;
+
+    --orange-100: #ffe5d0;
+    --orange-200: #fecba1;
+    --orange-300: #feb272;
+    --orange-400: #fd9843;
+    --orange-500: #fd7e14;
+    --orange-600: #ca6510;
+    --orange-700: #984c0c;
+    --orange-800: #653208;
+    --orange-900: #331904;
+
+    --yellow-100: #fff3cd;
+    --yellow-200: #ffe69c;
+    --yellow-300: #ffda6a;
+    --yellow-400: #ffcd39;
+    --yellow-500: #ffc107;
+    --yellow-600: #cc9a06;
+    --yellow-700: #997404;
+    --yellow-800: #664d03;
+    --yellow-900: #332701;
+
+    --green-100: #d1e7dd;
+    --green-200: #a3cfbb;
+    --green-300: #75b798;
+    --green-400: #479f76;
+    --green-500: #198754;
+    --green-600: #146c43;
+    --green-700: #0f5132;
+    --green-800: #0a3622;
+    --green-900: #051b11;
+
+    --teal-100: #d2f4ea;
+    --teal-200: #a6e9d5;
+    --teal-300: #79dfc1;
+    --teal-400: #4dd4ac;
+    --teal-500: #20c997;
+    --teal-600: #1aa179;
+    --teal-700: #13795b;
+    --teal-800: #0d503c;
+    --teal-900: #06281e;
+
+    --cyan-100: #cff4fc;
+    --cyan-200: #9eeaf9;
+    --cyan-300: #6edff6;
+    --cyan-400: #3dd5f3;
+    --cyan-500: #0dcaf0;
+    --cyan-600: #0aa2c0;
+    --cyan-700: #087990;
+    --cyan-800: #055160;
+    --cyan-900: #032830;
+
+    --ontrend-100: #fff4d9;
+    --ontrend-200: #fdd0bb;
+    --ontrend-300: #fea8b3;
+    --ontrend-400: #7dcfe7;
+    --ontrend-500: #0b6655;
+    --ontrend-600: #400c3e;
+    --ontrend-700: #2c4763;
+    --ontrend-800: #1f364d;
+    --ontrend-900: #0e2439;
+
+    --global-font: var(--sans-serif);
+    --drop-shadow: var(--gray-500);
+    --img-border: var(--gray-700);
+}
+
+/* Global font */
+body { font-family: var(--global-font) }
 
 
 /* ================ HERO BLOCK ================ */
@@ -23,43 +161,43 @@ header.hero-block { background-color: var(--blue-600) }
     display: flex; flex-direction: column; justify-content: center;
 }
 
-@media (min-width: 1921px) {
-    .hero-block { min-height: 540px }
+@media (min-width: 1921px) { 
+    .hero-block { min-height: 540px } 
     nav.container-menu.menu-sticky ~ .hero-block { min-height: calc(540px + 110px) }
     nav.container-menu.menu-sticky ~ .hero-block h1 { margin-top: 7% }
     nav.container-menu.menu-sticky ~ .hero-block .container-btn { margin-top: 4% }
 }
 
-@media (min-width: 1367px) and (max-width: 1920px) {
-    .hero-block { min-height: 520px }
+@media (min-width: 1367px) and (max-width: 1920px) { 
+    .hero-block { min-height: 520px } 
     nav.container-menu.menu-sticky ~ .hero-block { min-height: calc(520px + 110px) }
     nav.container-menu.menu-sticky ~ .hero-block h1 { margin-top: 7% }
     nav.container-menu.menu-sticky ~ .hero-block .container-btn { margin-top: 4% }
 }
 
-@media (min-width: 1140px) and (max-width: 1366px) {
-    .hero-block { min-height: 520px }
+@media (min-width: 1140px) and (max-width: 1366px) { 
+    .hero-block { min-height: 520px } 
     nav.container-menu.menu-sticky ~ .hero-block { min-height: calc(520px + 110px) }
     nav.container-menu.menu-sticky ~ .hero-block h1 { margin-top: 7% }
     nav.container-menu.menu-sticky ~ .hero-block .container-btn { margin-top: 4% }
 }
 
-@media (min-width: 1025px) and (max-width: 1139px) {
-    .hero-block { min-height: 440px }
+@media (min-width: 1025px) and (max-width: 1139px) { 
+    .hero-block { min-height: 440px } 
     nav.container-menu.menu-sticky ~ .hero-block { min-height: calc(440px + 110px) }
     nav.container-menu.menu-sticky ~ .hero-block h1 { margin-top: 10% }
     nav.container-menu.menu-sticky ~ .hero-block .container-btn { margin-top: 4% }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-    .hero-block { min-height: 440px }
+@media (min-width: 768px) and (max-width: 1024px) { 
+    .hero-block { min-height: 440px } 
     nav.container-menu.menu-sticky ~ .hero-block { min-height: calc(440px + 72px) }
     nav.container-menu.menu-sticky ~ .hero-block h1 { margin-top: 20% }
     nav.container-menu.menu-sticky ~ .hero-block .container-btn { margin-top: 5% }
 }
 
-@media (max-width: 767px) {
-    .hero-block { min-height: 480px; padding: 8% 0 }
+@media (max-width: 767px) { 
+    .hero-block { min-height: 480px; padding: 8% 0 } 
     nav.container-menu.menu-sticky ~ .hero-block { min-height: calc(440px + 160px) }
     nav.container-menu.menu-sticky ~ .hero-block h1 { margin-top: 15% }
     nav.container-menu.menu-sticky ~ .hero-block .container-btn { margin-top: 10% }
@@ -93,7 +231,7 @@ header.hero-block { background-color: var(--blue-600) }
 
 @media (max-width: 767px) {
     .hero-block h1 { letter-spacing: -1px }
-    .hero-block h2 { letter-spacing: 0 }
+    .hero-block h2 { letter-spacing: 0 }   
 }
 
 /* Upper heading */
@@ -101,7 +239,7 @@ header.hero-block { background-color: var(--blue-600) }
     width: 100%;
     font-weight: bold; display: block;
     font-size: calc(16px + (18 - 16) * ((100vw - 320px)/(1140 - 320)));
-    text-transform: uppercase;
+    text-transform: uppercase; 
     letter-spacing: 6px; word-spacing: 120%;
     margin-bottom: 32px;
     color: var(--white-000);
@@ -111,10 +249,10 @@ header.hero-block { background-color: var(--blue-600) }
 .container-btn { padding: 0 12% 2% 12%; z-index: 2 }
 
 @media (min-width: 768px) {
-    .hero-block.bg-img-right .container-btn,
+    .hero-block.bg-img-right .container-btn, 
     .hero-block.hero-half.half-img-right .container-btn,
     .hero-block.bg-img-left .container-btn,
-    .hero-block.hero-half.half-img-left  .container-btn {
+    .hero-block.hero-half.half-img-left  .container-btn { 
         margin-top: 30px
     }
 
@@ -122,7 +260,7 @@ header.hero-block { background-color: var(--blue-600) }
         padding-left: 6%;
     }
 
-    .hero-block.hero-half.half-img-right .container-btn {
+    .hero-block.hero-half.half-img-right .container-btn { 
         padding-left: 16%;
     }
 
@@ -131,21 +269,21 @@ header.hero-block { background-color: var(--blue-600) }
         margin-left: 50%;
     }
 
-    .hero-block.hero-half.half-img-left .container-btn {
+    .hero-block.hero-half.half-img-left .container-btn { 
         padding-left: 0;
     }
 
-    .hero-block.bg-img-right .container-btn a:nth-child(2),
+    .hero-block.bg-img-right .container-btn a:nth-child(2), 
     .hero-block.bg-img-left  .container-btn a:nth-child(2),
     .hero-block.hero-half.half-img-right .container-btn a:nth-child(2),
-    .hero-block.hero-half.half-img-left  .container-btn a:nth-child(2) {
-        margin-left: 32px
+    .hero-block.hero-half.half-img-left  .container-btn a:nth-child(2) { 
+        margin-left: 32px 
     }
 
-    .hero-block.bg-img-right .container-btn a.btn,
+    .hero-block.bg-img-right .container-btn a.btn, 
     .hero-block.bg-img-left .container-btn a.btn,
     .hero-block.hero-half.half-img-right .container-btn a.btn,
-    .hero-block.hero-half.half-img-left  .container-btn a.btn {
+    .hero-block.hero-half.half-img-left  .container-btn a.btn { 
         padding: 14px 22px
     }
 }
@@ -160,19 +298,19 @@ header.hero-block { background-color: var(--blue-600) }
 
 .bg-overlay {
     position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 1;
-    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));    
 }
 
 /* Alignment .hero-block: desktops */
 @media (min-width: 768px) {
     .hero-block.text-center-desktop { text-align: center }
 }
-
+ 
 /* Alignment: mobiles */
  @media (max-width: 767px) {
     .hero-block.text-center-mobile { text-align: center }
 }
-
+ 
 /* Buttons */
 
 .hero-block .container-btn a.btn {
@@ -201,19 +339,19 @@ header.hero-block { background-color: var(--blue-600) }
 
 /* Desktops: button(s) centre-aligned */
 @media (min-width: 768px) {
-    .hero-block.text-center-desktop .container-btn { justify-content: center }
+    .hero-block.text-center-desktop .container-btn { justify-content: center }   
 }
 
 /* Mobiles */
 @media (max-width: 767px) {
-    .hero-block .container-btn {
-        margin-top: 42px;
-        display: flex;
+    .hero-block .container-btn { 
+        margin-top: 42px; 
+        display: flex; 
         flex-direction: column;
     }
     .hero-block h1 + .container-btn { margin-top: 120px }
 
-    .hero-block .container-btn {
+    .hero-block .container-btn { 
         flex-direction: column;
         align-self: flex-start
     }
@@ -231,23 +369,23 @@ header.hero-block { background-color: var(--blue-600) }
 }
 
 /* Secondary buttons */
-.hero-block a.btn-secondary:link,
+.hero-block a.btn-secondary:link, 
 .hero-block a.btn-secondary:visited,
-.hero-block a.btn-ghost:link,
+.hero-block a.btn-ghost:link, 
 .hero-block a.btn-ghost:visited {
     border: solid 2px #fff;
-    color: #fff;
-    background-color: transparent;
-}
+    color: #fff; 
+    background-color: transparent; 
+} 
 
-.hero-block a.btn-secondary:focus,
-.hero-block a.btn-secondary:hover,
+.hero-block a.btn-secondary:focus, 
+.hero-block a.btn-secondary:hover, 
 .hero-block a.btn-secondary:active,
-.hero-block a.btn-ghost:focus,
-.hero-block a.btn-ghost:hover,
+.hero-block a.btn-ghost:focus, 
+.hero-block a.btn-ghost:hover, 
 .hero-block a.btn-ghost:active {
-    border: solid 2px var(--gray-700);
-    background-color: var(--gray-700);
+    border: solid 2px var(--gray-700); 
+    background-color: var(--gray-700);  
     color: #fff;
 }
 
@@ -256,36 +394,36 @@ header.hero-block { background-color: var(--blue-600) }
 .hero-block.bg-img-left,
 .hero-block.bg-img-right { padding-bottom: 0; position: relative }
 
-.hero-block.bg-img-left  .bg-overlay,
+.hero-block.bg-img-left  .bg-overlay, 
 .hero-block.bg-img-right .bg-overlay { display: none }
 
 .hero-block.bg-img-right .hero-bg-media * { object-position: center bottom }
 
-@media (min-width: 1921px) {
+@media (min-width: 1921px) { 
     .hero-block.bg-img-left, .hero-block.bg-img-right { min-height: 600px }
     nav.container-menu.menu-sticky ~ .hero-block.bg-img-left,
     nav.container-menu.menu-sticky ~ .hero-block.bg-img-right { min-height: calc(600px + 72px) }
 }
 
-@media (min-width: 1367px) and (max-width: 1920px) {
+@media (min-width: 1367px) and (max-width: 1920px) { 
     .hero-block.bg-img-left, .hero-block.bg-img-right { min-height: 580px }
     nav.container-menu.menu-sticky ~ .hero-block.bg-img-left,
     nav.container-menu.menu-sticky ~ .hero-block.bg-img-right { min-height: calc(580px + 72px) }
 }
 
-@media (min-width: 1140px) and (max-width: 1366px) {
+@media (min-width: 1140px) and (max-width: 1366px) { 
     .hero-block.bg-img-left, .hero-block.bg-img-right { min-height: 520px }
     nav.container-menu.menu-sticky ~ .hero-block.bg-img-left,
     nav.container-menu.menu-sticky ~ .hero-block.bg-img-right { min-height: calc(520px + 72px) }
 }
 
-@media (min-width: 1025px) and (max-width: 1139px) {
+@media (min-width: 1025px) and (max-width: 1139px) { 
     .hero-block.bg-img-left, .hero-block.bg-img-right { min-height: 460px }
     nav.container-menu.menu-sticky ~ .hero-block.bg-img-left,
     nav.container-menu.menu-sticky ~ .hero-block.bg-img-right { min-height: calc(460px + 72px) }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) { 
     .hero-block.bg-img-left, .hero-block.bg-img-right { min-height: 460px }
     nav.container-menu.menu-sticky ~ .hero-block.bg-img-left,
     nav.container-menu.menu-sticky ~ .hero-block.bg-img-right { min-height: calc(460px + 72px) }
@@ -298,27 +436,27 @@ header.hero-block { background-color: var(--blue-600) }
 }
 
 /* Big desktops */
-@media (min-width: 1140px) {
+@media (min-width: 1140px) { 
     .hero-block.bg-img-left  .hero-bg-media  { right: 50% }
-    .hero-block.bg-img-left  .hero-text-container { padding: 0 5% 2% 5% }
-    .hero-block.bg-img-left  .container-btn       { padding: 0 5% 0 5% }
+    .hero-block.bg-img-left  .hero-text-container { padding: 0 5% 2% 5% } 
+    .hero-block.bg-img-left  .container-btn       { padding: 0 5% 0 5% } 
     .hero-block.bg-img-left  .hero-text-container { margin-left: 50% }
 
     .hero-block.bg-img-right .hero-text-container { padding: 0 0 2% 5%; max-width: 620px }
     .hero-block.bg-img-right .container-btn       { padding: 0 5% 0 5% }
     .hero-block.bg-img-right .hero-bg-media       { margin-left: 50% }
 
-    .hero-block.bg-img-right .container-btn a.btn,
+    .hero-block.bg-img-right .container-btn a.btn, 
     .hero-block.bg-img-left  .container-btn a.btn { display: inline-block; text-align: center }
 }
 
-@media (min-width: 1140px) and (max-width: 1200px) {
+@media (min-width: 1140px) and (max-width: 1200px) { 
     .hero-block.bg-img-right .hero-text-container { max-width: 600px }
 }
 
 
 /* Small desktops */
-@media (min-width: 1024px) and (max-width: 1139px) {
+@media (min-width: 1024px) and (max-width: 1139px) { 
     .hero-block.bg-img-right .hero-text-container { margin-right: 45% }
     .hero-block.bg-img-right .hero-bg-media { left: 55% }
 
@@ -326,17 +464,17 @@ header.hero-block { background-color: var(--blue-600) }
     .hero-block.bg-img-left  .container-btn { margin-left:  45% }
     .hero-block.bg-img-left  .hero-bg-media { right: 55% }
 
-    .hero-block.bg-img-left  .hero-text-container { padding: 0 5% 2% 5% }
-    .hero-block.bg-img-left  .container-btn       { padding: 0 5% 0 5% }
+    .hero-block.bg-img-left  .hero-text-container { padding: 0 5% 2% 5% } 
+    .hero-block.bg-img-left  .container-btn       { padding: 0 5% 0 5% } 
     .hero-block.bg-img-right .hero-text-container { padding: 0 5% 2% 5%; max-width: 580px }
     .hero-block.bg-img-right .container-btn       { padding: 0 5% 0 5% }
 
-    .hero-block.bg-img-right .container-btn a.btn,
+    .hero-block.bg-img-right .container-btn a.btn, 
     .hero-block.bg-img-left  .container-btn a.btn { display: inline-block; text-align: center }
 }
 
 /* Small desktops and tablets */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) { 
 
     .hero-block.bg-img-left .upper-label,
     .hero-block.bg-img-right .upper-label { margin-top: 20px }
@@ -348,12 +486,12 @@ header.hero-block { background-color: var(--blue-600) }
     .hero-block.bg-img-left  .container-btn { margin-left: 45% }
     .hero-block.bg-img-left  .hero-bg-media { right: 55% }
 
-    .hero-block.bg-img-left  .hero-text-container { padding: 0 5% 2% 6% }
-    .hero-block.bg-img-left  .container-btn       { padding: 0 5% 0 5%; margin-bottom: 42px }
+    .hero-block.bg-img-left  .hero-text-container { padding: 0 5% 2% 6% } 
+    .hero-block.bg-img-left  .container-btn       { padding: 0 5% 0 5%; margin-bottom: 42px } 
     .hero-block.bg-img-right .hero-text-container { padding: 0 5% 2% 6%; max-width: 580px }
     .hero-block.bg-img-right .container-btn       { padding: 0 5% 0 6%; margin-bottom: 42px }
 
-    .hero-block.bg-img-right .container-btn,
+    .hero-block.bg-img-right .container-btn, 
     .hero-block.bg-img-left  .container-btn {
         display: flex;
         margin-top: 42px;
@@ -361,7 +499,7 @@ header.hero-block { background-color: var(--blue-600) }
         text-align: center;
     }
 
-    .hero-block.bg-img-right .container-btn a.btn,
+    .hero-block.bg-img-right .container-btn a.btn, 
     .hero-block.bg-img-left  .container-btn a.btn {
         flex-direction: column;
         align-self: flex-start;
@@ -369,7 +507,7 @@ header.hero-block { background-color: var(--blue-600) }
 
     .hero-block.bg-img-left  .container-btn a:first-child,
     .hero-block.bg-img-right .container-btn a:first-child { margin-bottom: 32px }
-    .hero-block.bg-img-left  .container-btn a:last-child,
+    .hero-block.bg-img-left  .container-btn a:last-child, 
     .hero-block.bg-img-right .container-btn a:last-child  { margin-bottom: 0; margin-left: 0 }
 }
 
@@ -386,13 +524,13 @@ header.hero-block { background-color: var(--blue-600) }
     .hero-block.bg-img-left  .container-btn,
     .hero-block.bg-img-right .container-btn { flex-direction: column }
 
-    .hero-block.bg-img-left  .container-btn .btn,
+    .hero-block.bg-img-left  .container-btn .btn, 
     .hero-block.bg-img-right .container-btn .btn { align-self: flex-start }
 
     .hero-block.bg-img-left  .container-btn a:first-child,
     .hero-block.bg-img-right .container-btn a:first-child { margin-bottom: 32px }
 
-    .hero-block.bg-img-left  .container-btn a:last-child,
+    .hero-block.bg-img-left  .container-btn a:last-child, 
     .hero-block.bg-img-right .container-btn a:last-child  { margin-bottom: 0 }
 
     .hero-block.bg-img-right.text-center-mobile .container-btn .btn,
@@ -404,7 +542,7 @@ header.hero-block { background-color: var(--blue-600) }
 
 /* Large mobiles */
 @media (min-width: 560px) and (max-width: 767px ) {
-    .hero-block.bg-img-right .hero-bg-media img,
+    .hero-block.bg-img-right .hero-bg-media img, 
     .hero-block.bg-img-left  .hero-bg-media img {
         width: 70%; height: auto; text-align: center;
         margin: -32px auto 32px auto;
@@ -428,7 +566,7 @@ header.hero-block { background-color: var(--blue-600) }
 .hero-block.bg-img-left  .hero-text-container h2,
 .hero-block.bg-img-right .hero-text-container h2 {
     font-size: calc(22px + (36 - 22) * ((100vw - 320px) / (1920 - 320)));
-}
+} 
 
 .hero-block.bg-img-left  .hero-text-container h1.text-long,
 .hero-block.bg-img-right .hero-text-container h1.text-long {
@@ -440,27 +578,27 @@ header.hero-block { background-color: var(--blue-600) }
 
 /* ========== TWO COLUMN HEADER =========== */
 
-@media (min-width: 1921px) {
+@media (min-width: 1921px) { 
     .hero-block.hero-half { min-height: 540px }
     nav.container-menu.menu-sticky ~ .hero-block.hero-half { min-height: calc(540px + 72px) }
 }
 
-@media (min-width: 1367px) and (max-width: 1920px) {
+@media (min-width: 1367px) and (max-width: 1920px) { 
     .hero-block.hero-half { min-height: 520px }
     nav.container-menu.menu-sticky ~ .hero-block.hero-half { min-height: calc(520px + 72px) }
 }
 
-@media (min-width: 1140px) and (max-width: 1366px) {
+@media (min-width: 1140px) and (max-width: 1366px) { 
     .hero-block.hero-half { min-height: 500px }
     nav.container-menu.menu-sticky ~ .hero-block.hero-half { min-height: calc(500px + 72px) }
 }
 
-@media (min-width: 1025px) and (max-width: 1139px) {
+@media (min-width: 1025px) and (max-width: 1139px) { 
     .hero-block.hero-half { min-height: 440px }
     nav.container-menu.menu-sticky ~ .hero-block.hero-half { min-height: calc(440px + 72px) }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) { 
     .hero-block.hero-half { min-height: 500px }
     nav.container-menu.menu-sticky ~ .hero-block.hero-half { min-height: calc(500px + 72px) }
 }
@@ -478,8 +616,8 @@ header.hero-block { background-color: var(--blue-600) }
 .hero-block.hero-half { display: flex; position: relative }
 
 .hero-block.hero-half .hero-text-container,
-.hero-block.hero-half .hero-bg-media {
-    position: relative;
+.hero-block.hero-half .hero-bg-media { 
+    position: relative; 
 }
 
 .hero-block.hero-half .hero-text-container h1 {
@@ -487,7 +625,7 @@ header.hero-block { background-color: var(--blue-600) }
     margin-bottom: 24px; letter-spacing:-2px;
 }
 
-.hero-block.hero-half .hero-text-container h2 {
+.hero-block.hero-half .hero-text-container h2 { 
     font-size: calc(22px + (36 - 22) * ((100vw - 320px) / (1920 - 320)));
     letter-spacing: 0;
 }
@@ -499,25 +637,25 @@ header.hero-block { background-color: var(--blue-600) }
 }
 
 /* Desktops */
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .hero-block.hero-half { flex-direction: row; justify-content: space-between; }
-    .hero-block.hero-half .col-2 {
+    .hero-block.hero-half .col-2 { 
         display: flex; flex-direction: column;
         width: 47%; justify-content: center;
     }
 }
 
 /* Mobiles */
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     .hero-block.hero-half { flex-direction: column; padding: 14% 0 10% 0  }
     .hero-block.hero-half .col-2 { width: 100% }
     .hero-block.hero-half .container-btn {
-        display: flex;
+        display: flex; 
         flex-direction: column;
     }
 }
 
-@media (min-width: 1140px) {
+@media (min-width: 1140px) { 
 
     .hero-block.hero-half.half-img-right .col-2 .hero-text-container  { padding: 4% 0 4% 6% }
     .hero-block.hero-half.half-img-right .col-2 .container-btn { padding-left: 6% }
@@ -539,7 +677,7 @@ header.hero-block { background-color: var(--blue-600) }
     }
 }
 
-@media (min-width: 1025px) and (max-width: 1139px) {
+@media (min-width: 1025px) and (max-width: 1139px) { 
 
     .hero-block.hero-half.half-img-right .col-2:first-child { width: 52% }
     .hero-block.hero-half.half-img-right .col-2:last-child  { width: 48% }
@@ -555,7 +693,7 @@ header.hero-block { background-color: var(--blue-600) }
 }
 
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) { 
 
     .hero-block.hero-half.half-img-right .col-2 .hero-text-container  { padding: 0 0 0 7% }
     .hero-block.hero-half.half-img-right .col-2 .container-btn { padding-left: 7% }
@@ -563,7 +701,7 @@ header.hero-block { background-color: var(--blue-600) }
 
     .hero-block.hero-half.half-img-left  .col-2 .hero-text-container  { padding: 0 9% 0 0 }
     .hero-block.hero-half.half-img-left  .col-2 .hero-bg-media { padding: 0 0 0 5% }
-
+    
     .hero-block.hero-half.half-img-right .col-2:first-child { width: 50% }
     .hero-block.hero-half.half-img-right .col-2:last-child  { width: 50% }
 
@@ -573,7 +711,7 @@ header.hero-block { background-color: var(--blue-600) }
     .hero-block.hero-half.half-img-left  .col-2 .hero-text-container { padding: 0 4% 0 2% }
     .hero-block.hero-half.half-img-left  .col-2 .container-btn { padding-left: 2% }
 
-    .hero-block.hero-half.half-img-left  .container-btn,
+    .hero-block.hero-half.half-img-left  .container-btn, 
     .hero-block.hero-half.half-img-right .container-btn {
         display: flex;
         margin-top: 28px;
@@ -581,21 +719,21 @@ header.hero-block { background-color: var(--blue-600) }
         text-align: center;
     }
 
-    .hero-block.hero-half.half-img-left  .container-btn a.btn,
+    .hero-block.hero-half.half-img-left  .container-btn a.btn, 
     .hero-block.hero-half.half-img-right .container-btn a.btn {
         flex-direction: column;
         align-self: flex-start;
     }
     .hero-block.hero-half.half-img-left  .container-btn a:first-child,
     .hero-block.hero-half.half-img-right .container-btn a:first-child { margin-bottom: 32px }
-    .hero-block.hero-half.half-img-left  .container-btn a:last-child,
+    .hero-block.hero-half.half-img-left  .container-btn a:last-child, 
     .hero-block.hero-half.half-img-right .container-btn a:last-child  { margin-bottom: 0; margin-left: 0 }
 }
 
 /* All mobiles */
 @media (max-width: 767px) {
 
-    .hero-block.hero-half.half-img-left  .container-btn,
+    .hero-block.hero-half.half-img-left  .container-btn, 
     .hero-block.hero-half.half-img-right .container-btn {
         display: flex;
         margin-top: 28px;
@@ -604,7 +742,7 @@ header.hero-block { background-color: var(--blue-600) }
         align-self: start;
         text-align: left;
     }
-
+    
     .hero-block.hero-half.text-center-mobile .container-btn .btn,
     .hero-block.hero-half.text-center-mobile  .container-btn .btn {
         margin-left: auto; margin-right: auto;
@@ -613,7 +751,7 @@ header.hero-block { background-color: var(--blue-600) }
         align-self: center;;
     }
 
-    .hero-block.hero-half.half-img-left  .container-btn a.btn,
+    .hero-block.hero-half.half-img-left  .container-btn a.btn, 
     .hero-block.hero-half.half-img-right .container-btn a.btn {
         flex-direction: column;
     }
@@ -630,12 +768,12 @@ header.hero-block { background-color: var(--blue-600) }
     .hero-block.hero-half .col-2 { width: 100%; max-width: 600px }
 
     /* Image right: Top column */
-    .hero-block.hero-half.half-img-right .col-2:last-child {
+    .hero-block.hero-half.half-img-right .col-2:last-child { 
         margin-top: -24px; margin-bottom: 12px !important; padding: 0;
     }
 
     /* Image right: Bottom column */
-    .hero-block.hero-half.half-img-right .col-2:first-child {
+    .hero-block.hero-half.half-img-right .col-2:first-child { 
         padding: 0; margin-top: 20px; margin-bottom: -12px !important;
     }
 
@@ -654,12 +792,12 @@ header.hero-block { background-color: var(--blue-600) }
     }
 
     /* Image left: Top column */
-    .hero-block.hero-half.half-img-left .col-2:last-child {
+    .hero-block.hero-half.half-img-left .col-2:last-child { 
         padding: 0; margin-top: 20px; margin-bottom: -12px !important;
     }
 
     /* Image left: Bottom column */
-    .hero-block.hero-half.half-img-left .col-2:first-child {
+    .hero-block.hero-half.half-img-left .col-2:first-child { 
         margin-top: -24px; margin-bottom: 12px !important; padding: 0;
     }
 
@@ -676,22 +814,22 @@ header.hero-block { background-color: var(--blue-600) }
     }
 
     /* Image right: Top column */
-    .hero-block.hero-half.half-img-right .col-2:last-child {
+    .hero-block.hero-half.half-img-right .col-2:last-child { 
         margin-top: -24px; margin-bottom: 12px !important; padding: 0;
     }
 
     /* Image right: Bottom column */
-    .hero-block.hero-half.half-img-right .col-2:first-child {
+    .hero-block.hero-half.half-img-right .col-2:first-child { 
         padding: 0; margin-top: 20px; margin-bottom: 12px !important;
     }
 
     /* Image left: Top column */
-    .hero-block.hero-half.half-img-left .col-2:last-child {
+    .hero-block.hero-half.half-img-left .col-2:last-child { 
         padding: 0; margin-top: 20px; margin-bottom: 12px !important;
     }
 
     /* Image left: Bottom column */
-    .hero-block.hero-half.half-img-left .col-2:first-child {
+    .hero-block.hero-half.half-img-left .col-2:first-child { 
         margin-top: -24px; margin-bottom: 12px !important; padding: 0;
     }
 
@@ -707,31 +845,31 @@ header.hero-block { background-color: var(--blue-600) }
 /* A 'part' of a web page that is not a 'header' or a 'footer' or a 'nav' (menu). Typically, sections have a heading (usually h2). */
 
 /* Desktops/Laptops */
-@media (min-width: 1200px) {
-	section {
-		padding: 3.5% calc((100% - 800px)/2) 5% calc((100% - 800px)/2);
+@media (min-width: 1200px) { 
+	section { 
+		padding: 3.5% calc((100% - 800px)/2) 5% calc((100% - 800px)/2); 
 		margin: 0 auto;
-	}
+	} 
 }
 
 /* Tablets and smaller desktops */
-@media (min-width: 1025px) and (max-width: 1199px ) {
-	section { padding: 3% 14% 3% 14% }
+@media (min-width: 1025px) and (max-width: 1199px ) { 
+	section { padding: 3% 14% 3% 14% } 
 }
 
 /* Tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) { 
 	section { padding: 4% 5% 4% 5% }
 }
 
 /* Larger mobiles */
-@media (min-width: 400px) and (max-width: 767px)  {
+@media (min-width: 400px) and (max-width: 767px)  { 
 	section { padding: 7% 13% 8% 13% }
 }
 
 /* Smaller mobiles */
-@media (max-width: 399px) {
-	section { padding: 7% 10% 8% 10% }
+@media (max-width: 399px) { 
+	section { padding: 7% 10% 8% 10% } 
 }
 
 /* Final section block above footer */
@@ -745,14 +883,14 @@ section > .upper-label {
     width: 100%;
     font-weight: bold; display: block;
     font-size: calc(16px + (18 - 16) * ((100vw - 320px)/(1140 - 320)));
-    text-transform: uppercase;
+    text-transform: uppercase; 
     letter-spacing: 6px; word-spacing: 120%;
     margin-bottom: 48px;
 }
 
 section > h2 {
 	font-size: calc(28px + (42 - 28) * ((100vw - 320px) / (1140 - 320)));
-	line-height: 1.2;
+	line-height: 1.2; 
 	letter-spacing: -1px;
     margin-bottom: 36px;
 }
@@ -763,9 +901,9 @@ section > h2 {
 
 section > h3 {
 	font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (1140 - 320)));
-	line-height: 1.2;
+	line-height: 1.2; 
 	margin-top: 40px; margin-bottom: 2px;
-    color: var(--gray-600)
+    color: var(--gray-600) 
 }
 
 section > p {
@@ -780,10 +918,10 @@ section > p.standfirst {
 
 section  ul { margin-bottom: 18px }
 
-section > ul > li {
+section > ul > li { 
 	font-size: calc(19px + (22 - 19) * ((100vw - 320px) / (1140 - 320)));
-    line-height: 1.5; margin-bottom: 14px;
-    margin-left: 22px; padding-left: 12px;
+    line-height: 1.5; margin-bottom: 14px; 
+    margin-left: 22px; padding-left: 12px; 
 }
 
 /* All viewports: Paragraphs and lists */
@@ -795,15 +933,15 @@ section > figure { margin-bottom: 32px }
 
 /* Faux buttons */
 section > .container-btn {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap; 
     align-items: flex-start;
-    width: 100%;
+    width: 100%; 
 }
 
 section.text-center > .container-btn,
-section > .container-btn.text-center {
+section > .container-btn.text-center { 
     justify-content: center
 }
 
@@ -815,8 +953,8 @@ section > .container-btn a.btn {
 
 /* Non-mobiles */
 @media (min-width: 768px) {
-    section > .container-btn {
-        margin-top: 42px;
+    section > .container-btn { 
+        margin-top: 42px; 
         flex-direction: row;
         justify-content: flex-start;
         text-align: left;
@@ -829,7 +967,7 @@ section > .container-btn a.btn {
 /* Mobiles */
 @media (max-width: 767px) {
     section > .container-btn {
-        margin-top: 32px;
+        margin-top: 32px; 
         flex-direction: column;
         align-self: flex-start;
         padding-left: 0;
@@ -847,35 +985,35 @@ section > .container-btn a.btn {
 
 /* ============= SECTIONS: FLEXBOX-BASED  ============ */
 
-/* For a section that is a 'parent' container of child elements.
+/* For a section that is a 'parent' container of child elements. 
 On large screens (and sometimes small screens too), the div child elements are typically arranged in multi-column layouts */
 
-.container-flex {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.container-flex { 
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap; 
     align-items: stretch;
-    width: 100%;
+    width: 100%; 
     padding-left: 8%;
-    padding-right: 8%;
+    padding-right: 8%; 
 }
 
 /* ========= FLEXBOX SECTIONS: SINGLE COLUMN, FULL-WIDTH ========= */
 /* For first, introduction content of a multi-column section. */
 
 /* Desktops/Laptops */
-@media (min-width: 1200px) {
-	.col-1 {
+@media (min-width: 1200px) { 
+	.col-1 { 
 		padding-left: calc((100% - 800px)/2);
 		padding-right: calc((100% - 800px)/2);
         padding-bottom: 1%;
 		margin: 0 auto;
-	}
+	} 
 }
 
 /* Tablets and smaller desktops */
 @media (min-width: 1025px) and (max-width: 1199px ) {
-    .col-1 {
+    .col-1 { 
         padding-left: 12%;
         padding-right: 12%;
         padding-bottom: 0;
@@ -883,8 +1021,8 @@ On large screens (and sometimes small screens too), the div child elements are t
 }
 
 /* Tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .col-1 {
+@media (min-width: 768px) and (max-width: 1024px) { 
+    .col-1 { 
         padding-left: 5%;
         padding-right: 5%;
         padding-bottom: 1%;
@@ -892,8 +1030,8 @@ On large screens (and sometimes small screens too), the div child elements are t
 }
 
 /* Larger mobiles */
-@media (min-width: 400px) and (max-width: 767px)  {
-    .col-1 {
+@media (min-width: 400px) and (max-width: 767px)  { 
+    .col-1 { 
         padding-left: 13%;
         padding-right: 13%;
         padding-bottom: 1%;
@@ -901,8 +1039,8 @@ On large screens (and sometimes small screens too), the div child elements are t
 }
 
 /* Smaller mobiles */
-@media (max-width: 399px) {
-    .col-1 {
+@media (max-width: 399px) { 
+    .col-1 { 
         padding-left: 10%;
         padding-right: 10%;
         padding-bottom: 1%;
@@ -931,16 +1069,16 @@ On large screens (and sometimes small screens too), the div child elements are t
 }
 
 .col-1 h3 {
-    font-size: calc(22px + (32 - 22) * ((100vw - 320px) / (1140 - 320)));
+    font-size: calc(19px + (28 - 19) * ((100vw - 320px) / (1140 - 320)));
     font-weight: normal;
-    line-height: 1.2;
+    line-height: 1.4;
     letter-spacing: -1px;
     margin-top: -12px;
-    color: var(--gray-600);
+    color: var(--gray-900);
 }
 
 /* Adjust upper block h2 and h3 letter-spacing for mobiles */
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     .col-1 h2 { letter-spacing: -1px }
     .col-1 h3 { letter-spacing: 0 }
 }
@@ -949,7 +1087,7 @@ On large screens (and sometimes small screens too), the div child elements are t
 .col-1 .upper-label {
     font-weight: bold; display: inline-block;
     font-size: calc(16px + (18 - 16) * ((100vw - 320px)/(1140 - 320)));
-    text-transform: uppercase;
+    text-transform: uppercase; 
     letter-spacing: 6px; word-spacing: 120%;
     margin-bottom: 32px;
 }
@@ -957,73 +1095,73 @@ On large screens (and sometimes small screens too), the div child elements are t
 /* ============= TWO COLUMNS ============ */
 
 /* Desktops/Laptops */
-@media (min-width: 1200px) {
-	.cols-2-grid  {
+@media (min-width: 1200px) { 
+	.cols-2-grid  { 
 		padding-left: calc((100% - 880px)/2);
 		padding-right: calc((100% - 880px)/2);
 		margin: 0 auto;
-	}
+	} 
 }
 
 /* Tablets and smaller desktops */
 @media (min-width: 1025px) and (max-width: 1199px ) {
-    .cols-2-grid  {
+    .cols-2-grid  { 
         padding-left: 12%;
-        padding-right: 12%
+        padding-right: 12% 
     }
 }
 
 /* Tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .cols-2-grid {
+@media (min-width: 768px) and (max-width: 1024px) { 
+    .cols-2-grid { 
         padding-left: 5%;
-        padding-right: 5%
+        padding-right: 5% 
     }
 }
 
 /* Larger mobiles */
-@media (min-width: 400px) and (max-width: 767px)  {
-    .cols-2-grid {
+@media (min-width: 400px) and (max-width: 767px)  { 
+    .cols-2-grid { 
         padding-left: 13%;
-        padding-right: 13%
+        padding-right: 13% 
     }
 }
 
 /* Smaller mobiles */
-@media (max-width: 399px) {
-    .cols-2-grid {
+@media (max-width: 399px) { 
+    .cols-2-grid { 
         padding-left: 10%;
-        padding-right: 10%
+        padding-right: 10% 
     }
 }
 
 .col-2 { background-color: inherit; padding: 20px 20px 20px 20px }
 
 /* Non-mobiles */
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .col-2 { width: 47%; margin-bottom: 64px }
     .col-2:nth-last-child(-n+2) { margin-bottom: 0 }
 }
 
 /* Mobiles */
-@media (max-width: 767px) {
-    .col-2 {
-        width: 100%;
-        max-width: 400px;
-        margin-left: auto; margin-right: auto;
+@media (max-width: 767px) { 
+    .col-2 { 
+        width: 100%; 
+        max-width: 400px; 
+        margin-left: auto; margin-right: auto; 
         margin-bottom: 32px;
     }
 
     /* 2 columns to 2 columns */
-    .mobile-col-2 .col-2 {
+    .mobile-col-2 .col-2 { 
         width: 49%;
-        margin-bottom: 20px
+        margin-bottom: 20px 
     }
     .mobile-col-2 .col-2:nth-child(odd) { margin-right: -3% }
     .mobile-col-2 .col-2:nth-child(even) { margin-left: -3% }
     .mobile-col-2 .col-2:nth-last-child(-n+2) { margin-bottom: 0 }
 
-    .mobile-col-2 .col-2 p,
+    .mobile-col-2 .col-2 p, 
     .mobile-col-2 .col-2 li { line-height: 1.4 }
     .mobile-col-2 .col-2 li { padding-left: 2px }
 }
@@ -1040,10 +1178,10 @@ On large screens (and sometimes small screens too), the div child elements are t
     line-height: 1.5; margin-bottom: 16px;
 }
 
-.col-2 li {
-    font-size: calc(17px + (19 - 17) * ((100vw - 320px) / (1140 - 320)));
-    line-height: 1.4; margin-bottom: 10px;
-    margin-left: 15px; padding-left: 12px;
+.col-2 li { 
+    font-size: calc(17px + (19 - 17) * ((100vw - 320px) / (1140 - 320))); 
+    line-height: 1.4; margin-bottom: 10px; 
+    margin-left: 15px; padding-left: 12px; 
 }
 
 /* Padding on columns */
@@ -1059,7 +1197,7 @@ On large screens (and sometimes small screens too), the div child elements are t
     .col-2 figure { margin-bottom: 26px }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     .col-2 figure { margin-bottom: 20px }
 }
 
@@ -1077,10 +1215,10 @@ On large screens (and sometimes small screens too), the div child elements are t
 .icon-small .col-2 figure.icon span.material-icons-outlined { font-size: 140px }
 
 /* Font Awesome: Vertical spacing */
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .col-2  figure.icon i[class*='fa'] { margin-top: 24px; margin-bottom: 0 }
 }
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     .col-2  figure.icon i[class*='fa'] { margin-top: 0; margin-bottom: 18px }
 }
 
@@ -1088,11 +1226,11 @@ On large screens (and sometimes small screens too), the div child elements are t
 .col-2  figure.icon i[class*="la"] { margin-top: 0; margin-bottom: -12px }
 
 /* Material UI: Vertical spacing */
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .col-2  figure.icon span.material-icons-outlined { margin-top: 24px; margin-bottom: -72px }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { 
     .col-2  figure.icon span.material-icons-outlined { margin-top: 12px; margin-bottom: -56px }
 }
 
@@ -1100,49 +1238,49 @@ On large screens (and sometimes small screens too), the div child elements are t
 /* ============= TWO COLUMNS: SPLIT TEXT AND IMAGE ============ */
 
 /* Desktops/Laptops */
-@media (min-width: 1025px) {
-	.cols-2-split {
+@media (min-width: 1025px) { 
+	.cols-2-split { 
         padding: 5% 10% 3% 10%;
-	}
+	} 
 }
 
 /* Tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .cols-2-split {
+@media (min-width: 768px) and (max-width: 1024px) { 
+    .cols-2-split { 
         padding: 5% 10% 4% 10%;
     }
 }
 /* Larger mobiles */
-@media (min-width: 400px) and (max-width: 767px)  {
-	section.cols-2-split {
-        padding: 9% 13% 6% 13%;
-    }
+@media (min-width: 400px) and (max-width: 767px)  { 
+	section.cols-2-split { 
+        padding: 9% 13% 6% 13%; 
+    } 
 }
 
 /* Smaller mobiles */
-@media (max-width: 399px) {
-	section.cols-2-split {
-        padding: 12% 10% 8% 10%;
-    }
+@media (max-width: 399px) { 
+	section.cols-2-split { 
+        padding: 12% 10% 8% 10%; 
+    } 
 }
 
 /* Individual Columns */
 .cols-2-split .col-2 {
-    display: flex;
-    flex-direction: column;
+    display: flex; 
+    flex-direction: column; 
     justify-content: center;
     overflow: hidden;
 }
 
 /* Non-mobiles */
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .cols-2-split .col-2 { width: 47% }
 }
 
 /* Mobiles */
-@media (max-width: 767px) {
-    .cols-2-split .col-2 {
-        width: 100%;
+@media (max-width: 767px) { 
+    .cols-2-split .col-2 { 
+        width: 100%; 
         max-width: 400px;
     }
 }
@@ -1166,7 +1304,7 @@ On large screens (and sometimes small screens too), the div child elements are t
     width: 100%;
     font-weight: bold; display: block;
     font-size: calc(16px + (18 - 16) * ((100vw - 320px)/(1140 - 320)));
-    text-transform: uppercase;
+    text-transform: uppercase; 
     letter-spacing: 6px; word-spacing: 120%;
     margin-bottom: 48px;
 }
@@ -1190,10 +1328,10 @@ On large screens (and sometimes small screens too), the div child elements are t
     line-height: 1.5; margin-bottom: 16px;
 }
 
-.cols-2-split .col-2 li {
-    font-size: calc(17px + (20 - 17) * ((100vw - 320px) / (1140 - 320)));
-    line-height: 1.4; margin-bottom: 10px;
-    margin-left: 20px; padding-left: 12px;
+.cols-2-split .col-2 li { 
+    font-size: calc(17px + (20 - 17) * ((100vw - 320px) / (1140 - 320))); 
+    line-height: 1.4; margin-bottom: 10px; 
+    margin-left: 20px; padding-left: 12px; 
 }
 
 /* Faux buttons */
@@ -1203,7 +1341,7 @@ On large screens (and sometimes small screens too), the div child elements are t
     .cols-2-split .container-btn { margin-top: 12px; padding-left: 0; width: 100% }
     .cols-2-split .container-btn a.btn { display: inline-block }
     .cols-2-split .container-btn a:nth-child(2) { margin-left: 32px }
-    .cols-2-split .container-btn a.btn {
+    .cols-2-split .container-btn a.btn { 
         font-size: calc(16px + (18 - 16) * ((100vw - 320px)/(1920 - 320)));
         padding: 14px 14px 17px 14px
     }
@@ -1212,7 +1350,7 @@ On large screens (and sometimes small screens too), the div child elements are t
 /* Mobiles */
 @media (max-width: 1199px) {
     .cols-2-split .container-btn {
-        margin-top: 6px;
+        margin-top: 6px; 
         flex-direction: column;
         align-self: flex-start;
         padding-left: 0;
@@ -1224,9 +1362,9 @@ On large screens (and sometimes small screens too), the div child elements are t
 
 /* MOBILES */
 @media (max-width: 767px) {
-    .cols-2-split .container-btn {
-        margin-top: 42px;
-        display: flex;
+    .cols-2-split .container-btn { 
+        margin-top: 42px; 
+        display: flex; 
         flex-direction: column;
         align-self: flex-start
     }
@@ -1248,43 +1386,43 @@ On large screens (and sometimes small screens too), the div child elements are t
 
 .col-3 { background-color: inherit; padding: 18px 18px 18px 18px }
 /* Non-mobiles */
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .col-3 { width: 31%; margin-bottom: 48px }
     .col-3:nth-last-child(-n+3) { margin-bottom: 0 }
 }
 
 /* Mobiles */
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     /* 3 columns to 1 column */
-    .col-3 {
+    .col-3 { 
         width: 100%;
-        max-width: 400px;
-        margin-left: auto; margin-right: auto;
+        max-width: 400px; 
+        margin-left: auto; margin-right: auto; 
         margin-bottom: 24px
     }
 
     /* 3 columns to 2 columns */
-   .mobile-col-2 .col-3 {
+   .mobile-col-2 .col-3 { 
        width: 49%;
-       margin-bottom: 20px
+       margin-bottom: 20px 
     }
     .mobile-col-2 .col-3:nth-child(odd) { margin-right: -3% }
     .mobile-col-2 .col-3:nth-child(even) { margin-left: -3% }
     .mobile-col-2 .col-3:nth-last-child(-n+2) { margin-bottom: 0 }
 
-    .mobile-col-2 .col-3 p,
+    .mobile-col-2 .col-3 p, 
     .mobile-col-2 .col-3 li { line-height: 1.4 }
     .mobile-col-2 .col-3 li { padding-left: 2px }
 }
 
 /* =================== TYPOGRAPHY  ================== */
 
-.col-3 h3 {
+.col-3 h3 { 
     font-size: calc(22px + (24 - 22) * ((100vw - 320px) / (1140 - 320)));
     font-weight: 700; line-height: 1.15; margin-bottom: 6px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     .mobile-col-2 .col-3 h3 { font-size: 19px }
 }
 
@@ -1293,10 +1431,10 @@ On large screens (and sometimes small screens too), the div child elements are t
     line-height: 1.5; margin-bottom: 16px;
 }
 
-.col-3 li {
-    font-size: calc(17px + (18 - 17) * ((100vw - 320px) / (1140 - 320)));
-    line-height: 1.4; margin-bottom: 10px;
-    margin-left: 15px; padding-left: 12px;
+.col-3 li { 
+    font-size: calc(17px + (18 - 17) * ((100vw - 320px) / (1140 - 320))); 
+    line-height: 1.4; margin-bottom: 10px; 
+    margin-left: 15px; padding-left: 12px; 
 }
 
 /* ================= IMAGES, DRAWINGS, BIG ICONS ================= */
@@ -1309,7 +1447,7 @@ On large screens (and sometimes small screens too), the div child elements are t
     .col-3 figure { margin-bottom: 26px }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     .col-3 figure { margin-bottom: 20px }
 }
 
@@ -1329,10 +1467,10 @@ On large screens (and sometimes small screens too), the div child elements are t
 .icon-small .col-3 figure.icon span.material-icons-outlined { font-size: 140px }
 
 /* Font Awesome: Vertical spacing */
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .col-3 figure.icon i[class*='fa'] { margin-top: 24px; margin-bottom: 0 }
 }
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     .col-3 figure.icon i[class*='fa'] { margin-top: 0; margin-bottom: 18px }
 }
 
@@ -1340,11 +1478,11 @@ On large screens (and sometimes small screens too), the div child elements are t
 .col-3 figure.icon i[class*="la"] { margin-top: 0; margin-bottom: -12px }
 
 /* Material UI: Vertical spacing */
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .col-3 figure.icon span.material-icons-outlined { margin-top: 24px; margin-bottom: -72px }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { 
     .col-3 figure.icon span.material-icons-outlined { margin-top: 12px; margin-bottom: -56px }
 }
 
@@ -1353,18 +1491,18 @@ On large screens (and sometimes small screens too), the div child elements are t
 .col-4 { background-color: inherit; padding: 16px 16px 16px 16px }
 
 /* Non-mobiles */
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .col-4 { width: 23.5%; margin-bottom: 48px }
     .col-4:nth-last-child(-n+4) { margin-bottom: 0 }
 }
 
 /* Mobiles */
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     /* On mobiles, 4 columns to 1 column */
-    .col-4 {
+    .col-4 { 
         width: 100%;
-        max-width: 400px;
-        margin-left: auto; margin-right: auto;
+        max-width: 400px; 
+        margin-left: auto; margin-right: auto; 
         margin-bottom: 24px
     }
     .col-4:last-child { margin-bottom: 0 }
@@ -1381,12 +1519,12 @@ On large screens (and sometimes small screens too), the div child elements are t
 
 /* =================== TYPOGRAPHY  ================== */
 
-.col-4 h3 {
+.col-4 h3 { 
     font-size: calc(20px + (22 - 20) * ((100vw - 320px) / (1140 - 320)));
     font-weight: 700; line-height: 1.15; margin-bottom: 6px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     .mobile-col-2 .col-4 h3 { font-size: 19px }
 }
 
@@ -1395,10 +1533,10 @@ On large screens (and sometimes small screens too), the div child elements are t
     line-height: 1.4; margin-bottom: 16px;
 }
 
-.col-4 li {
-    font-size: calc(16px + (17 - 16) * ((100vw - 320px) / (1140 - 320)));
-    line-height: 1.4; margin-bottom: 10px;
-    margin-left: 13px; padding-left: 6px;
+.col-4 li { 
+    font-size: calc(16px + (17 - 16) * ((100vw - 320px) / (1140 - 320))); 
+    line-height: 1.4; margin-bottom: 10px; 
+    margin-left: 13px; padding-left: 6px; 
 }
 
 /* All viewports: Paragraphs and lists */
@@ -1423,7 +1561,7 @@ On large screens (and sometimes small screens too), the div child elements are t
     .col-4 figure { margin-bottom: 16px }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     .col-4 figure { margin-bottom: 10px }
 }
 
@@ -1443,10 +1581,10 @@ On large screens (and sometimes small screens too), the div child elements are t
 .icon-small .col-4 figure.icon span.material-icons-outlined { font-size: 80px }
 
 /* Font Awesome: Vertical spacing */
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .col-4 figure.icon i[class*='fa'] { margin-top: 24px; margin-bottom: 0 }
 }
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     .col-4 figure.icon i[class*='fa'] { margin-top: 0; margin-bottom: 18px }
 }
 
@@ -1454,11 +1592,11 @@ On large screens (and sometimes small screens too), the div child elements are t
 .col-4 figure.icon i[class*="la"] { margin-top: 0; margin-bottom: -12px }
 
 /* Material UI: Vertical spacing */
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .col-4 figure.icon span.material-icons-outlined { margin-top: 24px; margin-bottom: -72px }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { 
     .col-4 figure.icon span.material-icons-outlined { margin-top: 12px; margin-bottom: -56px }
 }
 
@@ -1468,7 +1606,7 @@ On large screens (and sometimes small screens too), the div child elements are t
 /* /////////////////////////////////////////////////////////////// */
 
 /* Centre horizontally all the things */
-.text-center {
+.text-center { 
     text-align: center !important;
     margin-left: auto; margin-right: auto
 }
@@ -1515,7 +1653,7 @@ section.col-borders .col-4 {
 .img-rotate-clock  figure img { transform: rotate(1deg) }
 .img-rotate-cclock figure img { transform: rotate(-1deg) }
 
-.img-rounded figure img { border-radius: 50% } /* Square images only */
+.img-rounded figure img { border-radius: 50% } /* Square images only */ 
 
 .img-circle figure img { border-radius: 50% }
 
@@ -1526,14 +1664,14 @@ div[class*='col-'] figure.icon {
 }
 
 /* Icons centre-aligned */
-div[class*='col-'] figure.icon {
-    text-align: center;
+div[class*='col-'] figure.icon { 
+    text-align: center; 
     margin-left: auto;
     margin-right: auto;
 }
 
 /* Icons left-aligned */
-.icon-left div[class*='col-'] figure.icon {
+.icon-left div[class*='col-'] figure.icon { 
     text-align: left;
     margin-left: 0;
 }
@@ -1559,13 +1697,13 @@ div[class*='col-'] figure.icon {
     width: 100%;
     margin-bottom: 32px;
 }
-
+ 
 .container-video-yt::after {
     padding-top: 56.25%;
     display: block;
     content: '';
 }
-
+ 
 .container-video-yt iframe {
     position: absolute;
     top: 0;
@@ -1587,14 +1725,14 @@ a:not(.btn):any-link {
     text-decoration: none;
     text-decoration-thickness: 0;
     color: var(--black-000);
-    background-color: var(--gray-200);
+    /* background-color: var(--gray-200); */
 }
 
 /* =============== BUTTONS: REAL AND FAUX ============== */
 
-a.btn, button {
+a.btn, button { 
     font-family: var(--sans-serif);
-    font-weight: bold;
+    font-weight: bold; 
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -1604,7 +1742,7 @@ a.btn, button {
     transition: all 0.3s linear;
 }
 
-div[class*='col-'] a.btn {
+div[class*='col-'] a.btn { 
     margin-top: 12px;
     position: relative;
 	display: inline-block;
@@ -1612,62 +1750,62 @@ div[class*='col-'] a.btn {
 
 a.btn-soft, button.btn-soft { border-radius: 12px; }
 a.btn-rounded, button.btn-rounded { border-radius: 50px }
-a.btn i, button i {
-    align-self: center;
-    color: inherit;
+a.btn i, button i { 
+    align-self: center; 
+    color: inherit; 
     display: inline-block;
     font-size: 102%;
-}
+} 
 
 a.btn span, button span { display: inline-block }
 
-a.btn > *:nth-child(2),
-button > *:nth-child(2) { margin-left: 14px; margin-right: 0 }
+a.btn > *:nth-child(2), 
+button > *:nth-child(2) { margin-left: 14px; margin-right: 0 } 
 
 /* Primary buttons */
-.btn-primary:link,
+.btn-primary:link, 
 .btn-primary:visited {
-    border: solid 2px #000;
-    color: #fff;
-    background-color: #000;
-}
+    border: solid 2px #000; 
+    color: #fff; 
+    background-color: #000; 
+} 
 
-a.btn-primary:focus,
-a.btn-primary:hover,
+a.btn-primary:focus, 
+a.btn-primary:hover, 
 a.btn-primary:active  {
-    border: solid 2px var(--gray-700);
-    background-color: var(--gray-700);
+    border: solid 2px var(--gray-700); 
+    background-color: var(--gray-700);  
     color: #fff;
 }
 
 /* Secondary buttons */
-a.btn-secondary:link,
+a.btn-secondary:link, 
 a.btn-secondary:visited,
-a.btn-ghost:link,
+a.btn-ghost:link, 
 a.btn-ghost:visited {
     border: solid 2px #000;
-    color: #000;
-    background-color: transparent;
-}
+    color: #000; 
+    background-color: transparent; 
+} 
 
-a.btn-secondary:focus,
-a.btn-secondary:hover,
+a.btn-secondary:focus, 
+a.btn-secondary:hover, 
 a.btn-secondary:active,
-a.btn-ghost:focus,
-a.btn-ghost:hover,
+a.btn-ghost:focus, 
+a.btn-ghost:hover, 
 a.btn-ghost:active {
-    border: solid 2px var(--gray-700);
-    background-color: var(--gray-700);
+    border: solid 2px var(--gray-700); 
+    background-color: var(--gray-700);  
     color: #fff;
 }
 
 /* Single-column layout */
-@media (min-width: 1200px) {
+@media (min-width: 1200px) { 
     section > .container-btn a.btn { padding: 15px 32px 17px 28px; }
 }
 
 /* Single-column layout */
-@media (min-width: 768px) and (max-width: 1119px) {
+@media (min-width: 768px) and (max-width: 1119px) { 
     section > .container-btn a.btn { padding: 14px 22px 17px 22px }
 }
 
@@ -1676,12 +1814,12 @@ a.btn-ghost:active {
 }
 
 /* Multi-column layouts */
-.col-2 a.btn, .col-3 a.btn {
+.col-2 a.btn, .col-3 a.btn { 
 	padding: 15px 32px 17px 28px;
 	font-size: calc(17px + (19 - 17) * ((100vw - 320px)/(1920 - 320)));
 }
 
-.col-4 a.btn {
+.col-4 a.btn { 
 	padding: 14px 28px 16px 26px;
 	font-size: calc(17px + (18 - 17) * ((100vw - 320px)/(1920 - 320)));
 }
@@ -1696,7 +1834,7 @@ a.btn-ghost:active {
 }
 
 /* Desktop */
-@media (min-width: 1024px) {
+@media (min-width: 1024px) { 
 	#contact-form {
 		margin: 1% 6% 0 6%;
 		padding: 4% 6% 1% 6%
@@ -1704,7 +1842,7 @@ a.btn-ghost:active {
 }
 
 /* Smaller screens and tablet */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) { 
 	#contact-form {
 		padding: 5% 8% 5% 8%;
         max-width: 500px;
@@ -1714,8 +1852,8 @@ a.btn-ghost:active {
 }
 
 /* Small screens */
-@media (max-width: 767px) {
-	#contact-form {
+@media (max-width: 767px) { 
+	#contact-form { 
         padding: 5% 9% 8% 9%;
         max-width: 400px;
         margin-left: auto;
@@ -1724,29 +1862,29 @@ a.btn-ghost:active {
 }
 
 /* Upper Label */
-#contact-form .upper-label {
+#contact-form .upper-label { 
     width: 100%;
     font-weight: bold; display: block;
     font-size: calc(15px + (17 - 15) * ((100vw - 320px)/(1140 - 320)));
-    text-transform: uppercase;
+    text-transform: uppercase; 
     letter-spacing: 6px; word-spacing: 120%;
     margin-bottom: 28px;
 }
 
 /* Heading */
-#contact-form h2 {
-	font-weight: 700;
+#contact-form h2 { 
+	font-weight: 700; 
 	line-height: 1.2;
 	margin-bottom: 3%;
-	font-size: calc(25px + (48 - 25) * ((100vw - 320px) / (1920 - 320)));
+	font-size: calc(25px + (48 - 25) * ((100vw - 320px) / (1920 - 320))); 
 }
 
 /* Text */
-#contact-form p {
+#contact-form p { 
     font-weight: normal;
 	line-height: 1.5;
 	margin-bottom: 7%;
-	font-size: calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));
+	font-size: calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320))); 
 }
 
 #contact-form p a:hover, #contact-form p a:active {
@@ -1760,23 +1898,23 @@ a.btn-ghost:active {
 }
 
 #contact-form label {
-	font-size: calc(17px + (19 - 17) * ((100vw - 320px) / (1920 - 320)));
+	font-size: calc(17px + (19 - 17) * ((100vw - 320px) / (1920 - 320))); 
 	font-weight: bold;
 	margin-bottom: 8px;
 	display: flex;
 	align-items: baseline;
 }
 
-#contact-form [type="text"],
+#contact-form [type="text"], 
 #contact-form [type="email"],
-#contact-form textarea {
+#contact-form textarea { 
     font-family: var(--sans-serif);
     width: 100%; background-color: var(--white-000);
     font-size: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)))
 }
 
-#contact-form ::placeholder {
-    background-color: var(--white-000)
+#contact-form ::placeholder { 
+    background-color: var(--white-000)  
 }
 
 #contact-form input, #contact-form textarea {
@@ -1792,8 +1930,8 @@ a.btn-ghost:active {
 
 #contact-form.flex-row .item-btn { width: 26% }
 
-#contact-form #btn-submit {
-	float: right;
+#contact-form #btn-submit { 
+	float: right; 
     background-color: var(--black-000);
     color: var(--white-000);
 	font-weight: bold;
@@ -1804,8 +1942,8 @@ a.btn-ghost:active {
     outline: none
 }
 
-#contact-form #btn-submit:hover,
-#contact-form #btn-submit:active {
+#contact-form #btn-submit:hover, 
+#contact-form #btn-submit:active { 
     background-color: var(--gray-700);
     color: var(--white-000);
 }
@@ -1826,19 +1964,19 @@ a.btn-ghost:active {
 
 /* Smaller screens */
 @media (max-width: 1023px) {
-	#contact-form .flex-row {
-        flex-direction: column;
+	#contact-form .flex-row { 
+        flex-direction: column; 
         text-align: center;
     }
     #contact-form label {
         margin-top: 20px;
     }
 
-    .container-contact-form p {
+    .container-contact-form p { 
         margin-bottom: 12px;
     }
 
-	#contact-form [type="text"],
+	#contact-form [type="text"], 
 	#contact-form [type="email"],
 	#contact-form textarea { margin-bottom: 20px }
     #contact-form #btn-submit { margin-top: 20px }
@@ -1859,34 +1997,34 @@ a.btn-ghost:active {
 }
 
 /* Desktops/Laptops */
-@media (min-width: 1200px) {
-	footer {
-		padding: 3.5% calc((100% - 900px)/2) 5% calc((100% - 900px)/2);
+@media (min-width: 1200px) { 
+	footer { 
+		padding: 3.5% calc((100% - 900px)/2) 5% calc((100% - 900px)/2); 
 		margin: 0 auto;
-	}
+	} 
 }
 
 /* Tablets and smaller desktops */
-@media (min-width: 1025px) and (max-width: 1199px ) {
-	footer { padding: 3% 10% 7% 10% }
+@media (min-width: 1025px) and (max-width: 1199px ) { 
+	footer { padding: 3% 10% 7% 10% } 
 }
 
 /* Tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) { 
 	footer { padding: 5% 5% 6% 5% }
 }
 
 /* Larger mobiles */
-@media (min-width: 400px) and (max-width: 767px)  {
+@media (min-width: 400px) and (max-width: 767px)  { 
 	footer { padding: 9% 13% 12% 13% }
 }
 
 /* Smaller mobiles */
-@media (max-width: 399px) {
-	footer { padding: 9% 10% 12% 10% }
+@media (max-width: 399px) { 
+	footer { padding: 9% 10% 12% 10% } 
 }
 
-footer {
+footer { 
     text-align: center;
     background-color: var(--ontrend-800);
 }
@@ -1908,8 +2046,8 @@ footer h3 {
 }
 
 /* Footer text links and icon links */
-footer ul.footer-links,
-footer ul.footer-icons {
+footer ul.footer-links, 
+footer ul.footer-icons { 
     list-style-type: none;
     margin: 0 auto 48px auto
 }
@@ -1937,7 +2075,7 @@ footer ul.footer-links li a:visited {
     transition: all 0.2s linear;
 }
 
-footer ul.footer-links li a:hover,
+footer ul.footer-links li a:hover, 
 footer ul.footer-links li a:active  {
     text-decoration-color: transparent;
     background-color: transparent;
@@ -1955,7 +2093,7 @@ footer ul.footer-icons li a:any-link i {
 :is(footer ul.footer-icons li a:focus i, footer ul.footer-icons li a:hover i, footer ul.footer-icons li a:active i) {
     text-decoration: none;
     border-bottom-width: 0;
-    border-bottom-color: transparent !important;
+    border-bottom-color: transparent !important; 
     text-decoration-thickness: 0;
     text-underline-offset: 0;
     color: var(--white-000);
@@ -2022,7 +2160,7 @@ footer p.privacy a:hover, footer p.privacy a:active {
     100% { transform: translateY(0); opacity: 1 }
 }
 
-@keyframes fade-in {
+@keyframes fade-in { 
     0%   { opacity: 0; }
     100% { opacity: 1 }
 }
@@ -2041,9 +2179,9 @@ footer p.privacy a:hover, footer p.privacy a:active {
 }
 
 /* Website logo */
-.container-menu a:first-child {
-    display: flex;
-    flex-direction: row;
+.container-menu a:first-child { 
+    display: flex; 
+    flex-direction: row; 
     align-items: center;
     margin-left: 6%;
     background-color: transparent;
@@ -2061,29 +2199,29 @@ footer p.privacy a:hover, footer p.privacy a:active {
     list-style-type: none;
 }
 
-.container-menu ul li {
-    display: inline-block;
+.container-menu ul li { 
+    display: inline-block; 
     list-style-type: none;
     margin-right: 50px;
 }
 
 .container-menu ul li:last-child { margin-right: 0 }
 
-.container-menu ul li a {
+.container-menu ul li a { 
     font-size: calc(18px + (20 - 18) * ((100vw - 320px)/(1920 - 320)));
     font-family: var(--sans-serif);
     font-weight: 700;
 }
 
 .container-menu a:link,
-.container-menu a:visited {
+.container-menu a:visited { 
     text-decoration: none;
     color: #000;
 }
 
 .container-menu a:focus,
 .container-menu a:hover,
-.container-menu a:active {
+.container-menu a:active { 
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 7px;
@@ -2108,24 +2246,24 @@ footer p.privacy a:hover, footer p.privacy a:active {
     padding: 10px 24px 12px 24px;
 }
 
-.container-menu a#btn-cta:link,
+.container-menu a#btn-cta:link, 
 .container-menu a#btn-cta:visited {
-    border: solid 2px #000;
-    color: #fff;
-    background-color: #000;
-}
+    border: solid 2px #000; 
+    color: #fff; 
+    background-color: #000; 
+} 
 
-.container-menu a#btn-cta:focus,
-.container-menu a#btn-cta:hover,
+.container-menu a#btn-cta:focus, 
+.container-menu a#btn-cta:hover, 
 .container-menu a#btn-cta:active  {
-    border: solid 2px var(--gray-700);
-    background-color: var(--gray-700);
+    border: solid 2px var(--gray-700); 
+    background-color: var(--gray-700);  
     color: #fff;
 }
 
-.container-menu a#btn-cta > *:nth-child(2) {
+.container-menu a#btn-cta > *:nth-child(2) { 
     margin-left: 14px; margin-right: 0
-}
+} 
 
 /* Hamburger icon */
 .container-menu .item-icon {
@@ -2133,11 +2271,11 @@ footer p.privacy a:hover, footer p.privacy a:active {
     margin-top: 16px;
 }
 
-.container-menu .item-icon .bar1,
-.container-menu .item-icon .bar2,
-.container-menu .item-icon .bar3 {
-    width: 36px; height: 4px;
-    margin: 7px 0;
+.container-menu .item-icon .bar1, 
+.container-menu .item-icon .bar2, 
+.container-menu .item-icon .bar3 { 
+    width: 36px; height: 4px; 
+    margin: 7px 0; 
     transition: 0.4s;
     background-color: #000;
 }
@@ -2157,8 +2295,8 @@ footer p.privacy a:hover, footer p.privacy a:active {
 @media (max-width: 767px) {
     .container-menu { padding: 0 8% 0 0 }
 
-    .container-menu ul {
-        position: fixed;
+    .container-menu ul { 
+        position: fixed; 
         top: 72px;
         overflow-x: hidden;
         overflow-y: scroll;
@@ -2173,27 +2311,27 @@ footer p.privacy a:hover, footer p.privacy a:active {
         background-color: var(--gray-300);
         padding: 32px 0 10px 40px;
     }
-
+    
     .container-menu ul {
         right: -9000px; /* hides flyout menu */
         display: none;
     }
-
+    
     .container-menu ul.mobile-display {
         top: 72px;
-        right: 0;
+        right: 0; 
         display: block;
         overscroll-behavior: contain;
         overscroll-behavior-y: contain;
         z-index: 9999;
     }
 
-    .container-menu ul.mobile-display li {
+    .container-menu ul.mobile-display li { 
         margin-bottom: 36px;
         display: block;
     }
 
-    .container-menu ul.mobile-display li a {
+    .container-menu ul.mobile-display li a { 
         display: inline-block;
     }
 
@@ -2202,14 +2340,14 @@ footer p.privacy a:hover, footer p.privacy a:active {
 /* On mobiles, prevent scrolling outside menu */
 .no-scroll { overflow: hidden }
 
-.menu-drop-shadow {
+.menu-drop-shadow { 
     box-shadow: 8px 8px 10px #888 !important;
 }
 
 /* Sticky menu */
 .menu-sticky { position: fixed; top: 0; left: 0; right: 0; z-index: 99999 }
 
-
+  
 /* ======= MOBILE MENU  ======== */
 
 
@@ -2222,3 +2360,7 @@ footer p.privacy a:hover, footer p.privacy a:active {
     overscroll-behavior: contain;
     overscroll-behavior-y: contain
 }
+
+
+
+
