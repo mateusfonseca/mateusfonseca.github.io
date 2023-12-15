@@ -58,7 +58,7 @@ function swapMenuStyle() {
     if (document.querySelector('.container-menu')) {
         const el_menu = document.querySelector('.container-menu');
         const el_menu_onscroll = el_menu.offsetTop +300;
-        if ( window.pageYOffset > el_menu_onscroll) {
+        if ( window.scrollY > el_menu_onscroll) {
             el_menu.classList.add("menu-on-scroll");
         }
         else {

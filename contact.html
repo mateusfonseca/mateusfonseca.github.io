@@ -7,8 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mateus Fonseca | Home</title>
-    <meta name="description" content="I create digital experiences to promote products, services and events.">
+    <title>Mateus Fonseca | Contact</title>
+    <meta name="description" content="Have a website project you would like to discuss? let's make something great together!">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
@@ -16,7 +16,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
     <link rel="manifest" href="assets/img/site.webmanifest">
 
-  	<!-- Preload hero image -->
+    <!-- Preload hero image -->
     <link rel="preload" href="assets/img/banner.webp" as="image">
 
   	<!-- Stylesheets -->
@@ -28,9 +28,6 @@
   	<!-- Font Awesome 5 icons -->
   	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-
-    <!-- Google Search Console verification tag -->
-    <meta name="google-site-verification" content="M6NyJaGb0ymtsEn4p3ZtBJPiHlWpqpw1uLizfUHPaJg" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK1SNM4XV0"></script>
@@ -63,52 +60,61 @@
 
       <!-- header -->
       <header class="hero-block text-center-desktop text-center-mobile">
-      	<div class="hero-text-container">
-          <h1 class="text-shadow fade-in">Welcome to my website</h1>
-      		<h2 class="text-shadow fade-in">Organized, analytical, methodical, and a lifelong admirer of efficient elegant systems.</h2>
-      	</div>
+        <div class="hero-text-container">
+          <h1 class="text-shadow fade-in">Contact</h1>
+          <h2 class="text-shadow fade-in">This page is under construction...</h2>
+        </div>
 
-    		<div class="container-btn">
-    			<a href="contact.html" class="btn btn-primary btn-rounded"><i class="fas fa-envelope"></i><span>Contact</span></a>
-    			<a href="portfolio.html" class="btn btn-secondary btn-rounded"><i class="fas fa-file-code"></i><span>Portfolio</span></a>
-    		</div>
+        <div class="container-btn">
+          <a href="portfolio.html" class="btn btn-primary btn-rounded"><i class="fas fa-file-code"></i><span>Portfolio</span></a>
+        </div>
 
-      	<div class="hero-bg-media">
-      		<img src="./assets/img/banner.webp" alt="Laptop">
-      	</div>
+        <div class="hero-bg-media">
+          <img src="assets/img/banner.webp" alt="Placeholder image">
+        </div>
 
-      	<div class="bg-overlay"></div>
+        <div class="bg-overlay"></div>
       </header>
 
       <!-- main content with sections -->
       <main>
-      	<section class="container-flex theme-one">
-      		<div class="col-1 text-center">
-      			<h2>Latest projects</h2>
-      			<h3>Below you can see some examples of my recent work. Check out my complete portfolio.</h3>
-      		</div>
+         <section class="container-contact-form">
+              <!-- Contact form starts here -->
+              <form id="contact-form" name="contact-form" accept-charset="utf-8" method="post" action="https://formspree.io/f/xeqvyllo">
 
-          <div class="col-3">
-            <figure><a href="portfolio/todo-list.html"><img src="assets/img/todo-list.png" alt="To-Do List"></a></figure>
-            <h3>To-Do List</h3>
-            <p>"To-Do List" Flask web application developed for my CA 4 at Dorset College BSc in Computing, Year 3, Semester 2.</p>
-            <a href="portfolio/todo-list.html" class="btn btn-ghost btn-rounded"><span>Check It Out</span><i class="fas fa-arrow-right"></i></a>
-          </div>
+                  <div class="contact-form-upper text-center">
+                      <h2>Get in touch</h2>
+                      <p>Use the form below to let me know a little more about your objectives and I'll get back to you.</p>
+                  </div>
 
-          <div class="col-3">
-      			<figure><a href="portfolio/music-collection.html"><img src="assets/img/music-collection.png" alt="Music Collection"></a></figure>
-      			<h3>Music Collection</h3>
-      			<p>"Music Collection" Django web application developed for my CAs 1, 2 and 3 at Dorset College BSc in Computing, Year 3, Semesters 1 and 2.</p>
-      		  <a href="portfolio/music-collection.html" class="btn btn-ghost btn-rounded"><span>Check It Out</span><i class="fas fa-arrow-right"></i></a>
-          </div>
+                  <!-- Begin contact form fields -->
+                  <div class="flex-row">
+                      <div class="item-name">
+                          <label for="full-name">Full Name</label>
+                          <input type="text" name="name" id="full-name" placeholder="Your First and Last Name." required="">
+                      </div>
+                      <div class="item-email">
+                          <label for="email-address">Email</label>
+                          <input type="email" name="_replyto" id="email-address" placeholder="Your Email Address." required="">
+                      </div>
+                  </div>
 
-          <div class="col-3">
-      			<figure><a href="portfolio/at3.html"><img src="assets/img/at3.png" alt="at³"></a></figure>
-      			<h3>at³</h3>
-      			<p>at³ Django web app developed as part of my Research Project/Third Year Project at Dorset College BSc in Computing, Year 3, Semester 2.</p>
-      		  <a href="portfolio/at3.html" class="btn btn-ghost btn-rounded"><span>Check It Out</span><i class="fas fa-arrow-right"></i></a>
-          </div>
-      	</section>
+                  <div class="flex-row">
+                      <div class="item-textarea">
+                          <label for="message">Message</label>
+                          <textarea rows="5" name="message" id="message" placeholder="Your Message." required=""></textarea>
+                      </div>
+
+                      <div class="item-btn">
+                          <button id="btn-submit" type="submit"><span>Send</span><i class="fas fa-arrow-circle-right"></i></button>
+                      </div>
+                  </div>
+
+                  <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+                  <!-- End contact form fields -->
+
+              </form><!-- Contact form ends here -->
+          </section><!-- End container for contact form -->
       </main>
 
       <!-- footer -->

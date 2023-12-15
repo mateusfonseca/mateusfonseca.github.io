@@ -1,2 +1,2 @@
 # mateusfonseca.github.io
-Front-end web development | Mateus Fonseca
+Mateus Fonseca | Online portfolio prototype
