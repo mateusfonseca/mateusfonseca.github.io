@@ -1,0 +1,50 @@
+<header class="p-6 border-b border-slate-800 dark:border-slate-200 sticky top-0 bg-slate-900/80 dark:bg-slate-50/80 backdrop-blur z-50 transition-colors duration-200">
+    <nav class="max-w-5xl mx-auto flex justify-between items-center">
+        <a href="index.html" class="font-bold text-xl tracking-tight text-blue-400 dark:text-blue-600">MFC.dev</a>
+        <div class="space-x-4 sm:space-x-6 text-sm font-medium flex items-center">
+            <a href="index.html" class="text-slate-300 dark:text-slate-700 hover:text-slate-100 dark:hover:text-slate-900 transition">Home</a>
+            <a href="projects.html" class="text-slate-300 dark:text-slate-700 hover:text-slate-100 dark:hover:text-slate-900 transition">Projects</a>
+            
+            <!-- Tailored CV Modal Trigger -->
+            <button id="open-cv-modal" class="text-slate-300 dark:text-slate-700 hover:text-slate-100 dark:hover:text-slate-900 transition cursor-pointer font-medium">
+                Download Tailored CV 📄
+            </button>
+            
+            <!-- Dark/Light Mode Toggle -->
+            <button id="theme-toggle" class="p-2 rounded-lg bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 text-xs font-medium transition cursor-pointer">
+                🌙 / ☀️
+            </button>
+
+            <a href="mailto:mateusff8@gmail.com" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<!-- Tailored CV Modal Window -->
+<div id="cv-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+    <div class="bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-200 p-8 rounded-2xl max-w-md w-full mx-4 shadow-2xl space-y-6">
+        <div class="flex justify-between items-center">
+            <h3 class="text-xl font-bold text-slate-100 dark:text-slate-900">Select CV Focus Track</h3>
+            <button id="close-cv-modal" class="text-slate-400 hover:text-slate-200 dark:hover:text-slate-700 text-lg font-bold cursor-pointer">&times;</button>
+        </div>
+        <p class="text-xs text-slate-400 dark:text-slate-600 leading-relaxed">
+            Choose an area of expertise. This dynamically tailors your project view and generates a traditional, clean resume printout.
+        </p>
+        
+        <!-- Track Selection Options inside Modal -->
+        <div class="space-y-3">
+            <button onclick="generateTailoredPDF('general')" class="w-full text-left p-3 rounded-xl bg-slate-800 dark:bg-slate-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-sm font-medium transition cursor-pointer">
+                🌐 General / Full-Stack (All-Rounder)
+            </button>
+            <button onclick="generateTailoredPDF('cloud')" class="w-full text-left p-3 rounded-xl bg-slate-800 dark:bg-slate-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-sm font-medium transition cursor-pointer">
+                ☁️ Cloud Architecture & DevOps (Terraform, AWS, BFV)
+            </button>
+            <button onclick="generateTailoredPDF('dev')" class="w-full text-left p-3 rounded-xl bg-slate-800 dark:bg-slate-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-sm font-medium transition cursor-pointer">
+                💻 Software Development (Python, FastAPI, Automation)
+            </button>
+            <button onclick="generateTailoredPDF('ai')" class="w-full text-left p-3 rounded-xl bg-slate-800 dark:bg-slate-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-sm font-medium transition cursor-pointer">
+                🤖 AI & Computer Vision (Nanoparticle CNN, OpenCV)
+            </button>
+        </div>
+    </div>
+</div>

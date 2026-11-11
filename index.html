@@ -6,91 +6,89 @@
     <title>Mateus Fonseca Campos - Interactive CV & Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <!-- html2pdf.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between">
+<body class="bg-slate-900 text-slate-100 dark:bg-slate-50 dark:text-slate-900 font-sans min-h-screen flex flex-col justify-between transition-colors duration-200">
     
-    <!-- Navigation Header -->
-    <header class="p-6 border-b border-slate-800 sticky top-0 bg-slate-900/80 backdrop-blur z-50">
-        <nav class="max-w-5xl mx-auto flex justify-between items-center">
-            <span class="font-bold text-xl tracking-tight text-blue-400">MFC.dev</span>
-            <div class="space-x-6 text-sm font-medium">
-                <a href="index.html" class="text-blue-400 hover:text-blue-300 transition">Home</a>
-                <a href="projects.html" class="hover:text-slate-300 hover:underline transition">Projects</a>
-                <a href="mailto:mateusff8@gmail.com" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition">Contact</a>
-            </div>
-        </nav>
-    </header>
+    <!-- Navbar gets injected here -->
+    <div id="navbar-placeholder"></div>
     
     <!-- Main Content Area -->
     <main class="max-w-5xl mx-auto p-6 py-12 space-y-16 flex-grow">
         
         <!-- Hero Section -->
         <section class="space-y-6">
-            <div class="inline-block bg-blue-950 border border-blue-800 text-blue-300 text-xs px-3 py-1.5 rounded-full font-semibold">
+            <div class="inline-block bg-blue-950 dark:bg-blue-100 border border-blue-800 dark:border-blue-300 text-blue-300 dark:text-blue-800 text-xs px-3 py-1.5 rounded-full font-semibold">
                 Stamp 1G Graduate Visa (Full-Time Working Rights in Ireland)
             </div>
             <h1 class="text-5xl font-extrabold tracking-tight">Mateus Fonseca Campos</h1>
-            <p class="text-2xl text-blue-400 font-medium">First Class Honours MSc Information Systems & BSc Computing Graduate</p>
-            <p class="text-slate-300 max-w-3xl leading-relaxed text-lg">
+            <p class="text-2xl text-blue-400 dark:text-blue-600 font-medium">First Class Honours MSc Information Systems & BSc Computing Graduate</p>
+            <p class="text-slate-300 dark:text-slate-600 max-w-3xl leading-relaxed text-lg">
                 Bridging enterprise business processes with advanced software solutions. Proven track record of identifying manual business bottlenecks and engineering automated software solutions, zero-trust cryptographic cloud architectures, and resilient CI/CD pipelines[cite: 1].
             </p>
             <div class="flex flex-wrap gap-4 pt-2">
                 <a href="mailto:mateusff8@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-lg shadow-blue-600/20">Get in Touch</a>
-                <a href="https://linkedin.com/in/mateusfcampos" target="_blank" class="border border-slate-700 hover:border-slate-500 bg-slate-800/50 px-5 py-2.5 rounded-lg text-sm font-semibold transition">LinkedIn Profile</a>
-                <a href="https://github.com/mateusfonseca" target="_blank" class="border border-slate-700 hover:border-slate-500 bg-slate-800/50 px-5 py-2.5 rounded-lg text-sm font-semibold transition">GitHub Profile</a>
+                <a href="https://linkedin.com/in/mateusfcampos" target="_blank" class="border border-slate-700 dark:border-slate-300 hover:border-slate-500 bg-slate-800/50 dark:bg-slate-100 px-5 py-2.5 rounded-lg text-sm font-semibold transition">LinkedIn Profile</a>
+                <a href="https://github.com/mateusfonseca" target="_blank" class="border border-slate-700 dark:border-slate-300 hover:border-slate-500 bg-slate-800/50 dark:bg-slate-100 px-5 py-2.5 rounded-lg text-sm font-semibold transition">GitHub Profile</a>
             </div>
         </section>
 
         <!-- Technical Skills Section -->
         <section>
-            <h2 class="text-2xl font-bold mb-6 border-b border-slate-800 pb-3">Technical Skills</h2>
+            <h2 class="text-2xl font-bold mb-6 border-b border-slate-800 dark:border-slate-200 pb-3">Technical Skills</h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50">
-                    <h3 class="text-blue-400 font-semibold mb-2">Languages & Backend</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">Python, JavaScript, TypeScript, C#, Java, C/C++, Kotlin, R, FastAPI, Uvicorn, Django, Flask, Pytest</p>
+                <div class="bg-slate-800/40 dark:bg-white p-6 rounded-xl border border-slate-700/50 dark:border-slate-200 shadow-sm">
+                    <h3 class="text-blue-400 dark:text-blue-600 font-semibold mb-2">Languages & Backend</h3>
+                    <p class="text-sm text-slate-300 dark:text-slate-600 leading-relaxed">Python, JavaScript, TypeScript, C#, Java, C/C++, Kotlin, R, FastAPI, Uvicorn, Django, Flask, Pytest</p>
                 </div>
-                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50">
-                    <h3 class="text-blue-400 font-semibold mb-2">Cloud & DevOps</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">AWS, HashiCorp Terraform (IaC), Docker, Ansible, GitHub Actions (CI/CD), Nginx, Linux Systems Administration</p>
+                <div class="bg-slate-800/40 dark:bg-white p-6 rounded-xl border border-slate-700/50 dark:border-slate-200 shadow-sm">
+                    <h3 class="text-blue-400 dark:text-blue-600 font-semibold mb-2">Cloud & DevOps</h3>
+                    <p class="text-sm text-slate-300 dark:text-slate-600 leading-relaxed">AWS, HashiCorp Terraform (IaC), Docker, Ansible, GitHub Actions (CI/CD), Nginx, Linux Systems Administration</p>
                 </div>
-                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50">
-                    <h3 class="text-blue-400 font-semibold mb-2">Applied Cryptography & Privacy</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">Fully Homomorphic Encryption (TenSEAL BFV scheme), AES-128, TLS/HTTPS, Zero-Trust Architectures</p>
+                <div class="bg-slate-800/40 dark:bg-white p-6 rounded-xl border border-slate-700/50 dark:border-slate-200 shadow-sm">
+                    <h3 class="text-blue-400 dark:text-blue-600 font-semibold mb-2">Applied Cryptography & Privacy</h3>
+                    <p class="text-sm text-slate-300 dark:text-slate-600 leading-relaxed">Fully Homomorphic Encryption (TenSEAL BFV scheme), AES-128, TLS/HTTPS, Zero-Trust Architectures</p>
                 </div>
-                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50">
-                    <h3 class="text-blue-400 font-semibold mb-2">Databases & Enterprise Operations</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">MySQL, SQLite, MongoDB, Firestore, HotSoft 8 PMS, ERP/PMS Integration, Technical Support & Staff Onboarding</p>
+                <div class="bg-slate-800/40 dark:bg-white p-6 rounded-xl border border-slate-700/50 dark:border-slate-200 shadow-sm">
+                    <h3 class="text-blue-400 dark:text-blue-600 font-semibold mb-2">Databases & Enterprise Operations</h3>
+                    <p class="text-sm text-slate-300 dark:text-slate-600 leading-relaxed">MySQL, SQLite, MongoDB, Firestore, HotSoft 8 PMS, ERP/PMS Integration, Technical Support & Staff Onboarding</p>
                 </div>
             </div>
         </section>
 
         <!-- Featured Projects Section -->
         <section>
-            <h2 class="text-2xl font-bold mb-6 border-b border-slate-800 pb-3">Featured Academic Projects</h2>
+            <h2 class="text-2xl font-bold mb-6 border-b border-slate-800 dark:border-slate-200 pb-3">Featured Academic Projects</h2>
             <div class="space-y-6">
                 <!-- Project 1 -->
-                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 transition hover:border-slate-600">
+                <div class="bg-slate-800/40 dark:bg-white p-6 rounded-xl border border-slate-700/50 dark:border-slate-200 shadow-sm transition hover:border-slate-600">
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-2">
                         <h3 class="text-xl font-bold">BFV-Based Searchable Cloud Encryption System (MSc Project)</h3>
-                        <span class="text-xs bg-blue-900/60 text-blue-300 px-3 py-1 rounded-full font-medium">Python • TenSEAL • Terraform • AWS</span>
+                        <span class="text-xs bg-blue-900/60 dark:bg-blue-100 text-blue-300 dark:text-blue-800 px-3 py-1 rounded-full font-medium">Python • TenSEAL • Terraform • AWS</span>
                     </div>
-                    <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                    <p class="text-slate-300 dark:text-slate-600 text-sm mb-4 leading-relaxed">
                         Engineered a three-layer hybrid cryptographic architecture combining BFV (Homomorphic Encryption for data in-use), AES-128 (for data at-rest), and TLS/HTTPS via Nginx to enable zero-trust Disjunctive Normal Form queries over encrypted cloud storage[cite: 1, 2].
                     </p>
-                    <a href="https://github.com/mateusfonseca" target="_blank" class="text-blue-400 text-sm font-semibold hover:underline inline-flex items-center gap-1">View GitHub Repository &rarr;</a>
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">View GitHub Repository &rarr;</a>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 transition hover:border-slate-600">
+                <div class="bg-slate-800/40 dark:bg-white p-6 rounded-xl border border-slate-700/50 dark:border-slate-200 shadow-sm transition hover:border-slate-600">
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-2">
                         <h3 class="text-xl font-bold">AI-Driven Nanoparticle Analysis Tool (BSc Hons Thesis)</h3>
-                        <span class="text-xs bg-blue-900/60 text-blue-300 px-3 py-1 rounded-full font-medium">Python • Django • TensorFlow • OpenCV</span>
+                        <span class="text-xs bg-blue-900/60 dark:bg-blue-100 text-blue-300 dark:text-blue-800 px-3 py-1 rounded-full font-medium">Python • Django • TensorFlow • OpenCV</span>
                     </div>
-                    <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                    <p class="text-slate-300 dark:text-slate-600 text-sm mb-4 leading-relaxed">
                         Developed a full-stack computer vision application to automate detection and sizing of nanoparticles in TEM scans, comparing traditional Circle Hough Transforms against a custom CNN in TensorFlow/Keras[cite: 2].
                     </p>
-                    <a href="https://github.com/mateusfonseca" target="_blank" class="text-blue-400 text-sm font-semibold hover:underline inline-flex items-center gap-1">View GitHub Repository &rarr;</a>
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">View GitHub Repository &rarr;</a>
                 </div>
             </div>
         </section>
@@ -99,12 +97,12 @@
         <section class="grid md:grid-cols-2 gap-10">
             <!-- Experience Column -->
             <div>
-                <h2 class="text-2xl font-bold mb-6 border-b border-slate-800 pb-3">Professional Experience</h2>
-                <div class="space-y-6 border-l-2 border-slate-800 pl-4 ml-1">
+                <h2 class="text-2xl font-bold mb-6 border-b border-slate-800 dark:border-slate-200 pb-3">Professional Experience</h2>
+                <div class="space-y-6 border-l-2 border-slate-800 dark:border-slate-300 pl-4 ml-1">
                     <div>
                         <h3 class="font-bold text-lg">The Harcourt Hotel Group</h3>
-                        <p class="text-xs text-blue-400 font-medium mb-1">Reservations Agent & Front Office Supervisor | Oct 2023 – Present</p>
-                        <p class="text-sm text-slate-300 leading-relaxed">
+                        <p class="text-xs text-blue-400 dark:text-blue-600 font-medium mb-1">Reservations Agent & Front Office Supervisor | Oct 2023 – Present</p>
+                        <p class="text-sm text-slate-300 dark:text-slate-600 leading-relaxed">
                             Engineered a custom TypeScript automation tool reducing multi-hour financial reconciliations to sub-minute executions and acted as Subject Matter Expert for PMS/ERP software support[cite: 2, 3].
                         </p>
                     </div>
@@ -113,22 +111,22 @@
 
             <!-- Education Column (NFQ Progression) -->
             <div>
-                <h2 class="text-2xl font-bold mb-6 border-b border-slate-800 pb-3">Academic Progression</h2>
-                <div class="space-y-6 border-l-2 border-slate-800 pl-4 ml-1">
+                <h2 class="text-2xl font-bold mb-6 border-b border-slate-800 dark:border-slate-200 pb-3">Academic Progression</h2>
+                <div class="space-y-6 border-l-2 border-slate-800 dark:border-slate-300 pl-4 ml-1">
                     <div>
                         <h3 class="font-bold text-lg">MSc in Information Systems with Computing</h3>
-                        <p class="text-xs text-blue-400 font-medium mb-1">Dublin Business School | NFQ Level 9</p>
-                        <p class="text-sm text-slate-300">First Class Honours (1.1 / 78% Average)[cite: 3].</p>
+                        <p class="text-xs text-blue-400 dark:text-blue-600 font-medium mb-1">Dublin Business School | NFQ Level 9</p>
+                        <p class="text-sm text-slate-300 dark:text-slate-600">First Class Honours (1.1 / 78% Average)[cite: 3].</p>
                     </div>
                     <div>
                         <h3 class="font-bold text-lg">BSc in Computing & IT</h3>
-                        <p class="text-xs text-blue-400 font-medium mb-1">CCT College Dublin | NFQ Level 8</p>
-                        <p class="text-sm text-slate-300">Second Class Honours, Grade 1 (2.1 / 60% Average)[cite: 3].</p>
+                        <p class="text-xs text-blue-400 dark:text-blue-600 font-medium mb-1">CCT College Dublin | NFQ Level 8</p>
+                        <p class="text-sm text-slate-300 dark:text-slate-600">Second Class Honours, Grade 1 (2.1 / 60% Average)[cite: 3].</p>
                     </div>
                     <div>
                         <h3 class="font-bold text-lg">BSc in Computing</h3>
-                        <p class="text-xs text-blue-400 font-medium mb-1">Dorset College Dublin | NFQ Level 7</p>
-                        <p class="text-sm text-slate-300">First Class Honours (1.1 / 87% Average)[cite: 3].</p>
+                        <p class="text-xs text-blue-400 dark:text-blue-600 font-medium mb-1">Dorset College Dublin | NFQ Level 7</p>
+                        <p class="text-sm text-slate-300 dark:text-slate-600">First Class Honours (1.1 / 87% Average)[cite: 3].</p>
                     </div>
                 </div>
             </div>
@@ -136,10 +134,46 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="p-6 border-t border-slate-800 text-center text-sm text-slate-500">
-        <p>&copy; 2026 Mateus Fonseca Campos. Built with HTML, Tailwind CSS, and GitHub Pages.</p>
-    </footer>
+    <!-- Footer gets injected here -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Hidden Traditional Resume Template for PDF Generation -->
+    <div id="traditional-cv-template" class="hidden">
+        <div style="font-family: 'Times New Roman', Times, serif; color: #000; padding: 15px; background: #fff; max-width: 800px; margin: 0 auto;">
+            
+            <!-- Header -->
+            <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 8px; margin-bottom: 12px;">
+                <h1 style="font-size: 20pt; margin: 0; font-weight: bold; text-transform: uppercase;">Mateus Fonseca Campos</h1>
+                <p style="font-size: 10pt; margin: 4px 0 0 0;">Dublin, Ireland | +353 83 345 3972 | mateusff8@gmail.com | linkedin.com/in/mateusfcampos</p>
+                <p style="font-size: 9.5pt; margin: 2px 0 0 0; font-style: italic;">Stamp 1G Graduate Visa (Full-Time Working Rights in Ireland)</p>
+            </div>
+
+            <!-- Summary -->
+            <div style="margin-bottom: 12px;">
+                <h2 style="font-size: 11pt; font-weight: bold; border-bottom: 1px solid #000; text-transform: uppercase; margin-bottom: 4px; padding-bottom: 2px;">Professional Summary</h2>
+                <p style="font-size: 10pt; line-height: 1.35; margin: 0;">
+                    First Class Honours graduate in MSc Information Systems and BSc Computing with deep expertise in applied cryptography, cloud infrastructure, and enterprise process automation. Proven track record of engineering zero-trust architectures and automated software solutions.
+                </p>
+            </div>
+
+            <!-- Dynamic Projects Container (Injected by JS based on track) -->
+            <div style="margin-bottom: 12px;">
+                <h2 style="font-size: 11pt; font-weight: bold; border-bottom: 1px solid #000; text-transform: uppercase; margin-bottom: 4px; padding-bottom: 2px;">Key Technical Projects</h2>
+                <div id="pdf-projects-container">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div>
+                <h2 style="font-size: 11pt; font-weight: bold; border-bottom: 1px solid #000; text-transform: uppercase; margin-bottom: 4px; padding-bottom: 2px;">Education & Academic Progression</h2>
+                <p style="font-size: 10pt; margin: 0 0 3px 0;"><strong>MSc in Information Systems with Computing (NFQ Level 9)</strong> — Dublin Business School (First Class Honours, 1.1 / 78%)</p>
+                <p style="font-size: 10pt; margin: 0 0 3px 0;"><strong>BSc in Computing & IT (NFQ Level 8)</strong> — CCT College Dublin (Second Class Honours, Grade 1)</p>
+                <p style="font-size: 10pt; margin: 0;"><strong>BSc in Computing (NFQ Level 7)</strong> — Dorset College Dublin (First Class Honours, 1.1 / 87%)</p>
+            </div>
+
+        </div>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>

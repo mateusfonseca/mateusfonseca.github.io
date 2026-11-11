@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Mateus Fonseca Campos</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <!-- html2pdf.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-slate-900 text-slate-100 dark:bg-slate-50 dark:text-slate-900 font-sans min-h-screen flex flex-col justify-between transition-colors duration-200">
+    
+    <!-- Navbar gets injected here -->
+    <div id="navbar-placeholder"></div>
+    
+    <!-- Main Content Area -->
+    <main class="max-w-5xl mx-auto p-6 py-12 space-y-10 flex-grow">
+        
+        <!-- Page Title & Export Actions -->
+        <section class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div class="space-y-2">
+                <h1 class="text-4xl font-extrabold tracking-tight">Technical Repositories & Projects</h1>
+                <p class="text-slate-400 dark:text-slate-600 text-lg">
+                    Filter through academic research, cloud infrastructure implementations, and full-stack systems.
+                </p>
+            </div>
+            <button onclick="window.print()" class="no-print border border-slate-700 dark:border-slate-300 bg-slate-800 dark:bg-slate-100 text-slate-300 dark:text-slate-800 px-4 py-2 rounded-lg text-xs font-semibold hover:border-slate-500 transition shadow-sm">
+                🖨️ Export Filtered View to PDF
+            </button>
+        </section>
+
+        <!-- Interactive Category Filters -->
+        <div id="filter-container" class="flex flex-wrap gap-2 pt-2 border-b border-slate-800 dark:border-slate-200 pb-6">
+            <button data-filter="all" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-blue-600 text-white transition shadow-sm">All Projects</button>
+            <button data-filter="msc" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 transition">MSc Level 9</button>
+            <button data-filter="bsc8" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 transition">BSc Level 8</button>
+            <button data-filter="bsc7" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 transition">BSc Level 7</button>
+            <button data-filter="cloud" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 transition">Cloud & DevOps</button>
+            <button data-filter="ai" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 transition">AI & Computer Vision</button>
+        </div>
+
+        <!-- Projects Grid Container -->
+        <div id="projects-grid" class="space-y-8">
+            
+            <!-- Project 1: BFV Searchable Cloud Encryption -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-category="msc cloud crypto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">BFV-Based Searchable Cloud Encryption System</h2>
+                    <span class="text-xs bg-blue-900/60 dark:bg-blue-100 text-blue-300 dark:text-blue-800 px-3 py-1 rounded-full font-medium">MSc Applied Research Project (Level 9)</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">TenSEAL</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">FastAPI</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">AWS (EC2)</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Terraform</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Nginx</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Engineered a three-layer hybrid cryptographic architecture combining BFV (Homomorphic Encryption for data in-use), AES-128 (Fernet for data at-rest), and TLS/HTTPS via Nginx (data in-transit) to enable zero-trust Disjunctive Normal Form (DNF) boolean queries over encrypted cloud storage[cite: 1, 2].
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Provisioned memory-optimized AWS EC2 infrastructure using Terraform and built an asynchronous FastAPI backend supporting parallel homomorphic matrix-vector dot products[cite: 1, 2].</li>
+                    <li>Evaluated latency, ciphertext size, and noise budget consumption across scaling datasets with automated unit testing achieving 100% test coverage via Pytest[cite: 2].</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2: Automated CI/CD Pipeline -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-category="msc cloud">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Automated CI/CD Pipeline</h2>
+                    <span class="text-xs bg-purple-900/60 dark:bg-purple-100 text-purple-300 dark:text-purple-800 px-3 py-1 rounded-full font-medium">MSc DevOps Project (Level 9)</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Terraform</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Docker</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Ansible</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">GitHub Actions</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">AWS</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Designed an automated deployment workflow within a DevOps environment to provision, configure, and scale cloud infrastructure seamlessly[cite: 2].
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Implemented Infrastructure as Code (IaC) using Terraform for stateful infrastructure management and Ansible for automated configuration management[cite: 2].</li>
+                    <li>Containerized applications using Docker and built GitHub Actions workflows to streamline build, test, and deployment cycles[cite: 2].</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 3: AI-Driven Nanoparticle Analysis Tool (BSc Level 8) -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-category="bsc8 ai python">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">AI-Driven Nanoparticle Analysis Tool</h2>
+                    <span class="text-xs bg-emerald-900/60 dark:bg-emerald-100 text-emerald-300 dark:text-emerald-800 px-3 py-1 rounded-full font-medium">BSc Hons Thesis (Level 8)</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Django</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">TensorFlow / Keras</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">OpenCV</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Developed a full-stack computer vision application to automate the detection and sizing of nanoparticles in Transmission Electron Microscopy (TEM) scans, entirely eliminating manual measurement errors[cite: 2].
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Implemented and rigorously compared two distinct algorithmic approaches: traditional Circle Hough Transforms in OpenCV and a custom Convolutional Neural Network (CNN) in TensorFlow/Keras[cite: 2].</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 4: Automated Nanoparticle Sizing with OpenCV (BSc Level 7) -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-category="bsc7 ai python">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Automated TEM Size Distribution Analysis</h2>
+                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Applied Research Project (Level 7)</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">OpenCV</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">SciPy / NumPy</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Designed an automated size distribution analysis web application utilizing OpenCV and Python to process electron microscopy scans and quantify nanoparticle geometries[cite: 2, 3].
+                </p>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 5: Hybrid Mobile Application -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-category="bsc8 bsc7 mobile">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Cross-Platform Hybrid Mobile Application</h2>
+                    <span class="text-xs bg-indigo-900/60 dark:bg-indigo-100 text-indigo-300 dark:text-indigo-800 px-3 py-1 rounded-full font-medium">Software Development Project</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Ionic</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">React</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Firebase / Firestore</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Designed and built a responsive cross-platform mobile application utilizing Ionic and React, integrated with real-time cloud data synchronization via Firebase and Cloud Firestore[cite: 2].
+                </p>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer gets injected here -->
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
