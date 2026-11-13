@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-slate-900 text-slate-100 dark:bg-slate-50 dark:text-slate-900 font-sans min-h-screen flex flex-col justify-between transition-colors duration-200">
+<body data-page="projects" class="bg-slate-900 text-slate-100 dark:bg-slate-50 dark:text-slate-900 font-sans min-h-screen flex flex-col justify-between transition-colors duration-200">
     
     <!-- Navbar gets injected here -->
     <div id="navbar-placeholder"></div>
@@ -26,49 +26,262 @@
         <!-- Page Title & Export Actions -->
         <section class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div class="space-y-2">
-                <h1 class="text-4xl font-extrabold tracking-tight">Technical Repositories & Projects</h1>
+                <h1 class="text-4xl font-extrabold tracking-tight">Projects & Repositories</h1>
                 <p class="text-slate-400 dark:text-slate-600 text-lg">
-                    Filter through academic research, cloud infrastructure implementations, and full-stack systems.
+                    Use the controls below to filter and sort projects.
                 </p>
             </div>
-            <button onclick="window.print()" class="no-print border border-slate-700 dark:border-slate-300 bg-slate-800 dark:bg-slate-100 text-slate-300 dark:text-slate-800 px-4 py-2 rounded-lg text-xs font-semibold hover:border-slate-500 transition shadow-sm">
-                🖨️ Export Filtered View to PDF
-            </button>
         </section>
 
-        <!-- Interactive Category Filters -->
-        <div id="filter-container" class="flex flex-wrap gap-2 pt-2 border-b border-slate-800 dark:border-slate-200 pb-6">
-            <button data-filter="all" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-blue-600 text-white transition shadow-sm">All Projects</button>
-            <button data-filter="msc" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 transition">MSc Level 9</button>
-            <button data-filter="bsc8" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 transition">BSc Level 8</button>
-            <button data-filter="bsc7" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 transition">BSc Level 7</button>
-            <button data-filter="cloud" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 transition">Cloud & DevOps</button>
-            <button data-filter="ai" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 transition">AI & Computer Vision</button>
+        <!-- Sophisticated Multi-Dropdown Check Filters -->
+        <div id="filter-container" class="bg-slate-800/60 dark:bg-slate-100 p-6 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+                
+                <!-- 1. Degree Dropdown -->
+                <details class="relative group">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                        <span class="flex items-center gap-2">
+                            Degree
+                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                        </span>
+                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="absolute z-20 mt-2 w-full bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-degree" value="masters" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Master's
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-degree" value="bachelors" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Bachelor's
+                        </label>
+                    </div>
+                </details>
+
+                <!-- 2. Programming Language Dropdown -->
+                <details class="relative group">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                        <span class="flex items-center gap-2">
+                            Language
+                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                        </span>
+                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="absolute z-20 mt-2 w-full bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-lang" value="python" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Python
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-lang" value="csharp" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> C#
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-lang" value="javascript" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> JavaScript
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-lang" value="typescript" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> TypeScript
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-lang" value="kotlin" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Kotlin
+                        </label>
+                    </div>
+                </details>
+
+                <!-- 3. Framework Dropdown -->
+                <details class="relative group">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                        <span class="flex items-center gap-2">
+                            Framework
+                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                        </span>
+                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="absolute z-20 mt-2 w-full bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-framework" value="fastapi" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> FastAPI
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-framework" value="streamlit" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Streamlit
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-framework" value="flask" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Flask
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-framework" value="django" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Django
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-framework" value="dotnet" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> .NET / ASP.NET
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-framework" value="react" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> React / React Native
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-framework" value="ionic" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Ionic
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-framework" value="android" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Android Native
+                        </label>
+                    </div>
+                </details>
+
+                <!-- 4. Area Dropdown -->
+                <details class="relative group">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                        <span class="flex items-center gap-2">
+                            Area
+                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                        </span>
+                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="absolute z-20 mt-2 w-full bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-area" value="cloud-arch" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Cloud Arch
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-area" value="soft-dev" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Soft Dev
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-area" value="cicd" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> CI/CD
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-area" value="devops" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> DevOps
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-area" value="crypto" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Cryptography
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-area" value="mobile" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Mobile Dev
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-area" value="ai" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> AI & Vision
+                        </label>
+                    </div>
+                </details>
+
+                <!-- 5. Others Dropdown -->
+                <details class="relative group">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                        <span class="flex items-center gap-2">
+                            Others
+                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                        </span>
+                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="absolute z-20 mt-2 w-full bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-others" value="terraform" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Terraform
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-others" value="aws" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> AWS
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-others" value="nginx" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Nginx
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-others" value="uvicorn" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Uvicorn
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-others" value="mysql" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> MySQL / SQLite
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-others" value="docker" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Docker
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                            <input type="checkbox" name="filter-others" value="firebase" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Firebase
+                        </label>
+                    </div>
+                </details>
+
+                <!-- 6. Sort Dropdown with Two-in-One Ascending/Descending Toggle -->
+                <div class="relative flex items-center bg-slate-900 dark:bg-white rounded-xl border border-slate-700 dark:border-slate-300 shadow-sm hover:border-blue-500 transition">
+                    <!-- Left Part: Sort Dropdown Selection -->
+                    <details class="group w-full relative">
+                        <summary class="flex justify-between items-center px-4 py-2.5 text-slate-200 dark:text-slate-800 cursor-pointer text-sm font-medium select-none">
+                            <span id="sort-summary-text">Sort by</span>
+                            <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="absolute left-0 z-20 mt-2 w-48 bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-2 space-y-1 text-sm">
+                            <button type="button" class="sort-option w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 transition" data-sort="date">Submission Date</button>
+                            <button type="button" class="sort-option w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 transition" data-sort="updated">Last Updated</button>
+                        </div>
+                    </details>
+
+                    <!-- Right Part: Ascending / Descending Toggler Button -->
+                    <button type="button" id="sort-order-btn" title="Toggle Sort Order" class="px-3 py-2.5 border-l border-slate-700 dark:border-slate-300 text-slate-400 hover:text-slate-200 dark:hover:text-slate-800 transition flex items-center justify-center">
+                        <!-- Unified Icon: List on the left, Arrow on the right -->
+                        <svg id="sort-icon" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <!-- List lines on the left side (x: 2 to 10) -->
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h8M3 12h6M3 18h4"/>
+                            <!-- Arrow on the right side (x: 15 to 21) pointing UP for ascending -->
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 18V6m0 0l-4 4m4-4l4 4"/>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex justify-end gap-3 pt-6 border-t border-slate-700/50 dark:border-slate-200">
+                <button id="clear-filters-btn" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-800 hover:bg-slate-600 dark:hover:bg-slate-300 transition">Clear Filters</button>
+                <button id="apply-filters-btn" class="px-6 py-2.5 rounded-xl text-sm font-semibold bg-blue-600 text-white hover:bg-blue-500 transition shadow-sm">Apply Filters</button>
+            </div>
         </div>
 
         <!-- Projects Grid Container -->
         <div id="projects-grid" class="space-y-8">
             
-            <!-- Project 1: BFV Searchable Cloud Encryption -->
-            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-category="msc cloud crypto">
+            <!-- Project 1: BFV-Based Searchable Cloud Encryption System -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="masters" data-lang="python" data-framework="fastapi streamlit" data-area="cloud-arch crypto devops" data-others="aws terraform nginx uvicorn" data-date="2026-08-25" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">BFV-Based Searchable Cloud Encryption System</h2>
-                    <span class="text-xs bg-blue-900/60 dark:bg-blue-100 text-blue-300 dark:text-blue-800 px-3 py-1 rounded-full font-medium">MSc Applied Research Project (Level 9)</span>
+                    <span class="text-xs bg-blue-900/60 dark:bg-blue-100 text-blue-300 dark:text-blue-800 px-3 py-1 rounded-full font-medium">MSc Applied Research Project (NFQ Level 9) — Dublin Business School</span>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
-                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">TenSEAL</span>
-                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">FastAPI</span>
-                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">AWS (EC2)</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">TenSEAL (BFV)</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">FastAPI / Uvicorn</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">AWS (EC2 r6i.xlarge, EBS gp3)</span>
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Terraform</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Nginx & TLS/HTTPS</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Streamlit</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Pytest (100% Coverage)</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Researched and engineered a cloud search engine executing Disjunctive Normal Form (DNF) boolean queries via Leveled Fully Homomorphic Encryption (LFHE). Quantified the "privacy tax" through extensive performance benchmarking across dataset sizes and query conjunction depths.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Implemented a three-layer hybrid cryptographic architecture: BFV via TenSEAL for data in-use, AES-128 (Fernet) for data at-rest, and TLS/HTTPS via Nginx reverse proxy for data in-transit.</li>
+                    <li>Provisioned memory-optimized AWS EC2 infrastructure (`r6i.xlarge`, 32 GiB RAM) using Terraform, featuring automated deployment orchestration via shell scripting and dynamic DNS integration.</li>
+                    <li>Built an asynchronous FastAPI backend performing homomorphic sparse matrix-vector dot products under zero-trust assumptions, paired with an interactive Streamlit user dashboard.</li>
+                    <li>Achieved 100% test coverage using Pytest, complete with automated RAM monitoring via `psutil` enforcing safety thresholds.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/20095949-mateus-campos/b9is101-research-project" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2: Automated DevOps Workflow & CI/CD Pipeline -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="masters" data-lang="python" data-framework="flask" data-area="cloud-arch cicd devops" data-others="aws terraform nginx docker" data-date="2025-11-09" data-updated="2026-11-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Automated DevOps Workflow & CI/CD Pipeline</h2>
+                    <span class="text-xs bg-blue-900/60 dark:bg-blue-100 text-blue-300 dark:text-blue-800 px-3 py-1 rounded-full font-medium">MSc Network Systems & Administration Project (NFQ Level 9) — Dublin Business School</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Terraform</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">AWS (EC2 & VPC)</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Ansible</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Docker & Docker Compose</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">GitHub Actions (CI/CD)</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python (Flask)</span>
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Nginx</span>
                 </div>
                 <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
-                    Engineered a three-layer hybrid cryptographic architecture combining BFV (Homomorphic Encryption for data in-use), AES-128 (Fernet for data at-rest), and TLS/HTTPS via Nginx (data in-transit) to enable zero-trust Disjunctive Normal Form (DNF) boolean queries over encrypted cloud storage[cite: 1, 2].
+                    Designed and implemented a complete end-to-end DevOps automation workflow, integrating cloud infrastructure provisioning, configuration management, containerized web services, and self-hosted CI/CD pipelines.
                 </p>
                 <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
-                    <li>Provisioned memory-optimized AWS EC2 infrastructure using Terraform and built an asynchronous FastAPI backend supporting parallel homomorphic matrix-vector dot products[cite: 1, 2].</li>
-                    <li>Evaluated latency, ciphertext size, and noise budget consumption across scaling datasets with automated unit testing achieving 100% test coverage via Pytest[cite: 2].</li>
+                    <li>Provisioned AWS cloud infrastructure including EC2 instances, security groups, and dynamic inventory synchronization using Terraform.</li>
+                    <li>Configured remote server environments and installed self-hosted GitHub Actions runners using automated Ansible playbooks.</li>
+                    <li>Containerized a Python/Flask application alongside an Nginx reverse proxy server using Docker Compose for isolated microservice deployment.</li>
+                    <li>Established an automated CI/CD pipeline triggering continuous build, test, and release cycles upon repository commits.</li>
                 </ul>
                 <div class="pt-2">
                     <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
@@ -77,50 +290,27 @@
                 </div>
             </div>
 
-            <!-- Project 2: Automated CI/CD Pipeline -->
-            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-category="msc cloud">
+            <!-- Project 3: AI-Driven Nanoparticle Analysis Tool -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="python" data-framework="django" data-area="soft-dev ai" data-others="mysql" data-date="2023-03-05" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                    <h2 class="text-2xl font-bold">Automated CI/CD Pipeline</h2>
-                    <span class="text-xs bg-purple-900/60 dark:bg-purple-100 text-purple-300 dark:text-purple-800 px-3 py-1 rounded-full font-medium">MSc DevOps Project (Level 9)</span>
-                </div>
-                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
-                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Terraform</span>
-                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Docker</span>
-                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Ansible</span>
-                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">GitHub Actions</span>
-                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">AWS</span>
-                </div>
-                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
-                    Designed an automated deployment workflow within a DevOps environment to provision, configure, and scale cloud infrastructure seamlessly[cite: 2].
-                </p>
-                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
-                    <li>Implemented Infrastructure as Code (IaC) using Terraform for stateful infrastructure management and Ansible for automated configuration management[cite: 2].</li>
-                    <li>Containerized applications using Docker and built GitHub Actions workflows to streamline build, test, and deployment cycles[cite: 2].</li>
-                </ul>
-                <div class="pt-2">
-                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
-                        View GitHub Repository &rarr;
-                    </a>
-                </div>
-            </div>
-
-            <!-- Project 3: AI-Driven Nanoparticle Analysis Tool (BSc Level 8) -->
-            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-category="bsc8 ai python">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                    <h2 class="text-2xl font-bold">AI-Driven Nanoparticle Analysis Tool</h2>
-                    <span class="text-xs bg-emerald-900/60 dark:bg-emerald-100 text-emerald-300 dark:text-emerald-800 px-3 py-1 rounded-full font-medium">BSc Hons Thesis (Level 8)</span>
+                    <h2 class="text-2xl font-bold">AI-Driven Nanoparticle Size Distribution Analysis Tool</h2>
+                    <span class="text-xs bg-emerald-900/60 dark:bg-emerald-100 text-emerald-300 dark:text-emerald-800 px-3 py-1 rounded-full font-medium">BSc Research Project (NFQ Level 7 & 8)</span>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
-                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Django</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Django (MVT)</span>
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">TensorFlow / Keras</span>
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">OpenCV</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Tesseract OCR</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">MySQL</span>
                 </div>
                 <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
-                    Developed a full-stack computer vision application to automate the detection and sizing of nanoparticles in Transmission Electron Microscopy (TEM) scans, entirely eliminating manual measurement errors[cite: 2].
+                    Developed a full-stack Django web application to automate Transmission Electron Microscopy (TEM) scan characterization, progressing from an NFQ Level 7 capstone using traditional computer vision to an NFQ Level 8 final year project featuring deep learning.
                 </p>
                 <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
-                    <li>Implemented and rigorously compared two distinct algorithmic approaches: traditional Circle Hough Transforms in OpenCV and a custom Convolutional Neural Network (CNN) in TensorFlow/Keras[cite: 2].</li>
+                    <li>Engineered the core Django Model-View-Template (MVT) architecture, relational MySQL schemas for projects/analyses, and Tesseract OCR automation to parse scaling factors from image legends.</li>
+                    <li>Implemented dual-pipeline image processing comparing traditional Circle Hough Transforms (CHT) via OpenCV against custom Convolutional Neural Networks (CNNs) in TensorFlow/Keras.</li>
+                    <li>Utilized NumPy, Pandas, and Matplotlib/Seaborn for statistical size distribution calculations and data visualization.</li>
                 </ul>
                 <div class="pt-2">
                     <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
@@ -129,41 +319,373 @@
                 </div>
             </div>
 
-            <!-- Project 4: Automated Nanoparticle Sizing with OpenCV (BSc Level 7) -->
-            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-category="bsc7 ai python">
+            <!-- Project 4: Album Collection Hybrid Mobile Application -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="masters" data-lang="typescript javascript" data-framework="react ionic" data-area="mobile soft-dev" data-others="firebase" data-date="2025-12-29" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                    <h2 class="text-2xl font-bold">Automated TEM Size Distribution Analysis</h2>
-                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Applied Research Project (Level 7)</span>
-                </div>
-                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
-                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
-                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">OpenCV</span>
-                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">SciPy / NumPy</span>
-                </div>
-                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
-                    Designed an automated size distribution analysis web application utilizing OpenCV and Python to process electron microscopy scans and quantify nanoparticle geometries[cite: 2, 3].
-                </p>
-                <div class="pt-2">
-                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
-                        View GitHub Repository &rarr;
-                    </a>
-                </div>
-            </div>
-
-            <!-- Project 5: Hybrid Mobile Application -->
-            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-category="bsc8 bsc7 mobile">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                    <h2 class="text-2xl font-bold">Cross-Platform Hybrid Mobile Application</h2>
-                    <span class="text-xs bg-indigo-900/60 dark:bg-indigo-100 text-indigo-300 dark:text-indigo-800 px-3 py-1 rounded-full font-medium">Software Development Project</span>
+                    <h2 class="text-2xl font-bold">Album Collection Hybrid Mobile Application</h2>
+                    <span class="text-xs bg-indigo-900/60 dark:bg-indigo-100 text-indigo-300 dark:text-indigo-800 px-3 py-1 rounded-full font-medium">MSc Mobile Technologies Project (NFQ Level 9) — Dublin Business School</span>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Ionic</span>
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">React</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">TypeScript</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Capacitor & Vite</span>
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Firebase / Firestore</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Discogs API</span>
                 </div>
                 <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
-                    Designed and built a responsive cross-platform mobile application utilizing Ionic and React, integrated with real-time cloud data synchronization via Firebase and Cloud Firestore[cite: 2].
+                    Developed a responsive cross-platform hybrid mobile application enabling users to catalog and track music listening histories, integrated with cloud authentication and external public media databases.
                 </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Architected a reactive client-side application using Ionic, React, TypeScript, and Vite, deployed via Capacitor for native mobile runtime execution.</li>
+                    <li>Integrated secure user authentication and real-time cloud data synchronization via Firebase and Cloud Firestore.</li>
+                    <li>Fetched rich album metadata dynamically from the public Discogs API and leveraged native Capacitor plugins including browser, splash screen, status bar, and toast notifications.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/20095949-mateus-campos/album-collection" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 5: Trackora Record Store Management System -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="masters" data-lang="python javascript" data-framework="fastapi react" data-area="cloud-arch soft-dev cicd devops" data-others="aws terraform docker nginx data-date="2026-04-26" data-updated="2026-11-10" mysql">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Trackora: Music Record Store Management System</h2>
+                    <span class="text-xs bg-purple-900/60 dark:bg-purple-100 text-purple-300 dark:text-purple-800 px-3 py-1 rounded-full font-medium">Cloud-Native Full-Stack Information System</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">React</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">FastAPI (Python)</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">AWS RDS (MySQL)</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">AWS S3 & CloudFront</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Terraform & Docker</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">GitHub Actions</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Designed and built a full-stack, cloud-native information system for a vinyl record store, featuring real-time metadata integration, e-commerce workflows, role-based access control, and an interactive 3D UI.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Developed a React, Vite, and Tailwind CSS frontend paired with a FastAPI and SQLAlchemy backend supporting JWT authentication and Discogs API catalog synchronization.</li>
+                    <li>Architected automated AWS infrastructure using Terraform, provisioning custom VPC networking, AWS RDS MySQL storage, and ECR container repositories.</li>
+                    <li>Configured production deployment pipelines: hosting static assets on S3 distributed via CloudFront, and running containerized APIs on EC2 behind an Nginx reverse proxy.</li>
+                    <li>Implemented automated CI/CD workflows using GitHub Actions for seamless frontend and backend builds, tests, and deployments.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 6: Industrial ERP Information System -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="masters" data-lang="python javascript" data-framework="flask react" data-area="soft-dev cloud-arch" data-others="aws nginx mysql" data-date="2025-12-14" data-updated="2026-11-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Industrial ERP Information System</h2>
+                    <span class="text-xs bg-cyan-900/60 dark:bg-cyan-100 text-cyan-300 dark:text-cyan-800 px-3 py-1 rounded-full font-medium">MSc Programming for Information Systems Project (NFQ Level 9) — Dublin Business School</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Flask</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">SQLAlchemy & Alembic</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">SQLite</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">React & Vite</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Bulma CSS</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">AWS EC2, Gunicorn & Nginx</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Developed a full-stack Flask and React web application implementing the manufacturing operations module of an Enterprise Resource Planning (ERP) system, featuring complete server-side REST API operations and cloud server deployment.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Engineered a Python Flask REST API backend leveraging SQLAlchemy ORM and Alembic migrations with a centralized SQLite database.</li>
+                    <li>Built a reactive client-side user interface using React, Vite, and Bulma CSS to manage manufacturing data exchange.</li>
+                    <li>Configured and deployed the application to an AWS EC2 cloud instance utilizing Gunicorn as the WSGI server and Nginx as the HTTP proxy.</li>
+                    <li>Validated business logic and CRUD operations using Pytest with automated test coverage reporting via Coverage.py.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 7: Flask To-Do List Web Application -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="python" data-framework="flask" data-area="soft-dev" data-others="mysql" data-date="2023-04-18" data-updated="2026-11-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Flask To-Do List Web Application</h2>
+                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Flask</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">MongoDB Atlas</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Jinja</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Bulma CSS</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Pytest & Coverage.py</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Developed a fully functional To-Do List web application utilizing Flask and the Model-View-Template (MVT) design pattern, featuring secure user authentication and cloud database integration.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Implemented Flask Blueprints for modular route management, user account management (signup, login, profile updates, and deletion), and to-do item lifecycle controls.</li>
+                    <li>Connected the application to MongoDB Atlas using cloud document models and secured user credentials with password hashing.</li>
+                    <li>Achieved 99% test code coverage using Pytest and Coverage.py with comprehensive unit testing suites for models and views.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca/dorsetToDo" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 8: Django Music Collection Web Application -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="python" data-framework="django" data-area="soft-dev" data-others="mysql" data-date="2022-11-29" data-updated="2026-11-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Django Music Collection Web Application</h2>
+                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Django</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Discogs API</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">MySQL</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Bootstrap</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Pytest & Coverage.py</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Developed a robust Django web application centered around music collections and community polls, integrating live metadata querying via the official Discogs REST API.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Implemented the Model-View-Template (MVT) architecture with custom relational database schemas for questions, albums, and secure user accounts.</li>
+                    <li>Enabled dynamic poll creation by querying, parsing, and ranking top album options directly from Discogs API responses.</li>
+                    <li>Achieved 99% test code coverage using comprehensive automated and manual test suites with Pytest and Coverage.py.</li>
+                    <li>Hardened application security through simulated CDN domain separation, HSTS headers, secure session cookies, and strict SSL redirection.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca/dorsetMusicCollection" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 9: ASP.NET Core MVC Online Store Web Application -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="csharp" data-framework="dotnet" data-area="soft-dev" data-others="mysql" data-date="2022-05-08" data-updated="2026-11-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">ASP.NET Core MVC Online Store Web Application</h2>
+                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">C#</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">ASP.NET Core MVC</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Entity Framework Core</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">SQLite</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Razor Pages & LINQ</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Developed a robust online store web application utilizing Microsoft's ASP.NET Core platform and the Model-View-Controller (MVC) architectural pattern to enforce strict separation of concerns.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Implemented full CRUD operations and relational database management for products, carts, orders, and user sessions using Entity Framework Core and SQLite.</li>
+                    <li>Designed specialized view models and dynamic Razor view components (such as a real-time mini-cart display) to handle complex business logic and presentation separation.</li>
+                    <li>Seeded initial store product data from external API schemas and structured controllers to handle user workflows safely and efficiently.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 10: React Native Accelerometer Leaderboard -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="typescript javascript" data-framework="react" data-area="mobile" data-others="firebase" data-date="2023-01-08" data-updated="2026-11-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">React Native Accelerometer Leaderboard</h2>
+                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">React Native</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">TypeScript / JavaScript</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Firebase Authentication</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Cloud Firestore</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">React Native Sensors</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Shopify FlashList</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Developed a cross-platform mobile application leveraging device sensors to stream movement data, calculate user activity metrics, and render real-time comparative rankings.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Utilized React functional components and hooks to capture 1,000 accelerometer data points locally while the application is active in the foreground.</li>
+                    <li>Integrated Firebase Authentication and Cloud Firestore for secure user onboarding and automated bulk data synchronization.</li>
+                    <li>Engineered a dynamic, auto-refreshing leaderboard interface using Shopify FlashList to calculate movement scores and rank participating users efficiently.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 11: Ireland Literature Map Mobile Application -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="javascript" data-framework="react" data-area="mobile" data-others="google-maps" data-date="2022-12-16" data-updated="2026-11-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Ireland Literature Map Mobile Application</h2>
+                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">React Native</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">JavaScript / JSX</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">React Native Maps</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Google Maps & Places API</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Haversine Formula</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Developed a cross-platform mobile application utilizing React Native and interactive map libraries to plot, filter, and inspect historical locations of significance to 16th- and 17th-century Irish literature based on MACMORRIS dataset archives.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Structured a traditional Class Component architecture to parse JSON data and display color-coded map markers with custom popup info windows and full-screen detail views.</li>
+                    <li>Integrated real-time place type filtering and dynamic image retrieval via the Google Places API using coordinate parameters.</li>
+                    <li>Engineered custom interactive radius features allowing users to drop draggable markers, compute proximity via the Haversine formula, and render adjustable bounding circles.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 12: Dorset College Bank Console Application -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="csharp" data-framework="dotnet" data-area="soft-dev" data-others="file-system" data-date="2021-11-25" data-updated="2026-11-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Dorset College Bank Console Application</h2>
+                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">C#</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">.NET Console</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Object-Oriented Programming</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">File System Persistence</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Custom Automated Test Harness</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Developed a robust object-oriented .NET console application in C# implementing core banking operations, structured entity hierarchies, interface-driven terminal menus, and a file-based transactional data layer.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Designed an extensible class hierarchy featuring abstract `User` actors (`Employee`, `Customer`), dual `Account` types (Savings and Current), and tracked `Transaction` histories.</li>
+                    <li>Implemented dynamic account number generation algorithms based on customer name metrics, automated PIN validation, and robust plain-text database persistence.</li>
+                    <li>Engineered a specialized `TestDriver` utility supporting automated script execution via input/output redirection files across multiple feature scenarios and custom test slots.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 13: Android "About Me" Mobile Application -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="kotlin" data-framework="android" data-area="mobile" data-others="material-design" data-date="2022-03-06" data-updated="2026-11-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Android "About Me" Mobile Application</h2>
+                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Kotlin</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Android Studio</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Material Design</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">View Binding</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">RecyclerView & Adapters</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Developed a native Android application in Kotlin featuring structured multi-activity navigation, custom UI components, responsive recycler views, and object-oriented architectural patterns.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Managed explicit intent back-stack routing using single-top launch modes and clear-top flags to ensure optimal task management and seamless home-button navigation.</li>
+                    <li>Engineered nested RecyclerViews with custom `ItemAdapter` and `ImageAdapter` classes to render dynamic card content and image lists.</li>
+                    <li>Implemented an `ActivitySetter` interface to automate shared layout setups (top bars, bottom bars, and copyright footers) across activities, minimizing code duplication.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 14: Movie Booking Android Application -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="kotlin" data-framework="android" data-area="mobile" data-others="rest-api" data-date="2022-03-28" data-updated="2026-11-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Movie Booking Android Application</h2>
+                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Kotlin</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Android Studio</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">RecyclerView</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Parcelable & Intent Extras</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">REST API Integration</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Developed a dynamic Android cinema ticket booking application in Kotlin featuring remote JSON data retrieval, interactive seat selection controls, and stateful multi-activity navigation.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Connected the application to external data sources asynchronously, using `runOnUiThread` handlers to safely fetch and instantiate movie models from network streams.</li>
+                    <li>Engineered seat selection and inventory tracking features with strict UI validation rules, updating remaining seats and seating selections dynamically.</li>
+                    <li>Passed custom data objects across activities using the `Parcelable` interface and handled intent result callbacks to keep main adapter views synchronized upon return.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 15: GitHub Repositories Android Application -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="kotlin" data-framework="android" data-area="mobile" data-others="github-api" data-date="2022-04-04" data-updated="2026-11-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">GitHub Repositories Android Application</h2>
+                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Kotlin</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Android Studio</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">GitHub API</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">RecyclerView & Adapters</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">View Binding</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Developed a native Android application in Kotlin enabling users to search and inspect GitHub user and organization accounts along with their respective repositories, leveraging live REST API integrations.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Integrated the official GitHub API and a secondary language color API to render dynamic repository listings, statistics, and programming language color tags.</li>
+                    <li>Engineered custom `RepoAdapter` recycler views and utility formatters such as short number abbreviators to convert large numerical metrics into readable shorthand formats.</li>
+                    <li>Implemented robust error handling layouts, stateful user/organization account switching toggles, and asynchronous network querying.</li>
+                </ul>
+                <div class="pt-2">
+                    <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 16: Online Shopping Android Application -->
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="kotlin" data-framework="android" data-area="mobile" data-others="fake-store-api" data-date="2022-05-08" data-updated="2026-11-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">Online Shopping Android Application</h2>
+                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Kotlin</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Android Studio</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Jetpack Navigation & Fragments</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">LiveData & ViewModel</span>
+                    <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Fake Store API</span>
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    Developed a comprehensive e-commerce Android application in Kotlin integrating user authentication, product catalog browsing, cart management, and order history tracking.
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">
+                    <li>Engineered modern Android architecture components including ViewBinding, DataBinding, Fragments, Navigation, LiveData, and ViewModel for robust asynchronous state management.</li>
+                    <li>Implemented secure user authentication token persistence across sessions, dynamic category filtering, shopping cart summaries, and purchase notifications.</li>
+                    <li>Integrated ViewPager2 with a bottom TabLayout to house multi-feature views for shop, cart, orders, and user profile management.</li>
+                </ul>
                 <div class="pt-2">
                     <a href="https://github.com/mateusfonseca" target="_blank" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
                         View GitHub Repository &rarr;
@@ -179,5 +701,6 @@
     <div id="footer-placeholder"></div>
 
     <script src="assets/js/main.js"></script>
+
 </body>
 </html>

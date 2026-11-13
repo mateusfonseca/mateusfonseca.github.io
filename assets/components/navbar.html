@@ -1,49 +1,85 @@
 <header class="p-6 border-b border-slate-800 dark:border-slate-200 sticky top-0 bg-slate-900/80 dark:bg-slate-50/80 backdrop-blur z-50 transition-colors duration-200">
     <nav class="max-w-5xl mx-auto flex justify-between items-center">
         <a href="index.html" class="font-bold text-xl tracking-tight text-blue-400 dark:text-blue-600">MFC.dev</a>
-        <div class="space-x-4 sm:space-x-6 text-sm font-medium flex items-center">
-            <a href="index.html" class="text-slate-300 dark:text-slate-700 hover:text-slate-100 dark:hover:text-slate-900 transition">Home</a>
-            <a href="projects.html" class="text-slate-300 dark:text-slate-700 hover:text-slate-100 dark:hover:text-slate-900 transition">Projects</a>
+        <div class="space-x-3 sm:space-x-4 text-sm font-medium flex items-center">
             
-            <!-- Tailored CV Modal Trigger -->
-            <button id="open-cv-modal" class="text-slate-300 dark:text-slate-700 hover:text-slate-100 dark:hover:text-slate-900 transition cursor-pointer font-medium">
-                Download Tailored CV 📄
+            <!-- Home Link -->
+            <a href="index.html" id="nav-home" class="text-slate-300 dark:text-slate-700 hover:text-slate-100 dark:hover:text-slate-900 transition">Home</a>
+            
+            <!-- Projects Link -->
+            <a href="projects.html" id="nav-projects" class="text-slate-300 dark:text-slate-700 hover:text-slate-100 dark:hover:text-slate-900 transition">Projects</a>
+            
+            <!-- Vertical Divider -->
+            <div class="h-5 w-[1px] bg-slate-700 dark:bg-slate-300 mx-1"></div>
+            
+            <!-- CV Button (Document Icon) -->
+            <button id="open-cv-modal" title="Download CV" class="p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 dark:bg-slate-200 dark:hover:bg-slate-300 text-slate-300 dark:text-slate-800 transition cursor-pointer flex items-center justify-center shadow-sm">
+                <svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
             </button>
             
-            <!-- Dark/Light Mode Toggle -->
-            <button id="theme-toggle" class="p-2 rounded-lg bg-slate-800 dark:bg-slate-200 text-slate-300 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 text-xs font-medium transition cursor-pointer">
-                🌙 / ☀️
+            <!-- Mail Button (Envelope Icon) -->
+            <a href="mailto:mateusff8@gmail.com" title="Get in Touch" class="p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 dark:bg-slate-200 dark:hover:bg-slate-300 text-slate-300 dark:text-slate-800 transition cursor-pointer flex items-center justify-center shadow-sm">
+                <svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+            </a>
+            
+            <!-- LinkedIn Button -->
+            <a href="https://linkedin.com/in/mateusfcampos" target="_blank" title="LinkedIn Profile" class="p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 dark:bg-slate-200 dark:hover:bg-slate-300 text-slate-300 dark:text-slate-800 transition cursor-pointer flex items-center justify-center shadow-sm">
+                <svg class="w-5 h-5 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+            </a>
+            
+            <!-- GitHub Button -->
+            <a href="https://github.com/mateusfonseca" target="_blank" title="GitHub Profile" class="p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 dark:bg-slate-200 dark:hover:bg-slate-300 text-slate-300 dark:text-slate-800 transition cursor-pointer flex items-center justify-center shadow-sm">
+                <svg class="w-5 h-5 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+            </a>
+            
+            <!-- Dark/Light Toggler Button -->
+            <button id="theme-toggle" title="Toggle Dark/Light Mode" class="p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 dark:bg-slate-200 dark:hover:bg-slate-300 text-slate-300 dark:text-slate-800 transition cursor-pointer flex items-center justify-center shadow-sm">
+                <!-- Moon icon (shown only when light mode is active) -->
+                <svg class="w-5 h-5 pointer-events-none block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                </svg>
+                <!-- Sun icon (shown only when dark mode is active) -->
+                <svg class="w-5 h-5 pointer-events-none hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
             </button>
 
-            <a href="mailto:mateusff8@gmail.com" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition">Contact</a>
         </div>
     </nav>
 </header>
 
 <!-- Tailored CV Modal Window -->
 <div id="cv-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center hidden">
-    <div class="bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-200 p-8 rounded-2xl max-w-md w-full mx-4 shadow-2xl space-y-6">
+    <div class="bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-200 p-8 rounded-2xl max-w-lg w-full mx-4 shadow-2xl space-y-6">
         <div class="flex justify-between items-center">
-            <h3 class="text-xl font-bold text-slate-100 dark:text-slate-900">Select CV Focus Track</h3>
+            <h3 class="text-xl font-bold text-slate-100 dark:text-slate-900">Select CV Focus Area</h3>
             <button id="close-cv-modal" class="text-slate-400 hover:text-slate-200 dark:hover:text-slate-700 text-lg font-bold cursor-pointer">&times;</button>
         </div>
         <p class="text-xs text-slate-400 dark:text-slate-600 leading-relaxed">
-            Choose an area of expertise. This dynamically tailors your project view and generates a traditional, clean resume printout.
+            Choose an area of expertise. This dynamically generates a CV that is more relevant to your interests.
         </p>
         
-        <!-- Track Selection Options inside Modal -->
-        <div class="space-y-3">
-            <button onclick="generateTailoredPDF('general')" class="w-full text-left p-3 rounded-xl bg-slate-800 dark:bg-slate-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-sm font-medium transition cursor-pointer">
-                🌐 General / Full-Stack (All-Rounder)
+        <!-- Track Selection Options in a 2x2 Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button onclick="generateTailoredPDF('general')" class="text-left p-4 rounded-xl bg-slate-800 dark:bg-slate-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-sm font-medium transition cursor-pointer flex items-center justify-center text-center">
+                Full-Stack
             </button>
-            <button onclick="generateTailoredPDF('cloud')" class="w-full text-left p-3 rounded-xl bg-slate-800 dark:bg-slate-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-sm font-medium transition cursor-pointer">
-                ☁️ Cloud Architecture & DevOps (Terraform, AWS, BFV)
+            <button onclick="generateTailoredPDF('cloud')" class="text-left p-4 rounded-xl bg-slate-800 dark:bg-slate-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-sm font-medium transition cursor-pointer flex items-center justify-center text-center">
+                Cloud Architecture & DevOps
             </button>
-            <button onclick="generateTailoredPDF('dev')" class="w-full text-left p-3 rounded-xl bg-slate-800 dark:bg-slate-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-sm font-medium transition cursor-pointer">
-                💻 Software Development (Python, FastAPI, Automation)
+            <button onclick="generateTailoredPDF('dev')" class="text-left p-4 rounded-xl bg-slate-800 dark:bg-slate-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-sm font-medium transition cursor-pointer flex items-center justify-center text-center">
+                Software Development
             </button>
-            <button onclick="generateTailoredPDF('ai')" class="w-full text-left p-3 rounded-xl bg-slate-800 dark:bg-slate-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-sm font-medium transition cursor-pointer">
-                🤖 AI & Computer Vision (Nanoparticle CNN, OpenCV)
+            <button onclick="generateTailoredPDF('ai')" class="text-left p-4 rounded-xl bg-slate-800 dark:bg-slate-100 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-sm font-medium transition cursor-pointer flex items-center justify-center text-center">
+                AI & Computer Vision
             </button>
         </div>
     </div>

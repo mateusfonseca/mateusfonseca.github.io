@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-slate-900 text-slate-100 dark:bg-slate-50 dark:text-slate-900 font-sans min-h-screen flex flex-col justify-between transition-colors duration-200">
+<body data-page="home" class="bg-slate-900 text-slate-100 dark:bg-slate-50 dark:text-slate-900 font-sans min-h-screen flex flex-col justify-between transition-colors duration-200">
     
     <!-- Navbar gets injected here -->
     <div id="navbar-placeholder"></div>
@@ -31,12 +31,16 @@
             <h1 class="text-5xl font-extrabold tracking-tight">Mateus Fonseca Campos</h1>
             <p class="text-2xl text-blue-400 dark:text-blue-600 font-medium">First Class Honours MSc Information Systems & BSc Computing Graduate</p>
             <p class="text-slate-300 dark:text-slate-600 max-w-3xl leading-relaxed text-lg">
-                Bridging enterprise business processes with advanced software solutions. Proven track record of identifying manual business bottlenecks and engineering automated software solutions, zero-trust cryptographic cloud architectures, and resilient CI/CD pipelines[cite: 1].
+                Bridging enterprise business processes with advanced software solutions. Proven track record of identifying manual business bottlenecks and engineering automated software solutions, zero-trust cryptographic cloud architectures, and resilient CI/CD pipelines.
             </p>
             <div class="flex flex-wrap gap-4 pt-2">
+                <!-- Download CV Button Triggering the Track Modal -->
+                <button onclick="document.getElementById('cv-modal')?.classList.remove('hidden')" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-lg shadow-blue-600/20 cursor-pointer">
+                    Download CV
+                </button>
                 <a href="mailto:mateusff8@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-lg shadow-blue-600/20">Get in Touch</a>
-                <a href="https://linkedin.com/in/mateusfcampos" target="_blank" class="border border-slate-700 dark:border-slate-300 hover:border-slate-500 bg-slate-800/50 dark:bg-slate-100 px-5 py-2.5 rounded-lg text-sm font-semibold transition">LinkedIn Profile</a>
-                <a href="https://github.com/mateusfonseca" target="_blank" class="border border-slate-700 dark:border-slate-300 hover:border-slate-500 bg-slate-800/50 dark:bg-slate-100 px-5 py-2.5 rounded-lg text-sm font-semibold transition">GitHub Profile</a>
+                <a href="https://linkedin.com/in/mateusfcampos" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-lg shadow-blue-600/20">LinkedIn Profile</a>
+                <a href="https://github.com/mateusfonseca" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-lg shadow-blue-600/20">GitHub Profile</a>
             </div>
         </section>
 
@@ -74,7 +78,7 @@
                         <span class="text-xs bg-blue-900/60 dark:bg-blue-100 text-blue-300 dark:text-blue-800 px-3 py-1 rounded-full font-medium">Python • TenSEAL • Terraform • AWS</span>
                     </div>
                     <p class="text-slate-300 dark:text-slate-600 text-sm mb-4 leading-relaxed">
-                        Engineered a three-layer hybrid cryptographic architecture combining BFV (Homomorphic Encryption for data in-use), AES-128 (for data at-rest), and TLS/HTTPS via Nginx to enable zero-trust Disjunctive Normal Form queries over encrypted cloud storage[cite: 1, 2].
+                        Engineered a three-layer hybrid cryptographic architecture combining BFV (Homomorphic Encryption for data in-use), AES-128 (for data at-rest), and TLS/HTTPS via Nginx to enable zero-trust Disjunctive Normal Form queries over encrypted cloud storage.
                     </p>
                     <a href="https://github.com/mateusfonseca" target="_blank" class="text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">View GitHub Repository &rarr;</a>
                 </div>
@@ -86,7 +90,7 @@
                         <span class="text-xs bg-blue-900/60 dark:bg-blue-100 text-blue-300 dark:text-blue-800 px-3 py-1 rounded-full font-medium">Python • Django • TensorFlow • OpenCV</span>
                     </div>
                     <p class="text-slate-300 dark:text-slate-600 text-sm mb-4 leading-relaxed">
-                        Developed a full-stack computer vision application to automate detection and sizing of nanoparticles in TEM scans, comparing traditional Circle Hough Transforms against a custom CNN in TensorFlow/Keras[cite: 2].
+                        Developed a full-stack computer vision application to automate detection and sizing of nanoparticles in TEM scans, comparing traditional Circle Hough Transforms against a custom CNN in TensorFlow/Keras.
                     </p>
                     <a href="https://github.com/mateusfonseca" target="_blank" class="text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">View GitHub Repository &rarr;</a>
                 </div>
@@ -103,7 +107,7 @@
                         <h3 class="font-bold text-lg">The Harcourt Hotel Group</h3>
                         <p class="text-xs text-blue-400 dark:text-blue-600 font-medium mb-1">Reservations Agent & Front Office Supervisor | Oct 2023 – Present</p>
                         <p class="text-sm text-slate-300 dark:text-slate-600 leading-relaxed">
-                            Engineered a custom TypeScript automation tool reducing multi-hour financial reconciliations to sub-minute executions and acted as Subject Matter Expert for PMS/ERP software support[cite: 2, 3].
+                            Engineered a custom TypeScript automation tool reducing multi-hour financial reconciliations to sub-minute executions and acted as Subject Matter Expert for PMS/ERP software support.
                         </p>
                     </div>
                 </div>
@@ -116,17 +120,17 @@
                     <div>
                         <h3 class="font-bold text-lg">MSc in Information Systems with Computing</h3>
                         <p class="text-xs text-blue-400 dark:text-blue-600 font-medium mb-1">Dublin Business School | NFQ Level 9</p>
-                        <p class="text-sm text-slate-300 dark:text-slate-600">First Class Honours (1.1 / 78% Average)[cite: 3].</p>
+                        <p class="text-sm text-slate-300 dark:text-slate-600">First Class Honours (1.1 / 78% Average).</p>
                     </div>
                     <div>
                         <h3 class="font-bold text-lg">BSc in Computing & IT</h3>
                         <p class="text-xs text-blue-400 dark:text-blue-600 font-medium mb-1">CCT College Dublin | NFQ Level 8</p>
-                        <p class="text-sm text-slate-300 dark:text-slate-600">Second Class Honours, Grade 1 (2.1 / 60% Average)[cite: 3].</p>
+                        <p class="text-sm text-slate-300 dark:text-slate-600">Second Class Honours, Grade 1 (2.1 / 60% Average).</p>
                     </div>
                     <div>
                         <h3 class="font-bold text-lg">BSc in Computing</h3>
                         <p class="text-xs text-blue-400 dark:text-blue-600 font-medium mb-1">Dorset College Dublin | NFQ Level 7</p>
-                        <p class="text-sm text-slate-300 dark:text-slate-600">First Class Honours (1.1 / 87% Average)[cite: 3].</p>
+                        <p class="text-sm text-slate-300 dark:text-slate-600">First Class Honours (1.1 / 87% Average).</p>
                     </div>
                 </div>
             </div>
