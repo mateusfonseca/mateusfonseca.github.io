@@ -11,6 +11,13 @@
             darkMode: 'class',
         }
     </script>
+    <script>
+        if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
     <!-- html2pdf.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
@@ -28,7 +35,7 @@
             <div class="space-y-2">
                 <h1 class="text-4xl font-extrabold tracking-tight">Projects & Repositories</h1>
                 <p class="text-slate-400 dark:text-slate-600 text-lg">
-                    Use the controls below to filter and sort projects.
+                    Use the controls below to filter and sort the project list.
                 </p>
             </div>
         </section>
@@ -190,26 +197,30 @@
                 </details>
 
                 <!-- 6. Sort Dropdown with Two-in-One Ascending/Descending Toggle -->
-                <div class="relative flex items-center bg-slate-900 dark:bg-white rounded-xl border border-slate-700 dark:border-slate-300 shadow-sm hover:border-blue-500 transition">
+                <div id="sort-container" class="relative flex items-center bg-slate-900 dark:bg-white rounded-xl border border-blue-500 text-blue-400 dark:text-blue-600 font-semibold shadow-sm hover:border-blue-500 transition">
                     <!-- Left Part: Sort Dropdown Selection -->
                     <details class="group w-full relative">
-                        <summary class="flex justify-between items-center px-4 py-2.5 text-slate-200 dark:text-slate-800 cursor-pointer text-sm font-medium select-none">
+                        <summary class="filter-summary flex justify-between items-center px-4 py-2.5 cursor-pointer text-sm select-none">
                             <span id="sort-summary-text">Sort by</span>
                             <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </summary>
-                        <div class="absolute left-0 z-20 mt-2 w-48 bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-2 space-y-1 text-sm">
-                            <button type="button" class="sort-option w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 transition" data-sort="date">Submission Date</button>
-                            <button type="button" class="sort-option w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 transition" data-sort="updated">Last Updated</button>
+                        <div class="absolute left-0 z-20 mt-2 w-52 bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-2 space-y-1 text-sm font-normal">
+                            <label class="sort-option w-full flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 transition text-left cursor-pointer">
+                                <input type="radio" name="filter-sort" value="date" checked class="rounded-full border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer">
+                                <span>Submission Date</span>
+                            </label>
+                            <label class="sort-option w-full flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 transition text-left cursor-pointer">
+                                <input type="radio" name="filter-sort" value="updated" class="rounded-full border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer">
+                                <span>Last Updated</span>
+                            </label>
                         </div>
                     </details>
 
                     <!-- Right Part: Ascending / Descending Toggler Button -->
                     <button type="button" id="sort-order-btn" title="Toggle Sort Order" class="px-3 py-2.5 border-l border-slate-700 dark:border-slate-300 text-slate-400 hover:text-slate-200 dark:hover:text-slate-800 transition flex items-center justify-center">
-                        <!-- Unified Icon: List on the left, Arrow on the right -->
-                        <svg id="sort-icon" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <!-- List lines on the left side (x: 2 to 10) -->
+                        <!-- Default scale-y-[-1] points down for Newest to Oldest (descending) -->
+                        <svg id="sort-icon" class="w-4 h-4 transition-transform duration-200 scale-y-[-1]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h8M3 12h6M3 18h4"/>
-                            <!-- Arrow on the right side (x: 15 to 21) pointing UP for ascending -->
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 18V6m0 0l-4 4m4-4l4 4"/>
                         </svg>
                     </button>
@@ -220,7 +231,7 @@
             <!-- Action Buttons -->
             <div class="flex justify-end gap-3 pt-6 border-t border-slate-700/50 dark:border-slate-200">
                 <button id="clear-filters-btn" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-800 hover:bg-slate-600 dark:hover:bg-slate-300 transition">Clear Filters</button>
-                <button id="apply-filters-btn" class="px-6 py-2.5 rounded-xl text-sm font-semibold bg-blue-600 text-white hover:bg-blue-500 transition shadow-sm">Apply Filters</button>
+                <button id="apply-filters-btn" disabled class="px-6 py-2.5 rounded-xl text-sm font-semibold bg-blue-600 text-white hover:bg-blue-500 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600">Apply Filters</button>
             </div>
         </div>
 
@@ -231,7 +242,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="masters" data-lang="python" data-framework="fastapi streamlit" data-area="cloud-arch crypto devops" data-others="aws terraform nginx uvicorn" data-date="2026-08-25" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">BFV-Based Searchable Cloud Encryption System</h2>
-                    <span class="text-xs bg-blue-900/60 dark:bg-blue-100 text-blue-300 dark:text-blue-800 px-3 py-1 rounded-full font-medium">MSc Applied Research Project (NFQ Level 9) — Dublin Business School</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 25 Aug 2026</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
@@ -263,7 +277,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="masters" data-lang="python" data-framework="flask" data-area="cloud-arch cicd devops" data-others="aws terraform nginx docker" data-date="2025-11-09" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Automated DevOps Workflow & CI/CD Pipeline</h2>
-                    <span class="text-xs bg-blue-900/60 dark:bg-blue-100 text-blue-300 dark:text-blue-800 px-3 py-1 rounded-full font-medium">MSc Network Systems & Administration Project (NFQ Level 9) — Dublin Business School</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 9 Nov 2025</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Terraform</span>
@@ -294,7 +311,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="python" data-framework="django" data-area="soft-dev ai" data-others="mysql" data-date="2023-03-05" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">AI-Driven Nanoparticle Size Distribution Analysis Tool</h2>
-                    <span class="text-xs bg-emerald-900/60 dark:bg-emerald-100 text-emerald-300 dark:text-emerald-800 px-3 py-1 rounded-full font-medium">BSc Research Project (NFQ Level 7 & 8)</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 5 Mar 2023</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
@@ -323,7 +343,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="masters" data-lang="typescript javascript" data-framework="react ionic" data-area="mobile soft-dev" data-others="firebase" data-date="2025-12-29" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Album Collection Hybrid Mobile Application</h2>
-                    <span class="text-xs bg-indigo-900/60 dark:bg-indigo-100 text-indigo-300 dark:text-indigo-800 px-3 py-1 rounded-full font-medium">MSc Mobile Technologies Project (NFQ Level 9) — Dublin Business School</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 29 Dec 2025</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Ionic</span>
@@ -349,10 +372,13 @@
             </div>
 
             <!-- Project 5: Trackora Record Store Management System -->
-            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="masters" data-lang="python javascript" data-framework="fastapi react" data-area="cloud-arch soft-dev cicd devops" data-others="aws terraform docker nginx data-date="2026-04-26" data-updated="2026-11-10" mysql">
+            <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="masters" data-lang="python javascript" data-framework="fastapi react" data-area="cloud-arch soft-dev cicd devops" data-others="aws terraform docker nginx mysql" data-date="2026-04-26" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Trackora: Music Record Store Management System</h2>
-                    <span class="text-xs bg-purple-900/60 dark:bg-purple-100 text-purple-300 dark:text-purple-800 px-3 py-1 rounded-full font-medium">Cloud-Native Full-Stack Information System</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 26 Apr 2026</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">React</span>
@@ -382,7 +408,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="masters" data-lang="python javascript" data-framework="flask react" data-area="soft-dev cloud-arch" data-others="aws nginx mysql" data-date="2025-12-14" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Industrial ERP Information System</h2>
-                    <span class="text-xs bg-cyan-900/60 dark:bg-cyan-100 text-cyan-300 dark:text-cyan-800 px-3 py-1 rounded-full font-medium">MSc Programming for Information Systems Project (NFQ Level 9) — Dublin Business School</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 14 Dec 2025</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
@@ -413,7 +442,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="python" data-framework="flask" data-area="soft-dev" data-others="mysql" data-date="2023-04-18" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Flask To-Do List Web Application</h2>
-                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 18 Apr 2023</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
@@ -442,7 +474,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="python" data-framework="django" data-area="soft-dev" data-others="mysql" data-date="2022-11-29" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Django Music Collection Web Application</h2>
-                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 29 Nov 2022</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Python</span>
@@ -472,7 +507,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="csharp" data-framework="dotnet" data-area="soft-dev" data-others="mysql" data-date="2022-05-08" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">ASP.NET Core MVC Online Store Web Application</h2>
-                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 8 May 2022</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">C#</span>
@@ -500,7 +538,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="typescript javascript" data-framework="react" data-area="mobile" data-others="firebase" data-date="2023-01-08" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">React Native Accelerometer Leaderboard</h2>
-                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 8 Jan 2023</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">React Native</span>
@@ -529,7 +570,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="javascript" data-framework="react" data-area="mobile" data-others="google-maps" data-date="2022-12-16" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Ireland Literature Map Mobile Application</h2>
-                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 16 Dec 2022</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">React Native</span>
@@ -557,7 +601,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="csharp" data-framework="dotnet" data-area="soft-dev" data-others="file-system" data-date="2021-11-25" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Dorset College Bank Console Application</h2>
-                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 25 Nov 2021</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">C#</span>
@@ -585,7 +632,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="kotlin" data-framework="android" data-area="mobile" data-others="material-design" data-date="2022-03-06" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Android "About Me" Mobile Application</h2>
-                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 6 Mar 2022</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Kotlin</span>
@@ -613,7 +663,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="kotlin" data-framework="android" data-area="mobile" data-others="rest-api" data-date="2022-03-28" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Movie Booking Android Application</h2>
-                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 28 Mar 2022</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Kotlin</span>
@@ -641,7 +694,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="kotlin" data-framework="android" data-area="mobile" data-others="github-api" data-date="2022-04-04" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">GitHub Repositories Android Application</h2>
-                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 4 Apr 2022</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Kotlin</span>
@@ -669,7 +725,10 @@
             <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4" data-degree="bachelors" data-lang="kotlin" data-framework="android" data-area="mobile" data-others="fake-store-api" data-date="2022-05-08" data-updated="2026-11-10">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Online Shopping Android Application</h2>
-                    <span class="text-xs bg-amber-900/60 dark:bg-amber-100 text-amber-300 dark:text-amber-800 px-3 py-1 rounded-full font-medium">BSc Computing Project (NFQ Level 7) — Dorset College Dublin</span>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 8 May 2022</span>
+                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
                     <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded">Kotlin</span>

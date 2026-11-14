@@ -47,12 +47,6 @@ function initActiveNav() {
 function initThemeToggle() {
     const themeToggleBtn = document.getElementById('theme-toggle');
 
-    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-        document.documentElement.classList.remove('dark');
-    } else {
-        document.documentElement.classList.add('dark');
-    }
-
     themeToggleBtn?.addEventListener('click', () => {
         if (document.documentElement.classList.contains('dark')) {
             document.documentElement.classList.remove('dark');
@@ -187,15 +181,61 @@ function updateDropdownActiveStates() {
     });
 }
 
-// Global variables for sorting
-let currentSortField = null;
-let currentSortOrder = 'asc'; // 'asc' or 'desc'
+// Global variables for sorting (Default: Submission Date, Newest to Oldest)
+let currentSortField = 'date';
+let currentSortOrder = 'desc'; 
+
+// Function to sort visible project cards based on active settings
+function applySorting() {
+    const grid = document.getElementById('projects-grid');
+    if (!grid) return;
+    const visibleCards = Array.from(grid.querySelectorAll('.project-card')).filter(card => card.style.display !== 'none');
+
+    visibleCards.sort((a, b) => {
+        const valA = a.getAttribute(`data-${currentSortField}`) || '';
+        const valB = b.getAttribute(`data-${currentSortField}`) || '';
+
+        if (currentSortOrder === 'asc') {
+            return valA.localeCompare(valB);
+        } else {
+            return valB.localeCompare(valA);
+        }
+    });
+
+    visibleCards.forEach(card => grid.appendChild(card));
+}
+
+// Helper to capture a snapshot of current checkbox and sort radio selections
+function getFilterStateSnapshot() {
+    const checkedBoxes = Array.from(document.querySelectorAll('input[name^="filter-"][type="checkbox"]:checked'))
+        .map(cb => `${cb.name}:${cb.value}`)
+        .sort();
+    const selectedSort = document.querySelector('input[name="filter-sort"]:checked')?.value || 'date';
+    return JSON.stringify({ checkedBoxes, selectedSort });
+}
+
+let appliedStateSnapshot = '';
+
+function updateApplyButtonState() {
+    const applyBtn = document.getElementById('apply-filters-btn');
+    if (!applyBtn) return;
+
+    const hasChanges = getFilterStateSnapshot() !== appliedStateSnapshot;
+    applyBtn.disabled = !hasChanges;
+}
 
 // Initialize multi-dropdown filtering, sorting, outside-click collapses, and active states
 document.addEventListener('DOMContentLoaded', () => {
+    // Run initial sort on page load so projects are sorted by default
+    applySorting();
+
     const applyBtn = document.getElementById('apply-filters-btn');
     const clearBtn = document.getElementById('clear-filters-btn');
     const projectCards = document.querySelectorAll('.project-card');
+
+    // Capture initial snapshot and update apply button state
+    appliedStateSnapshot = getFilterStateSnapshot();
+    updateApplyButtonState();
 
     // 1. Close open dropdowns when clicking outside
     document.addEventListener('click', (event) => {
@@ -206,27 +246,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Watch all filter checkboxes for changes to update active indicator badges
-    document.querySelectorAll('input[name^="filter-"]').forEach(checkbox => {
-        checkbox.addEventListener('change', updateDropdownActiveStates);
-    });
-
-    // 3. Sort options selection logic
-    const sortSummaryText = document.getElementById('sort-summary-text');
-    const sortOrderBtn = document.getElementById('sort-order-btn');
-    const sortIcon = document.getElementById('sort-icon');
-    const sortDropdownDetails = sortSummaryText?.closest('details');
-
-    document.querySelectorAll('.sort-option').forEach(option => {
-        option.addEventListener('click', (e) => {
-            currentSortField = e.target.getAttribute('data-sort');
-            sortSummaryText.textContent = e.target.textContent;
-            sortSummaryText.classList.add('text-blue-400', 'dark:text-blue-600', 'font-semibold');
-            if (sortDropdownDetails) sortDropdownDetails.removeAttribute('open');
+    // 2. Watch all filter checkboxes for changes to update active indicator badges and apply button state
+    document.querySelectorAll('input[name^="filter-"]:not([name="filter-sort"])').forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            updateDropdownActiveStates();
+            updateApplyButtonState();
         });
     });
 
-    // Sort order toggler (ascending / descending)
+    // 3. Sort options selection logic (Updates radio and variable, but DOES NOT sort immediately)
+    const sortSummaryText = document.getElementById('sort-summary-text');
+    const sortOrderBtn = document.getElementById('sort-order-btn');
+    const sortIcon = document.getElementById('sort-icon');
+
+    document.querySelectorAll('input[name="filter-sort"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            currentSortField = e.target.value;
+            if (sortSummaryText) {
+                sortSummaryText.textContent = 'Sort by';
+            }
+            updateApplyButtonState();
+        });
+    });
+
+    // Sort order toggler (ascending / descending) - takes effect IMMEDIATELY
     sortOrderBtn?.addEventListener('click', () => {
         currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
         if (currentSortOrder === 'asc') {
@@ -234,6 +277,9 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             sortIcon?.classList.add('scale-y-[-1]');
         }
+
+        // Apply sorting immediately on order toggle
+        applySorting();
     });
 
     // 4. Apply Filters logic (Filtering + Sorting)
@@ -267,26 +313,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Handle sorting of visible cards
-            if (currentSortField) {
-                const grid = document.getElementById('projects-grid');
-                const visibleCards = Array.from(projectCards).filter(card => card.classList.contains('is-visible'));
-
-                visibleCards.sort((a, b) => {
-                    const valA = a.getAttribute(`data-${currentSortField}`) || '';
-                    const valB = b.getAttribute(`data-${currentSortField}`) || '';
-
-                    if (currentSortOrder === 'asc') {
-                        return valA.localeCompare(valB);
-                    } else {
-                        return valB.localeCompare(valA);
-                    }
-                });
-
-                visibleCards.forEach(card => grid.appendChild(card));
-            }
+            // Re-apply sorting on Apply button click
+            applySorting();
 
             updateDropdownActiveStates();
+            
+            // Update snapshot and disable button after applying
+            appliedStateSnapshot = getFilterStateSnapshot();
+            updateApplyButtonState();
+
             document.querySelectorAll('details').forEach(d => d.removeAttribute('open'));
         });
     }
@@ -295,21 +330,34 @@ document.addEventListener('DOMContentLoaded', () => {
     if (clearBtn) {
         clearBtn.addEventListener('click', () => {
             document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            
+            // Reset sort states back to default (Submission Date, Newest to Oldest)
+            currentSortField = 'date';
+            currentSortOrder = 'desc';
+            
+            document.querySelectorAll('input[name="filter-sort"]').forEach(radio => {
+                radio.checked = (radio.value === 'date');
+            });
+            
+            if (sortSummaryText) {
+                sortSummaryText.textContent = 'Sort by';
+            }
+            sortIcon?.classList.add('scale-y-[-1]');
+
             projectCards.forEach(card => {
                 card.style.display = '';
                 card.classList.remove('is-visible');
             });
 
-            // Reset sort states
-            currentSortField = null;
-            currentSortOrder = 'asc';
-            if (sortSummaryText) {
-                sortSummaryText.textContent = 'Sort by';
-                sortSummaryText.classList.remove('text-blue-400', 'dark:text-blue-600', 'font-semibold');
-            }
-            sortIcon?.classList.remove('scale-y-[-1]');
+            // Apply default sorting
+            applySorting();
 
             updateDropdownActiveStates();
+            
+            // Update snapshot and disable apply button
+            appliedStateSnapshot = getFilterStateSnapshot();
+            updateApplyButtonState();
+
             document.querySelectorAll('details').forEach(d => d.removeAttribute('open'));
         });
     }
