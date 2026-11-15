@@ -21,6 +21,7 @@
     <!-- html2pdf.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
 </head>
 <body data-page="projects" class="bg-slate-900 text-slate-100 dark:bg-slate-50 dark:text-slate-900 font-sans min-h-screen flex flex-col justify-between transition-colors duration-200">
     
@@ -45,7 +46,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
                 
                 <!-- 1. Degree Dropdown -->
-                <details class="relative group">
+                <details class="relative group filter-dropdown">
                     <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
                         <span class="flex items-center gap-2">
                             Degree
@@ -53,18 +54,18 @@
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div class="absolute z-20 mt-2 w-full bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                    <div class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-degree" value="masters" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Master's
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-degree" value="bachelors" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Bachelor's
                         </label>
                     </div>
                 </details>
 
                 <!-- 2. Programming Language Dropdown -->
-                <details class="relative group">
+                <details class="relative group filter-dropdown">
                     <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
                         <span class="flex items-center gap-2">
                             Language
@@ -72,27 +73,27 @@
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div class="absolute z-20 mt-2 w-full bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                    <div class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-lang" value="python" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Python
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-lang" value="csharp" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> C#
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-lang" value="javascript" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> JavaScript
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-lang" value="typescript" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> TypeScript
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-lang" value="kotlin" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Kotlin
                         </label>
                     </div>
                 </details>
 
                 <!-- 3. Framework Dropdown -->
-                <details class="relative group">
+                <details class="relative group filter-dropdown">
                     <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
                         <span class="flex items-center gap-2">
                             Framework
@@ -100,36 +101,36 @@
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div class="absolute z-20 mt-2 w-full bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                    <div class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-framework" value="fastapi" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> FastAPI
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-framework" value="streamlit" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Streamlit
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-framework" value="flask" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Flask
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-framework" value="django" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Django
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-framework" value="dotnet" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> .NET / ASP.NET
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-framework" value="react" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> React / React Native
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-framework" value="ionic" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Ionic
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-framework" value="android" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Android Native
                         </label>
                     </div>
                 </details>
 
                 <!-- 4. Area Dropdown -->
-                <details class="relative group">
+                <details class="relative group filter-dropdown">
                     <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
                         <span class="flex items-center gap-2">
                             Area
@@ -137,33 +138,33 @@
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div class="absolute z-20 mt-2 w-full bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                    <div class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-area" value="cloud-arch" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Cloud Arch
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-area" value="soft-dev" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Soft Dev
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-area" value="cicd" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> CI/CD
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-area" value="devops" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> DevOps
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-area" value="crypto" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Cryptography
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-area" value="mobile" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Mobile Dev
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-area" value="ai" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> AI & Vision
                         </label>
                     </div>
                 </details>
 
                 <!-- 5. Others Dropdown -->
-                <details class="relative group">
+                <details class="relative group filter-dropdown">
                     <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
                         <span class="flex items-center gap-2">
                             Others
@@ -171,66 +172,68 @@
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div class="absolute z-20 mt-2 w-full bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                    <div class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-others" value="terraform" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Terraform
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-others" value="aws" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> AWS
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-others" value="nginx" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Nginx
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-others" value="uvicorn" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Uvicorn
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-others" value="mysql" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> MySQL / SQLite
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-others" value="docker" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Docker
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-blue-400">
+                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
                             <input type="checkbox" name="filter-others" value="firebase" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Firebase
                         </label>
                     </div>
                 </details>
 
                 <!-- 6. Sort Dropdown with Two-in-One Ascending/Descending Toggle -->
-                <div id="sort-container" class="relative flex items-center bg-slate-900 dark:bg-white rounded-xl border border-blue-500 text-blue-400 dark:text-blue-600 font-semibold shadow-sm hover:border-blue-500 transition">
-                    <!-- Left Part: Sort Dropdown Selection -->
-                    <details class="group w-full relative">
-                        <summary class="filter-summary flex justify-between items-center px-4 py-2.5 cursor-pointer text-sm select-none">
+                <div id="sort-container" class="filter-dropdown relative flex items-center bg-slate-900 dark:bg-white rounded-xl border border-blue-500 text-blue-400 dark:text-blue-600 font-semibold shadow-sm hover:border-blue-500 transition">
+                    
+                    <!-- Left Part: Sort Dropdown Summary (Clicking this toggles the menu manually via JS) -->
+                    <div id="sort-summary-wrapper" class="flex-grow">
+                        <div id="sort-trigger" class="flex justify-between items-center px-4 py-2.5 cursor-pointer text-sm select-none">
                             <span id="sort-summary-text">Sort by</span>
-                            <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </summary>
-                        <div class="absolute left-0 z-20 mt-2 w-52 bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-2 space-y-1 text-sm font-normal">
-                            <label class="sort-option w-full flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 transition text-left cursor-pointer">
-                                <input type="radio" name="filter-sort" value="date" checked class="rounded-full border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer">
-                                <span>Submission Date</span>
-                            </label>
-                            <label class="sort-option w-full flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 transition text-left cursor-pointer">
-                                <input type="radio" name="filter-sort" value="updated" class="rounded-full border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer">
-                                <span>Last Updated</span>
-                            </label>
+                            <svg id="sort-chevron" class="w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </div>
-                    </details>
+                    </div>
 
                     <!-- Right Part: Ascending / Descending Toggler Button -->
-                    <button type="button" id="sort-order-btn" title="Toggle Sort Order" class="px-3 py-2.5 border-l border-slate-700 dark:border-slate-300 text-slate-400 hover:text-slate-200 dark:hover:text-slate-800 transition flex items-center justify-center">
-                        <!-- Default scale-y-[-1] points down for Newest to Oldest (descending) -->
+                    <button type="button" id="sort-order-btn" title="Toggle Sort Order" class="px-3 py-2.5 border-l border-slate-700 dark:border-slate-300 text-slate-400 hover:text-slate-200 dark:hover:text-slate-800 transition flex items-center justify-center shrink-0">
                         <svg id="sort-icon" class="w-4 h-4 transition-transform duration-200 scale-y-[-1]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h8M3 12h6M3 18h4"/>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 18V6m0 0l-4 4m4-4l4 4"/>
                         </svg>
                     </button>
-                </div>
+
+                    <!-- Dropdown Menu is now a direct child of the entire #sort-container wrapper -->
+                    <div id="sort-dropdown-menu" class="dropdown-menu absolute top-full right-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-2 space-y-1 text-sm font-normal hidden">
+                        <label class="whitespace-nowrap sort-option flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 transition text-left cursor-pointer">
+                            <input type="radio" name="filter-sort" value="date" checked class="rounded-full border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer">
+                            <span>Submission Date</span>
+                        </label>
+                        <label class="whitespace-nowrap sort-option flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 transition text-left cursor-pointer">
+                            <input type="radio" name="filter-sort" value="updated" class="rounded-full border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer">
+                            <span>Last Updated</span>
+                        </label>
+                    </div>
+                </div>           
 
             </div>
 
             <!-- Action Buttons -->
             <div class="flex justify-end gap-3 pt-6 border-t border-slate-700/50 dark:border-slate-200">
-                <button id="clear-filters-btn" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-800 hover:bg-slate-600 dark:hover:bg-slate-300 transition">Clear Filters</button>
+                <button id="clear-filters-btn" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-800 hover:bg-slate-600 dark:hover:bg-slate-300 transition disabled:opacity-50 disabled:cursor-not-allowed">Clear Filters</button>
                 <button id="apply-filters-btn" disabled class="px-6 py-2.5 rounded-xl text-sm font-semibold bg-blue-600 text-white hover:bg-blue-500 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600">Apply Filters</button>
             </div>
         </div>
@@ -243,8 +246,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">BFV-Based Searchable Cloud Encryption System</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 25 Aug 2026</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 25 Aug 2026</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -278,8 +281,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Automated DevOps Workflow & CI/CD Pipeline</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 9 Nov 2025</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 9 Nov 2025</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -312,8 +315,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">AI-Driven Nanoparticle Size Distribution Analysis Tool</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 5 Mar 2023</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 5 Mar 2023</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -344,8 +347,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Album Collection Hybrid Mobile Application</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 29 Dec 2025</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 29 Dec 2025</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -376,8 +379,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Trackora: Music Record Store Management System</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 26 Apr 2026</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 26 Apr 2026</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -409,8 +412,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Industrial ERP Information System</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 14 Dec 2025</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 14 Dec 2025</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -443,8 +446,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Flask To-Do List Web Application</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 18 Apr 2023</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 18 Apr 2023</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -475,8 +478,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Django Music Collection Web Application</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 29 Nov 2022</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 29 Nov 2022</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -508,8 +511,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">ASP.NET Core MVC Online Store Web Application</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 8 May 2022</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 8 May 2022</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -539,8 +542,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">React Native Accelerometer Leaderboard</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 8 Jan 2023</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 8 Jan 2023</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -571,8 +574,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Ireland Literature Map Mobile Application</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 16 Dec 2022</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 16 Dec 2022</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -602,8 +605,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Dorset College Bank Console Application</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 25 Nov 2021</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 25 Nov 2021</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -633,8 +636,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Android "About Me" Mobile Application</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 6 Mar 2022</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 6 Mar 2022</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -664,8 +667,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Movie Booking Android Application</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 28 Mar 2022</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 28 Mar 2022</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -695,8 +698,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">GitHub Repositories Android Application</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 4 Apr 2022</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 4 Apr 2022</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -726,8 +729,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <h2 class="text-2xl font-bold">Online Shopping Android Application</h2>
                     <div class="flex items-center gap-2 text-xs">
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 8 May 2022</span>
-                        <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: 8 May 2022</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: 10 Nov 2026</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs text-slate-300 dark:text-slate-700">
@@ -752,6 +755,13 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- Load More Projects Button Container -->
+        <div id="load-more-container" class="text-center pt-6 hidden">
+            <button id="load-more-btn" class="px-6 py-3 rounded-xl text-sm font-semibold bg-slate-800 dark:bg-slate-200 text-slate-200 dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-slate-300 transition shadow-sm cursor-pointer">
+                Load More Projects
+            </button>
         </div>
 
     </main>

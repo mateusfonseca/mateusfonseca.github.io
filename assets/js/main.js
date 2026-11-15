@@ -8,7 +8,7 @@ async function loadComponent(id, filePath) {
             if (id === 'navbar-placeholder') {
                 initThemeToggle();
                 initCVModal();
-                initActiveNav(); // <-- Runs active link check right after insertion
+                initActiveNav(); 
             }
         }
     } catch (error) {
@@ -16,17 +16,12 @@ async function loadComponent(id, filePath) {
     }
 }
 
-// Load navbar and footer when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    loadComponent('navbar-placeholder', 'assets/components/navbar.html');
-    loadComponent('footer-placeholder', 'assets/components/footer.html');
-});
-
-// Highlight Active Nav Link based on Body Data Attribute
+// Highlight Active Nav Link and update terminal directory based on Body Data Attribute
 function initActiveNav() {
     const page = document.body.getAttribute('data-page');
     const homeLink = document.getElementById('nav-home');
     const projectsLink = document.getElementById('nav-projects');
+    const navbarDir = document.getElementById('navbar-dir');
 
     if (page === 'projects') {
         projectsLink?.classList.add('text-blue-400', 'dark:text-blue-600', 'font-semibold');
@@ -34,12 +29,16 @@ function initActiveNav() {
         
         homeLink?.classList.remove('text-blue-400', 'dark:text-blue-600', 'font-semibold');
         homeLink?.classList.add('text-slate-300', 'dark:text-slate-700');
+
+        if (navbarDir) navbarDir.textContent = '~/projects';
     } else if (page === 'home') {
         homeLink?.classList.add('text-blue-400', 'dark:text-blue-600', 'font-semibold');
         homeLink?.classList.remove('text-slate-300', 'dark:text-slate-700');
         
         projectsLink?.classList.remove('text-blue-400', 'dark:text-blue-600', 'font-semibold');
         projectsLink?.classList.add('text-slate-300', 'dark:text-slate-700');
+
+        if (navbarDir) navbarDir.textContent = '~';
     }
 }
 
@@ -160,7 +159,7 @@ function generateTailoredPDF(track) {
 function updateDropdownActiveStates() {
     document.querySelectorAll('details.relative.group').forEach(details => {
         const checkboxes = details.querySelectorAll('input[type="checkbox"]');
-        if (checkboxes.length === 0) return; // Skip non-checkbox details (like Sort)
+        if (checkboxes.length === 0) return; 
 
         const summary = details.querySelector('.filter-summary');
         const badge = details.querySelector('.filter-badge');
@@ -168,12 +167,14 @@ function updateDropdownActiveStates() {
 
         if (checkedCount > 0) {
             summary.classList.add('border-blue-500', 'text-blue-400', 'dark:text-blue-600', 'font-semibold');
+            summary.classList.remove('border-slate-700', 'dark:border-slate-300', 'text-slate-200', 'dark:text-slate-800');
             if (badge) {
                 badge.textContent = checkedCount;
                 badge.classList.remove('hidden');
             }
         } else {
             summary.classList.remove('border-blue-500', 'text-blue-400', 'dark:text-blue-600', 'font-semibold');
+            summary.classList.add('border-slate-700', 'dark:border-slate-300', 'text-slate-200', 'dark:text-slate-800');
             if (badge) {
                 badge.classList.add('hidden');
             }
@@ -181,15 +182,66 @@ function updateDropdownActiveStates() {
     });
 }
 
-// Global variables for sorting (Default: Submission Date, Newest to Oldest)
+// Global variables for sorting and pagination
 let currentSortField = 'date';
 let currentSortOrder = 'desc'; 
+let visibleCount = 5;
 
-// Function to sort visible project cards based on active settings
+// Function to update active/inactive styling on project date chips based on active sort field
+function updateDateChips() {
+    const grayClasses = ['bg-slate-800', 'dark:bg-slate-100', 'border', 'border-slate-700', 'dark:border-slate-300', 'text-slate-300', 'dark:text-slate-700'];
+    const blueClasses = ['bg-blue-950', 'dark:bg-blue-100', 'border', 'border-blue-800', 'dark:border-blue-300', 'text-blue-300', 'dark:text-blue-800'];
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        const submittedChip = card.querySelector('.submitted-chip');
+        const updatedChip = card.querySelector('.updated-chip');
+        if (!submittedChip || !updatedChip) return;
+
+        if (currentSortField === 'date') {
+            submittedChip.classList.remove(...grayClasses);
+            submittedChip.classList.add(...blueClasses);
+            updatedChip.classList.remove(...blueClasses);
+            updatedChip.classList.add(...grayClasses);
+        } else if (currentSortField === 'updated') {
+            updatedChip.classList.remove(...grayClasses);
+            updatedChip.classList.add(...blueClasses);
+            submittedChip.classList.remove(...blueClasses);
+            submittedChip.classList.add(...grayClasses);
+        }
+    });
+}
+
+// Function to manage visibility of cards based on pagination limits
+function updatePaginationDisplay(visibleCards) {
+    const loadMoreContainer = document.getElementById('load-more-container');
+
+    visibleCards.forEach((card, index) => {
+        if (index < visibleCount) {
+            card.style.display = '';
+            card.classList.add('is-visible');
+        } else {
+            card.style.display = 'none';
+            card.classList.remove('is-visible');
+        }
+    });
+
+    if (loadMoreContainer) {
+        if (visibleCards.length > visibleCount) {
+            loadMoreContainer.classList.remove('hidden');
+        } else {
+            loadMoreContainer.classList.add('hidden');
+        }
+    }
+}
+
+// Updated applySorting function including pagination support
 function applySorting() {
     const grid = document.getElementById('projects-grid');
     if (!grid) return;
-    const visibleCards = Array.from(grid.querySelectorAll('.project-card')).filter(card => card.style.display !== 'none');
+    const allCards = Array.from(grid.querySelectorAll('.project-card'));
+    
+    const visibleCards = allCards.filter(card => card.getAttribute('data-filtered-out') !== 'true');
+    const hiddenFilteredCards = allCards.filter(card => card.getAttribute('data-filtered-out') === 'true');
 
     visibleCards.sort((a, b) => {
         const valA = a.getAttribute(`data-${currentSortField}`) || '';
@@ -202,42 +254,58 @@ function applySorting() {
         }
     });
 
-    visibleCards.forEach(card => grid.appendChild(card));
+    [...visibleCards, ...hiddenFilteredCards].forEach(card => grid.appendChild(card));
+    updatePaginationDisplay(visibleCards);
+    updateDateChips();
 }
 
-// Helper to capture a snapshot of current checkbox and sort radio selections
 function getFilterStateSnapshot() {
     const checkedBoxes = Array.from(document.querySelectorAll('input[name^="filter-"][type="checkbox"]:checked'))
         .map(cb => `${cb.name}:${cb.value}`)
         .sort();
-    const selectedSort = document.querySelector('input[name="filter-sort"]:checked')?.value || 'date';
-    return JSON.stringify({ checkedBoxes, selectedSort });
+    return JSON.stringify({ checkedBoxes });
 }
 
 let appliedStateSnapshot = '';
 
-function updateApplyButtonState() {
+// Function to update the disabled state of both Apply and Clear buttons
+function updateFilterButtonStates() {
     const applyBtn = document.getElementById('apply-filters-btn');
-    if (!applyBtn) return;
+    const clearBtn = document.getElementById('clear-filters-btn');
 
-    const hasChanges = getFilterStateSnapshot() !== appliedStateSnapshot;
-    applyBtn.disabled = !hasChanges;
+    // Count currently checked filter checkboxes
+    const checkedCount = document.querySelectorAll('input[name^="filter-"][type="checkbox"]:checked').length;
+
+    // Clear Filters is disabled if no filters are checked
+    if (clearBtn) {
+        clearBtn.disabled = checkedCount === 0;
+    }
+
+    // Apply Filters is disabled if there are no unapplied changes
+    if (applyBtn) {
+        const hasChanges = getFilterStateSnapshot() !== appliedStateSnapshot;
+        applyBtn.disabled = !hasChanges;
+    }
 }
 
-// Initialize multi-dropdown filtering, sorting, outside-click collapses, and active states
+// SINGLE UNIFIED DOMContentLoaded LISTENER
 document.addEventListener('DOMContentLoaded', () => {
-    // Run initial sort on page load so projects are sorted by default
+    // 1. Load components (Navbar & Footer)
+    loadComponent('navbar-placeholder', 'assets/components/navbar.html');
+    loadComponent('footer-placeholder', 'assets/components/footer.html');
+
+    // 2. Initialize project sorting and filter states if on projects page
     applySorting();
 
     const applyBtn = document.getElementById('apply-filters-btn');
     const clearBtn = document.getElementById('clear-filters-btn');
+    const loadMoreBtn = document.getElementById('load-more-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
-    // Capture initial snapshot and update apply button state
     appliedStateSnapshot = getFilterStateSnapshot();
-    updateApplyButtonState();
+    updateFilterButtonStates();
 
-    // 1. Close open dropdowns when clicking outside
+    // 3. Close open standard dropdowns when clicking outside
     document.addEventListener('click', (event) => {
         document.querySelectorAll('details.relative.group').forEach((details) => {
             if (!details.contains(event.target)) {
@@ -246,15 +314,89 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Watch all filter checkboxes for changes to update active indicator badges and apply button state
-    document.querySelectorAll('input[name^="filter-"]:not([name="filter-sort"])').forEach(checkbox => {
-        checkbox.addEventListener('change', () => {
-            updateDropdownActiveStates();
-            updateApplyButtonState();
+    // 4. Dynamic Dropdown Positioner (Left vs Right Half Screen Check) for standard filters
+    document.querySelectorAll('.filter-dropdown:not(#sort-container)').forEach(dropdown => {
+        const summary = dropdown.querySelector('summary');
+        const menu = dropdown.querySelector('.dropdown-menu');
+
+        summary?.addEventListener('click', () => {
+            setTimeout(() => {
+                if (!dropdown.hasAttribute('open')) return;
+
+                const rect = summary.getBoundingClientRect();
+                const screenWidth = window.innerWidth;
+                const isRightHalf = rect.left > (screenWidth / 2);
+
+                if (isRightHalf) {
+                    menu.classList.remove('left-0');
+                    menu.classList.add('right-0');
+                } else {
+                    menu.classList.remove('right-0');
+                    menu.classList.add('left-0');
+                }
+            }, 10);
         });
     });
 
-    // 3. Sort options selection logic (Updates radio and variable, but DOES NOT sort immediately)
+    // 5. Handle Sort Dropdown Manual State & Position Alignment
+    const sortTrigger = document.getElementById('sort-trigger');
+    const sortMenu = document.getElementById('sort-dropdown-menu');
+    const sortChevron = document.getElementById('sort-chevron');
+    const sortContainer = document.getElementById('sort-container');
+
+    if (sortTrigger && sortMenu && sortContainer) {
+        const updateSortMenuPosition = () => {
+            const rect = sortContainer.getBoundingClientRect();
+            const screenWidth = window.innerWidth;
+            const isRightHalf = rect.left > (screenWidth / 2);
+
+            if (isRightHalf) {
+                sortMenu.classList.remove('left-0');
+                sortMenu.classList.add('right-0');
+            } else {
+                sortMenu.classList.remove('right-0');
+                sortMenu.classList.add('left-0');
+            }
+        };
+
+        updateSortMenuPosition();
+        window.addEventListener('resize', updateSortMenuPosition);
+
+        sortTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = !sortMenu.classList.contains('hidden');
+            
+            // Close other details dropdowns
+            document.querySelectorAll('details').forEach(d => d.removeAttribute('open'));
+
+            if (isOpen) {
+                sortMenu.classList.add('hidden');
+                sortChevron?.classList.remove('rotate-180');
+            } else {
+                updateSortMenuPosition();
+                sortMenu.classList.remove('hidden');
+                sortChevron?.classList.add('rotate-180');
+            }
+        });
+
+        // Close sort menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!sortContainer.contains(event.target)) {
+                sortMenu.classList.add('hidden');
+                sortChevron?.classList.remove('rotate-180');
+            }
+        });
+    }
+
+    // 6. Watch filter checkboxes for changes
+    document.querySelectorAll('input[name^="filter-"]:not([name="filter-sort"])').forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            updateDropdownActiveStates();
+            updateFilterButtonStates();
+        });
+    });
+
+    // 7. Sort options selection logic
     const sortSummaryText = document.getElementById('sort-summary-text');
     const sortOrderBtn = document.getElementById('sort-order-btn');
     const sortIcon = document.getElementById('sort-icon');
@@ -265,11 +407,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (sortSummaryText) {
                 sortSummaryText.textContent = 'Sort by';
             }
-            updateApplyButtonState();
+            updateFilterButtonStates();
+            // Close menu on selection
+            sortMenu?.classList.add('hidden');
+            sortChevron?.classList.remove('rotate-180');
+            applySorting();
         });
     });
 
-    // Sort order toggler (ascending / descending) - takes effect IMMEDIATELY
     sortOrderBtn?.addEventListener('click', () => {
         currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
         if (currentSortOrder === 'asc') {
@@ -277,12 +422,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             sortIcon?.classList.add('scale-y-[-1]');
         }
-
-        // Apply sorting immediately on order toggle
         applySorting();
     });
 
-    // 4. Apply Filters logic (Filtering + Sorting)
+    // 8. Apply Filters logic
     if (applyBtn) {
         applyBtn.addEventListener('click', () => {
             const selectedDegrees = Array.from(document.querySelectorAll('input[name="filter-degree"]:checked')).map(cb => cb.value);
@@ -305,60 +448,55 @@ document.addEventListener('DOMContentLoaded', () => {
                 const matchesOther = selectedOthers.length === 0 || selectedOthers.some(val => cardOthers.includes(val));
 
                 if (matchesDegree && matchesLang && matchesFramework && matchesArea && matchesOther) {
-                    card.style.display = '';
-                    card.classList.add('is-visible');
+                    card.removeAttribute('data-filtered-out');
                 } else {
-                    card.style.display = 'none';
-                    card.classList.remove('is-visible');
+                    card.setAttribute('data-filtered-out', 'true');
                 }
             });
 
-            // Re-apply sorting on Apply button click
+            visibleCount = 5; // Reset pagination count on filter application
             applySorting();
-
             updateDropdownActiveStates();
             
-            // Update snapshot and disable button after applying
             appliedStateSnapshot = getFilterStateSnapshot();
-            updateApplyButtonState();
+            updateFilterButtonStates();
 
             document.querySelectorAll('details').forEach(d => d.removeAttribute('open'));
+            sortMenu?.classList.add('hidden');
+            sortChevron?.classList.remove('rotate-180');
         });
     }
 
-    // 5. Clear Filters logic
+    // 9. Clear Filters logic (Does NOT touch sorting)
     if (clearBtn) {
         clearBtn.addEventListener('click', () => {
-            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-            
-            // Reset sort states back to default (Submission Date, Newest to Oldest)
-            currentSortField = 'date';
-            currentSortOrder = 'desc';
-            
-            document.querySelectorAll('input[name="filter-sort"]').forEach(radio => {
-                radio.checked = (radio.value === 'date');
-            });
-            
-            if (sortSummaryText) {
-                sortSummaryText.textContent = 'Sort by';
-            }
-            sortIcon?.classList.add('scale-y-[-1]');
+            // Uncheck only filter checkboxes
+            document.querySelectorAll('input[name^="filter-"]:not([name="filter-sort"])[type="checkbox"]').forEach(cb => cb.checked = false);
 
+            // Reset project card filter exclusion attributes
             projectCards.forEach(card => {
-                card.style.display = '';
-                card.classList.remove('is-visible');
+                card.removeAttribute('data-filtered-out');
             });
 
-            // Apply default sorting
+            visibleCount = 5; // Reset pagination count on clear
+            // Re-apply current sorting without changing sort parameters
             applySorting();
-
             updateDropdownActiveStates();
             
-            // Update snapshot and disable apply button
             appliedStateSnapshot = getFilterStateSnapshot();
-            updateApplyButtonState();
+            updateFilterButtonStates();
 
             document.querySelectorAll('details').forEach(d => d.removeAttribute('open'));
+            sortMenu?.classList.add('hidden');
+            sortChevron?.classList.remove('rotate-180');
+        });
+    }
+
+    // 10. Load More Projects Button Logic
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            visibleCount += 5;
+            applySorting();
         });
     }
 });
