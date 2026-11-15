@@ -273,18 +273,103 @@ function updateFilterButtonStates() {
     const applyBtn = document.getElementById('apply-filters-btn');
     const clearBtn = document.getElementById('clear-filters-btn');
 
-    // Count currently checked filter checkboxes
     const checkedCount = document.querySelectorAll('input[name^="filter-"][type="checkbox"]:checked').length;
 
-    // Clear Filters is disabled if no filters are checked
     if (clearBtn) {
         clearBtn.disabled = checkedCount === 0;
     }
 
-    // Apply Filters is disabled if there are no unapplied changes
     if (applyBtn) {
         const hasChanges = getFilterStateSnapshot() !== appliedStateSnapshot;
         applyBtn.disabled = !hasChanges;
+    }
+}
+
+// Function to dynamically fetch repos.json and build the project cards
+async function loadProjectsGrid() {
+    const grid = document.getElementById('projects-grid');
+    if (!grid) return;
+
+    try {
+        const response = await fetch('assets/data/repos.json');
+        if (!response.ok) throw new Error('Failed to load repository metadata.');
+        const projects = await response.json();
+
+        grid.innerHTML = '';
+
+        projects.forEach(project => {
+            const card = document.createElement('div');
+            card.className = 'project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4';
+            
+            // Map filtering attributes from project metadata
+            card.setAttribute('data-degree', project.degree || '');
+            card.setAttribute('data-lang', (project.language || '').toLowerCase());
+            card.setAttribute('data-framework', (project.frameworks || []).join(' ').toLowerCase());
+            card.setAttribute('data-area', (project.areas || []).join(' ').toLowerCase());
+            card.setAttribute('data-others', (project.others || []).join(' ').toLowerCase());
+            
+            // Dates for sorting (using created_at/date and updated_at)
+            const subDateStr = project.created_at ? project.created_at.split('T')[0] : '2026-01-01';
+            const upDateStr = project.updated_at ? project.updated_at.split('T')[0] : subDateStr;
+            card.setAttribute('data-date', subDateStr);
+            card.setAttribute('data-updated', upDateStr);
+
+            const formattedSubDate = new Date(subDateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+            const formattedUpDate = new Date(upDateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+
+            // Build tech stack tags chips
+            const allTechTags = [
+                project.language,
+                ...(project.frameworks || []),
+                ...(project.others || [])
+            ].filter(Boolean);
+
+            const tagsHtml = allTechTags.map(tag => `
+                <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded text-xs text-slate-300 dark:text-slate-700">${tag}</span>
+            `).join('');
+
+            // Build bullet points list if available
+            let bulletsHtml = '';
+            if (project.description && project.description.bullet_points && project.description.bullet_points.length > 0) {
+                const liItems = project.description.bullet_points.map(bp => `<li>${bp}</li>`).join('');
+                bulletsHtml = `<ul class="list-disc list-inside text-sm text-slate-300 dark:text-slate-600 space-y-1 pl-2">${liItems}</ul>`;
+            }
+
+            const introText = (project.description && project.description.intro) ? project.description.intro : (typeof project.description === 'string' ? project.description : '');
+
+            card.innerHTML = `
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <h2 class="text-2xl font-bold">${project.title}</h2>
+                    <div class="flex items-center gap-2 text-xs">
+                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: ${formattedSubDate}</span>
+                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: ${formattedUpDate}</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    ${tagsHtml}
+                </div>
+                <p class="text-slate-300 dark:text-slate-600 text-sm leading-relaxed">
+                    ${introText}
+                </p>
+                ${bulletsHtml}
+                <div class="pt-2">
+                    <a href="${project.html_url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
+                        View GitHub Repository &rarr;
+                    </a>
+                </div>
+            `;
+
+            grid.appendChild(card);
+        });
+
+        // Initialize sorting, filters, and pagination after DOM nodes are mounted
+        applySorting();
+        appliedStateSnapshot = getFilterStateSnapshot();
+        updateFilterButtonStates();
+
+    } catch (error) {
+        console.error('Error fetching or rendering projects:', error);
+        grid.innerHTML = `<p class="text-red-400 text-center py-8">Failed to load project repositories.</p>`;
     }
 }
 
@@ -294,13 +379,16 @@ document.addEventListener('DOMContentLoaded', () => {
     loadComponent('navbar-placeholder', 'assets/components/navbar.html');
     loadComponent('footer-placeholder', 'assets/components/footer.html');
 
-    // 2. Initialize project sorting and filter states if on projects page
-    applySorting();
+    // 2. Load dynamic projects if on projects page, else run default sorting
+    if (document.body.getAttribute('data-page') === 'projects') {
+        loadProjectsGrid();
+    } else {
+        applySorting();
+    }
 
     const applyBtn = document.getElementById('apply-filters-btn');
     const clearBtn = document.getElementById('clear-filters-btn');
     const loadMoreBtn = document.getElementById('load-more-btn');
-    const projectCards = document.querySelectorAll('.project-card');
 
     appliedStateSnapshot = getFilterStateSnapshot();
     updateFilterButtonStates();
@@ -366,7 +454,6 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             const isOpen = !sortMenu.classList.contains('hidden');
             
-            // Close other details dropdowns
             document.querySelectorAll('details').forEach(d => d.removeAttribute('open'));
 
             if (isOpen) {
@@ -379,7 +466,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Close sort menu when clicking outside
         document.addEventListener('click', (event) => {
             if (!sortContainer.contains(event.target)) {
                 sortMenu.classList.add('hidden');
@@ -408,7 +494,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 sortSummaryText.textContent = 'Sort by';
             }
             updateFilterButtonStates();
-            // Close menu on selection
             sortMenu?.classList.add('hidden');
             sortChevron?.classList.remove('rotate-180');
             applySorting();
@@ -434,6 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedAreas = Array.from(document.querySelectorAll('input[name="filter-area"]:checked')).map(cb => cb.value);
             const selectedOthers = Array.from(document.querySelectorAll('input[name="filter-others"]:checked')).map(cb => cb.value);
 
+            const projectCards = document.querySelectorAll('.project-card');
             projectCards.forEach(card => {
                 const cardDegree = card.getAttribute('data-degree') || '';
                 const cardLangs = card.getAttribute('data-lang') || '';
@@ -454,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            visibleCount = 5; // Reset pagination count on filter application
+            visibleCount = 5; 
             applySorting();
             updateDropdownActiveStates();
             
@@ -467,19 +553,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 9. Clear Filters logic (Does NOT touch sorting)
+    // 9. Clear Filters logic
     if (clearBtn) {
         clearBtn.addEventListener('click', () => {
-            // Uncheck only filter checkboxes
             document.querySelectorAll('input[name^="filter-"]:not([name="filter-sort"])[type="checkbox"]').forEach(cb => cb.checked = false);
 
-            // Reset project card filter exclusion attributes
+            const projectCards = document.querySelectorAll('.project-card');
             projectCards.forEach(card => {
                 card.removeAttribute('data-filtered-out');
             });
 
-            visibleCount = 5; // Reset pagination count on clear
-            // Re-apply current sorting without changing sort parameters
+            visibleCount = 5; 
             applySorting();
             updateDropdownActiveStates();
             
