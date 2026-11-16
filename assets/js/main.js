@@ -285,30 +285,108 @@ function updateFilterButtonStates() {
     }
 }
 
-// Function to dynamically fetch repos.json and build the project cards
+// Function to dynamically render filter checkboxes based on available project data
+function populateDynamicFilters(projects) {
+    const categories = [
+        { key: 'context', name: 'context', containerId: 'context-menu' },
+        { key: 'programming', name: 'programming', containerId: 'programming-menu' },
+        { key: 'framework', name: 'framework', containerId: 'framework-menu' },
+        { key: 'database', name: 'database', containerId: 'database-menu' },
+        { key: 'domain', name: 'domain', containerId: 'domain-menu' },
+        { key: 'infrastructure', name: 'infrastructure', containerId: 'infrastructure-menu' },
+        { key: 'data_science', name: 'datascience', containerId: 'datascience-menu' },
+        { key: 'others', name: 'others', containerId: 'others-menu' }
+    ];
+
+    categories.forEach(cat => {
+        const container = document.getElementById(cat.containerId);
+        if (!container) return;
+
+        // Collect unique values across all project taxonomies for this category
+        const uniqueValues = new Set();
+        projects.forEach(project => {
+            const taxList = (project.taxonomy && project.taxonomy[cat.key]) || [];
+            taxList.forEach(val => uniqueValues.add(val));
+        });
+
+        // Sort alphabetically
+        const sortedValues = Array.from(uniqueValues).sort();
+
+        // Build checkbox HTML elements
+        container.innerHTML = '';
+        if (sortedValues.length === 0) {
+            container.innerHTML = `<span class="text-slate-400 px-2">No items available</span>`;
+            return;
+        }
+
+        sortedValues.forEach(val => {
+            const lowerVal = val.toLowerCase();
+            const label = document.createElement('label');
+            label.className = 'whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400';
+            label.innerHTML = `
+                <input type="checkbox" name="filter-${cat.name}" value="${lowerVal}" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500">
+                <span>${val}</span>
+            `;
+            container.appendChild(label);
+        });
+    });
+
+    // Re-attach change listeners to newly created checkboxes
+    document.querySelectorAll('input[name^="filter-"]:not([name="filter-sort"])').forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            updateDropdownActiveStates();
+            updateFilterButtonStates();
+        });
+    });
+}
+
+// Function to dynamically fetch repos.json, build filters, and render project cards
 async function loadProjectsGrid() {
     const grid = document.getElementById('projects-grid');
     if (!grid) return;
+
+    // Render skeleton placeholders while fetching
+    const skeletonCardHtml = `
+        <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4 animate-pulse">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                <div class="h-8 bg-slate-700 dark:bg-slate-300 rounded-lg w-2/3"></div>
+                <div class="h-6 bg-slate-700 dark:bg-slate-300 rounded-full w-28"></div>
+            </div>
+            <div class="space-y-2 pt-2">
+                <div class="h-4 bg-slate-700 dark:bg-slate-300 rounded w-full"></div>
+                <div class="h-4 bg-slate-700 dark:bg-slate-300 rounded w-5/6"></div>
+            </div>
+        </div>
+    `;
+    grid.innerHTML = skeletonCardHtml.repeat(3);
 
     try {
         const response = await fetch('assets/data/repos.json');
         if (!response.ok) throw new Error('Failed to load repository metadata.');
         const projects = await response.json();
 
+        // 1. Dynamically populate filter dropdowns based on actual dataset content
+        populateDynamicFilters(projects);
+
+        // 2. Render project cards
         grid.innerHTML = '';
 
         projects.forEach(project => {
             const card = document.createElement('div');
             card.className = 'project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4';
             
-            // Map filtering attributes from project metadata
-            card.setAttribute('data-degree', project.degree || '');
-            card.setAttribute('data-lang', (project.language || '').toLowerCase());
-            card.setAttribute('data-framework', (project.frameworks || []).join(' ').toLowerCase());
-            card.setAttribute('data-area', (project.areas || []).join(' ').toLowerCase());
-            card.setAttribute('data-others', (project.others || []).join(' ').toLowerCase());
+            const tax = project.taxonomy || {};
             
-            // Dates for sorting (using created_at/date and updated_at)
+            // Map filtering attributes
+            card.setAttribute('data-context', (tax.context || []).join(',').toLowerCase());
+            card.setAttribute('data-programming', (tax.programming || []).join(',').toLowerCase());
+            card.setAttribute('data-framework', (tax.framework || []).join(',').toLowerCase());
+            card.setAttribute('data-database', (tax.database || []).join(',').toLowerCase());
+            card.setAttribute('data-domain', (tax.domain || []).join(',').toLowerCase());
+            card.setAttribute('data-infrastructure', (tax.infrastructure || []).join(',').toLowerCase());
+            card.setAttribute('data-datascience', (tax.data_science || []).join(',').toLowerCase());
+            card.setAttribute('data-others', (tax.others || []).join(',').toLowerCase());
+            
             const subDateStr = project.created_at ? project.created_at.split('T')[0] : '2026-01-01';
             const upDateStr = project.updated_at ? project.updated_at.split('T')[0] : subDateStr;
             card.setAttribute('data-date', subDateStr);
@@ -317,18 +395,10 @@ async function loadProjectsGrid() {
             const formattedSubDate = new Date(subDateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
             const formattedUpDate = new Date(upDateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
 
-            // Build tech stack tags chips
-            const allTechTags = [
-                project.language,
-                ...(project.frameworks || []),
-                ...(project.others || [])
-            ].filter(Boolean);
-
-            const tagsHtml = allTechTags.map(tag => `
+            const tagsHtml = (project.combined_tags || []).map(tag => `
                 <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded text-xs text-slate-300 dark:text-slate-700">${tag}</span>
             `).join('');
 
-            // Build bullet points list if available
             let bulletsHtml = '';
             if (project.description && project.description.bullet_points && project.description.bullet_points.length > 0) {
                 const liItems = project.description.bullet_points.map(bp => `<li>${bp}</li>`).join('');
@@ -362,7 +432,6 @@ async function loadProjectsGrid() {
             grid.appendChild(card);
         });
 
-        // Initialize sorting, filters, and pagination after DOM nodes are mounted
         applySorting();
         appliedStateSnapshot = getFilterStateSnapshot();
         updateFilterButtonStates();
@@ -513,27 +582,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. Apply Filters logic
     if (applyBtn) {
         applyBtn.addEventListener('click', () => {
-            const selectedDegrees = Array.from(document.querySelectorAll('input[name="filter-degree"]:checked')).map(cb => cb.value);
-            const selectedLangs = Array.from(document.querySelectorAll('input[name="filter-lang"]:checked')).map(cb => cb.value);
+            const selectedContexts = Array.from(document.querySelectorAll('input[name="filter-context"]:checked')).map(cb => cb.value);
+            const selectedProgramming = Array.from(document.querySelectorAll('input[name="filter-programming"]:checked')).map(cb => cb.value);
             const selectedFrameworks = Array.from(document.querySelectorAll('input[name="filter-framework"]:checked')).map(cb => cb.value);
-            const selectedAreas = Array.from(document.querySelectorAll('input[name="filter-area"]:checked')).map(cb => cb.value);
+            const selectedDatabases = Array.from(document.querySelectorAll('input[name="filter-database"]:checked')).map(cb => cb.value);
+            const selectedDomains = Array.from(document.querySelectorAll('input[name="filter-domain"]:checked')).map(cb => cb.value);
+            const selectedInfrastructure = Array.from(document.querySelectorAll('input[name="filter-infrastructure"]:checked')).map(cb => cb.value);
+            const selectedDataScience = Array.from(document.querySelectorAll('input[name="filter-datascience"]:checked')).map(cb => cb.value);
             const selectedOthers = Array.from(document.querySelectorAll('input[name="filter-others"]:checked')).map(cb => cb.value);
 
             const projectCards = document.querySelectorAll('.project-card');
             projectCards.forEach(card => {
-                const cardDegree = card.getAttribute('data-degree') || '';
-                const cardLangs = card.getAttribute('data-lang') || '';
+                const cardContext = card.getAttribute('data-context') || '';
+                const cardProgramming = card.getAttribute('data-programming') || '';
                 const cardFrameworks = card.getAttribute('data-framework') || '';
-                const cardAreas = card.getAttribute('data-area') || '';
+                const cardDatabases = card.getAttribute('data-database') || '';
+                const cardDomains = card.getAttribute('data-domain') || '';
+                const cardInfrastructure = card.getAttribute('data-infrastructure') || '';
+                const cardDataScience = card.getAttribute('data-datascience') || '';
                 const cardOthers = card.getAttribute('data-others') || '';
 
-                const matchesDegree = selectedDegrees.length === 0 || selectedDegrees.some(val => cardDegree.includes(val));
-                const matchesLang = selectedLangs.length === 0 || selectedLangs.some(val => cardLangs.includes(val));
+                const matchesContext = selectedContexts.length === 0 || selectedContexts.some(val => cardContext.includes(val));
+                const matchesProgramming = selectedProgramming.length === 0 || selectedProgramming.some(val => cardProgramming.includes(val));
                 const matchesFramework = selectedFrameworks.length === 0 || selectedFrameworks.some(val => cardFrameworks.includes(val));
-                const matchesArea = selectedAreas.length === 0 || selectedAreas.some(val => cardAreas.includes(val));
+                const matchesDatabase = selectedDatabases.length === 0 || selectedDatabases.some(val => cardDatabases.includes(val));
+                const matchesDomain = selectedDomains.length === 0 || selectedDomains.some(val => cardDomains.includes(val));
+                const matchesInfrastructure = selectedInfrastructure.length === 0 || selectedInfrastructure.some(val => cardInfrastructure.includes(val));
+                const matchesDataScience = selectedDataScience.length === 0 || selectedDataScience.some(val => cardDataScience.includes(val));
                 const matchesOther = selectedOthers.length === 0 || selectedOthers.some(val => cardOthers.includes(val));
 
-                if (matchesDegree && matchesLang && matchesFramework && matchesArea && matchesOther) {
+                if (matchesContext && matchesProgramming && matchesFramework && matchesDatabase && matchesDomain && matchesInfrastructure && matchesDataScience && matchesOther) {
                     card.removeAttribute('data-filtered-out');
                 } else {
                     card.setAttribute('data-filtered-out', 'true');

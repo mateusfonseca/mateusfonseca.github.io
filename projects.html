@@ -43,53 +43,32 @@
 
         <!-- Sophisticated Multi-Dropdown Check Filters -->
         <div id="filter-container" class="bg-slate-800/60 dark:bg-slate-100 p-6 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 
-                <!-- 1. Degree Dropdown -->
+                <!-- 1. Context Dropdown -->
                 <details class="relative group filter-dropdown">
                     <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
                         <span class="flex items-center gap-2">
-                            Degree
+                            Context
                             <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-degree" value="masters" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Master's
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-degree" value="bachelors" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Bachelor's
-                        </label>
+                    <div id="context-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
+                        <!-- Dynamically populated -->
                     </div>
                 </details>
 
-                <!-- 2. Programming Language Dropdown -->
+                <!-- 2. Programming Dropdown -->
                 <details class="relative group filter-dropdown">
                     <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
                         <span class="flex items-center gap-2">
-                            Language
+                            Programming
                             <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-lang" value="python" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Python
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-lang" value="csharp" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> C#
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-lang" value="javascript" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> JavaScript
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-lang" value="typescript" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> TypeScript
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-lang" value="kotlin" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Kotlin
-                        </label>
-                    </div>
+                    <div id="programming-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
                 </details>
 
                 <!-- 3. Framework Dropdown -->
@@ -101,69 +80,58 @@
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-framework" value="fastapi" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> FastAPI
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-framework" value="streamlit" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Streamlit
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-framework" value="flask" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Flask
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-framework" value="django" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Django
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-framework" value="dotnet" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> .NET / ASP.NET
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-framework" value="react" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> React / React Native
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-framework" value="ionic" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Ionic
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-framework" value="android" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Android Native
-                        </label>
-                    </div>
+                    <div id="framework-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
                 </details>
 
-                <!-- 4. Area Dropdown -->
+                <!-- 4. Database Dropdown -->
                 <details class="relative group filter-dropdown">
                     <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
                         <span class="flex items-center gap-2">
-                            Area
+                            Database
                             <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-area" value="cloud-arch" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Cloud Arch
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-area" value="soft-dev" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Soft Dev
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-area" value="cicd" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> CI/CD
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-area" value="devops" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> DevOps
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-area" value="crypto" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Cryptography
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-area" value="mobile" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Mobile Dev
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-area" value="ai" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> AI & Vision
-                        </label>
-                    </div>
+                    <div id="database-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
                 </details>
 
-                <!-- 5. Others Dropdown -->
+                <!-- 5. Domain Dropdown -->
+                <details class="relative group filter-dropdown">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                        <span class="flex items-center gap-2">
+                            Domain
+                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                        </span>
+                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div id="domain-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
+                </details>
+
+                <!-- 6. Infrastructure Dropdown -->
+                <details class="relative group filter-dropdown">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                        <span class="flex items-center gap-2">
+                            Infrastructure
+                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                        </span>
+                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div id="infrastructure-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
+                </details>
+
+                <!-- 7. Data Science Dropdown -->
+                <details class="relative group filter-dropdown">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                        <span class="flex items-center gap-2">
+                            Data Science
+                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                        </span>
+                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div id="datascience-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
+                </details>
+
+                <!-- 8. Others Dropdown -->
                 <details class="relative group filter-dropdown">
                     <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
                         <span class="flex items-center gap-2">
@@ -172,51 +140,23 @@
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-others" value="terraform" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Terraform
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-others" value="aws" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> AWS
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-others" value="nginx" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Nginx
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-others" value="uvicorn" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Uvicorn
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-others" value="mysql" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> MySQL / SQLite
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-others" value="docker" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Docker
-                        </label>
-                        <label class="whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400">
-                            <input type="checkbox" name="filter-others" value="firebase" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500"> Firebase
-                        </label>
-                    </div>
+                    <div id="others-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
                 </details>
 
-                <!-- 6. Sort Dropdown with Two-in-One Ascending/Descending Toggle -->
-                <div id="sort-container" class="filter-dropdown relative flex items-center bg-slate-900 dark:bg-white rounded-xl border border-blue-500 text-blue-400 dark:text-blue-600 font-semibold shadow-sm hover:border-blue-500 transition">
-                    
-                    <!-- Left Part: Sort Dropdown Summary (Clicking this toggles the menu manually via JS) -->
+                <!-- 9. Sort Dropdown -->
+                <div id="sort-container" class="filter-dropdown relative flex items-center bg-slate-900 dark:bg-white rounded-xl border border-blue-500 text-blue-400 dark:text-blue-600 font-semibold shadow-sm hover:border-blue-500 transition sm:col-span-2 lg:col-span-4">
                     <div id="sort-summary-wrapper" class="flex-grow">
                         <div id="sort-trigger" class="flex justify-between items-center px-4 py-2.5 cursor-pointer text-sm select-none">
                             <span id="sort-summary-text">Sort by</span>
                             <svg id="sort-chevron" class="w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </div>
                     </div>
-
-                    <!-- Right Part: Ascending / Descending Toggler Button -->
                     <button type="button" id="sort-order-btn" title="Toggle Sort Order" class="px-3 py-2.5 border-l border-slate-700 dark:border-slate-300 text-slate-400 hover:text-slate-200 dark:hover:text-slate-800 transition flex items-center justify-center shrink-0">
                         <svg id="sort-icon" class="w-4 h-4 transition-transform duration-200 scale-y-[-1]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h8M3 12h6M3 18h4"/>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 18V6m0 0l-4 4m4-4l4 4"/>
                         </svg>
                     </button>
-
-                    <!-- Dropdown Menu is now a direct child of the entire #sort-container wrapper -->
                     <div id="sort-dropdown-menu" class="dropdown-menu absolute top-full right-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-2 space-y-1 text-sm font-normal hidden">
                         <label class="whitespace-nowrap sort-option flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 transition text-left cursor-pointer">
                             <input type="radio" name="filter-sort" value="date" checked class="rounded-full border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer">
