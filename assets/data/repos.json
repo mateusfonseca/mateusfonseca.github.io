@@ -16,7 +16,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "bachelors"
             ],
             "programming": [
                 "Kotlin"
@@ -29,25 +29,25 @@
             "infrastructure": [],
             "data_science": [],
             "others": [
-                "Android Studio",
+                "Api",
                 "Fakestoreapi",
                 "Json",
-                "Mobile",
-                "Api",
                 "Object Oriented Programming",
-                "Material Design"
+                "Material Design",
+                "Android Studio",
+                "Mobile"
             ]
         },
         "combined_tags": [
-            "Android Studio",
-            "Kotlin",
             "Material Design",
+            "Object Oriented Programming",
+            "Fakestoreapi",
             "Mobile",
             "Android",
+            "Android Studio",
             "Api",
             "Json",
-            "Object Oriented Programming",
-            "Fakestoreapi"
+            "Kotlin"
         ]
     },
     {
@@ -67,7 +67,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "bachelors"
             ],
             "programming": [
                 "Kotlin"
@@ -80,20 +80,20 @@
             "infrastructure": [],
             "data_science": [],
             "others": [
-                "Android Studio",
-                "Json",
-                "Mobile",
                 "Api",
-                "Object Oriented Programming"
+                "Json",
+                "Object Oriented Programming",
+                "Android Studio",
+                "Mobile"
             ]
         },
         "combined_tags": [
-            "Android Studio",
+            "Object Oriented Programming",
             "Mobile",
             "Android",
+            "Android Studio",
             "Api",
             "Json",
-            "Object Oriented Programming",
             "Kotlin"
         ]
     },
@@ -114,7 +114,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "bachelors"
             ],
             "programming": [
                 "Kotlin"
@@ -127,20 +127,20 @@
             "infrastructure": [],
             "data_science": [],
             "others": [
-                "Android Studio",
-                "Json",
-                "Mobile",
                 "Api",
-                "Object Oriented Programming"
+                "Json",
+                "Object Oriented Programming",
+                "Android Studio",
+                "Mobile"
             ]
         },
         "combined_tags": [
-            "Android Studio",
+            "Object Oriented Programming",
             "Mobile",
             "Android",
+            "Android Studio",
             "Api",
             "Json",
-            "Object Oriented Programming",
             "Kotlin"
         ]
     },
@@ -161,7 +161,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "bachelors"
             ],
             "programming": [
                 "Kotlin"
@@ -174,16 +174,16 @@
             "infrastructure": [],
             "data_science": [],
             "others": [
+                "Object Oriented Programming",
                 "Android Studio",
-                "Mobile",
-                "Object Oriented Programming"
+                "Mobile"
             ]
         },
         "combined_tags": [
-            "Android Studio",
-            "Android",
-            "Mobile",
             "Object Oriented Programming",
+            "Mobile",
+            "Android",
+            "Android Studio",
             "Kotlin"
         ]
     },
@@ -204,7 +204,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "bachelors"
             ],
             "programming": [],
             "framework": [],
@@ -237,7 +237,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "bachelors"
             ],
             "programming": [
                 "JavaScript"
@@ -250,26 +250,26 @@
             "infrastructure": [],
             "data_science": [],
             "others": [
-                "Google Maps Api",
-                "Jsx",
-                "Google Photos Api",
-                "Webstorm",
+                "Google Places Api",
                 "Geolocation",
-                "Mobile",
                 "Object Oriented Programming",
-                "Google Places Api"
+                "Google Photos Api",
+                "Jsx",
+                "Webstorm",
+                "Mobile",
+                "Google Maps Api"
             ]
         },
         "combined_tags": [
+            "React Native",
+            "JavaScript",
+            "Object Oriented Programming",
+            "Mobile",
             "Google Places Api",
             "Google Maps Api",
-            "JavaScript",
-            "Geolocation",
-            "React Native",
-            "Jsx",
-            "Mobile",
             "Google Photos Api",
-            "Object Oriented Programming",
+            "Jsx",
+            "Geolocation",
             "Webstorm"
         ]
     },
@@ -290,7 +290,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "bachelors"
             ],
             "programming": [
                 "JavaScript"
@@ -303,26 +303,26 @@
             "infrastructure": [],
             "data_science": [],
             "others": [
-                "Jsx",
                 "Firebase",
-                "Accelerometer",
+                "Object Oriented Programming",
+                "React Hooks",
+                "Jsx",
                 "Sensors",
                 "Webstorm",
                 "Mobile",
-                "Object Oriented Programming",
-                "React Hooks"
+                "Accelerometer"
             ]
         },
         "combined_tags": [
-            "Firebase",
-            "Accelerometer",
-            "Object Oriented Programming",
-            "JavaScript",
-            "React Hooks",
             "React Native",
-            "Jsx",
-            "Mobile",
+            "JavaScript",
             "Sensors",
+            "Object Oriented Programming",
+            "Mobile",
+            "Accelerometer",
+            "Firebase",
+            "React Hooks",
+            "Jsx",
             "Webstorm"
         ]
     },
@@ -343,7 +343,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "bachelors"
             ],
             "programming": [
                 "C#"
@@ -355,20 +355,20 @@
             "data_science": [],
             "others": [
                 "Mvc Architecture",
+                "Object Oriented Programming",
                 "Webapp",
                 "C#",
                 "Html Css Javascript",
-                "Object Oriented Programming",
                 "Dotnet Core"
             ]
         },
         "combined_tags": [
-            "C#",
-            "Html Css Javascript",
+            "Object Oriented Programming",
             "Mvc Architecture",
-            "Webapp",
             "Dotnet Core",
-            "Object Oriented Programming"
+            "Html Css Javascript",
+            "C#",
+            "Webapp"
         ]
     },
     {
@@ -389,7 +389,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "bachelors"
             ],
             "programming": [
                 "Python"
@@ -402,26 +402,26 @@
             "infrastructure": [],
             "data_science": [],
             "others": [
-                "Discogs Api",
+                "Object Oriented Programming",
                 "Unit Testing",
                 "Webapp",
-                "Mvt Architecture",
-                "Html Css Javascript",
-                "Object Oriented Programming",
+                "Discogs Api",
                 "Pycharm Ide",
+                "Html Css Javascript",
+                "Mvt Architecture",
                 "Django Security"
             ]
         },
         "combined_tags": [
+            "Html Css Javascript",
+            "Object Oriented Programming",
+            "Unit Testing",
+            "Discogs Api",
+            "Mvt Architecture",
             "Django Security",
             "Pycharm Ide",
-            "Html Css Javascript",
-            "Discogs Api",
             "Python",
-            "Unit Testing",
-            "Mvt Architecture",
             "Webapp",
-            "Object Oriented Programming",
             "Django"
         ]
     },
@@ -442,7 +442,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "bachelors"
             ],
             "programming": [
                 "Python"
@@ -455,25 +455,25 @@
             "infrastructure": [],
             "data_science": [],
             "others": [
-                "Unit Testing",
                 "Web Application",
-                "Mvt Architecture",
-                "Html Css Javascript",
                 "Object Oriented Programming",
+                "Unit Testing",
                 "Pycharm Ide",
-                "Pytest"
+                "Html Css Javascript",
+                "Pytest",
+                "Mvt Architecture"
             ]
         },
         "combined_tags": [
-            "Pycharm Ide",
             "Html Css Javascript",
+            "Web Application",
+            "Object Oriented Programming",
             "Pytest",
-            "Python",
             "Unit Testing",
             "Mvt Architecture",
-            "Flask",
-            "Web Application",
-            "Object Oriented Programming"
+            "Pycharm Ide",
+            "Python",
+            "Flask"
         ]
     },
     {
@@ -494,7 +494,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "masters"
             ],
             "programming": [
                 "Python"
@@ -528,7 +528,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "masters"
             ],
             "programming": [
                 "Python"
@@ -541,31 +541,31 @@
                 "DevOps"
             ],
             "infrastructure": [
-                "Ansible",
-                "GitHub Actions",
                 "Terraform",
-                "Docker",
-                "AWS"
+                "Ansible",
+                "AWS",
+                "GitHub Actions",
+                "Docker"
             ],
             "data_science": [],
             "others": [
                 "Hcl",
-                "Cicd",
-                "Iac"
+                "Iac",
+                "Cicd"
             ]
         },
         "combined_tags": [
-            "Terraform",
-            "AWS",
-            "GitHub Actions",
-            "Cicd",
-            "Python",
-            "DevOps",
-            "Iac",
-            "Flask",
-            "Docker",
             "Hcl",
-            "Ansible"
+            "DevOps",
+            "AWS",
+            "Ansible",
+            "Terraform",
+            "Iac",
+            "GitHub Actions",
+            "Python",
+            "Cicd",
+            "Docker",
+            "Flask"
         ]
     },
     {
@@ -586,7 +586,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "masters"
             ],
             "programming": [
                 "JavaScript"
@@ -619,7 +619,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "masters"
             ],
             "programming": [
                 "TypeScript"
@@ -636,28 +636,28 @@
             "infrastructure": [],
             "data_science": [],
             "others": [
-                "Discogs Api",
-                "Html5",
                 "Vite",
                 "Firebase Auth",
                 "Css",
-                "Reactive Programming",
-                "Hybrid Application"
+                "Discogs Api",
+                "Hybrid Application",
+                "Html5",
+                "Reactive Programming"
             ]
         },
         "combined_tags": [
-            "Vite",
+            "Hybrid Application",
+            "React",
             "Html5",
             "TypeScript",
-            "React",
-            "Discogs Api",
-            "Android",
-            "Ionic",
+            "Vite",
             "Css",
-            "Reactive Programming",
-            "Firebase Auth",
             "Firestore",
-            "Hybrid Application"
+            "Android",
+            "Discogs Api",
+            "Ionic",
+            "Firebase Auth",
+            "Reactive Programming"
         ]
     },
     {
@@ -678,7 +678,7 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "masters"
             ],
             "programming": [
                 "Python"
@@ -689,26 +689,26 @@
             "infrastructure": [],
             "data_science": [],
             "others": [
-                "Aes",
-                "Tls",
-                "Tenseal",
                 "Searchable Encryption",
+                "Homomorphic Encryption",
+                "Tenseal",
+                "Tls",
+                "Aes",
                 "Benchmarking",
-                "Bfv",
                 "Cloud Security",
-                "Homomorphic Encryption"
+                "Bfv"
             ]
         },
         "combined_tags": [
-            "Bfv",
-            "Tenseal",
-            "Benchmarking",
-            "Python",
-            "Homomorphic Encryption",
-            "Searchable Encryption",
-            "Cloud Security",
             "Tls",
-            "Aes"
+            "Bfv",
+            "Benchmarking",
+            "Homomorphic Encryption",
+            "Cloud Security",
+            "Tenseal",
+            "Aes",
+            "Python",
+            "Searchable Encryption"
         ]
     },
     {
@@ -728,11 +728,11 @@
         },
         "taxonomy": {
             "context": [
-                "Personal"
+                "bachelors"
             ],
             "programming": [
-                "JavaScript",
-                "Python"
+                "Python",
+                "JavaScript"
             ],
             "framework": [
                 "Django"
@@ -743,24 +743,24 @@
             ],
             "infrastructure": [],
             "data_science": [
-                "TensorFlow",
-                "Keras"
+                "Keras",
+                "TensorFlow"
             ],
             "others": [
-                "Opencv",
                 "Deep Learning",
+                "Opencv",
                 "Cnn"
             ]
         },
         "combined_tags": [
-            "TensorFlow",
-            "Computer Vision",
+            "Opencv",
             "JavaScript",
             "Keras",
+            "Deep Learning",
+            "Computer Vision",
+            "TensorFlow",
             "Python",
             "Cnn",
-            "Deep Learning",
-            "Opencv",
             "Django"
         ]
     }
