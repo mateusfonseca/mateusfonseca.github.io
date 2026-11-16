@@ -155,26 +155,107 @@ function generateTailoredPDF(track) {
     });
 }
 
+// Category Color Theme Definitions (Dark mode default, .dark class = Light mode)
+const CATEGORY_COLORS = {
+    context: {
+        hoverBorder: ['hover:border-lime-500'],
+        activeSummary: ['border-lime-500', 'text-lime-400', 'dark:text-lime-600', 'font-semibold'],
+        badgeBg: ['bg-lime-600'],
+        checkbox: 'text-lime-600 focus:ring-lime-500',
+        labelHover: 'hover:text-lime-400 dark:hover:text-lime-600',
+        tagClasses: 'bg-lime-950/60 dark:bg-lime-50 border border-lime-700/70 dark:border-lime-300 text-lime-300 dark:text-lime-700'
+    },
+    domain: {
+        hoverBorder: ['hover:border-purple-500'],
+        activeSummary: ['border-purple-500', 'text-purple-400', 'dark:text-purple-600', 'font-semibold'],
+        badgeBg: ['bg-purple-600'],
+        checkbox: 'text-purple-600 focus:ring-purple-500',
+        labelHover: 'hover:text-purple-400 dark:hover:text-purple-600',
+        tagClasses: 'bg-purple-950/60 dark:bg-purple-50 border border-purple-700/70 dark:border-purple-300 text-purple-300 dark:text-purple-700'
+    },
+    programming: {
+        hoverBorder: ['hover:border-emerald-500'],
+        activeSummary: ['border-emerald-500', 'text-emerald-400', 'dark:text-emerald-600', 'font-semibold'],
+        badgeBg: ['bg-emerald-600'],
+        checkbox: 'text-emerald-600 focus:ring-emerald-500',
+        labelHover: 'hover:text-emerald-400 dark:hover:text-emerald-600',
+        tagClasses: 'bg-emerald-950/60 dark:bg-emerald-50 border border-emerald-700/70 dark:border-emerald-300 text-emerald-300 dark:text-emerald-700'
+    },
+    framework: {
+        hoverBorder: ['hover:border-amber-500'],
+        activeSummary: ['border-amber-500', 'text-amber-400', 'dark:text-amber-600', 'font-semibold'],
+        badgeBg: ['bg-amber-600'],
+        checkbox: 'text-amber-600 focus:ring-amber-500',
+        labelHover: 'hover:text-amber-400 dark:hover:text-amber-600',
+        tagClasses: 'bg-amber-950/60 dark:bg-amber-50 border border-amber-700/70 dark:border-amber-300 text-amber-300 dark:text-amber-700'
+    },
+    database: {
+        hoverBorder: ['hover:border-rose-500'],
+        activeSummary: ['border-rose-500', 'text-rose-400', 'dark:text-rose-600', 'font-semibold'],
+        badgeBg: ['bg-rose-600'],
+        checkbox: 'text-rose-600 focus:ring-rose-500',
+        labelHover: 'hover:text-rose-400 dark:hover:text-rose-600',
+        tagClasses: 'bg-rose-950/60 dark:bg-rose-50 border border-rose-700/70 dark:border-rose-300 text-rose-300 dark:text-rose-700'
+    },
+    infrastructure: {
+        hoverBorder: ['hover:border-cyan-500'],
+        activeSummary: ['border-cyan-500', 'text-cyan-400', 'dark:text-cyan-600', 'font-semibold'],
+        badgeBg: ['bg-cyan-600'],
+        checkbox: 'text-cyan-600 focus:ring-cyan-500',
+        labelHover: 'hover:text-cyan-400 dark:hover:text-cyan-600',
+        tagClasses: 'bg-cyan-950/60 dark:bg-cyan-50 border border-cyan-700/70 dark:border-cyan-300 text-cyan-300 dark:text-cyan-700'
+    },
+    data_science: {
+        hoverBorder: ['hover:border-indigo-500'],
+        activeSummary: ['border-indigo-500', 'text-indigo-400', 'dark:text-indigo-600', 'font-semibold'],
+        badgeBg: ['bg-indigo-600'],
+        checkbox: 'text-indigo-600 focus:ring-indigo-500',
+        labelHover: 'hover:text-indigo-400 dark:hover:text-indigo-600',
+        tagClasses: 'bg-indigo-950/60 dark:bg-indigo-50 border border-indigo-700/70 dark:border-indigo-300 text-indigo-300 dark:text-indigo-700'
+    },
+    others: {
+        hoverBorder: ['hover:border-zinc-400', 'dark:hover:border-zinc-500'],
+        activeSummary: ['border-zinc-400', 'dark:border-zinc-500', 'text-zinc-200', 'dark:text-zinc-700', 'font-semibold'],
+        badgeBg: ['bg-zinc-600'],
+        checkbox: 'text-zinc-600 focus:ring-zinc-500',
+        labelHover: 'hover:text-zinc-300 dark:hover:text-zinc-600',
+        tagClasses: 'bg-zinc-800/80 dark:bg-zinc-200/80 border border-zinc-600 dark:border-zinc-400 text-zinc-300 dark:text-zinc-700'
+    }
+};
+
+const DEFAULT_TAG_CLASSES = 'bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700';
+
 // Function to update active states and selection count badges for dropdown filters
 function updateDropdownActiveStates() {
-    document.querySelectorAll('details.relative.group').forEach(details => {
-        const checkboxes = details.querySelectorAll('input[type="checkbox"]');
-        if (checkboxes.length === 0) return; 
+    const inactiveClasses = ['border-slate-700', 'dark:border-slate-300', 'text-slate-200', 'dark:text-slate-800'];
 
+    document.querySelectorAll('details.relative.group').forEach(details => {
+        const category = details.getAttribute('data-category') || 'context';
+        const theme = CATEGORY_COLORS[category] || CATEGORY_COLORS.context;
         const summary = details.querySelector('.filter-summary');
         const badge = details.querySelector('.filter-badge');
+
+        // Ensure category hover border and badge background are applied
+        summary.classList.add(...theme.hoverBorder);
+        if (badge) {
+            badge.classList.add(...theme.badgeBg);
+        }
+
+        const checkboxes = details.querySelectorAll('input[type="checkbox"]');
+        if (checkboxes.length === 0) return;
+
         const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
 
         if (checkedCount > 0) {
-            summary.classList.add('border-blue-500', 'text-blue-400', 'dark:text-blue-600', 'font-semibold');
-            summary.classList.remove('border-slate-700', 'dark:border-slate-300', 'text-slate-200', 'dark:text-slate-800');
+            summary.classList.remove(...inactiveClasses);
+            summary.classList.add(...theme.activeSummary);
             if (badge) {
                 badge.textContent = checkedCount;
                 badge.classList.remove('hidden');
             }
         } else {
-            summary.classList.remove('border-blue-500', 'text-blue-400', 'dark:text-blue-600', 'font-semibold');
-            summary.classList.add('border-slate-700', 'dark:border-slate-300', 'text-slate-200', 'dark:text-slate-800');
+            summary.classList.remove(...theme.activeSummary);
+            summary.classList.add(...inactiveClasses);
             if (badge) {
                 badge.classList.add('hidden');
             }
@@ -302,17 +383,16 @@ function populateDynamicFilters(projects) {
         const container = document.getElementById(cat.containerId);
         if (!container) return;
 
-        // Collect unique values across all project taxonomies for this category
+        const theme = CATEGORY_COLORS[cat.key] || CATEGORY_COLORS.context;
+
         const uniqueValues = new Set();
         projects.forEach(project => {
             const taxList = (project.taxonomy && project.taxonomy[cat.key]) || [];
             taxList.forEach(val => uniqueValues.add(val));
         });
 
-        // Sort alphabetically
         const sortedValues = Array.from(uniqueValues).sort();
 
-        // Build checkbox HTML elements
         container.innerHTML = '';
         if (sortedValues.length === 0) {
             container.innerHTML = `<span class="text-slate-400 px-2">No items available</span>`;
@@ -322,16 +402,18 @@ function populateDynamicFilters(projects) {
         sortedValues.forEach(val => {
             const lowerVal = val.toLowerCase();
             const label = document.createElement('label');
-            label.className = 'whitespace-nowrap flex items-center gap-2 cursor-pointer hover:text-blue-400';
+            label.className = `whitespace-nowrap flex items-center gap-2 cursor-pointer transition ${theme.labelHover}`;
             label.innerHTML = `
-                <input type="checkbox" name="filter-${cat.name}" value="${lowerVal}" class="rounded border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500">
+                <input type="checkbox" name="filter-${cat.name}" value="${lowerVal}" class="rounded border-slate-700 dark:border-slate-300 ${theme.checkbox}">
                 <span>${val}</span>
             `;
             container.appendChild(label);
         });
     });
 
-    // Re-attach change listeners to newly created checkboxes
+    // Apply initial hover borders & badge colors to dropdown summaries
+    updateDropdownActiveStates();
+
     document.querySelectorAll('input[name^="filter-"]:not([name="filter-sort"])').forEach(checkbox => {
         checkbox.addEventListener('change', () => {
             updateDropdownActiveStates();
@@ -395,9 +477,36 @@ async function loadProjectsGrid() {
             const formattedSubDate = new Date(subDateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
             const formattedUpDate = new Date(upDateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
 
-            const tagsHtml = (project.combined_tags || []).map(tag => `
-                <span class="bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 px-2.5 py-1 rounded text-xs text-slate-300 dark:text-slate-700">${tag}</span>
-            `).join('');
+            // Build a lookup map from tag text -> category key using project.taxonomy
+            const categoryOrder = [
+                'context',
+                'domain',
+                'programming',
+                'framework',
+                'database',
+                'infrastructure',
+                'data_science',
+                'others'
+            ];
+
+            const tagCategoryMap = new Map();
+            categoryOrder.forEach(catKey => {
+                (tax[catKey] || []).forEach(item => {
+                    const normalized = item.toLowerCase().trim();
+                    if (!tagCategoryMap.has(normalized)) {
+                        tagCategoryMap.set(normalized, catKey);
+                    }
+                });
+            });
+
+            const tagsHtml = (project.combined_tags || []).map(tag => {
+                const matchedCat = tagCategoryMap.get(tag.toLowerCase().trim());
+                const tagStyle = matchedCat && CATEGORY_COLORS[matchedCat]
+                    ? CATEGORY_COLORS[matchedCat].tagClasses
+                    : DEFAULT_TAG_CLASSES;
+
+                return `<span class="${tagStyle} px-2.5 py-1 rounded text-xs font-medium">${tag}</span>`;
+            }).join('');
 
             let bulletsHtml = '';
             if (project.description && project.description.bullet_points && project.description.bullet_points.length > 0) {

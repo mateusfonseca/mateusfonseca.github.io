@@ -77,3 +77,44 @@
 .animate-terminal-blink {
     animation: terminalBlink 1.2s infinite;
 }
+
+/* Custom Dropdown Scrollbar & Smooth Scrolling */
+.dropdown-menu {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    /* Default (Dark Mode in your theme setup) */
+    scrollbar-color: #334155 transparent; /* slate-700 thumb, transparent track */
+}
+
+/* Light Mode (.dark class on html in your setup) */
+html.dark .dropdown-menu {
+    scrollbar-color: #cbd5e1 transparent; /* slate-300 thumb, transparent track */
+}
+
+/* WebKit Browsers (Chrome, Edge, Safari) */
+.dropdown-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 6px; /* Keeps scrollbar inset from rounded corners */
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: #334155; /* slate-700 */
+    border-radius: 9999px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background-color: #3b82f6; /* blue-500 */
+}
+
+html.dark .dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1; /* slate-300 */
+}
+
+html.dark .dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background-color: #2563eb; /* blue-600 */
+}

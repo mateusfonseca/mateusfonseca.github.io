@@ -46,107 +46,110 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 
                 <!-- 1. Context Dropdown -->
-                <details class="relative group filter-dropdown">
-                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                <details data-category="context" class="relative group filter-dropdown">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm transition">
                         <span class="flex items-center gap-2">
                             Context
-                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                            <span class="filter-badge hidden text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div id="context-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto">
-                        <!-- Dynamically populated -->
-                    </div>
+                    <div id="context-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 pr-4 space-y-2 text-sm max-h-60 overflow-y-auto overflow-x-hidden"></div>
                 </details>
 
-                <!-- 2. Programming Dropdown -->
-                <details class="relative group filter-dropdown">
-                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
-                        <span class="flex items-center gap-2">
-                            Programming
-                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
-                        </span>
-                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </summary>
-                    <div id="programming-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
-                </details>
-
-                <!-- 3. Framework Dropdown -->
-                <details class="relative group filter-dropdown">
-                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
-                        <span class="flex items-center gap-2">
-                            Framework
-                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
-                        </span>
-                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </summary>
-                    <div id="framework-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
-                </details>
-
-                <!-- 4. Database Dropdown -->
-                <details class="relative group filter-dropdown">
-                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
-                        <span class="flex items-center gap-2">
-                            Database
-                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
-                        </span>
-                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </summary>
-                    <div id="database-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
-                </details>
-
-                <!-- 5. Domain Dropdown -->
-                <details class="relative group filter-dropdown">
-                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                <!-- 2. Domain Dropdown -->
+                <details data-category="domain" class="relative group filter-dropdown">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm transition">
                         <span class="flex items-center gap-2">
                             Domain
-                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                            <span class="filter-badge hidden text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div id="domain-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
+                    <div id="domain-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 pr-4 space-y-2 text-sm max-h-60 overflow-y-auto overflow-x-hidden"></div>
+                </details>
+
+                <!-- 3. Programming Dropdown -->
+                <details data-category="programming" class="relative group filter-dropdown">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm transition">
+                        <span class="flex items-center gap-2">
+                            Programming
+                            <span class="filter-badge hidden text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                        </span>
+                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div id="programming-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 pr-4 space-y-2 text-sm max-h-60 overflow-y-auto overflow-x-hidden"></div>
+                </details>
+
+                <!-- 4. Framework Dropdown -->
+                <details data-category="framework" class="relative group filter-dropdown">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm transition">
+                        <span class="flex items-center gap-2">
+                            Framework
+                            <span class="filter-badge hidden text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                        </span>
+                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div id="framework-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 pr-4 space-y-2 text-sm max-h-60 overflow-y-auto overflow-x-hidden"></div>
+                </details>
+
+                <!-- 5. Database Dropdown -->
+                <details data-category="database" class="relative group filter-dropdown">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm transition">
+                        <span class="flex items-center gap-2">
+                            Database
+                            <span class="filter-badge hidden text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                        </span>
+                        <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div id="database-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 pr-4 space-y-2 text-sm max-h-60 overflow-y-auto overflow-x-hidden"></div>
                 </details>
 
                 <!-- 6. Infrastructure Dropdown -->
-                <details class="relative group filter-dropdown">
-                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                <details data-category="infrastructure" class="relative group filter-dropdown">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm transition">
                         <span class="flex items-center gap-2">
                             Infrastructure
-                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                            <span class="filter-badge hidden text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div id="infrastructure-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
+                    <div id="infrastructure-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 pr-4 space-y-2 text-sm max-h-60 overflow-y-auto overflow-x-hidden"></div>
                 </details>
 
                 <!-- 7. Data Science Dropdown -->
-                <details class="relative group filter-dropdown">
-                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                <details data-category="data_science" class="relative group filter-dropdown">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm transition">
                         <span class="flex items-center gap-2">
                             Data Science
-                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                            <span class="filter-badge hidden text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div id="datascience-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
+                    <div id="datascience-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 pr-4 space-y-2 text-sm max-h-60 overflow-y-auto overflow-x-hidden"></div>
                 </details>
 
                 <!-- 8. Others Dropdown -->
-                <details class="relative group filter-dropdown">
-                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm hover:border-blue-500 transition">
+                <details data-category="others" class="relative group filter-dropdown">
+                    <summary class="filter-summary flex justify-between items-center px-4 py-2.5 bg-slate-900 dark:bg-white text-slate-200 dark:text-slate-800 rounded-xl border border-slate-700 dark:border-slate-300 cursor-pointer text-sm font-medium select-none shadow-sm transition">
                         <span class="flex items-center gap-2">
                             Others
-                            <span class="filter-badge hidden bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                            <span class="filter-badge hidden text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                         </span>
                         <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
-                    <div id="others-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 space-y-2 text-sm max-h-60 overflow-y-auto"></div>
+                    <div id="others-menu" class="dropdown-menu absolute left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-3 pr-4 space-y-2 text-sm max-h-60 overflow-y-auto overflow-x-hidden"></div>
                 </details>
 
+            </div>
+
+            <!-- Lower Half: Sort Filter (Left) & Action Buttons (Right) -->
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 pt-6 border-t border-slate-700/50 dark:border-slate-200">
+                
                 <!-- 9. Sort Dropdown -->
-                <div id="sort-container" class="filter-dropdown relative flex items-center bg-slate-900 dark:bg-white rounded-xl border border-blue-500 text-blue-400 dark:text-blue-600 font-semibold shadow-sm hover:border-blue-500 transition sm:col-span-2 lg:col-span-4">
+                <div id="sort-container" class="filter-dropdown relative flex items-center w-full sm:w-fit bg-slate-900 dark:bg-white rounded-xl border border-blue-500 text-blue-400 dark:text-blue-600 font-semibold shadow-sm hover:border-blue-500 transition">
                     <div id="sort-summary-wrapper" class="flex-grow">
-                        <div id="sort-trigger" class="flex justify-between items-center px-4 py-2.5 cursor-pointer text-sm select-none">
+                        <div id="sort-trigger" class="flex justify-between items-center gap-3 px-4 py-2.5 cursor-pointer text-sm select-none whitespace-nowrap">
                             <span id="sort-summary-text">Sort by</span>
                             <svg id="sort-chevron" class="w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </div>
@@ -157,7 +160,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 18V6m0 0l-4 4m4-4l4 4"/>
                         </svg>
                     </button>
-                    <div id="sort-dropdown-menu" class="dropdown-menu absolute top-full right-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-2 space-y-1 text-sm font-normal hidden">
+                    <div id="sort-dropdown-menu" class="dropdown-menu overflow-x-hidden pr-4 absolute top-full left-0 z-20 mt-2 min-w-full w-max bg-slate-900 dark:bg-white border border-slate-700 dark:border-slate-300 rounded-xl shadow-xl p-2 space-y-1 text-sm font-normal hidden">
                         <label class="whitespace-nowrap sort-option flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 transition text-left cursor-pointer">
                             <input type="radio" name="filter-sort" value="date" checked class="rounded-full border-slate-700 dark:border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer">
                             <span>Submission Date</span>
@@ -167,14 +170,14 @@
                             <span>Last Updated</span>
                         </label>
                     </div>
-                </div>           
+                </div>
 
-            </div>
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                    <button id="clear-filters-btn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-800 hover:bg-slate-600 dark:hover:bg-slate-300 transition disabled:opacity-50 disabled:cursor-not-allowed">Clear Filters</button>
+                    <button id="apply-filters-btn" disabled class="w-full sm:w-auto px-6 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap bg-blue-600 text-white hover:bg-blue-500 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600">Apply Filters</button>
+                </div>
 
-            <!-- Action Buttons -->
-            <div class="flex justify-end gap-3 pt-6 border-t border-slate-700/50 dark:border-slate-200">
-                <button id="clear-filters-btn" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-800 hover:bg-slate-600 dark:hover:bg-slate-300 transition disabled:opacity-50 disabled:cursor-not-allowed">Clear Filters</button>
-                <button id="apply-filters-btn" disabled class="px-6 py-2.5 rounded-xl text-sm font-semibold bg-blue-600 text-white hover:bg-blue-500 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600">Apply Filters</button>
             </div>
         </div>
 
