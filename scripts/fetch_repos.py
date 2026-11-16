@@ -99,7 +99,7 @@ def main():
 
             # Initialize taxonomy categories
             taxonomy = {
-                "context": [custom_info.get("context", "Personal")],
+                "context": [],
                 "programming": [],
                 "framework": [],
                 "database": [],
@@ -110,11 +110,14 @@ def main():
             }
 
             # Collect raw data from GitHub
+            gh_context = custom_info.get("context")
             gh_lang = repo.get("language")
             gh_topics = repo.get("topics", [])
 
             # Combine language and topics into a normalized set of tags
             raw_tags = set()
+            if gh_context:
+                raw_tags.add(gh_context.lower())
             if gh_lang:
                 raw_tags.add(gh_lang.lower().replace(" ", "-"))
             for t in gh_topics:
