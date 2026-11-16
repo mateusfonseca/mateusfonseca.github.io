@@ -6,17 +6,6 @@
         "updated_at": "2026-11-11T02:49:23Z",
         "created_at": "2022-04-06T21:58:33Z",
         "language": "Kotlin",
-        "topics": [
-            "android",
-            "android-studio",
-            "api",
-            "fakestoreapi",
-            "json",
-            "kotlin",
-            "material-design",
-            "mobile",
-            "object-oriented-programming"
-        ],
         "description": {
             "intro": "Developed a comprehensive e-commerce Android application in Kotlin integrating user authentication, product catalog browsing, cart management, and order history tracking.",
             "bullet_points": [
@@ -25,7 +14,41 @@
                 "Integrated ViewPager2 with a bottom TabLayout to house multi-feature views for shop, cart, orders, and user profile management."
             ]
         },
-        "degree": "bachelors"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "Kotlin"
+            ],
+            "framework": [
+                "Android"
+            ],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Android Studio",
+                "Fakestoreapi",
+                "Json",
+                "Mobile",
+                "Api",
+                "Object Oriented Programming",
+                "Material Design"
+            ]
+        },
+        "combined_tags": [
+            "Android Studio",
+            "Kotlin",
+            "Material Design",
+            "Mobile",
+            "Android",
+            "Api",
+            "Json",
+            "Object Oriented Programming",
+            "Fakestoreapi"
+        ]
     },
     {
         "name": "mobileApp1_GitHub_Repos",
@@ -34,15 +57,6 @@
         "updated_at": "2026-11-11T02:49:21Z",
         "created_at": "2022-03-29T22:00:12Z",
         "language": "Kotlin",
-        "topics": [
-            "android",
-            "android-studio",
-            "api",
-            "json",
-            "kotlin",
-            "mobile",
-            "object-oriented-programming"
-        ],
         "description": {
             "intro": "Developed a native Android application in Kotlin enabling users to search and inspect GitHub user and organization accounts along with their respective repositories, leveraging live REST API integrations.",
             "bullet_points": [
@@ -51,7 +65,37 @@
                 "Implemented robust error handling layouts, stateful user/organization account switching toggles, and asynchronous network querying."
             ]
         },
-        "degree": "bachelors"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "Kotlin"
+            ],
+            "framework": [
+                "Android"
+            ],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Android Studio",
+                "Json",
+                "Mobile",
+                "Api",
+                "Object Oriented Programming"
+            ]
+        },
+        "combined_tags": [
+            "Android Studio",
+            "Mobile",
+            "Android",
+            "Api",
+            "Json",
+            "Object Oriented Programming",
+            "Kotlin"
+        ]
     },
     {
         "name": "mobileApp1_Movie_Booking",
@@ -60,15 +104,6 @@
         "updated_at": "2026-11-11T02:49:17Z",
         "created_at": "2022-03-28T15:05:20Z",
         "language": "Kotlin",
-        "topics": [
-            "android",
-            "android-studio",
-            "api",
-            "json",
-            "kotlin",
-            "mobile",
-            "object-oriented-programming"
-        ],
         "description": {
             "intro": "Developed a dynamic Android cinema ticket booking application in Kotlin featuring remote JSON data retrieval, interactive seat selection controls, and stateful multi-activity navigation.",
             "bullet_points": [
@@ -77,7 +112,37 @@
                 "Passed custom data objects across activities using the `Parcelable` interface and handled intent result callbacks to keep main adapter views synchronized upon return."
             ]
         },
-        "degree": "bachelors"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "Kotlin"
+            ],
+            "framework": [
+                "Android"
+            ],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Android Studio",
+                "Json",
+                "Mobile",
+                "Api",
+                "Object Oriented Programming"
+            ]
+        },
+        "combined_tags": [
+            "Android Studio",
+            "Mobile",
+            "Android",
+            "Api",
+            "Json",
+            "Object Oriented Programming",
+            "Kotlin"
+        ]
     },
     {
         "name": "mobileApp1_About_Me",
@@ -86,13 +151,6 @@
         "updated_at": "2026-11-11T02:49:10Z",
         "created_at": "2022-03-03T23:50:54Z",
         "language": "Kotlin",
-        "topics": [
-            "android",
-            "android-studio",
-            "kotlin",
-            "mobile",
-            "object-oriented-programming"
-        ],
         "description": {
             "intro": "Developed a native Android application in Kotlin featuring structured multi-activity navigation, custom UI components, responsive recycler views, and object-oriented architectural patterns.",
             "bullet_points": [
@@ -101,7 +159,33 @@
                 "Implemented an `ActivitySetter` interface to automate shared layout setups (top bars, bottom bars, and copyright footers) across activities, minimizing code duplication."
             ]
         },
-        "degree": "bachelors"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "Kotlin"
+            ],
+            "framework": [
+                "Android"
+            ],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Android Studio",
+                "Mobile",
+                "Object Oriented Programming"
+            ]
+        },
+        "combined_tags": [
+            "Android Studio",
+            "Android",
+            "Mobile",
+            "Object Oriented Programming",
+            "Kotlin"
+        ]
     },
     {
         "name": "DorsetCollege.ID24088.CA1.BankApp",
@@ -110,7 +194,6 @@
         "updated_at": "2026-11-11T02:43:15Z",
         "created_at": "2021-11-23T19:29:27Z",
         "language": "C#",
-        "topics": [],
         "description": {
             "intro": "Developed a robust object-oriented .NET console application in C# implementing core banking operations, structured entity hierarchies, interface-driven terminal menus, and a file-based transactional data layer.",
             "bullet_points": [
@@ -119,7 +202,23 @@
                 "Engineered a specialized `TestDriver` utility supporting automated script execution via input/output redirection files across multiple feature scenarios and custom test slots."
             ]
         },
-        "degree": "bachelors"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [],
+            "framework": [],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "C#"
+            ]
+        },
+        "combined_tags": [
+            "C#"
+        ]
     },
     {
         "name": "mobileApp2_Ireland_Literature_Map",
@@ -128,17 +227,6 @@
         "updated_at": "2026-11-11T02:30:45Z",
         "created_at": "2022-12-06T22:58:15Z",
         "language": "JavaScript",
-        "topics": [
-            "geolocation",
-            "google-maps-api",
-            "google-photos-api",
-            "google-places-api",
-            "jsx",
-            "mobile",
-            "object-oriented-programming",
-            "react-native",
-            "webstorm"
-        ],
         "description": {
             "intro": "Developed a cross-platform mobile application utilizing React Native and interactive map libraries to plot, filter, and inspect historical locations of significance to 16th- and 17th-century Irish literature based on MACMORRIS dataset archives.",
             "bullet_points": [
@@ -147,7 +235,43 @@
                 "Engineered custom interactive radius features allowing users to drop draggable markers, compute proximity via the Haversine formula, and render adjustable bounding circles."
             ]
         },
-        "degree": "bachelors"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "JavaScript"
+            ],
+            "framework": [
+                "React Native"
+            ],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Google Maps Api",
+                "Jsx",
+                "Google Photos Api",
+                "Webstorm",
+                "Geolocation",
+                "Mobile",
+                "Object Oriented Programming",
+                "Google Places Api"
+            ]
+        },
+        "combined_tags": [
+            "Google Places Api",
+            "Google Maps Api",
+            "JavaScript",
+            "Geolocation",
+            "React Native",
+            "Jsx",
+            "Mobile",
+            "Google Photos Api",
+            "Object Oriented Programming",
+            "Webstorm"
+        ]
     },
     {
         "name": "mobileApp2_Accelerometer_Leaderboard",
@@ -156,17 +280,6 @@
         "updated_at": "2026-11-11T00:23:53Z",
         "created_at": "2023-01-06T03:43:48Z",
         "language": "JavaScript",
-        "topics": [
-            "accelerometer",
-            "firebase",
-            "jsx",
-            "mobile",
-            "object-oriented-programming",
-            "react-hooks",
-            "react-native",
-            "sensors",
-            "webstorm"
-        ],
         "description": {
             "intro": "Developed a cross-platform mobile application leveraging device sensors to stream movement data, calculate user activity metrics, and render real-time comparative rankings.",
             "bullet_points": [
@@ -175,7 +288,43 @@
                 "Engineered a dynamic, auto-refreshing leaderboard interface using Shopify FlashList to calculate movement scores and rank participating users efficiently."
             ]
         },
-        "degree": "bachelors"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "JavaScript"
+            ],
+            "framework": [
+                "React Native"
+            ],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Jsx",
+                "Firebase",
+                "Accelerometer",
+                "Sensors",
+                "Webstorm",
+                "Mobile",
+                "Object Oriented Programming",
+                "React Hooks"
+            ]
+        },
+        "combined_tags": [
+            "Firebase",
+            "Accelerometer",
+            "Object Oriented Programming",
+            "JavaScript",
+            "React Hooks",
+            "React Native",
+            "Jsx",
+            "Mobile",
+            "Sensors",
+            "Webstorm"
+        ]
     },
     {
         "name": "DorsetCollegeOnlineStore",
@@ -184,14 +333,6 @@
         "updated_at": "2026-11-11T00:13:09Z",
         "created_at": "2022-05-03T22:43:22Z",
         "language": "C#",
-        "topics": [
-            "csharp",
-            "dotnet-core",
-            "html-css-javascript",
-            "mvc-architecture",
-            "object-oriented-programming",
-            "webapp"
-        ],
         "description": {
             "intro": "Developed a robust online store web application utilizing Microsoft's ASP.NET Core platform and the Model-View-Controller (MVC) architectural pattern to enforce strict separation of concerns.",
             "bullet_points": [
@@ -200,7 +341,35 @@
                 "Seeded initial store product data from external API schemas and structured controllers to handle user workflows safely and efficiently."
             ]
         },
-        "degree": "bachelors"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "C#"
+            ],
+            "framework": [],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Mvc Architecture",
+                "Webapp",
+                "C#",
+                "Html Css Javascript",
+                "Object Oriented Programming",
+                "Dotnet Core"
+            ]
+        },
+        "combined_tags": [
+            "C#",
+            "Html Css Javascript",
+            "Mvc Architecture",
+            "Webapp",
+            "Dotnet Core",
+            "Object Oriented Programming"
+        ]
     },
     {
         "name": "dorsetMusicCollection",
@@ -209,18 +378,6 @@
         "updated_at": "2026-11-10T23:54:42Z",
         "created_at": "2022-11-21T21:43:40Z",
         "language": "Python",
-        "topics": [
-            "discogs-api",
-            "django",
-            "django-security",
-            "html-css-javascript",
-            "mvt-architecture",
-            "object-oriented-programming",
-            "pycharm-ide",
-            "python",
-            "unit-testing",
-            "webapp"
-        ],
         "description": {
             "intro": "Developed a robust Django web application centered around music collections and community polls, integrating live metadata querying via the official Discogs REST API.",
             "bullet_points": [
@@ -230,7 +387,43 @@
                 "Hardened application security through simulated CDN domain separation, HSTS headers, secure session cookies, and strict SSL redirection."
             ]
         },
-        "degree": "bachelors"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "Python"
+            ],
+            "framework": [
+                "Django"
+            ],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Discogs Api",
+                "Unit Testing",
+                "Webapp",
+                "Mvt Architecture",
+                "Html Css Javascript",
+                "Object Oriented Programming",
+                "Pycharm Ide",
+                "Django Security"
+            ]
+        },
+        "combined_tags": [
+            "Django Security",
+            "Pycharm Ide",
+            "Html Css Javascript",
+            "Discogs Api",
+            "Python",
+            "Unit Testing",
+            "Mvt Architecture",
+            "Webapp",
+            "Object Oriented Programming",
+            "Django"
+        ]
     },
     {
         "name": "dorsetToDo",
@@ -239,17 +432,6 @@
         "updated_at": "2026-11-10T23:54:25Z",
         "created_at": "2023-04-11T22:47:49Z",
         "language": "Python",
-        "topics": [
-            "flask",
-            "html-css-javascript",
-            "mvt-architecture",
-            "object-oriented-programming",
-            "pycharm-ide",
-            "pytest",
-            "python",
-            "unit-testing",
-            "web-application"
-        ],
         "description": {
             "intro": "Developed a fully functional To-Do List web application utilizing Flask and the Model-View-Template (MVT) design pattern, featuring secure user authentication and cloud database integration.",
             "bullet_points": [
@@ -258,7 +440,41 @@
                 "Achieved 99% test code coverage using Pytest and Coverage.py with comprehensive unit testing suites for models and views."
             ]
         },
-        "degree": "bachelors"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "Python"
+            ],
+            "framework": [
+                "Flask"
+            ],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Unit Testing",
+                "Web Application",
+                "Mvt Architecture",
+                "Html Css Javascript",
+                "Object Oriented Programming",
+                "Pycharm Ide",
+                "Pytest"
+            ]
+        },
+        "combined_tags": [
+            "Pycharm Ide",
+            "Html Css Javascript",
+            "Pytest",
+            "Python",
+            "Unit Testing",
+            "Mvt Architecture",
+            "Flask",
+            "Web Application",
+            "Object Oriented Programming"
+        ]
     },
     {
         "name": "programming-ca2",
@@ -267,7 +483,6 @@
         "updated_at": "2026-11-10T23:26:21Z",
         "created_at": "2025-11-05T21:53:42Z",
         "language": "Python",
-        "topics": [],
         "description": {
             "intro": "Developed a full-stack Flask and React web application implementing the manufacturing operations module of an Enterprise Resource Planning (ERP) system, featuring complete server-side REST API operations and cloud server deployment.",
             "bullet_points": [
@@ -277,7 +492,23 @@
                 "Validated business logic and CRUD operations using Pytest with automated test coverage reporting via Coverage.py."
             ]
         },
-        "degree": "masters"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "Python"
+            ],
+            "framework": [],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": []
+        },
+        "combined_tags": [
+            "Python"
+        ]
     },
     {
         "name": "networking-ca1",
@@ -286,18 +517,6 @@
         "updated_at": "2026-11-10T23:24:40Z",
         "created_at": "2026-05-19T21:21:05Z",
         "language": "HCL",
-        "topics": [
-            "ansible",
-            "aws",
-            "cicd",
-            "devops",
-            "docker",
-            "flask",
-            "github-actions",
-            "iac",
-            "python",
-            "terraform"
-        ],
         "description": {
             "intro": "Designed and implemented a complete end-to-end DevOps automation workflow, integrating cloud infrastructure provisioning, configuration management, containerized web services, and self-hosted CI/CD pipelines.",
             "bullet_points": [
@@ -307,7 +526,47 @@
                 "Established an automated CI/CD pipeline triggering continuous build, test, and release cycles upon repository commits."
             ]
         },
-        "degree": "masters"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "Python"
+            ],
+            "framework": [
+                "Flask"
+            ],
+            "database": [],
+            "domain": [
+                "DevOps"
+            ],
+            "infrastructure": [
+                "Ansible",
+                "GitHub Actions",
+                "Terraform",
+                "Docker",
+                "AWS"
+            ],
+            "data_science": [],
+            "others": [
+                "Hcl",
+                "Cicd",
+                "Iac"
+            ]
+        },
+        "combined_tags": [
+            "Terraform",
+            "AWS",
+            "GitHub Actions",
+            "Cicd",
+            "Python",
+            "DevOps",
+            "Iac",
+            "Flask",
+            "Docker",
+            "Hcl",
+            "Ansible"
+        ]
     },
     {
         "name": "b9is130-web-dev-ca1",
@@ -316,7 +575,6 @@
         "updated_at": "2026-11-10T23:20:07Z",
         "created_at": "2026-05-19T21:49:13Z",
         "language": "JavaScript",
-        "topics": [],
         "description": {
             "intro": "Designed and built a full-stack, cloud-native information system for a vinyl record store, featuring real-time metadata integration, e-commerce workflows, role-based access control, and an interactive 3D UI.",
             "bullet_points": [
@@ -326,7 +584,23 @@
                 "Implemented automated CI/CD workflows using GitHub Actions for seamless frontend and backend builds, tests, and deployments."
             ]
         },
-        "degree": "masters"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "JavaScript"
+            ],
+            "framework": [],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": []
+        },
+        "combined_tags": [
+            "JavaScript"
+        ]
     },
     {
         "name": "album-collection",
@@ -335,20 +609,6 @@
         "updated_at": "2026-11-10T23:14:26Z",
         "created_at": "2026-05-19T21:53:05Z",
         "language": "TypeScript",
-        "topics": [
-            "android",
-            "css",
-            "discogs-api",
-            "firebase-auth",
-            "firestore",
-            "html5",
-            "hybrid-application",
-            "ionic",
-            "react",
-            "reactive-programming",
-            "typescript",
-            "vite"
-        ],
         "description": {
             "intro": "Developed a responsive cross-platform hybrid mobile application enabling users to catalog and track music listening histories, integrated with cloud authentication and external public media databases.",
             "bullet_points": [
@@ -357,7 +617,48 @@
                 "Fetched rich album metadata dynamically from the public Discogs API and leveraged native Capacitor plugins including browser, splash screen, status bar, and toast notifications"
             ]
         },
-        "degree": "masters"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "TypeScript"
+            ],
+            "framework": [
+                "Android",
+                "Ionic",
+                "React"
+            ],
+            "database": [
+                "Firestore"
+            ],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Discogs Api",
+                "Html5",
+                "Vite",
+                "Firebase Auth",
+                "Css",
+                "Reactive Programming",
+                "Hybrid Application"
+            ]
+        },
+        "combined_tags": [
+            "Vite",
+            "Html5",
+            "TypeScript",
+            "React",
+            "Discogs Api",
+            "Android",
+            "Ionic",
+            "Css",
+            "Reactive Programming",
+            "Firebase Auth",
+            "Firestore",
+            "Hybrid Application"
+        ]
     },
     {
         "name": "masters-research-project",
@@ -366,17 +667,6 @@
         "updated_at": "2026-11-10T22:55:41Z",
         "created_at": "2026-09-19T20:47:17Z",
         "language": "Python",
-        "topics": [
-            "aes",
-            "benchmarking",
-            "bfv",
-            "cloud-security",
-            "homomorphic-encryption",
-            "python",
-            "searchable-encryption",
-            "tenseal",
-            "tls"
-        ],
         "description": {
             "intro": "Researched and engineered a cloud search engine executing Disjunctive Normal Form (DNF) boolean queries via Leveled Fully Homomorphic Encryption (LFHE). Quantified the \"privacy tax\" through extensive performance benchmarking across dataset sizes and query conjunction depths.",
             "bullet_points": [
@@ -386,7 +676,40 @@
                 "Achieved 100% test coverage using Pytest, complete with automated RAM monitoring via `psutil` enforcing safety thresholds."
             ]
         },
-        "degree": "masters"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "Python"
+            ],
+            "framework": [],
+            "database": [],
+            "domain": [],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Aes",
+                "Tls",
+                "Tenseal",
+                "Searchable Encryption",
+                "Benchmarking",
+                "Bfv",
+                "Cloud Security",
+                "Homomorphic Encryption"
+            ]
+        },
+        "combined_tags": [
+            "Bfv",
+            "Tenseal",
+            "Benchmarking",
+            "Python",
+            "Homomorphic Encryption",
+            "Searchable Encryption",
+            "Cloud Security",
+            "Tls",
+            "Aes"
+        ]
     },
     {
         "name": "finalProject_Nano_Size_Dist",
@@ -395,16 +718,6 @@
         "updated_at": "2026-11-10T22:25:42Z",
         "created_at": "2023-01-20T19:48:10Z",
         "language": "JavaScript",
-        "topics": [
-            "cnn",
-            "computer-vision",
-            "deep-learning",
-            "django",
-            "keras",
-            "opencv",
-            "python",
-            "tensorflow"
-        ],
         "description": {
             "intro": "Developed a full-stack Django web application to automate Transmission Electron Microscopy (TEM) scan characterization, progressing from an NFQ Level 7 capstone using traditional computer vision to an NFQ Level 8 final year project featuring deep learning.",
             "bullet_points": [
@@ -413,6 +726,42 @@
                 "Utilized NumPy, Pandas, and Matplotlib/Seaborn for statistical size distribution calculations and data visualization."
             ]
         },
-        "degree": "bachelors"
+        "taxonomy": {
+            "context": [
+                "Personal"
+            ],
+            "programming": [
+                "JavaScript",
+                "Python"
+            ],
+            "framework": [
+                "Django"
+            ],
+            "database": [],
+            "domain": [
+                "Computer Vision"
+            ],
+            "infrastructure": [],
+            "data_science": [
+                "TensorFlow",
+                "Keras"
+            ],
+            "others": [
+                "Opencv",
+                "Deep Learning",
+                "Cnn"
+            ]
+        },
+        "combined_tags": [
+            "TensorFlow",
+            "Computer Vision",
+            "JavaScript",
+            "Keras",
+            "Python",
+            "Cnn",
+            "Deep Learning",
+            "Opencv",
+            "Django"
+        ]
     }
 ]
