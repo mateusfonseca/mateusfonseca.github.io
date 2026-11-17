@@ -1,281 +1,9 @@
 [
     {
-        "name": "mobileApp1_Online_Shopping",
-        "title": "Mobileapp1 Online Shopping",
-        "html_url": "https://github.com/mateusfonseca/mobileApp1_Online_Shopping",
-        "updated_at": "2026-11-16T15:49:30Z",
-        "created_at": "2022-04-06T21:58:33Z",
-        "language": "Kotlin",
-        "description": {
-            "intro": "\"Online Shopping\" Android app developed for my Project at Dorset College BSc in Computing, Year 2, Semester 2.",
-            "bullet_points": []
-        },
-        "taxonomy": {
-            "context": [
-                "Academic (BSc)"
-            ],
-            "programming": [
-                "Kotlin"
-            ],
-            "framework": [
-                "Android"
-            ],
-            "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": [
-                "Api",
-                "Fakestoreapi",
-                "Json",
-                "Object Oriented Programming",
-                "Android Studio",
-                "Json",
-                "Material Design",
-                "Android Studio",
-                "Mobile"
-            ]
-        },
-        "combined_tags": [
-            "Material Design",
-            "Object Oriented Programming",
-            "Fakestoreapi",
-            "Mobile",
-            "Android",
-            "Android Studio",
-            "Api",
-            "Json",
-            "Kotlin"
-        ]
-    },
-    {
-        "name": "mobileApp1_GitHub_Repos",
-        "title": "Mobileapp1_Github_Repos",
-        "html_url": "https://github.com/mateusfonseca/mobileApp1_GitHub_Repos",
-        "updated_at": "2026-11-11T02:49:21Z",
-        "created_at": "2022-03-29T22:00:12Z",
-        "language": "Kotlin",
-        "description": {
-            "intro": "Developed a native Android application in Kotlin enabling users to search and inspect GitHub user and organization accounts along with their respective repositories, leveraging live REST API integrations.",
-            "bullet_points": [
-                "Integrated the official GitHub API and a secondary language color API to render dynamic repository listings, statistics, and programming language color tags.",
-                "Engineered custom `RepoAdapter` recycler views and utility formatters such as short number abbreviators to convert large numerical metrics into readable shorthand formats.",
-                "Implemented robust error handling layouts, stateful user/organization account switching toggles, and asynchronous network querying."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "bachelors"
-            ],
-            "programming": [
-                "Kotlin"
-            ],
-            "framework": [
-                "Android"
-            ],
-            "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": [
-                "Api",
-                "Json",
-                "Object Oriented Programming",
-                "Android Studio",
-                "Mobile"
-            ]
-        },
-        "combined_tags": [
-            "Object Oriented Programming",
-            "Mobile",
-            "Android",
-            "Android Studio",
-            "Api",
-            "Json",
-            "Kotlin"
-        ]
-    },
-    {
-        "name": "mobileApp1_Movie_Booking",
-        "title": "Mobileapp1_Movie_Booking",
-        "html_url": "https://github.com/mateusfonseca/mobileApp1_Movie_Booking",
-        "updated_at": "2026-11-11T02:49:17Z",
-        "created_at": "2022-03-28T15:05:20Z",
-        "language": "Kotlin",
-        "description": {
-            "intro": "Developed a dynamic Android cinema ticket booking application in Kotlin featuring remote JSON data retrieval, interactive seat selection controls, and stateful multi-activity navigation.",
-            "bullet_points": [
-                "Connected the application to external data sources asynchronously, using `runOnUiThread` handlers to safely fetch and instantiate movie models from network streams.",
-                "Engineered seat selection and inventory tracking features with strict UI validation rules, updating remaining seats and seating selections dynamically.",
-                "Passed custom data objects across activities using the `Parcelable` interface and handled intent result callbacks to keep main adapter views synchronized upon return."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "bachelors"
-            ],
-            "programming": [
-                "Kotlin"
-            ],
-            "framework": [
-                "Android"
-            ],
-            "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": [
-                "Api",
-                "Json",
-                "Object Oriented Programming",
-                "Android Studio",
-                "Mobile"
-            ]
-        },
-        "combined_tags": [
-            "Object Oriented Programming",
-            "Mobile",
-            "Android",
-            "Android Studio",
-            "Api",
-            "Json",
-            "Kotlin"
-        ]
-    },
-    {
-        "name": "mobileApp1_About_Me",
-        "title": "Mobileapp1_About_Me",
-        "html_url": "https://github.com/mateusfonseca/mobileApp1_About_Me",
-        "updated_at": "2026-11-11T02:49:10Z",
-        "created_at": "2022-03-03T23:50:54Z",
-        "language": "Kotlin",
-        "description": {
-            "intro": "Developed a native Android application in Kotlin featuring structured multi-activity navigation, custom UI components, responsive recycler views, and object-oriented architectural patterns.",
-            "bullet_points": [
-                "Managed explicit intent back-stack routing using single-top launch modes and clear-top flags to ensure optimal task management and seamless home-button navigation.",
-                "Engineered nested RecyclerViews with custom `ItemAdapter` and `ImageAdapter` classes to render dynamic card content and image lists.",
-                "Implemented an `ActivitySetter` interface to automate shared layout setups (top bars, bottom bars, and copyright footers) across activities, minimizing code duplication."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "bachelors"
-            ],
-            "programming": [
-                "Kotlin"
-            ],
-            "framework": [
-                "Android"
-            ],
-            "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": [
-                "Object Oriented Programming",
-                "Android Studio",
-                "Mobile"
-            ]
-        },
-        "combined_tags": [
-            "Object Oriented Programming",
-            "Mobile",
-            "Android",
-            "Android Studio",
-            "Kotlin"
-        ]
-    },
-    {
-        "name": "DorsetCollege.ID24088.CA1.BankApp",
-        "title": "Dorsetcollege.Id24088.Ca1.Bankapp",
-        "html_url": "https://github.com/mateusfonseca/DorsetCollege.ID24088.CA1.BankApp",
-        "updated_at": "2026-11-11T02:43:15Z",
-        "created_at": "2021-11-23T19:29:27Z",
-        "language": "C#",
-        "description": {
-            "intro": "Developed a robust object-oriented .NET console application in C# implementing core banking operations, structured entity hierarchies, interface-driven terminal menus, and a file-based transactional data layer.",
-            "bullet_points": [
-                "Designed an extensible class hierarchy featuring abstract `User` actors (`Employee`, `Customer`), dual `Account` types (Savings and Current), and tracked `Transaction` histories.",
-                "Implemented dynamic account number generation algorithms based on customer name metrics, automated PIN validation, and robust plain-text database persistence.",
-                "Engineered a specialized `TestDriver` utility supporting automated script execution via input/output redirection files across multiple feature scenarios and custom test slots."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "bachelors"
-            ],
-            "programming": [],
-            "framework": [],
-            "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": [
-                "C#"
-            ]
-        },
-        "combined_tags": [
-            "C#"
-        ]
-    },
-    {
-        "name": "mobileApp2_Ireland_Literature_Map",
-        "title": "Mobileapp2_Ireland_Literature_Map",
-        "html_url": "https://github.com/mateusfonseca/mobileApp2_Ireland_Literature_Map",
-        "updated_at": "2026-11-11T02:30:45Z",
-        "created_at": "2022-12-06T22:58:15Z",
-        "language": "JavaScript",
-        "description": {
-            "intro": "Developed a cross-platform mobile application utilizing React Native and interactive map libraries to plot, filter, and inspect historical locations of significance to 16th- and 17th-century Irish literature based on MACMORRIS dataset archives.",
-            "bullet_points": [
-                "Structured a traditional Class Component architecture to parse JSON data and display color-coded map markers with custom popup info windows and full-screen detail views.",
-                "Integrated real-time place type filtering and dynamic image retrieval via the Google Places API using coordinate parameters.",
-                "Engineered custom interactive radius features allowing users to drop draggable markers, compute proximity via the Haversine formula, and render adjustable bounding circles."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "bachelors"
-            ],
-            "programming": [
-                "JavaScript"
-            ],
-            "framework": [
-                "React Native"
-            ],
-            "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": [
-                "Google Places Api",
-                "Geolocation",
-                "Object Oriented Programming",
-                "Google Photos Api",
-                "Jsx",
-                "Webstorm",
-                "Mobile",
-                "Google Maps Api"
-            ]
-        },
-        "combined_tags": [
-            "React Native",
-            "JavaScript",
-            "Object Oriented Programming",
-            "Mobile",
-            "Google Places Api",
-            "Google Maps Api",
-            "Google Photos Api",
-            "Jsx",
-            "Geolocation",
-            "Webstorm"
-        ]
-    },
-    {
         "name": "mobileApp2_Accelerometer_Leaderboard",
-        "title": "Mobileapp2_Accelerometer_Leaderboard",
+        "title": "React Native App: Accelerometer Leaderboard",
         "html_url": "https://github.com/mateusfonseca/mobileApp2_Accelerometer_Leaderboard",
-        "updated_at": "2026-11-11T00:23:53Z",
+        "updated_at": "2026-11-17T00:05:14Z",
         "created_at": "2023-01-06T03:43:48Z",
         "language": "JavaScript",
         "description": {
@@ -288,381 +16,69 @@
         },
         "taxonomy": {
             "context": [
-                "bachelors"
+                "Academic (BSc)"
             ],
             "programming": [
-                "JavaScript"
+                "C++",
+                "Java",
+                "JavaScript",
+                "Objective-C",
+                "Objective-C++",
+                "Ruby",
+                "Starlark"
             ],
             "framework": [
                 "React Native"
             ],
-            "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": [
-                "Firebase",
-                "Object Oriented Programming",
-                "React Hooks",
-                "Jsx",
-                "Sensors",
-                "Webstorm",
-                "Mobile",
-                "Accelerometer"
-            ]
-        },
-        "combined_tags": [
-            "React Native",
-            "JavaScript",
-            "Sensors",
-            "Object Oriented Programming",
-            "Mobile",
-            "Accelerometer",
-            "Firebase",
-            "React Hooks",
-            "Jsx",
-            "Webstorm"
-        ]
-    },
-    {
-        "name": "DorsetCollegeOnlineStore",
-        "title": "Dorsetcollegeonlinestore",
-        "html_url": "https://github.com/mateusfonseca/DorsetCollegeOnlineStore",
-        "updated_at": "2026-11-11T00:13:09Z",
-        "created_at": "2022-05-03T22:43:22Z",
-        "language": "C#",
-        "description": {
-            "intro": "Developed a robust online store web application utilizing Microsoft's ASP.NET Core platform and the Model-View-Controller (MVC) architectural pattern to enforce strict separation of concerns.",
-            "bullet_points": [
-                "Implemented full CRUD operations and relational database management for products, carts, orders, and user sessions using Entity Framework Core and SQLite.",
-                "Designed specialized view models and dynamic Razor view components (such as a real-time mini-cart display) to handle complex business logic and presentation separation.",
-                "Seeded initial store product data from external API schemas and structured controllers to handle user workflows safely and efficiently."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "bachelors"
-            ],
-            "programming": [
-                "C#"
-            ],
-            "framework": [],
-            "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": [
-                "Mvc Architecture",
-                "Object Oriented Programming",
-                "Webapp",
-                "C#",
-                "Html Css Javascript",
-                "Dotnet Core"
-            ]
-        },
-        "combined_tags": [
-            "Object Oriented Programming",
-            "Mvc Architecture",
-            "Dotnet Core",
-            "Html Css Javascript",
-            "C#",
-            "Webapp"
-        ]
-    },
-    {
-        "name": "dorsetMusicCollection",
-        "title": "Dorsetmusiccollection",
-        "html_url": "https://github.com/mateusfonseca/dorsetMusicCollection",
-        "updated_at": "2026-11-10T23:54:42Z",
-        "created_at": "2022-11-21T21:43:40Z",
-        "language": "Python",
-        "description": {
-            "intro": "Developed a robust Django web application centered around music collections and community polls, integrating live metadata querying via the official Discogs REST API.",
-            "bullet_points": [
-                "Implemented the Model-View-Template (MVT) architecture with custom relational database schemas for questions, albums, and secure user accounts.",
-                "Enabled dynamic poll creation by querying, parsing, and ranking top album options directly from Discogs API responses.",
-                "Achieved 99% test code coverage using comprehensive automated and manual test suites with Pytest and Coverage.py.",
-                "Hardened application security through simulated CDN domain separation, HSTS headers, secure session cookies, and strict SSL redirection."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "bachelors"
-            ],
-            "programming": [
-                "Python"
-            ],
-            "framework": [
-                "Django"
-            ],
-            "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": [
-                "Object Oriented Programming",
-                "Unit Testing",
-                "Webapp",
-                "Discogs Api",
-                "Pycharm Ide",
-                "Html Css Javascript",
-                "Mvt Architecture",
-                "Django Security"
-            ]
-        },
-        "combined_tags": [
-            "Html Css Javascript",
-            "Object Oriented Programming",
-            "Unit Testing",
-            "Discogs Api",
-            "Mvt Architecture",
-            "Django Security",
-            "Pycharm Ide",
-            "Python",
-            "Webapp",
-            "Django"
-        ]
-    },
-    {
-        "name": "dorsetToDo",
-        "title": "Dorsettodo",
-        "html_url": "https://github.com/mateusfonseca/dorsetToDo",
-        "updated_at": "2026-11-10T23:54:25Z",
-        "created_at": "2023-04-11T22:47:49Z",
-        "language": "Python",
-        "description": {
-            "intro": "Developed a fully functional To-Do List web application utilizing Flask and the Model-View-Template (MVT) design pattern, featuring secure user authentication and cloud database integration.",
-            "bullet_points": [
-                "Implemented Flask Blueprints for modular route management, user account management (signup, login, profile updates, and deletion), and to-do item lifecycle controls.",
-                "Connected the application to MongoDB Atlas using cloud document models and secured user credentials with password hashing.",
-                "Achieved 99% test code coverage using Pytest and Coverage.py with comprehensive unit testing suites for models and views."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "bachelors"
-            ],
-            "programming": [
-                "Python"
-            ],
-            "framework": [
-                "Flask"
-            ],
-            "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": [
-                "Web Application",
-                "Object Oriented Programming",
-                "Unit Testing",
-                "Pycharm Ide",
-                "Html Css Javascript",
-                "Pytest",
-                "Mvt Architecture"
-            ]
-        },
-        "combined_tags": [
-            "Html Css Javascript",
-            "Web Application",
-            "Object Oriented Programming",
-            "Pytest",
-            "Unit Testing",
-            "Mvt Architecture",
-            "Pycharm Ide",
-            "Python",
-            "Flask"
-        ]
-    },
-    {
-        "name": "programming-ca2",
-        "title": "Programming Ca2",
-        "html_url": "https://github.com/mateusfonseca/programming-ca2",
-        "updated_at": "2026-11-10T23:26:21Z",
-        "created_at": "2025-11-05T21:53:42Z",
-        "language": "Python",
-        "description": {
-            "intro": "Developed a full-stack Flask and React web application implementing the manufacturing operations module of an Enterprise Resource Planning (ERP) system, featuring complete server-side REST API operations and cloud server deployment.",
-            "bullet_points": [
-                "Engineered a Python Flask REST API backend leveraging SQLAlchemy ORM and Alembic migrations with a centralized SQLite database.",
-                "Built a reactive client-side user interface using React, Vite, and Bulma CSS to manage manufacturing data exchange.",
-                "Configured and deployed the application to an AWS EC2 cloud instance utilizing Gunicorn as the WSGI server and Nginx as the HTTP proxy.",
-                "Validated business logic and CRUD operations using Pytest with automated test coverage reporting via Coverage.py."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "masters"
-            ],
-            "programming": [
-                "Python"
-            ],
-            "framework": [],
-            "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": []
-        },
-        "combined_tags": [
-            "Python"
-        ]
-    },
-    {
-        "name": "networking-ca1",
-        "title": "Networking Ca1",
-        "html_url": "https://github.com/mateusfonseca/networking-ca1",
-        "updated_at": "2026-11-10T23:24:40Z",
-        "created_at": "2026-05-19T21:21:05Z",
-        "language": "HCL",
-        "description": {
-            "intro": "Designed and implemented a complete end-to-end DevOps automation workflow, integrating cloud infrastructure provisioning, configuration management, containerized web services, and self-hosted CI/CD pipelines.",
-            "bullet_points": [
-                "Provisioned AWS cloud infrastructure including EC2 instances, security groups, and dynamic inventory synchronization using Terraform.",
-                "Configured remote server environments and installed self-hosted GitHub Actions runners using automated Ansible playbooks.",
-                "Containerized a Python/Flask application alongside an Nginx reverse proxy server using Docker Compose for isolated microservice deployment.",
-                "Established an automated CI/CD pipeline triggering continuous build, test, and release cycles upon repository commits."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "masters"
-            ],
-            "programming": [
-                "Python"
-            ],
-            "framework": [
-                "Flask"
-            ],
-            "database": [],
-            "domain": [
-                "DevOps"
-            ],
-            "infrastructure": [
-                "Terraform",
-                "Ansible",
-                "AWS",
-                "GitHub Actions",
-                "Docker"
-            ],
-            "data_science": [],
-            "others": [
-                "Hcl",
-                "Iac",
-                "Cicd"
-            ]
-        },
-        "combined_tags": [
-            "Hcl",
-            "DevOps",
-            "AWS",
-            "Ansible",
-            "Terraform",
-            "Iac",
-            "GitHub Actions",
-            "Python",
-            "Cicd",
-            "Docker",
-            "Flask"
-        ]
-    },
-    {
-        "name": "b9is130-web-dev-ca1",
-        "title": "B9Is130 Web Dev Ca1",
-        "html_url": "https://github.com/mateusfonseca/b9is130-web-dev-ca1",
-        "updated_at": "2026-11-10T23:20:07Z",
-        "created_at": "2026-05-19T21:49:13Z",
-        "language": "JavaScript",
-        "description": {
-            "intro": "Designed and built a full-stack, cloud-native information system for a vinyl record store, featuring real-time metadata integration, e-commerce workflows, role-based access control, and an interactive 3D UI.",
-            "bullet_points": [
-                "Developed a React, Vite, and Tailwind CSS frontend paired with a FastAPI and SQLAlchemy backend supporting JWT authentication and Discogs API catalog synchronization.",
-                "Architected automated AWS infrastructure using Terraform, provisioning custom VPC networking, AWS RDS MySQL storage, and ECR container repositories.",
-                "Configured production deployment pipelines: hosting static assets on S3 distributed via CloudFront, and running containerized APIs on EC2 behind an Nginx reverse proxy.",
-                "Implemented automated CI/CD workflows using GitHub Actions for seamless frontend and backend builds, tests, and deployments."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "masters"
-            ],
-            "programming": [
-                "JavaScript"
-            ],
-            "framework": [],
-            "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": []
-        },
-        "combined_tags": [
-            "JavaScript"
-        ]
-    },
-    {
-        "name": "album-collection",
-        "title": "Album Collection",
-        "html_url": "https://github.com/mateusfonseca/album-collection",
-        "updated_at": "2026-11-10T23:14:26Z",
-        "created_at": "2026-05-19T21:53:05Z",
-        "language": "TypeScript",
-        "description": {
-            "intro": "Developed a responsive cross-platform hybrid mobile application enabling users to catalog and track music listening histories, integrated with cloud authentication and external public media databases.",
-            "bullet_points": [
-                "Architected a reactive client-side application using Ionic, React, TypeScript, and Vite, deployed via Capacitor for native mobile runtime execution.",
-                "Integrated secure user authentication and real-time cloud data synchronization via Firebase and Cloud Firestore.",
-                "Fetched rich album metadata dynamically from the public Discogs API and leveraged native Capacitor plugins including browser, splash screen, status bar, and toast notifications"
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "masters"
-            ],
-            "programming": [
-                "TypeScript"
-            ],
-            "framework": [
-                "Android",
-                "Ionic",
-                "React"
-            ],
             "database": [
                 "Firestore"
             ],
-            "domain": [],
-            "infrastructure": [],
+            "domain": [
+                "Hybrid Development",
+                "Mobile Development"
+            ],
+            "infrastructure": [
+                "Firebase"
+            ],
             "data_science": [],
             "others": [
-                "Vite",
-                "Firebase Auth",
-                "Css",
-                "Discogs Api",
-                "Hybrid Application",
-                "Html5",
-                "Reactive Programming"
+                "Accelerometer",
+                "JSON",
+                "JSX",
+                "Material Design",
+                "OOP",
+                "RxJS",
+                "Sensors"
             ]
         },
         "combined_tags": [
-            "Hybrid Application",
-            "React",
-            "Html5",
-            "TypeScript",
-            "Vite",
-            "Css",
+            "Academic (BSc)",
+            "Hybrid Development",
+            "Mobile Development",
+            "C++",
+            "Java",
+            "JavaScript",
+            "Objective-C",
+            "Objective-C++",
+            "Ruby",
+            "Starlark",
+            "React Native",
             "Firestore",
-            "Android",
-            "Discogs Api",
-            "Ionic",
-            "Firebase Auth",
-            "Reactive Programming"
+            "Firebase",
+            "Accelerometer",
+            "JSON",
+            "JSX",
+            "Material Design",
+            "OOP",
+            "RxJS",
+            "Sensors"
         ]
     },
     {
         "name": "masters-research-project",
-        "title": "Masters Research Project",
+        "title": "Quantifying the Privacy Tax: Performance Trade-offs of BFV-Based Searchable Encryption in Cloud Storage",
         "html_url": "https://github.com/mateusfonseca/masters-research-project",
-        "updated_at": "2026-11-10T22:55:41Z",
+        "updated_at": "2026-11-16T21:32:30Z",
         "created_at": "2026-09-19T20:47:17Z",
         "language": "Python",
         "description": {
@@ -676,44 +92,422 @@
         },
         "taxonomy": {
             "context": [
-                "masters"
+                "Academic (MSc)"
             ],
             "programming": [
-                "Python"
+                "Python",
+                "Shell"
             ],
-            "framework": [],
+            "framework": [
+                "FastAPI",
+                "Streamlit"
+            ],
             "database": [],
-            "domain": [],
-            "infrastructure": [],
-            "data_science": [],
-            "others": [
-                "Searchable Encryption",
+            "domain": [
+                "Cloud Computing",
+                "Cryptography",
+                "Cybersecurity",
+                "DevOps",
                 "Homomorphic Encryption",
-                "Tenseal",
-                "Tls",
-                "Aes",
+                "Searchable Encryption"
+            ],
+            "infrastructure": [
+                "AWS",
+                "Nginx",
+                "Terraform"
+            ],
+            "data_science": [
+                "NumPy",
+                "Scikit-learn"
+            ],
+            "others": [
+                "AES",
                 "Benchmarking",
-                "Cloud Security",
-                "Bfv"
+                "BFV",
+                "TenSEAL",
+                "TLS"
             ]
         },
         "combined_tags": [
-            "Tls",
-            "Bfv",
-            "Benchmarking",
+            "Academic (MSc)",
+            "Cloud Computing",
+            "Cryptography",
+            "Cybersecurity",
+            "DevOps",
             "Homomorphic Encryption",
-            "Cloud Security",
-            "Tenseal",
-            "Aes",
+            "Searchable Encryption",
             "Python",
-            "Searchable Encryption"
+            "Shell",
+            "FastAPI",
+            "Streamlit",
+            "AWS",
+            "Nginx",
+            "Terraform",
+            "NumPy",
+            "Scikit-learn",
+            "AES",
+            "Benchmarking",
+            "BFV",
+            "TenSEAL",
+            "TLS"
+        ]
+    },
+    {
+        "name": "b9is130-web-dev-ca1",
+        "title": "Trackora: Music Record Store Management System",
+        "html_url": "https://github.com/mateusfonseca/b9is130-web-dev-ca1",
+        "updated_at": "2026-11-16T21:27:48Z",
+        "created_at": "2026-05-19T21:49:13Z",
+        "language": "JavaScript",
+        "description": {
+            "intro": "Designed and built a full-stack, cloud-native information system for a vinyl record store, featuring real-time metadata integration, e-commerce workflows, role-based access control, and an interactive 3D UI.",
+            "bullet_points": [
+                "Developed a React, Vite, and Tailwind CSS frontend paired with a FastAPI and SQLAlchemy backend supporting JWT authentication and Discogs API catalog synchronization.",
+                "Architected automated AWS infrastructure using Terraform, provisioning custom VPC networking, AWS RDS MySQL storage, and ECR container repositories.",
+                "Configured production deployment pipelines: hosting static assets on S3 distributed via CloudFront, and running containerized APIs on EC2 behind an Nginx reverse proxy.",
+                "Implemented automated CI/CD workflows using GitHub Actions for seamless frontend and backend builds, tests, and deployments."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (MSc)"
+            ],
+            "programming": [
+                "CSS",
+                "HTML",
+                "JavaScript",
+                "Python"
+            ],
+            "framework": [
+                "FastAPI",
+                "React",
+                "Tailwind"
+            ],
+            "database": [
+                "MySQL",
+                "SQLAlchemy"
+            ],
+            "domain": [
+                "Cloud Computing",
+                "DevOps",
+                "Web Development"
+            ],
+            "infrastructure": [
+                "AWS",
+                "Docker",
+                "GitHub Actions",
+                "Nginx",
+                "Terraform"
+            ],
+            "data_science": [],
+            "others": [
+                "API",
+                "Discogs API",
+                "JWT",
+                "Vite"
+            ]
+        },
+        "combined_tags": [
+            "Academic (MSc)",
+            "Cloud Computing",
+            "DevOps",
+            "Web Development",
+            "CSS",
+            "HTML",
+            "JavaScript",
+            "Python",
+            "FastAPI",
+            "React",
+            "Tailwind",
+            "MySQL",
+            "SQLAlchemy",
+            "AWS",
+            "Docker",
+            "GitHub Actions",
+            "Nginx",
+            "Terraform",
+            "API",
+            "Discogs API",
+            "JWT",
+            "Vite"
+        ]
+    },
+    {
+        "name": "networking-ca1",
+        "title": "DevOps Workflow Project",
+        "html_url": "https://github.com/mateusfonseca/networking-ca1",
+        "updated_at": "2026-11-16T21:23:53Z",
+        "created_at": "2026-05-19T21:21:05Z",
+        "language": "HCL",
+        "description": {
+            "intro": "Designed and implemented a complete end-to-end DevOps automation workflow, integrating cloud infrastructure provisioning, configuration management, containerized web services, and self-hosted CI/CD pipelines.",
+            "bullet_points": [
+                "Provisioned AWS cloud infrastructure including EC2 instances, security groups, and dynamic inventory synchronization using Terraform.",
+                "Configured remote server environments and installed self-hosted GitHub Actions runners using automated Ansible playbooks.",
+                "Containerized a Python/Flask application alongside an Nginx reverse proxy server using Docker Compose for isolated microservice deployment.",
+                "Established an automated CI/CD pipeline triggering continuous build, test, and release cycles upon repository commits."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (MSc)"
+            ],
+            "programming": [
+                "Python",
+                "Shell"
+            ],
+            "framework": [
+                "Flask"
+            ],
+            "database": [],
+            "domain": [
+                "CI/CD",
+                "Cloud Computing",
+                "DevOps",
+                "IaC"
+            ],
+            "infrastructure": [
+                "Ansible",
+                "AWS",
+                "Docker",
+                "GitHub Actions",
+                "Gunicorn",
+                "Nginx",
+                "Terraform"
+            ],
+            "data_science": [],
+            "others": []
+        },
+        "combined_tags": [
+            "Academic (MSc)",
+            "CI/CD",
+            "Cloud Computing",
+            "DevOps",
+            "IaC",
+            "Python",
+            "Shell",
+            "Flask",
+            "Ansible",
+            "AWS",
+            "Docker",
+            "GitHub Actions",
+            "Gunicorn",
+            "Nginx",
+            "Terraform"
+        ]
+    },
+    {
+        "name": "album-collection",
+        "title": "Album Collection Hybrid Mobile Application",
+        "html_url": "https://github.com/mateusfonseca/album-collection",
+        "updated_at": "2026-11-16T21:21:01Z",
+        "created_at": "2026-05-19T21:53:05Z",
+        "language": "TypeScript",
+        "description": {
+            "intro": "Developed a responsive cross-platform hybrid mobile application enabling users to catalog and track music listening histories, integrated with cloud authentication and external public media databases.",
+            "bullet_points": [
+                "Architected a reactive client-side application using Ionic, React, TypeScript, and Vite, deployed via Capacitor for native mobile runtime execution.",
+                "Integrated secure user authentication and real-time cloud data synchronization via Firebase and Cloud Firestore.",
+                "Fetched rich album metadata dynamically from the public Discogs API and leveraged native Capacitor plugins including browser, splash screen, status bar, and toast notifications"
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (MSc)"
+            ],
+            "programming": [
+                "CSS",
+                "HTML",
+                "Java",
+                "JavaScript",
+                "TypeScript"
+            ],
+            "framework": [
+                "Android",
+                "Capacitor",
+                "Ionic",
+                "React"
+            ],
+            "database": [
+                "Firestore"
+            ],
+            "domain": [
+                "Hybrid Development",
+                "Mobile Development"
+            ],
+            "infrastructure": [
+                "Firebase"
+            ],
+            "data_science": [],
+            "others": [
+                "API",
+                "Discogs API",
+                "Reactive Programming",
+                "TSX",
+                "Vite"
+            ]
+        },
+        "combined_tags": [
+            "Academic (MSc)",
+            "Hybrid Development",
+            "Mobile Development",
+            "CSS",
+            "HTML",
+            "Java",
+            "JavaScript",
+            "TypeScript",
+            "Android",
+            "Capacitor",
+            "Ionic",
+            "React",
+            "Firestore",
+            "Firebase",
+            "API",
+            "Discogs API",
+            "Reactive Programming",
+            "TSX",
+            "Vite"
+        ]
+    },
+    {
+        "name": "programming-ca2",
+        "title": "Industrial ERP Information System",
+        "html_url": "https://github.com/mateusfonseca/programming-ca2",
+        "updated_at": "2026-11-16T21:18:01Z",
+        "created_at": "2025-11-05T21:53:42Z",
+        "language": "Python",
+        "description": {
+            "intro": "Developed a full-stack Flask and React web application implementing the manufacturing operations module of an Enterprise Resource Planning (ERP) system, featuring complete server-side REST API operations and cloud server deployment.",
+            "bullet_points": [
+                "Engineered a Python Flask REST API backend leveraging SQLAlchemy ORM and Alembic migrations with a centralized SQLite database.",
+                "Built a reactive client-side user interface using React, Vite, and Bulma CSS to manage manufacturing data exchange.",
+                "Configured and deployed the application to an AWS EC2 cloud instance utilizing Gunicorn as the WSGI server and Nginx as the HTTP proxy.",
+                "Validated business logic and CRUD operations using Pytest with automated test coverage reporting via Coverage.py."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (MSc)"
+            ],
+            "programming": [
+                "CSS",
+                "HTML",
+                "JavaScript",
+                "Python",
+                "Shell"
+            ],
+            "framework": [
+                "Bulma",
+                "Flask",
+                "React"
+            ],
+            "database": [
+                "SQLAlchemy",
+                "SQLite"
+            ],
+            "domain": [
+                "Cloud Computing",
+                "Web Development"
+            ],
+            "infrastructure": [
+                "AWS",
+                "Gunicorn",
+                "Nginx"
+            ],
+            "data_science": [],
+            "others": [
+                "API",
+                "JSX",
+                "Pytest",
+                "Vite"
+            ]
+        },
+        "combined_tags": [
+            "Academic (MSc)",
+            "Cloud Computing",
+            "Web Development",
+            "CSS",
+            "HTML",
+            "JavaScript",
+            "Python",
+            "Shell",
+            "Bulma",
+            "Flask",
+            "React",
+            "SQLAlchemy",
+            "SQLite",
+            "AWS",
+            "Gunicorn",
+            "Nginx",
+            "API",
+            "JSX",
+            "Pytest",
+            "Vite"
+        ]
+    },
+    {
+        "name": "dorsetToDo",
+        "title": "Flask Web App: To-Do List",
+        "html_url": "https://github.com/mateusfonseca/dorsetToDo",
+        "updated_at": "2026-11-16T21:14:20Z",
+        "created_at": "2023-04-11T22:47:49Z",
+        "language": "Python",
+        "description": {
+            "intro": "Developed a fully functional To-Do List web application utilizing Flask and the Model-View-Template (MVT) design pattern, featuring secure user authentication and cloud database integration.",
+            "bullet_points": [
+                "Implemented Flask Blueprints for modular route management, user account management (signup, login, profile updates, and deletion), and to-do item lifecycle controls.",
+                "Connected the application to MongoDB Atlas using cloud document models and secured user credentials with password hashing.",
+                "Achieved 99% test code coverage using Pytest and Coverage.py with comprehensive unit testing suites for models and views."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (BSc)"
+            ],
+            "programming": [
+                "CSS",
+                "HTML",
+                "JavaScript",
+                "Python"
+            ],
+            "framework": [
+                "Bulma",
+                "Flask"
+            ],
+            "database": [
+                "MongoDB"
+            ],
+            "domain": [
+                "Web Development"
+            ],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "MVT",
+                "OOP",
+                "Pytest"
+            ]
+        },
+        "combined_tags": [
+            "Academic (BSc)",
+            "Web Development",
+            "CSS",
+            "HTML",
+            "JavaScript",
+            "Python",
+            "Bulma",
+            "Flask",
+            "MongoDB",
+            "MVT",
+            "OOP",
+            "Pytest"
         ]
     },
     {
         "name": "finalProject_Nano_Size_Dist",
-        "title": "Finalproject_Nano_Size_Dist",
+        "title": "at\u00b3: an automated size distribution calculator for TEM-based nanoparticle scans",
         "html_url": "https://github.com/mateusfonseca/finalProject_Nano_Size_Dist",
-        "updated_at": "2026-11-10T22:25:42Z",
+        "updated_at": "2026-11-16T21:11:23Z",
         "created_at": "2023-01-20T19:48:10Z",
         "language": "JavaScript",
         "description": {
@@ -726,40 +520,511 @@
         },
         "taxonomy": {
             "context": [
-                "bachelors"
+                "Academic (BSc)"
             ],
             "programming": [
-                "Python",
-                "JavaScript"
+                "CSS",
+                "HTML",
+                "JavaScript",
+                "Python"
             ],
             "framework": [
                 "Django"
             ],
-            "database": [],
+            "database": [
+                "MySQL"
+            ],
             "domain": [
-                "Computer Vision"
+                "AI/ML",
+                "Computer Vision",
+                "Web Development"
             ],
             "infrastructure": [],
             "data_science": [
+                "CNN",
+                "Deep Learning",
                 "Keras",
+                "Matplotlib",
+                "NumPy",
+                "Pandas",
+                "Seaborn",
                 "TensorFlow"
             ],
             "others": [
-                "Deep Learning",
-                "Opencv",
-                "Cnn"
+                "MVT",
+                "OpenCV",
+                "Tesseract OCR"
             ]
         },
         "combined_tags": [
-            "Opencv",
-            "JavaScript",
-            "Keras",
-            "Deep Learning",
+            "Academic (BSc)",
+            "AI/ML",
             "Computer Vision",
-            "TensorFlow",
+            "Web Development",
+            "CSS",
+            "HTML",
+            "JavaScript",
             "Python",
-            "Cnn",
-            "Django"
+            "Django",
+            "MySQL",
+            "CNN",
+            "Deep Learning",
+            "Keras",
+            "Matplotlib",
+            "NumPy",
+            "Pandas",
+            "Seaborn",
+            "TensorFlow",
+            "MVT",
+            "OpenCV",
+            "Tesseract OCR"
+        ]
+    },
+    {
+        "name": "mobileApp2_Ireland_Literature_Map",
+        "title": "React Native App: Ireland Literature Map",
+        "html_url": "https://github.com/mateusfonseca/mobileApp2_Ireland_Literature_Map",
+        "updated_at": "2026-11-16T21:05:14Z",
+        "created_at": "2022-12-06T22:58:15Z",
+        "language": "JavaScript",
+        "description": {
+            "intro": "Developed a cross-platform mobile application utilizing React Native and interactive map libraries to plot, filter, and inspect historical locations of significance to 16th- and 17th-century Irish literature based on MACMORRIS dataset archives.",
+            "bullet_points": [
+                "Structured a traditional Class Component architecture to parse JSON data and display color-coded map markers with custom popup info windows and full-screen detail views.",
+                "Integrated real-time place type filtering and dynamic image retrieval via the Google Places API using coordinate parameters.",
+                "Engineered custom interactive radius features allowing users to drop draggable markers, compute proximity via the Haversine formula, and render adjustable bounding circles."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (BSc)"
+            ],
+            "programming": [
+                "C++",
+                "Java",
+                "JavaScript",
+                "Objective-C",
+                "Objective-C++",
+                "Ruby",
+                "Starlark"
+            ],
+            "framework": [
+                "React Native"
+            ],
+            "database": [],
+            "domain": [
+                "Hybrid Development",
+                "Mobile Development"
+            ],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "API",
+                "Geolocation",
+                "Google Maps API",
+                "Google Photos API",
+                "Google Places API",
+                "JSON",
+                "JSX",
+                "OOP"
+            ]
+        },
+        "combined_tags": [
+            "Academic (BSc)",
+            "Hybrid Development",
+            "Mobile Development",
+            "C++",
+            "Java",
+            "JavaScript",
+            "Objective-C",
+            "Objective-C++",
+            "Ruby",
+            "Starlark",
+            "React Native",
+            "API",
+            "Geolocation",
+            "Google Maps API",
+            "Google Photos API",
+            "Google Places API",
+            "JSON",
+            "JSX",
+            "OOP"
+        ]
+    },
+    {
+        "name": "dorsetMusicCollection",
+        "title": "Django Web App: Music Collection",
+        "html_url": "https://github.com/mateusfonseca/dorsetMusicCollection",
+        "updated_at": "2026-11-16T21:02:33Z",
+        "created_at": "2022-11-21T21:43:40Z",
+        "language": "Python",
+        "description": {
+            "intro": "Developed a robust Django web application centered around music collections and community polls, integrating live metadata querying via the official Discogs REST API.",
+            "bullet_points": [
+                "Implemented the Model-View-Template (MVT) architecture with custom relational database schemas for questions, albums, and secure user accounts.",
+                "Enabled dynamic poll creation by querying, parsing, and ranking top album options directly from Discogs API responses.",
+                "Achieved 99% test code coverage using comprehensive automated and manual test suites with Pytest and Coverage.py.",
+                "Hardened application security through simulated CDN domain separation, HSTS headers, secure session cookies, and strict SSL redirection."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (BSc)"
+            ],
+            "programming": [
+                "CSS",
+                "HTML",
+                "JavaScript",
+                "Python"
+            ],
+            "framework": [
+                "Bootstrap",
+                "Django"
+            ],
+            "database": [
+                "MySQL"
+            ],
+            "domain": [
+                "Cybersecurity",
+                "Web Development"
+            ],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "API",
+                "Discogs API",
+                "MVT",
+                "OOP",
+                "Pytest",
+                "TLS"
+            ]
+        },
+        "combined_tags": [
+            "Academic (BSc)",
+            "Cybersecurity",
+            "Web Development",
+            "CSS",
+            "HTML",
+            "JavaScript",
+            "Python",
+            "Bootstrap",
+            "Django",
+            "MySQL",
+            "API",
+            "Discogs API",
+            "MVT",
+            "OOP",
+            "Pytest",
+            "TLS"
+        ]
+    },
+    {
+        "name": "DorsetCollegeOnlineStore",
+        "title": "ASP.NET Core MVC: Online Store Web App",
+        "html_url": "https://github.com/mateusfonseca/DorsetCollegeOnlineStore",
+        "updated_at": "2026-11-16T20:56:16Z",
+        "created_at": "2022-05-03T22:43:22Z",
+        "language": "C#",
+        "description": {
+            "intro": "Developed a robust online store web application utilizing Microsoft's ASP.NET Core platform and the Model-View-Controller (MVC) architectural pattern to enforce strict separation of concerns.",
+            "bullet_points": [
+                "Implemented full CRUD operations and relational database management for products, carts, orders, and user sessions using Entity Framework Core and SQLite.",
+                "Designed specialized view models and dynamic Razor view components (such as a real-time mini-cart display) to handle complex business logic and presentation separation.",
+                "Seeded initial store product data from external API schemas and structured controllers to handle user workflows safely and efficiently."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (BSc)"
+            ],
+            "programming": [
+                "C#",
+                "CSS",
+                "HTML",
+                "JavaScript"
+            ],
+            "framework": [
+                ".NET",
+                "ASP.NET"
+            ],
+            "database": [
+                "EF Core",
+                "SQLite"
+            ],
+            "domain": [
+                "Web Development"
+            ],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "API",
+                "Fake Store API",
+                "MVC",
+                "OOP"
+            ]
+        },
+        "combined_tags": [
+            "Academic (BSc)",
+            "Web Development",
+            "C#",
+            "CSS",
+            "HTML",
+            "JavaScript",
+            ".NET",
+            "ASP.NET",
+            "EF Core",
+            "SQLite",
+            "API",
+            "Fake Store API",
+            "MVC",
+            "OOP"
+        ]
+    },
+    {
+        "name": "mobileApp1_Online_Shopping",
+        "title": "Android App: Online Shopping",
+        "html_url": "https://github.com/mateusfonseca/mobileApp1_Online_Shopping",
+        "updated_at": "2026-11-16T20:49:21Z",
+        "created_at": "2022-04-06T21:58:33Z",
+        "language": "Kotlin",
+        "description": {
+            "intro": "Developed a comprehensive e-commerce Android application in Kotlin integrating user authentication, product catalog browsing, cart management, and order history tracking.",
+            "bullet_points": [
+                "Engineered modern Android architecture components including ViewBinding, DataBinding, Fragments, Navigation, LiveData, and ViewModel for robust asynchronous state management.",
+                "Implemented secure user authentication token persistence across sessions, dynamic category filtering, shopping cart summaries, and purchase notifications.",
+                "Integrated ViewPager2 with a bottom TabLayout to house multi-feature views for shop, cart, orders, and user profile management."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (BSc)"
+            ],
+            "programming": [
+                "Kotlin"
+            ],
+            "framework": [
+                "Android"
+            ],
+            "database": [],
+            "domain": [
+                "Mobile Development"
+            ],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "API",
+                "Fake Store API",
+                "JSON",
+                "Material Design",
+                "MVVM",
+                "OOP",
+                "Retrofit"
+            ]
+        },
+        "combined_tags": [
+            "Academic (BSc)",
+            "Mobile Development",
+            "Kotlin",
+            "Android",
+            "API",
+            "Fake Store API",
+            "JSON",
+            "Material Design",
+            "MVVM",
+            "OOP",
+            "Retrofit"
+        ]
+    },
+    {
+        "name": "mobileApp1_GitHub_Repos",
+        "title": "Android App: GitHub Repos",
+        "html_url": "https://github.com/mateusfonseca/mobileApp1_GitHub_Repos",
+        "updated_at": "2026-11-16T20:46:08Z",
+        "created_at": "2022-03-29T22:00:12Z",
+        "language": "Kotlin",
+        "description": {
+            "intro": "Developed a native Android application in Kotlin enabling users to search and inspect GitHub user and organization accounts along with their respective repositories, leveraging live REST API integrations.",
+            "bullet_points": [
+                "Integrated the official GitHub API and a secondary language color API to render dynamic repository listings, statistics, and programming language color tags.",
+                "Engineered custom `RepoAdapter` recycler views and utility formatters such as short number abbreviators to convert large numerical metrics into readable shorthand formats.",
+                "Implemented robust error handling layouts, stateful user/organization account switching toggles, and asynchronous network querying."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (BSc)"
+            ],
+            "programming": [
+                "Kotlin"
+            ],
+            "framework": [
+                "Android"
+            ],
+            "database": [],
+            "domain": [
+                "Mobile Development"
+            ],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "API",
+                "GitHub API",
+                "JSON",
+                "Material Design",
+                "OkHttp",
+                "OOP"
+            ]
+        },
+        "combined_tags": [
+            "Academic (BSc)",
+            "Mobile Development",
+            "Kotlin",
+            "Android",
+            "API",
+            "GitHub API",
+            "JSON",
+            "Material Design",
+            "OkHttp",
+            "OOP"
+        ]
+    },
+    {
+        "name": "mobileApp1_About_Me",
+        "title": "Android App: About Me",
+        "html_url": "https://github.com/mateusfonseca/mobileApp1_About_Me",
+        "updated_at": "2026-11-16T20:40:10Z",
+        "created_at": "2022-03-03T23:50:54Z",
+        "language": "Kotlin",
+        "description": {
+            "intro": "Developed a native Android application in Kotlin featuring structured multi-activity navigation, custom UI components, responsive recycler views, and object-oriented architectural patterns.",
+            "bullet_points": [
+                "Managed explicit intent back-stack routing using single-top launch modes and clear-top flags to ensure optimal task management and seamless home-button navigation.",
+                "Engineered nested RecyclerViews with custom `ItemAdapter` and `ImageAdapter` classes to render dynamic card content and image lists.",
+                "Implemented an `ActivitySetter` interface to automate shared layout setups (top bars, bottom bars, and copyright footers) across activities, minimizing code duplication."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (BSc)"
+            ],
+            "programming": [
+                "Kotlin"
+            ],
+            "framework": [
+                "Android"
+            ],
+            "database": [],
+            "domain": [
+                "Mobile Development"
+            ],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Material Design",
+                "OOP"
+            ]
+        },
+        "combined_tags": [
+            "Academic (BSc)",
+            "Mobile Development",
+            "Kotlin",
+            "Android",
+            "Material Design",
+            "OOP"
+        ]
+    },
+    {
+        "name": "mobileApp1_Movie_Booking",
+        "title": "Android App: Movie Booking",
+        "html_url": "https://github.com/mateusfonseca/mobileApp1_Movie_Booking",
+        "updated_at": "2026-11-16T20:39:46Z",
+        "created_at": "2022-03-28T15:05:20Z",
+        "language": "Kotlin",
+        "description": {
+            "intro": "Developed a dynamic Android cinema ticket booking application in Kotlin featuring remote JSON data retrieval, interactive seat selection controls, and stateful multi-activity navigation.",
+            "bullet_points": [
+                "Connected the application to external data sources asynchronously, using `runOnUiThread` handlers to safely fetch and instantiate movie models from network streams.",
+                "Engineered seat selection and inventory tracking features with strict UI validation rules, updating remaining seats and seating selections dynamically.",
+                "Passed custom data objects across activities using the `Parcelable` interface and handled intent result callbacks to keep main adapter views synchronized upon return."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (BSc)"
+            ],
+            "programming": [
+                "Kotlin"
+            ],
+            "framework": [
+                "Android"
+            ],
+            "database": [],
+            "domain": [
+                "Mobile Development"
+            ],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "API",
+                "JSON",
+                "Material Design",
+                "OOP"
+            ]
+        },
+        "combined_tags": [
+            "Academic (BSc)",
+            "Mobile Development",
+            "Kotlin",
+            "Android",
+            "API",
+            "JSON",
+            "Material Design",
+            "OOP"
+        ]
+    },
+    {
+        "name": "DorsetCollege.ID24088.CA1.BankApp",
+        "title": "Dorset College Bank Application",
+        "html_url": "https://github.com/mateusfonseca/DorsetCollege.ID24088.CA1.BankApp",
+        "updated_at": "2026-11-16T20:37:40Z",
+        "created_at": "2021-11-23T19:29:27Z",
+        "language": "C#",
+        "description": {
+            "intro": "Developed a robust object-oriented .NET console application in C# implementing core banking operations, structured entity hierarchies, interface-driven terminal menus, and a file-based transactional data layer.",
+            "bullet_points": [
+                "Designed an extensible class hierarchy featuring abstract `User` actors (`Employee`, `Customer`), dual `Account` types (Savings and Current), and tracked `Transaction` histories.",
+                "Implemented dynamic account number generation algorithms based on customer name metrics, automated PIN validation, and robust plain-text database persistence.",
+                "Engineered a specialized `TestDriver` utility supporting automated script execution via input/output redirection files across multiple feature scenarios and custom test slots."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (BSc)"
+            ],
+            "programming": [
+                "C#"
+            ],
+            "framework": [
+                ".NET"
+            ],
+            "database": [],
+            "domain": [
+                "Software Development"
+            ],
+            "infrastructure": [],
+            "data_science": [],
+            "others": [
+                "Console Application",
+                "OOP"
+            ]
+        },
+        "combined_tags": [
+            "Academic (BSc)",
+            "Software Development",
+            "C#",
+            ".NET",
+            "Console Application",
+            "OOP"
         ]
     }
 ]

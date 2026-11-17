@@ -93,7 +93,7 @@
     "album-collection": {
         "custom_summary": {
             "intro": "Developed a responsive cross-platform hybrid mobile application enabling users to catalog and track music listening histories, integrated with cloud authentication and external public media databases.",
-            "bullet_points": ["Architected a reactive client-side application using Ionic, React, TypeScript, and Vite, deployed via Capacitor for native mobile runtime execution.", "Integrated secure user authentication and real-time cloud data synchronization via Firebase and Cloud Firestore.", "Fetched rich album metadata dynamically from the public Discogs API and leveraged native Capacitor plugins including browser, splash screen, status bar, and toast notifications"]
+            "bullet_points": ["Architected a reactive client-side application using Ionic, React, TypeScript, and Vite, deployed via Capacitor for native mobile runtime execution.", "Integrated secure user authentication and real-time cloud data synchronization via Firebase and Cloud Firestore.", "Fetched rich album metadata dynamically from the public Discogs API and leveraged native Capacitor plugins including browser, splash screen, status bar, and toast notifications."]
         },
         "context": "masters"
     },

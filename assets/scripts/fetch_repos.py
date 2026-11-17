@@ -12,15 +12,26 @@ TAXONOMY_MAP = {
     "professional": ("context", "Professional"),
     # Programming Languages
     "python": ("programming", "Python"),
-    "c": ("programming", "C/C++"),
-    "cpp": ("programming", "C/C++"),
+    "c": ("programming", "C"),
+    "cpp": ("programming", "C++"),
+    "c++": ("programming", "C++"),
+    "cmake": ("programming", "C++"),
     "csharp": ("programming", "C#"),
+    "c#": ("programming", "C#"),
     "java": ("programming", "Java"),
     "javascript": ("programming", "JavaScript"),
     "typescript": ("programming", "TypeScript"),
     "kotlin": ("programming", "Kotlin"),
     "r": ("programming", "R"),
-    "shell": ("programming", "Shell Scripting"),
+    "shell": ("programming", "Shell"),
+    "html": ("programming", "HTML"),
+    "html5": ("programming", "HTML"),
+    "css": ("programming", "CSS"),
+    "objective-c": ("programming", "Objective-C"),
+    "objective-cpp": ("programming", "Objective-C++"),
+    "objective-c++": ("programming", "Objective-C++"),
+    "ruby": ("programming", "Ruby"),
+    "starlark": ("programming", "Starlark"),
     # Frameworks
     "fastapi": ("framework", "FastAPI"),
     "flask": ("framework", "Flask"),
@@ -29,70 +40,143 @@ TAXONOMY_MAP = {
     "react": ("framework", "React"),
     "react-native": ("framework", "React Native"),
     "ionic": ("framework", "Ionic"),
-    "dotnet": ("framework", "ASP.NET"),
+    "dotnet": ("framework", ".NET"),
+    "dotnetcore": ("framework", ".NET"),
+    "dotnet-core": ("framework", ".NET"),
+    "aspnet": ("framework", "ASP.NET"),
     "aspnetcore": ("framework", "ASP.NET"),
+    "aspnet-core": ("framework", "ASP.NET"),
     "bootstrap": ("framework", "Bootstrap"),
     "bulma": ("framework", "Bulma"),
     "tailwind": ("framework", "Tailwind"),
     "android": ("framework", "Android"),
+    "capacitor": ("framework", "Capacitor"),
     # Databases
     "mysql": ("database", "MySQL"),
     "sqlite": ("database", "SQLite"),
     "mongodb": ("database", "MongoDB"),
     "firestore": ("database", "Firestore"),
+    "ef-core": ("database", "EF Core"),
+    "sqlalchemy": ("database", "SQLAlchemy"),
+    "mako": ("database", "SQLAlchemy"),
     # Infrastructure & DevOps
     "aws": ("infrastructure", "AWS"),
     "terraform": ("infrastructure", "Terraform"),
+    "hcl": ("infrastructure", "Terraform"),
     "docker": ("infrastructure", "Docker"),
+    "dockerfile": ("infrastructure", "Docker"),
     "ansible": ("infrastructure", "Ansible"),
     "github-actions": ("infrastructure", "GitHub Actions"),
     "nginx": ("infrastructure", "Nginx"),
     "gunicorn": ("infrastructure", "Gunicorn"),
     "uvicorn": ("infrastructure", "Uvicorn"),
+    "firebase": ("infrastructure", "Firebase"),
     # Data Science & ML
     "tensorflow": ("data_science", "TensorFlow"),
     "keras": ("data_science", "Keras"),
     "numpy": ("data_science", "NumPy"),
     "pandas": ("data_science", "Pandas"),
+    "deep-learning": ("data_science", "Deep Learning"),
+    "cnn": ("data_science", "CNN"),
+    "matplotlib": ("data_science", "Matplotlib"),
+    "seaborn": ("data_science", "Seaborn"),
+    "scikit-learn": ("data_science", "Scikit-learn"),
     # Domains
     "cloud-computing": ("domain", "Cloud Computing"),
     "cybersecurity": ("domain", "Cybersecurity"),
     "devops": ("domain", "DevOps"),
     "ci-cd": ("domain", "CI/CD"),
+    "cicd": ("domain", "CI/CD"),
     "ai-ml": ("domain", "AI/ML"),
     "computer-vision": ("domain", "Computer Vision"),
     "mobile-dev": ("domain", "Mobile Development"),
+    "mobile-development": ("domain", "Mobile Development"),
     "software-dev": ("domain", "Software Development"),
+    "software-development": ("domain", "Software Development"),
     "game-dev": ("domain", "Game Development"),
     "web-dev": ("domain", "Web Development"),
+    "web-development": ("domain", "Web Development"),
     "3d-modeling": ("domain", "3D Modeling"),
+    "iac": ("domain", "IaC"),
+    "cloud-security": ("domain", "Cloud Security"),
+    "homomorphic-encryption": ("domain", "Homomorphic Encryption"),
+    "searchable-encryption": ("domain", "Searchable Encryption"),
+    "hybrid-dev": ("domain", "Hybrid Development"),
+    "hybrid-development": ("domain", "Hybrid Development"),
+    "cryptography": ("domain", "Cryptography"),
     # Others
-    "blender": ("others", "Blender"),
     "console-application": ("others", "Console Application"),
     "opencv": ("others", "OpenCV"),
-    "pytest": ("others", "Pytest"),
     "tenseal": ("others", "TenSEAL"),
-    "unity": ("others", "Unity"),
+    "aes": ("others", "AES"),
+    "api": ("others", "API"),
+    "bfv": ("others", "BFV"),
+    "discogs-api": ("others", "Discogs API"),
+    "fakestoreapi": ("others", "Fake Store API"),
+    "google-maps-api": ("others", "Google Maps API"),
+    "google-photos-api": ("others", "Google Photos API"),
+    "google-places-api": ("others", "Google Places API"),
+    "html-css-javascript": ("others", "HTML/CSS/JavaScript"),
+    "json": ("others", "JSON"),
+    "jsx": ("others", "JSX"),
+    "tsx": ("others", "TSX"),
+    "mvc-architecture": ("others", "MVC"),
+    "mvt-architecture": ("others", "MVT"),
+    "object-oriented-programming": ("others", "OOP"),
+    "pycharm-ide": ("others", "PyCharm"),
+    "pycharm": ("others", "PyCharm"),
+    "tls": ("others", "TLS"),
+    "webstorm": ("others", "WebStorm"),
+    "github-api": ("others", "GitHub API"),
+    "okhttp": ("others", "OkHttp"),
+    "retrofit": ("others", "Retrofit"),
+    "mvvm-architecture": ("others", "MVVM"),
+    "rxjs": ("others", "RxJS"),
+    "tesseract-ocr": ("others", "Tesseract OCR"),
+    "vite": ("others", "Vite"),
+    "pytest": ("others", "Pytest"),
+    "jwt": ("others", "JWT"),
 }
 
+CATEGORY_ORDER = [
+    "context",
+    "domain",
+    "programming",
+    "framework",
+    "database",
+    "infrastructure",
+    "data_science",
+    "others",
+]
+
 OWNER = "mateusfonseca"
-WIKI_PAGE = "Portfolio-Summary"  # Or "Home" if you use the default wiki landing page
+WIKI_PAGES = [
+    "Portfolio-Summary",
+    "Home",
+]  # Checks Portfolio-Summary.md first, then Home.md
 PORTFOLIO_TOPIC = "portfolio"  # Add this topic on GitHub to include a repo
 
 
-def fetch_wiki_data(repo_name: str, fallback_description: str) -> dict:
+def fetch_wiki_data(repo_name: str) -> dict:
     """Fetches raw Markdown from the repo's Wiki and parses # Title, intro, and bullet_points."""
     default_title = repo_name.replace("-", " ").replace("_", " ").title()
-    wiki_url = (
-        f"https://raw.githubusercontent.com/wiki/{OWNER}/{repo_name}/{WIKI_PAGE}.md"
-    )
-    resp = requests.get(wiki_url)
+    markdown_text = None
 
-    if resp.status_code != 200 or not resp.text.strip():
+    for page in WIKI_PAGES:
+        wiki_url = (
+            f"https://raw.githubusercontent.com/wiki/{OWNER}/{repo_name}/{page}.md"
+        )
+        resp = requests.get(wiki_url)
+        print(f"[{repo_name}] GET {wiki_url} -> {resp.status_code}")
+        if resp.status_code == 200 and resp.text.strip():
+            markdown_text = resp.text
+            break
+
+    if not markdown_text:
         return {
             "title": default_title,
             "description": {
-                "intro": fallback_description or "",
+                "intro": "",
                 "bullet_points": [],
             },
         }
@@ -101,7 +185,7 @@ def fetch_wiki_data(repo_name: str, fallback_description: str) -> dict:
     intro_lines = []
     bullet_points = []
 
-    for raw_line in resp.text.splitlines():
+    for raw_line in markdown_text.splitlines():
         line = raw_line.strip()
         if not line:
             continue
@@ -117,9 +201,7 @@ def fetch_wiki_data(repo_name: str, fallback_description: str) -> dict:
     return {
         "title": custom_title or default_title,
         "description": {
-            "intro": " ".join(intro_lines)
-            if intro_lines
-            else (fallback_description or ""),
+            "intro": " ".join(intro_lines),
             "bullet_points": bullet_points,
         },
     }
@@ -177,21 +259,25 @@ def main():
             if t != PORTFOLIO_TOPIC:  # Don't render 'portfolio' as a card badge
                 raw_tags.add(t)
 
-        combined_badge_tags = set()
-
         for tag in raw_tags:
             if tag in TAXONOMY_MAP:
                 category, readable_name = TAXONOMY_MAP[tag]
                 if readable_name not in taxonomy[category]:
                     taxonomy[category].append(readable_name)
-                combined_badge_tags.add(readable_name)
             else:
                 fallback_name = tag.replace("-", " ").title()
                 if fallback_name not in taxonomy["others"]:
                     taxonomy["others"].append(fallback_name)
-                combined_badge_tags.add(fallback_name)
 
-        wiki_data = fetch_wiki_data(repo_name, repo.get("description"))
+        # Sort each category alphabetically and build combined_tags in category order
+        ordered_combined_tags = []
+        for cat in CATEGORY_ORDER:
+            taxonomy[cat].sort(key=str.lower)
+            for item in taxonomy[cat]:
+                if item not in ordered_combined_tags:
+                    ordered_combined_tags.append(item)
+
+        wiki_data = fetch_wiki_data(repo_name)
 
         final_projects.append(
             {
@@ -203,7 +289,7 @@ def main():
                 "language": repo.get("language"),
                 "description": wiki_data["description"],
                 "taxonomy": taxonomy,
-                "combined_tags": list(combined_badge_tags),
+                "combined_tags": ordered_combined_tags,
             }
         )
 

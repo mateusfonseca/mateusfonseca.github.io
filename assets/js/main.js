@@ -9,6 +9,9 @@ async function loadComponent(id, filePath) {
                 initThemeToggle();
                 initCVModal();
                 initActiveNav(); 
+            } else if (id === 'footer-placeholder') {
+                const yearEl = document.getElementById('current-year');
+                if (yearEl) yearEl.textContent = new Date().getFullYear();
             }
         }
     } catch (error) {
@@ -158,58 +161,58 @@ function generateTailoredPDF(track) {
 // Category Color Theme Definitions (Dark mode default, .dark class = Light mode)
 const CATEGORY_COLORS = {
     context: {
-        hoverBorder: ['hover:border-lime-500'],
-        activeSummary: ['border-lime-500', 'text-lime-400', 'dark:text-lime-600', 'font-semibold'],
+        hoverBorder: ['hover:border-lime-500', 'dark:hover:border-lime-500'],
+        activeSummary: ['border-lime-500', 'dark:border-lime-500', 'text-lime-400', 'dark:text-lime-600', 'font-semibold'],
         badgeBg: ['bg-lime-600'],
-        checkbox: 'text-lime-600 focus:ring-lime-500',
+        peerCheckedBg: 'peer-checked:bg-lime-600',
         labelHover: 'hover:text-lime-400 dark:hover:text-lime-600',
         tagClasses: 'bg-lime-950/60 dark:bg-lime-50 border border-lime-700/70 dark:border-lime-300 text-lime-300 dark:text-lime-700'
     },
     domain: {
-        hoverBorder: ['hover:border-purple-500'],
-        activeSummary: ['border-purple-500', 'text-purple-400', 'dark:text-purple-600', 'font-semibold'],
+        hoverBorder: ['hover:border-purple-500', 'dark:hover:border-purple-500'],
+        activeSummary: ['border-purple-500', 'dark:border-purple-500', 'text-purple-400', 'dark:text-purple-600', 'font-semibold'],
         badgeBg: ['bg-purple-600'],
-        checkbox: 'text-purple-600 focus:ring-purple-500',
+        peerCheckedBg: 'peer-checked:bg-purple-600',
         labelHover: 'hover:text-purple-400 dark:hover:text-purple-600',
         tagClasses: 'bg-purple-950/60 dark:bg-purple-50 border border-purple-700/70 dark:border-purple-300 text-purple-300 dark:text-purple-700'
     },
     programming: {
-        hoverBorder: ['hover:border-emerald-500'],
-        activeSummary: ['border-emerald-500', 'text-emerald-400', 'dark:text-emerald-600', 'font-semibold'],
+        hoverBorder: ['hover:border-emerald-500', 'dark:hover:border-emerald-500'],
+        activeSummary: ['border-emerald-500', 'dark:border-emerald-500', 'text-emerald-400', 'dark:text-emerald-600', 'font-semibold'],
         badgeBg: ['bg-emerald-600'],
-        checkbox: 'text-emerald-600 focus:ring-emerald-500',
+        peerCheckedBg: 'peer-checked:bg-emerald-600',
         labelHover: 'hover:text-emerald-400 dark:hover:text-emerald-600',
         tagClasses: 'bg-emerald-950/60 dark:bg-emerald-50 border border-emerald-700/70 dark:border-emerald-300 text-emerald-300 dark:text-emerald-700'
     },
     framework: {
-        hoverBorder: ['hover:border-amber-500'],
-        activeSummary: ['border-amber-500', 'text-amber-400', 'dark:text-amber-600', 'font-semibold'],
+        hoverBorder: ['hover:border-amber-500', 'dark:hover:border-amber-500'],
+        activeSummary: ['border-amber-500', 'dark:border-amber-500', 'text-amber-400', 'dark:text-amber-600', 'font-semibold'],
         badgeBg: ['bg-amber-600'],
-        checkbox: 'text-amber-600 focus:ring-amber-500',
+        peerCheckedBg: 'peer-checked:bg-amber-600',
         labelHover: 'hover:text-amber-400 dark:hover:text-amber-600',
         tagClasses: 'bg-amber-950/60 dark:bg-amber-50 border border-amber-700/70 dark:border-amber-300 text-amber-300 dark:text-amber-700'
     },
     database: {
-        hoverBorder: ['hover:border-rose-500'],
-        activeSummary: ['border-rose-500', 'text-rose-400', 'dark:text-rose-600', 'font-semibold'],
+        hoverBorder: ['hover:border-rose-500', 'dark:hover:border-rose-500'],
+        activeSummary: ['border-rose-500', 'dark:border-rose-500', 'text-rose-400', 'dark:text-rose-600', 'font-semibold'],
         badgeBg: ['bg-rose-600'],
-        checkbox: 'text-rose-600 focus:ring-rose-500',
+        peerCheckedBg: 'peer-checked:bg-rose-600',
         labelHover: 'hover:text-rose-400 dark:hover:text-rose-600',
         tagClasses: 'bg-rose-950/60 dark:bg-rose-50 border border-rose-700/70 dark:border-rose-300 text-rose-300 dark:text-rose-700'
     },
     infrastructure: {
-        hoverBorder: ['hover:border-cyan-500'],
-        activeSummary: ['border-cyan-500', 'text-cyan-400', 'dark:text-cyan-600', 'font-semibold'],
+        hoverBorder: ['hover:border-cyan-500', 'dark:hover:border-cyan-500'],
+        activeSummary: ['border-cyan-500', 'dark:border-cyan-500', 'text-cyan-400', 'dark:text-cyan-600', 'font-semibold'],
         badgeBg: ['bg-cyan-600'],
-        checkbox: 'text-cyan-600 focus:ring-cyan-500',
+        peerCheckedBg: 'peer-checked:bg-cyan-600',
         labelHover: 'hover:text-cyan-400 dark:hover:text-cyan-600',
         tagClasses: 'bg-cyan-950/60 dark:bg-cyan-50 border border-cyan-700/70 dark:border-cyan-300 text-cyan-300 dark:text-cyan-700'
     },
     data_science: {
-        hoverBorder: ['hover:border-indigo-500'],
-        activeSummary: ['border-indigo-500', 'text-indigo-400', 'dark:text-indigo-600', 'font-semibold'],
+        hoverBorder: ['hover:border-indigo-500', 'dark:hover:border-indigo-500'],
+        activeSummary: ['border-indigo-500', 'dark:border-indigo-500', 'text-indigo-400', 'dark:text-indigo-600', 'font-semibold'],
         badgeBg: ['bg-indigo-600'],
-        checkbox: 'text-indigo-600 focus:ring-indigo-500',
+        peerCheckedBg: 'peer-checked:bg-indigo-600',
         labelHover: 'hover:text-indigo-400 dark:hover:text-indigo-600',
         tagClasses: 'bg-indigo-950/60 dark:bg-indigo-50 border border-indigo-700/70 dark:border-indigo-300 text-indigo-300 dark:text-indigo-700'
     },
@@ -217,7 +220,7 @@ const CATEGORY_COLORS = {
         hoverBorder: ['hover:border-zinc-400', 'dark:hover:border-zinc-500'],
         activeSummary: ['border-zinc-400', 'dark:border-zinc-500', 'text-zinc-200', 'dark:text-zinc-700', 'font-semibold'],
         badgeBg: ['bg-zinc-600'],
-        checkbox: 'text-zinc-600 focus:ring-zinc-500',
+        peerCheckedBg: 'peer-checked:bg-zinc-600',
         labelHover: 'hover:text-zinc-300 dark:hover:text-zinc-600',
         tagClasses: 'bg-zinc-800/80 dark:bg-zinc-200/80 border border-zinc-600 dark:border-zinc-400 text-zinc-300 dark:text-zinc-700'
     }
@@ -295,6 +298,12 @@ function updateDateChips() {
 // Function to manage visibility of cards based on pagination limits
 function updatePaginationDisplay(visibleCards) {
     const loadMoreContainer = document.getElementById('load-more-container');
+
+    // Explicitly hide all filtered-out cards
+    document.querySelectorAll('.project-card[data-filtered-out="true"]').forEach(card => {
+        card.style.display = 'none';
+        card.classList.remove('is-visible');
+    });
 
     visibleCards.forEach((card, index) => {
         if (index < visibleCount) {
@@ -391,7 +400,9 @@ function populateDynamicFilters(projects) {
             taxList.forEach(val => uniqueValues.add(val));
         });
 
-        const sortedValues = Array.from(uniqueValues).sort();
+        const sortedValues = Array.from(uniqueValues).sort((a, b) =>
+            a.localeCompare(b, undefined, { sensitivity: 'base' })
+        );
 
         container.innerHTML = '';
         if (sortedValues.length === 0) {
@@ -402,9 +413,10 @@ function populateDynamicFilters(projects) {
         sortedValues.forEach(val => {
             const lowerVal = val.toLowerCase();
             const label = document.createElement('label');
-            label.className = `whitespace-nowrap flex items-center gap-2 cursor-pointer transition ${theme.labelHover}`;
+            label.className = `whitespace-nowrap flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 cursor-pointer select-none transition ${theme.labelHover}`;
             label.innerHTML = `
-                <input type="checkbox" name="filter-${cat.name}" value="${lowerVal}" class="rounded border-slate-700 dark:border-slate-300 ${theme.checkbox}">
+                <input type="checkbox" name="filter-${cat.name}" value="${lowerVal}" class="peer sr-only">
+                <span class="w-4 h-4 rounded flex items-center justify-center border border-slate-600 dark:border-slate-300 peer-checked:border-transparent ${theme.peerCheckedBg} text-transparent peer-checked:text-white shrink-0 text-[10px] font-bold transition">✓</span>
                 <span>${val}</span>
             `;
             container.appendChild(label);
@@ -419,6 +431,129 @@ function populateDynamicFilters(projects) {
             updateDropdownActiveStates();
             updateFilterButtonStates();
         });
+    });
+}
+
+// Live Filter Searchbar across all 8 filter dropdowns
+function initFilterSearch() {
+    const searchContainer = document.getElementById('filter-search-container');
+    const searchInput = document.getElementById('filter-search-input');
+    const clearSearchBtn = document.getElementById('filter-search-clear');
+    const resultsMenu = document.getElementById('filter-search-results');
+
+    if (!searchContainer || !searchInput || !resultsMenu) return;
+
+    const CATEGORY_LABELS = {
+        context: 'Context',
+        domain: 'Domain',
+        programming: 'Programming',
+        framework: 'Framework',
+        database: 'Database',
+        infrastructure: 'Infrastructure',
+        data_science: 'Data Science',
+        others: 'Others'
+    };
+
+    const getAllFilterOptions = () => {
+        const items = [];
+        document.querySelectorAll('details.filter-dropdown').forEach(details => {
+            const catKey = details.getAttribute('data-category') || 'others';
+            const catLabel = CATEGORY_LABELS[catKey] || catKey;
+
+            details.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                const labelText = checkbox.closest('label')?.querySelector('span:last-of-type')?.textContent?.trim() || checkbox.value;
+                items.push({
+                    categoryKey: catKey,
+                    categoryLabel: catLabel,
+                    label: labelText,
+                    value: checkbox.value,
+                    checkbox
+                });
+            });
+        });
+        return items;
+    };
+
+    const renderResults = (query) => {
+        const trimmed = query.trim().toLowerCase();
+
+        if (!trimmed) {
+            resultsMenu.classList.add('hidden');
+            resultsMenu.innerHTML = '';
+            clearSearchBtn?.classList.add('hidden');
+            return;
+        }
+
+        clearSearchBtn?.classList.remove('hidden');
+
+        const matches = getAllFilterOptions().filter(item =>
+            item.label.toLowerCase().includes(trimmed) ||
+            item.categoryLabel.toLowerCase().includes(trimmed)
+        );
+
+        resultsMenu.innerHTML = '';
+
+        if (matches.length === 0) {
+            resultsMenu.innerHTML = `<div class="px-3 py-2 text-slate-400 text-xs">No matching filters found</div>`;
+            resultsMenu.classList.remove('hidden');
+            return;
+        }
+
+        matches.forEach(item => {
+            const theme = CATEGORY_COLORS[item.categoryKey] || CATEGORY_COLORS.others;
+            const isChecked = item.checkbox.checked;
+
+            const row = document.createElement('button');
+            row.type = 'button';
+            row.className = `w-full flex items-center justify-between gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 text-slate-200 dark:text-slate-800 text-left transition ${theme.labelHover}`;
+            row.innerHTML = `
+                <span class="flex items-center gap-2.5 min-w-0">
+                    <span class="w-4 h-4 rounded flex items-center justify-center border ${isChecked ? `${theme.badgeBg[0]} border-transparent text-white` : 'border-slate-600 dark:border-slate-300'} shrink-0 text-[10px] font-bold">
+                        ${isChecked ? '✓' : ''}
+                    </span>
+                    <span class="truncate">${item.label}</span>
+                </span>
+                <span class="${theme.tagClasses} px-2 py-0.5 rounded text-[11px] font-medium shrink-0">
+                    ${item.categoryLabel}
+                </span>
+            `;
+
+            row.addEventListener('click', (e) => {
+                e.stopPropagation();
+                item.checkbox.checked = !item.checkbox.checked;
+                item.checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+
+                renderResults(searchInput.value);
+                searchInput.focus();
+            });
+
+            resultsMenu.appendChild(row);
+        });
+
+        resultsMenu.classList.remove('hidden');
+    };
+
+    searchInput.addEventListener('input', (e) => {
+        renderResults(e.target.value);
+    });
+
+    searchInput.addEventListener('focus', () => {
+        if (searchInput.value.trim()) {
+            renderResults(searchInput.value);
+        }
+    });
+
+    clearSearchBtn?.addEventListener('click', () => {
+        searchInput.value = '';
+        renderResults('');
+        searchInput.focus();
+    });
+
+    // Close search results when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!searchContainer.contains(event.target)) {
+            resultsMenu.classList.add('hidden');
+        }
     });
 }
 
@@ -477,7 +612,7 @@ async function loadProjectsGrid() {
             const formattedSubDate = new Date(subDateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
             const formattedUpDate = new Date(upDateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
 
-            // Build a lookup map from tag text -> category key using project.taxonomy
+            // Order tags by filter category order, then alphabetically within each category
             const categoryOrder = [
                 'context',
                 'domain',
@@ -489,23 +624,29 @@ async function loadProjectsGrid() {
                 'others'
             ];
 
-            const tagCategoryMap = new Map();
+            const orderedTags = [];
+            const seenTags = new Set();
+
             categoryOrder.forEach(catKey => {
-                (tax[catKey] || []).forEach(item => {
+                const sortedItems = [...(tax[catKey] || [])].sort((a, b) =>
+                    a.localeCompare(b, undefined, { sensitivity: 'base' })
+                );
+
+                sortedItems.forEach(item => {
                     const normalized = item.toLowerCase().trim();
-                    if (!tagCategoryMap.has(normalized)) {
-                        tagCategoryMap.set(normalized, catKey);
+                    if (!seenTags.has(normalized)) {
+                        seenTags.add(normalized);
+                        orderedTags.push({ label: item, category: catKey });
                     }
                 });
             });
 
-            const tagsHtml = (project.combined_tags || []).map(tag => {
-                const matchedCat = tagCategoryMap.get(tag.toLowerCase().trim());
-                const tagStyle = matchedCat && CATEGORY_COLORS[matchedCat]
-                    ? CATEGORY_COLORS[matchedCat].tagClasses
+            const tagsHtml = orderedTags.map(({ label, category }) => {
+                const tagStyle = CATEGORY_COLORS[category]
+                    ? CATEGORY_COLORS[category].tagClasses
                     : DEFAULT_TAG_CLASSES;
 
-                return `<span class="${tagStyle} px-2.5 py-1 rounded text-xs font-medium">${tag}</span>`;
+                return `<span class="${tagStyle} px-2.5 py-1 rounded text-xs font-medium">${label}</span>`;
             }).join('');
 
             let bulletsHtml = '';
@@ -517,11 +658,11 @@ async function loadProjectsGrid() {
             const introText = (project.description && project.description.intro) ? project.description.intro : (typeof project.description === 'string' ? project.description : '');
 
             card.innerHTML = `
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                    <h2 class="text-2xl font-bold">${project.title}</h2>
-                    <div class="flex items-center gap-2 text-xs">
-                        <span class="submitted-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Submitted: ${formattedSubDate}</span>
-                        <span class="updated-chip bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: ${formattedUpDate}</span>
+                <div class="flex flex-col md:flex-row justify-between items-start gap-3">
+                    <h2 class="text-2xl font-bold leading-snug">${project.title}</h2>
+                    <div class="flex flex-wrap items-center gap-2 text-xs shrink-0 md:mt-1">
+                        <span class="submitted-chip whitespace-nowrap bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Created: ${formattedSubDate}</span>
+                        <span class="updated-chip whitespace-nowrap bg-slate-800 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 text-slate-300 dark:text-slate-700 px-3 py-1 rounded-full font-medium">Updated: ${formattedUpDate}</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs">
@@ -570,6 +711,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     appliedStateSnapshot = getFilterStateSnapshot();
     updateFilterButtonStates();
+    initFilterSearch();
 
     // 3. Close open standard dropdowns when clicking outside
     document.addEventListener('click', (event) => {
@@ -700,16 +842,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedDataScience = Array.from(document.querySelectorAll('input[name="filter-datascience"]:checked')).map(cb => cb.value);
             const selectedOthers = Array.from(document.querySelectorAll('input[name="filter-others"]:checked')).map(cb => cb.value);
 
+            const splitTags = (attr) => (attr || '').split(',').map(s => s.trim()).filter(Boolean);
+
             const projectCards = document.querySelectorAll('.project-card');
             projectCards.forEach(card => {
-                const cardContext = card.getAttribute('data-context') || '';
-                const cardProgramming = card.getAttribute('data-programming') || '';
-                const cardFrameworks = card.getAttribute('data-framework') || '';
-                const cardDatabases = card.getAttribute('data-database') || '';
-                const cardDomains = card.getAttribute('data-domain') || '';
-                const cardInfrastructure = card.getAttribute('data-infrastructure') || '';
-                const cardDataScience = card.getAttribute('data-datascience') || '';
-                const cardOthers = card.getAttribute('data-others') || '';
+                const cardContext = splitTags(card.getAttribute('data-context'));
+                const cardProgramming = splitTags(card.getAttribute('data-programming'));
+                const cardFrameworks = splitTags(card.getAttribute('data-framework'));
+                const cardDatabases = splitTags(card.getAttribute('data-database'));
+                const cardDomains = splitTags(card.getAttribute('data-domain'));
+                const cardInfrastructure = splitTags(card.getAttribute('data-infrastructure'));
+                const cardDataScience = splitTags(card.getAttribute('data-datascience'));
+                const cardOthers = splitTags(card.getAttribute('data-others'));
 
                 const matchesContext = selectedContexts.length === 0 || selectedContexts.some(val => cardContext.includes(val));
                 const matchesProgramming = selectedProgramming.length === 0 || selectedProgramming.some(val => cardProgramming.includes(val));
