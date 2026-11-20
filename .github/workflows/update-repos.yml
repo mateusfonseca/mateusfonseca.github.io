@@ -8,4 +8,4 @@ on:
     branches:
       - main
     paths:
-      - 'scripts/fetch_repos.py'
+      - 'assets/scripts/fetch_repos.py'

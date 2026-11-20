@@ -159,7 +159,28 @@
             "TenSEAL",
             "TLS"
         ],
-        "images": []
+        "images": [
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/masters-research-project/main/images/charts/hypothesis_1.png",
+                "title": "Hypothesis 1"
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/masters-research-project/main/images/charts/hypothesis_2.png",
+                "title": "Hypothesis 2"
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/masters-research-project/main/images/charts/hypothesis_3.png",
+                "title": "Hypothesis 3"
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/masters-research-project/main/images/diagrams/bootstrapping.png",
+                "title": "Bootstrapping"
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/masters-research-project/main/images/diagrams/workflow.png",
+                "title": "Workflow"
+            }
+        ]
     },
     {
         "name": "networking-ca1",
@@ -236,15 +257,15 @@
         "images": [
             {
                 "url": "https://raw.githubusercontent.com/mateusfonseca/networking-ca1/master/diagrams/cicd_pipeline.png",
-                "title": ""
+                "title": "CI/CD Pipeline"
             },
             {
                 "url": "https://raw.githubusercontent.com/mateusfonseca/networking-ca1/master/diagrams/docker_compose.png",
-                "title": ""
+                "title": "Docker Compose"
             },
             {
                 "url": "https://raw.githubusercontent.com/mateusfonseca/networking-ca1/master/diagrams/infrastructure.png",
-                "title": ""
+                "title": "Infrastructure"
             }
         ]
     },
@@ -322,40 +343,40 @@
         ],
         "images": [
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/about.jpeg",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/images/diagrams/flowchart.png",
+                "title": "Flowchart"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/account-details.jpeg",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/images/screenshots/about.jpeg",
+                "title": "About"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/album-details.jpeg",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/images/screenshots/account-details.jpeg",
+                "title": "Account Details"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/authentication.jpeg",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/images/screenshots/album-details.jpeg",
+                "title": "Album Details"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/collection.jpeg",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/images/screenshots/authentication.jpeg",
+                "title": "Authentication"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/flowchart.png",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/images/screenshots/collection.jpeg",
+                "title": "Collection"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/menu.jpeg",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/images/screenshots/menu.jpeg",
+                "title": "Menu"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/search-form.jpeg",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/images/screenshots/search-form.jpeg",
+                "title": "Search Form"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/search-results.jpeg",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/images/screenshots/search-results.jpeg",
+                "title": "Search Results"
             }
         ]
     },
@@ -440,36 +461,36 @@
         ],
         "images": [
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/create.png",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/images/diagrams/erd.png",
+                "title": "ERD"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/delete.png",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/images/diagrams/flowchart.png",
+                "title": "Flowchart"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/erd.png",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/images/screenshots/crud_create.png",
+                "title": "CRUD Create"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/flowchart.png",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/images/screenshots/crud_delete.png",
+                "title": "CRUD Delete"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/home.png",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/images/screenshots/crud_read.png",
+                "title": "CRUD Read"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/read.png",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/images/screenshots/crud_read_all.png",
+                "title": "CRUD Read All"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/read_all.png",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/images/screenshots/crud_update.png",
+                "title": "CRUD Update"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/update.png",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/images/screenshots/home.png",
+                "title": "Home"
             }
         ]
     },
@@ -555,15 +576,15 @@
         "images": [
             {
                 "url": "https://raw.githubusercontent.com/mateusfonseca/finalProject_Nano_Size_Dist/master/diagrams/cnn_architecture.png",
-                "title": ""
+                "title": "CNN Architecture"
             },
             {
                 "url": "https://raw.githubusercontent.com/mateusfonseca/finalProject_Nano_Size_Dist/master/diagrams/deployment.png",
-                "title": ""
+                "title": "Deployment"
             },
             {
                 "url": "https://raw.githubusercontent.com/mateusfonseca/finalProject_Nano_Size_Dist/master/diagrams/flowchart.png",
-                "title": ""
+                "title": "Flowchart"
             }
         ]
     },
@@ -628,36 +649,28 @@
         ],
         "images": [
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/hello-world-code.png",
-                "title": ""
-            },
-            {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/hello-world-view.png",
-                "title": ""
-            },
-            {
                 "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/home-in.png",
-                "title": ""
+                "title": "Home In"
             },
             {
                 "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/home-out.png",
-                "title": ""
+                "title": "Home Out"
             },
             {
                 "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/login.png",
-                "title": ""
+                "title": "Login"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/prof-up.png",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/profile-update.png",
+                "title": "Profile Update"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/prof-view.png",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/profile-view.png",
+                "title": "Profile View"
             },
             {
-                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/signup.png",
-                "title": ""
+                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/sign-up.png",
+                "title": "Sign Up"
             }
         ]
     },
