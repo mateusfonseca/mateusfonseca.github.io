@@ -238,7 +238,6 @@ function updateDropdownActiveStates() {
         const summary = details.querySelector('.filter-summary');
         const badge = details.querySelector('.filter-badge');
 
-        // Ensure category hover border and badge background are applied
         summary.classList.add(...theme.hoverBorder);
         if (badge) {
             badge.classList.add(...theme.badgeBg);
@@ -271,6 +270,69 @@ let currentSortField = 'date';
 let currentSortOrder = 'desc'; 
 let visibleCount = 5;
 
+// Image Gallery Modal State & Controls
+let currentGalleryImages = [];
+let currentGalleryIndex = 0;
+let galleryScale = 1;
+let galleryTranslateX = 0;
+let galleryTranslateY = 0;
+let isDraggingGallery = false;
+let startDragX = 0;
+let startDragY = 0;
+
+function openImageGallery(images) {
+    if (!images || images.length === 0) return;
+    currentGalleryImages = images.map(img => {
+        if (typeof img === 'string') {
+            const parts = img.split('/');
+            const filename = parts[parts.length - 1].split('?')[0];
+            const nameWithoutExt = filename.substring(0, filename.lastIndexOf('.')) || filename;
+            const title = nameWithoutExt.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            return { url: img, title: title };
+        }
+        return img;
+    });
+    currentGalleryIndex = 0;
+    resetZoom();
+    updateGalleryView();
+    document.getElementById('image-gallery-modal')?.classList.remove('hidden');
+}
+
+function updateGalleryView() {
+    const imgEl = document.getElementById('gallery-active-image');
+    const counterEl = document.getElementById('gallery-counter');
+    const titleEl = document.getElementById('gallery-image-title');
+    
+    const activeImage = currentGalleryImages[currentGalleryIndex];
+    if (imgEl && activeImage) imgEl.src = activeImage.url;
+    if (counterEl) counterEl.textContent = `Image ${currentGalleryIndex + 1} of ${currentGalleryImages.length}`;
+    if (titleEl && activeImage) titleEl.textContent = activeImage.title || '';
+    
+    resetZoom();
+}
+
+function resetZoom() {
+    galleryScale = 1;
+    galleryTranslateX = 0;
+    galleryTranslateY = 0;
+    applyTransform();
+    updateZoomLevelDisplay();
+}
+
+function applyTransform() {
+    const wrapper = document.getElementById('gallery-image-wrapper');
+    if (wrapper) {
+        wrapper.style.transform = `translate(${galleryTranslateX}px, ${galleryTranslateY}px) scale(${galleryScale})`;
+    }
+}
+
+function updateZoomLevelDisplay() {
+    const zoomLevelEl = document.getElementById('zoom-level');
+    if (zoomLevelEl) {
+        zoomLevelEl.textContent = `${Math.round(galleryScale * 100)}%`;
+    }
+}
+
 // Function to update active/inactive styling on project date chips based on active sort field
 function updateDateChips() {
     const grayClasses = ['bg-slate-800', 'dark:bg-slate-100', 'border', 'border-slate-700', 'dark:border-slate-300', 'text-slate-300', 'dark:text-slate-700'];
@@ -299,7 +361,6 @@ function updateDateChips() {
 function updatePaginationDisplay(visibleCards) {
     const loadMoreContainer = document.getElementById('load-more-container');
 
-    // Explicitly hide all filtered-out cards
     document.querySelectorAll('.project-card[data-filtered-out="true"]').forEach(card => {
         card.style.display = 'none';
         card.classList.remove('is-visible');
@@ -324,7 +385,6 @@ function updatePaginationDisplay(visibleCards) {
     }
 }
 
-// Updated applySorting function including pagination support
 function applySorting() {
     const grid = document.getElementById('projects-grid');
     if (!grid) return;
@@ -358,7 +418,6 @@ function getFilterStateSnapshot() {
 
 let appliedStateSnapshot = '';
 
-// Function to update the disabled state of both Apply and Clear buttons
 function updateFilterButtonStates() {
     const applyBtn = document.getElementById('apply-filters-btn');
     const clearBtn = document.getElementById('clear-filters-btn');
@@ -375,7 +434,6 @@ function updateFilterButtonStates() {
     }
 }
 
-// Function to dynamically render filter checkboxes based on available project data
 function populateDynamicFilters(projects) {
     const categories = [
         { key: 'context', name: 'context', containerId: 'context-menu' },
@@ -423,7 +481,6 @@ function populateDynamicFilters(projects) {
         });
     });
 
-    // Apply initial hover borders & badge colors to dropdown summaries
     updateDropdownActiveStates();
 
     document.querySelectorAll('input[name^="filter-"]:not([name="filter-sort"])').forEach(checkbox => {
@@ -434,7 +491,6 @@ function populateDynamicFilters(projects) {
     });
 }
 
-// Live Filter Searchbar across all 8 filter dropdowns
 function initFilterSearch() {
     const searchContainer = document.getElementById('filter-search-container');
     const searchInput = document.getElementById('filter-search-input');
@@ -549,7 +605,6 @@ function initFilterSearch() {
         searchInput.focus();
     });
 
-    // Close search results when clicking outside
     document.addEventListener('click', (event) => {
         if (!searchContainer.contains(event.target)) {
             resultsMenu.classList.add('hidden');
@@ -557,12 +612,10 @@ function initFilterSearch() {
     });
 }
 
-// Function to dynamically fetch repos.json, build filters, and render project cards
 async function loadProjectsGrid() {
     const grid = document.getElementById('projects-grid');
     if (!grid) return;
 
-    // Render skeleton placeholders while fetching
     const skeletonCardHtml = `
         <div class="project-card bg-slate-800/40 dark:bg-white p-6 md:p-8 rounded-2xl border border-slate-700/50 dark:border-slate-200 shadow-sm space-y-4 animate-pulse">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
@@ -582,10 +635,8 @@ async function loadProjectsGrid() {
         if (!response.ok) throw new Error('Failed to load repository metadata.');
         const projects = await response.json();
 
-        // 1. Dynamically populate filter dropdowns based on actual dataset content
         populateDynamicFilters(projects);
 
-        // 2. Render project cards
         grid.innerHTML = '';
 
         projects.forEach(project => {
@@ -594,7 +645,6 @@ async function loadProjectsGrid() {
             
             const tax = project.taxonomy || {};
             
-            // Map filtering attributes
             card.setAttribute('data-context', (tax.context || []).join(',').toLowerCase());
             card.setAttribute('data-programming', (tax.programming || []).join(',').toLowerCase());
             card.setAttribute('data-framework', (tax.framework || []).join(',').toLowerCase());
@@ -612,7 +662,6 @@ async function loadProjectsGrid() {
             const formattedSubDate = new Date(subDateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
             const formattedUpDate = new Date(upDateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
 
-            // Order tags by filter category order, then alphabetically within each category
             const categoryOrder = [
                 'context',
                 'domain',
@@ -657,6 +706,14 @@ async function loadProjectsGrid() {
 
             const introText = (project.description && project.description.intro) ? project.description.intro : (typeof project.description === 'string' ? project.description : '');
 
+            // Conditional Gallery Button
+            const hasImages = project.images && project.images.length > 0;
+            const galleryBtnHtml = hasImages ? `
+                <button type="button" onclick='openImageGallery(${JSON.stringify(project.images)})' class="p-2 bg-slate-700/50 hover:bg-slate-700 dark:bg-slate-200 dark:hover:bg-slate-300 rounded-xl text-slate-200 dark:text-slate-800 transition flex items-center gap-1.5 text-xs font-semibold cursor-pointer" title="View Image Gallery">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    Gallery (${project.images.length})
+                </button>` : '';
+
             card.innerHTML = `
                 <div class="flex flex-col md:flex-row justify-between items-start gap-3">
                     <h2 class="text-2xl font-bold leading-snug">${project.title}</h2>
@@ -672,10 +729,12 @@ async function loadProjectsGrid() {
                     ${introText}
                 </p>
                 ${bulletsHtml}
-                <div class="pt-2">
-                    <a href="${project.html_url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-400 dark:text-blue-600 text-sm font-semibold hover:underline">
-                        View GitHub Repository &rarr;
+                <div class="pt-2 flex items-center gap-2">
+                    <a href="${project.html_url}" target="_blank" rel="noopener noreferrer" class="p-2 bg-slate-700/50 hover:bg-slate-700 dark:bg-slate-200 dark:hover:bg-slate-300 rounded-xl text-slate-200 dark:text-slate-800 transition flex items-center gap-1.5 text-xs font-semibold" title="View GitHub Repository">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                        Repository
                     </a>
+                    ${galleryBtnHtml}
                 </div>
             `;
 
@@ -692,13 +751,10 @@ async function loadProjectsGrid() {
     }
 }
 
-// SINGLE UNIFIED DOMContentLoaded LISTENER
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Load components (Navbar & Footer)
     loadComponent('navbar-placeholder', 'assets/components/navbar.html');
     loadComponent('footer-placeholder', 'assets/components/footer.html');
 
-    // 2. Load dynamic projects if on projects page, else run default sorting
     if (document.body.getAttribute('data-page') === 'projects') {
         loadProjectsGrid();
     } else {
@@ -713,7 +769,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateFilterButtonStates();
     initFilterSearch();
 
-    // 3. Close open standard dropdowns when clicking outside
     document.addEventListener('click', (event) => {
         document.querySelectorAll('details.relative.group').forEach((details) => {
             if (!details.contains(event.target)) {
@@ -722,7 +777,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Dynamic Dropdown Positioner (Left vs Right Half Screen Check) for standard filters
     document.querySelectorAll('.filter-dropdown:not(#sort-container)').forEach(dropdown => {
         const summary = dropdown.querySelector('summary');
         const menu = dropdown.querySelector('.dropdown-menu');
@@ -746,7 +800,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Handle Sort Dropdown Manual State & Position Alignment
     const sortTrigger = document.getElementById('sort-trigger');
     const sortMenu = document.getElementById('sort-dropdown-menu');
     const sortChevron = document.getElementById('sort-chevron');
@@ -794,7 +847,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Watch filter checkboxes for changes
     document.querySelectorAll('input[name^="filter-"]:not([name="filter-sort"])').forEach(checkbox => {
         checkbox.addEventListener('change', () => {
             updateDropdownActiveStates();
@@ -802,7 +854,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 7. Sort options selection logic
     const sortSummaryText = document.getElementById('sort-summary-text');
     const sortOrderBtn = document.getElementById('sort-order-btn');
     const sortIcon = document.getElementById('sort-icon');
@@ -830,7 +881,6 @@ document.addEventListener('DOMContentLoaded', () => {
         applySorting();
     });
 
-    // 8. Apply Filters logic
     if (applyBtn) {
         applyBtn.addEventListener('click', () => {
             const selectedContexts = Array.from(document.querySelectorAll('input[name="filter-context"]:checked')).map(cb => cb.value);
@@ -884,7 +934,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 9. Clear Filters logic
     if (clearBtn) {
         clearBtn.addEventListener('click', () => {
             document.querySelectorAll('input[name^="filter-"]:not([name="filter-sort"])[type="checkbox"]').forEach(cb => cb.checked = false);
@@ -907,11 +956,92 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 10. Load More Projects Button Logic
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener('click', () => {
             visibleCount += 5;
             applySorting();
         });
     }
+
+    // Image Gallery Pan, Zoom & Modal Event Listeners
+    const galleryModal = document.getElementById('image-gallery-modal');
+    const closeGalleryBtn = document.getElementById('close-gallery-modal');
+    const galleryPrevBtn = document.getElementById('gallery-prev');
+    const galleryNextBtn = document.getElementById('gallery-next');
+    const galleryViewport = document.getElementById('gallery-viewport');
+    const zoomInBtn = document.getElementById('zoom-in');
+    const zoomOutBtn = document.getElementById('zoom-out');
+    const zoomResetBtn = document.getElementById('zoom-reset');
+
+    closeGalleryBtn?.addEventListener('click', () => galleryModal?.classList.add('hidden'));
+    galleryModal?.addEventListener('click', (e) => {
+        if (e.target === galleryModal) galleryModal.classList.add('hidden');
+    });
+
+    galleryPrevBtn?.addEventListener('click', () => {
+        currentGalleryIndex = (currentGalleryIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+        updateGalleryView();
+    });
+
+    galleryNextBtn?.addEventListener('click', () => {
+        currentGalleryIndex = (currentGalleryIndex + 1) % currentGalleryImages.length;
+        updateGalleryView();
+    });
+
+    zoomInBtn?.addEventListener('click', () => {
+        galleryScale = Math.min(galleryScale + 0.25, 4);
+        applyTransform();
+        updateZoomLevelDisplay();
+    });
+
+    zoomOutBtn?.addEventListener('click', () => {
+        galleryScale = Math.max(galleryScale - 0.25, 1);
+        if (galleryScale === 1) {
+            galleryTranslateX = 0;
+            galleryTranslateY = 0;
+        }
+        applyTransform();
+        updateZoomLevelDisplay();
+    });
+
+    zoomResetBtn?.addEventListener('click', () => {
+        resetZoom();
+    });
+
+    galleryViewport?.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const zoomIntensity = 0.1;
+        if (e.deltaY < 0) {
+            galleryScale = Math.min(galleryScale + zoomIntensity, 4);
+        } else {
+            galleryScale = Math.max(galleryScale - zoomIntensity, 1);
+            if (galleryScale === 1) {
+                galleryTranslateX = 0;
+                galleryTranslateY = 0;
+            }
+        }
+        applyTransform();
+        updateZoomLevelDisplay();
+    }, { passive: false });
+
+    galleryViewport?.addEventListener('mousedown', (e) => {
+        if (galleryScale > 1) {
+            isDraggingGallery = true;
+            startDragX = e.clientX - galleryTranslateX;
+            startDragY = e.clientY - galleryTranslateY;
+            galleryViewport.style.cursor = 'grabbing';
+        }
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isDraggingGallery) return;
+        galleryTranslateX = e.clientX - startDragX;
+        galleryTranslateY = e.clientY - startDragY;
+        applyTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+        isDraggingGallery = false;
+        if (galleryViewport) galleryViewport.style.cursor = 'grab';
+    });
 });

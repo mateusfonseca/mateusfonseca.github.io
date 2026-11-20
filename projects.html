@@ -237,6 +237,49 @@
     <!-- Footer gets injected here -->
     <div id="footer-placeholder"></div>
 
+    <!-- Image Gallery Modal Carousel -->
+    <div id="image-gallery-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="relative bg-slate-900 dark:bg-slate-100 border border-slate-700 dark:border-slate-300 rounded-2xl max-w-5xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-800 dark:border-slate-200">
+                <div class="flex items-center gap-3">
+                    <span id="gallery-counter" class="text-sm font-medium text-slate-400">Image 1 of 3</span>
+                    <span id="gallery-image-title" class="text-sm font-semibold text-slate-200 dark:text-slate-800 truncate max-w-md"></span>
+                </div>
+                <!-- Zoom Controls & Close Button -->
+                <div class="flex items-center gap-2">
+                    <div class="flex items-center bg-slate-800 dark:bg-slate-200 rounded-lg p-1 border border-slate-700 dark:border-slate-300">
+                        <button type="button" id="zoom-out" title="Zoom Out" class="p-1.5 hover:bg-slate-700 dark:hover:bg-slate-300 rounded text-slate-300 dark:text-slate-700 transition cursor-pointer">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/></svg>
+                        </button>
+                        <span id="zoom-level" class="px-2 text-xs font-medium text-slate-300 dark:text-slate-700 min-w-[45px] text-center">100%</span>
+                        <button type="button" id="zoom-in" title="Zoom In" class="p-1.5 hover:bg-slate-700 dark:hover:bg-slate-300 rounded text-slate-300 dark:text-slate-700 transition cursor-pointer">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                        </button>
+                        <button type="button" id="zoom-reset" title="Reset Zoom" class="px-2 py-1 text-xs font-semibold hover:bg-slate-700 dark:hover:bg-slate-300 rounded text-slate-300 dark:text-slate-700 transition cursor-pointer border-l border-slate-700 dark:border-slate-300 ml-1">
+                            Reset
+                        </button>
+                    </div>
+                    <button type="button" id="close-gallery-modal" class="p-2 text-slate-400 hover:text-slate-100 dark:hover:text-slate-900 transition cursor-pointer">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Modal Body / Viewport with Pan & Zoom Wrapper -->
+            <div id="gallery-viewport" class="relative flex-grow flex items-center justify-center p-6 bg-black/40 min-h-[400px] overflow-hidden cursor-grab active:cursor-grabbing select-none">
+                <button type="button" id="gallery-prev" class="absolute left-4 z-10 p-2 bg-slate-800/80 hover:bg-slate-700 text-white rounded-full transition shadow cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <div id="gallery-image-wrapper" class="relative flex items-center justify-center transition-transform duration-75 ease-out">
+                    <img id="gallery-active-image" src="" alt="Project Screenshot" class="max-h-[65vh] max-w-full object-contain rounded-lg shadow-lg pointer-events-none">
+                </div>
+                <button type="button" id="gallery-next" class="absolute right-4 z-10 p-2 bg-slate-800/80 hover:bg-slate-700 text-white rounded-full transition shadow cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="assets/js/main.js"></script>
 
 </body>

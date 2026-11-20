@@ -1,162 +1,9 @@
 [
     {
-        "name": "mobileApp2_Accelerometer_Leaderboard",
-        "title": "React Native App: Accelerometer Leaderboard",
-        "html_url": "https://github.com/mateusfonseca/mobileApp2_Accelerometer_Leaderboard",
-        "updated_at": "2026-11-17T00:05:14Z",
-        "created_at": "2023-01-06T03:43:48Z",
-        "language": "JavaScript",
-        "description": {
-            "intro": "Developed a cross-platform mobile application leveraging device sensors to stream movement data, calculate user activity metrics, and render real-time comparative rankings.",
-            "bullet_points": [
-                "Utilized React functional components and hooks to capture 1,000 accelerometer data points locally while the application is active in the foreground.",
-                "Integrated Firebase Authentication and Cloud Firestore for secure user onboarding and automated bulk data synchronization.",
-                "Engineered a dynamic, auto-refreshing leaderboard interface using Shopify FlashList to calculate movement scores and rank participating users efficiently."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "Academic (BSc)"
-            ],
-            "programming": [
-                "C++",
-                "Java",
-                "JavaScript",
-                "Objective-C",
-                "Objective-C++",
-                "Ruby",
-                "Starlark"
-            ],
-            "framework": [
-                "React Native"
-            ],
-            "database": [
-                "Firestore"
-            ],
-            "domain": [
-                "Hybrid Development",
-                "Mobile Development"
-            ],
-            "infrastructure": [
-                "Firebase"
-            ],
-            "data_science": [],
-            "others": [
-                "Accelerometer",
-                "JSON",
-                "JSX",
-                "Material Design",
-                "OOP",
-                "RxJS",
-                "Sensors"
-            ]
-        },
-        "combined_tags": [
-            "Academic (BSc)",
-            "Hybrid Development",
-            "Mobile Development",
-            "C++",
-            "Java",
-            "JavaScript",
-            "Objective-C",
-            "Objective-C++",
-            "Ruby",
-            "Starlark",
-            "React Native",
-            "Firestore",
-            "Firebase",
-            "Accelerometer",
-            "JSON",
-            "JSX",
-            "Material Design",
-            "OOP",
-            "RxJS",
-            "Sensors"
-        ]
-    },
-    {
-        "name": "masters-research-project",
-        "title": "Quantifying the Privacy Tax: Performance Trade-offs of BFV-Based Searchable Encryption in Cloud Storage",
-        "html_url": "https://github.com/mateusfonseca/masters-research-project",
-        "updated_at": "2026-11-16T21:32:30Z",
-        "created_at": "2026-09-19T20:47:17Z",
-        "language": "Python",
-        "description": {
-            "intro": "Researched and engineered a cloud search engine executing Disjunctive Normal Form (DNF) boolean queries via Leveled Fully Homomorphic Encryption (LFHE). Quantified the \"privacy tax\" through extensive performance benchmarking across dataset sizes and query conjunction depths.",
-            "bullet_points": [
-                "Implemented a three-layer hybrid cryptographic architecture: BFV via TenSEAL for data in-use, AES-128 (Fernet) for data at-rest, and TLS/HTTPS via Nginx reverse proxy for data in-transit.",
-                "Provisioned memory-optimized AWS EC2 infrastructure (`r6i.xlarge`, 32 GiB RAM) using Terraform, featuring automated deployment orchestration via shell scripting and dynamic DNS integration.",
-                "Built an asynchronous FastAPI backend performing homomorphic sparse matrix-vector dot products under zero-trust assumptions, paired with an interactive Streamlit user dashboard.",
-                "Achieved 100% test coverage using Pytest, complete with automated RAM monitoring via `psutil` enforcing safety thresholds."
-            ]
-        },
-        "taxonomy": {
-            "context": [
-                "Academic (MSc)"
-            ],
-            "programming": [
-                "Python",
-                "Shell"
-            ],
-            "framework": [
-                "FastAPI",
-                "Streamlit"
-            ],
-            "database": [],
-            "domain": [
-                "Cloud Computing",
-                "Cryptography",
-                "Cybersecurity",
-                "DevOps",
-                "Homomorphic Encryption",
-                "Searchable Encryption"
-            ],
-            "infrastructure": [
-                "AWS",
-                "Nginx",
-                "Terraform"
-            ],
-            "data_science": [
-                "NumPy",
-                "Scikit-learn"
-            ],
-            "others": [
-                "AES",
-                "Benchmarking",
-                "BFV",
-                "TenSEAL",
-                "TLS"
-            ]
-        },
-        "combined_tags": [
-            "Academic (MSc)",
-            "Cloud Computing",
-            "Cryptography",
-            "Cybersecurity",
-            "DevOps",
-            "Homomorphic Encryption",
-            "Searchable Encryption",
-            "Python",
-            "Shell",
-            "FastAPI",
-            "Streamlit",
-            "AWS",
-            "Nginx",
-            "Terraform",
-            "NumPy",
-            "Scikit-learn",
-            "AES",
-            "Benchmarking",
-            "BFV",
-            "TenSEAL",
-            "TLS"
-        ]
-    },
-    {
         "name": "b9is130-web-dev-ca1",
         "title": "Trackora: Music Record Store Management System",
         "html_url": "https://github.com/mateusfonseca/b9is130-web-dev-ca1",
-        "updated_at": "2026-11-16T21:27:48Z",
+        "updated_at": "2026-11-17T20:46:21Z",
         "created_at": "2026-05-19T21:49:13Z",
         "language": "JavaScript",
         "description": {
@@ -188,6 +35,7 @@
                 "SQLAlchemy"
             ],
             "domain": [
+                "CI/CD",
                 "Cloud Computing",
                 "DevOps",
                 "Web Development"
@@ -197,11 +45,11 @@
                 "Docker",
                 "GitHub Actions",
                 "Nginx",
-                "Terraform"
+                "Terraform",
+                "Uvicorn"
             ],
             "data_science": [],
             "others": [
-                "API",
                 "Discogs API",
                 "JWT",
                 "Vite"
@@ -209,6 +57,7 @@
         },
         "combined_tags": [
             "Academic (MSc)",
+            "CI/CD",
             "Cloud Computing",
             "DevOps",
             "Web Development",
@@ -226,17 +75,97 @@
             "GitHub Actions",
             "Nginx",
             "Terraform",
-            "API",
+            "Uvicorn",
             "Discogs API",
             "JWT",
             "Vite"
-        ]
+        ],
+        "images": []
+    },
+    {
+        "name": "masters-research-project",
+        "title": "Quantifying the Privacy Tax: Performance Trade-offs of BFV-Based Searchable Encryption in Cloud Storage",
+        "html_url": "https://github.com/mateusfonseca/masters-research-project",
+        "updated_at": "2026-11-17T20:31:46Z",
+        "created_at": "2026-09-19T20:47:17Z",
+        "language": "Python",
+        "description": {
+            "intro": "Researched and engineered a cloud search engine executing Disjunctive Normal Form (DNF) boolean queries via Leveled Fully Homomorphic Encryption (LFHE). Quantified the \"privacy tax\" through extensive performance benchmarking across dataset sizes and query conjunction depths.",
+            "bullet_points": [
+                "Implemented a three-layer hybrid cryptographic architecture: BFV via TenSEAL for data in-use, AES-128 (Fernet) for data at-rest, and TLS/HTTPS via Nginx reverse proxy for data in-transit.",
+                "Provisioned memory-optimized AWS EC2 infrastructure (`r6i.xlarge`, 32 GiB RAM) using Terraform, featuring automated deployment orchestration via shell scripting and dynamic DNS integration.",
+                "Built an asynchronous FastAPI backend performing homomorphic sparse matrix-vector dot products under zero-trust assumptions, paired with an interactive Streamlit user dashboard.",
+                "Achieved 100% test coverage using Pytest, complete with automated RAM monitoring via `psutil` enforcing safety thresholds."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (MSc)"
+            ],
+            "programming": [
+                "Python",
+                "Shell"
+            ],
+            "framework": [
+                "FastAPI",
+                "Streamlit"
+            ],
+            "database": [],
+            "domain": [
+                "Cloud Computing",
+                "Cryptography",
+                "Cybersecurity",
+                "Homomorphic Encryption",
+                "Searchable Encryption"
+            ],
+            "infrastructure": [
+                "AWS",
+                "Nginx",
+                "Terraform"
+            ],
+            "data_science": [
+                "NumPy",
+                "Scikit-learn"
+            ],
+            "others": [
+                "AES",
+                "Benchmarking",
+                "BFV",
+                "DNF",
+                "TenSEAL",
+                "TLS"
+            ]
+        },
+        "combined_tags": [
+            "Academic (MSc)",
+            "Cloud Computing",
+            "Cryptography",
+            "Cybersecurity",
+            "Homomorphic Encryption",
+            "Searchable Encryption",
+            "Python",
+            "Shell",
+            "FastAPI",
+            "Streamlit",
+            "AWS",
+            "Nginx",
+            "Terraform",
+            "NumPy",
+            "Scikit-learn",
+            "AES",
+            "Benchmarking",
+            "BFV",
+            "DNF",
+            "TenSEAL",
+            "TLS"
+        ],
+        "images": []
     },
     {
         "name": "networking-ca1",
         "title": "DevOps Workflow Project",
         "html_url": "https://github.com/mateusfonseca/networking-ca1",
-        "updated_at": "2026-11-16T21:23:53Z",
+        "updated_at": "2026-11-17T20:24:49Z",
         "created_at": "2026-05-19T21:21:05Z",
         "language": "HCL",
         "description": {
@@ -276,7 +205,12 @@
                 "Terraform"
             ],
             "data_science": [],
-            "others": []
+            "others": [
+                "Automation",
+                "Containerization",
+                "Microservices",
+                "Orchestration"
+            ]
         },
         "combined_tags": [
             "Academic (MSc)",
@@ -293,14 +227,32 @@
             "GitHub Actions",
             "Gunicorn",
             "Nginx",
-            "Terraform"
+            "Terraform",
+            "Automation",
+            "Containerization",
+            "Microservices",
+            "Orchestration"
+        ],
+        "images": [
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/networking-ca1/master/diagrams/cicd_pipeline.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/networking-ca1/master/diagrams/docker_compose.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/networking-ca1/master/diagrams/infrastructure.png",
+                "title": ""
+            }
         ]
     },
     {
         "name": "album-collection",
         "title": "Album Collection Hybrid Mobile Application",
         "html_url": "https://github.com/mateusfonseca/album-collection",
-        "updated_at": "2026-11-16T21:21:01Z",
+        "updated_at": "2026-11-17T20:17:34Z",
         "created_at": "2026-05-19T21:53:05Z",
         "language": "TypeScript",
         "description": {
@@ -332,8 +284,7 @@
                 "Firestore"
             ],
             "domain": [
-                "Hybrid Development",
-                "Mobile Development"
+                "Hybrid Development"
             ],
             "infrastructure": [
                 "Firebase"
@@ -341,6 +292,7 @@
             "data_science": [],
             "others": [
                 "API",
+                "Cross-Platform",
                 "Discogs API",
                 "Reactive Programming",
                 "TSX",
@@ -350,7 +302,6 @@
         "combined_tags": [
             "Academic (MSc)",
             "Hybrid Development",
-            "Mobile Development",
             "CSS",
             "HTML",
             "Java",
@@ -363,17 +314,56 @@
             "Firestore",
             "Firebase",
             "API",
+            "Cross-Platform",
             "Discogs API",
             "Reactive Programming",
             "TSX",
             "Vite"
+        ],
+        "images": [
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/about.jpeg",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/account-details.jpeg",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/album-details.jpeg",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/authentication.jpeg",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/collection.jpeg",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/flowchart.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/menu.jpeg",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/search-form.jpeg",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/album-collection/master/screenshots/search-results.jpeg",
+                "title": ""
+            }
         ]
     },
     {
         "name": "programming-ca2",
         "title": "Industrial ERP Information System",
         "html_url": "https://github.com/mateusfonseca/programming-ca2",
-        "updated_at": "2026-11-16T21:18:01Z",
+        "updated_at": "2026-11-17T20:16:18Z",
         "created_at": "2025-11-05T21:53:42Z",
         "language": "Python",
         "description": {
@@ -417,8 +407,10 @@
             "data_science": [],
             "others": [
                 "API",
+                "ERP",
                 "JSX",
                 "Pytest",
+                "Reactive Programming",
                 "Vite"
             ]
         },
@@ -440,16 +432,146 @@
             "Gunicorn",
             "Nginx",
             "API",
+            "ERP",
             "JSX",
             "Pytest",
+            "Reactive Programming",
             "Vite"
+        ],
+        "images": [
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/create.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/delete.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/erd.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/flowchart.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/home.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/read.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/read_all.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/programming-ca2/main/screenshots/update.png",
+                "title": ""
+            }
+        ]
+    },
+    {
+        "name": "finalProject_Nano_Size_Dist",
+        "title": "at\u00b3: an automated size distribution calculator for TEM-based nanoparticle scans",
+        "html_url": "https://github.com/mateusfonseca/finalProject_Nano_Size_Dist",
+        "updated_at": "2026-11-17T20:15:03Z",
+        "created_at": "2023-01-20T19:48:10Z",
+        "language": "JavaScript",
+        "description": {
+            "intro": "Developed a full-stack Django web application to automate Transmission Electron Microscopy (TEM) scan characterization, progressing from an NFQ Level 7 capstone using traditional computer vision to an NFQ Level 8 final year project featuring deep learning.",
+            "bullet_points": [
+                "Engineered the core Django Model-View-Template (MVT) architecture, relational MySQL schemas for projects/analyses, and Tesseract OCR automation to parse scaling factors from image legends.",
+                "Implemented dual-pipeline image processing comparing traditional Circle Hough Transforms (CHT) via OpenCV against custom Convolutional Neural Networks (CNNs) in TensorFlow/Keras.",
+                "Utilized NumPy, Pandas, and Matplotlib/Seaborn for statistical size distribution calculations and data visualization."
+            ]
+        },
+        "taxonomy": {
+            "context": [
+                "Academic (BSc)"
+            ],
+            "programming": [
+                "CSS",
+                "HTML",
+                "JavaScript",
+                "Python"
+            ],
+            "framework": [
+                "Bootstrap",
+                "Django"
+            ],
+            "database": [
+                "MySQL"
+            ],
+            "domain": [
+                "AI/ML",
+                "Computer Vision",
+                "Web Development"
+            ],
+            "infrastructure": [
+                "AWS",
+                "Gunicorn",
+                "Nginx"
+            ],
+            "data_science": [
+                "CNN",
+                "Keras",
+                "NumPy",
+                "Pandas",
+                "Seaborn"
+            ],
+            "others": [
+                "MVT",
+                "OpenCV",
+                "Tesseract OCR"
+            ]
+        },
+        "combined_tags": [
+            "Academic (BSc)",
+            "AI/ML",
+            "Computer Vision",
+            "Web Development",
+            "CSS",
+            "HTML",
+            "JavaScript",
+            "Python",
+            "Bootstrap",
+            "Django",
+            "MySQL",
+            "AWS",
+            "Gunicorn",
+            "Nginx",
+            "CNN",
+            "Keras",
+            "NumPy",
+            "Pandas",
+            "Seaborn",
+            "MVT",
+            "OpenCV",
+            "Tesseract OCR"
+        ],
+        "images": [
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/finalProject_Nano_Size_Dist/master/diagrams/cnn_architecture.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/finalProject_Nano_Size_Dist/master/diagrams/deployment.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/finalProject_Nano_Size_Dist/master/diagrams/flowchart.png",
+                "title": ""
+            }
         ]
     },
     {
         "name": "dorsetToDo",
         "title": "Flask Web App: To-Do List",
         "html_url": "https://github.com/mateusfonseca/dorsetToDo",
-        "updated_at": "2026-11-16T21:14:20Z",
+        "updated_at": "2026-11-17T20:08:56Z",
         "created_at": "2023-04-11T22:47:49Z",
         "language": "Python",
         "description": {
@@ -483,6 +605,7 @@
             "infrastructure": [],
             "data_science": [],
             "others": [
+                "Jinja",
                 "MVT",
                 "OOP",
                 "Pytest"
@@ -498,24 +621,59 @@
             "Bulma",
             "Flask",
             "MongoDB",
+            "Jinja",
             "MVT",
             "OOP",
             "Pytest"
+        ],
+        "images": [
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/hello-world-code.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/hello-world-view.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/home-in.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/home-out.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/login.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/prof-up.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/prof-view.png",
+                "title": ""
+            },
+            {
+                "url": "https://raw.githubusercontent.com/mateusfonseca/dorsetToDo/master/screenshots/signup.png",
+                "title": ""
+            }
         ]
     },
     {
-        "name": "finalProject_Nano_Size_Dist",
-        "title": "at\u00b3: an automated size distribution calculator for TEM-based nanoparticle scans",
-        "html_url": "https://github.com/mateusfonseca/finalProject_Nano_Size_Dist",
-        "updated_at": "2026-11-16T21:11:23Z",
-        "created_at": "2023-01-20T19:48:10Z",
+        "name": "mobileApp2_Accelerometer_Leaderboard",
+        "title": "React Native App: Accelerometer Leaderboard",
+        "html_url": "https://github.com/mateusfonseca/mobileApp2_Accelerometer_Leaderboard",
+        "updated_at": "2026-11-17T20:03:56Z",
+        "created_at": "2023-01-06T03:43:48Z",
         "language": "JavaScript",
         "description": {
-            "intro": "Developed a full-stack Django web application to automate Transmission Electron Microscopy (TEM) scan characterization, progressing from an NFQ Level 7 capstone using traditional computer vision to an NFQ Level 8 final year project featuring deep learning.",
+            "intro": "Developed a cross-platform mobile application leveraging device sensors to stream movement data, calculate user activity metrics, and render real-time comparative rankings.",
             "bullet_points": [
-                "Engineered the core Django Model-View-Template (MVT) architecture, relational MySQL schemas for projects/analyses, and Tesseract OCR automation to parse scaling factors from image legends.",
-                "Implemented dual-pipeline image processing comparing traditional Circle Hough Transforms (CHT) via OpenCV against custom Convolutional Neural Networks (CNNs) in TensorFlow/Keras.",
-                "Utilized NumPy, Pandas, and Matplotlib/Seaborn for statistical size distribution calculations and data visualization."
+                "Utilized React functional components and hooks to capture 1,000 accelerometer data points locally while the application is active in the foreground.",
+                "Integrated Firebase Authentication and Cloud Firestore for secure user onboarding and automated bulk data synchronization.",
+                "Engineered a dynamic, auto-refreshing leaderboard interface using Shopify FlashList to calculate movement scores and rank participating users efficiently."
             ]
         },
         "taxonomy": {
@@ -523,68 +681,67 @@
                 "Academic (BSc)"
             ],
             "programming": [
-                "CSS",
-                "HTML",
+                "C++",
+                "Java",
                 "JavaScript",
-                "Python"
+                "Objective-C",
+                "Objective-C++",
+                "Ruby",
+                "Starlark"
             ],
             "framework": [
-                "Django"
+                "React Native"
             ],
             "database": [
-                "MySQL"
+                "Firestore"
             ],
             "domain": [
-                "AI/ML",
-                "Computer Vision",
-                "Web Development"
+                "Mobile Development"
             ],
-            "infrastructure": [],
-            "data_science": [
-                "CNN",
-                "Deep Learning",
-                "Keras",
-                "Matplotlib",
-                "NumPy",
-                "Pandas",
-                "Seaborn",
-                "TensorFlow"
+            "infrastructure": [
+                "Firebase"
             ],
+            "data_science": [],
             "others": [
-                "MVT",
-                "OpenCV",
-                "Tesseract OCR"
+                "Accelerometer",
+                "Cross-Platform",
+                "JSON",
+                "JSX",
+                "Material Design",
+                "OOP",
+                "RxJS",
+                "Sensors"
             ]
         },
         "combined_tags": [
             "Academic (BSc)",
-            "AI/ML",
-            "Computer Vision",
-            "Web Development",
-            "CSS",
-            "HTML",
+            "Mobile Development",
+            "C++",
+            "Java",
             "JavaScript",
-            "Python",
-            "Django",
-            "MySQL",
-            "CNN",
-            "Deep Learning",
-            "Keras",
-            "Matplotlib",
-            "NumPy",
-            "Pandas",
-            "Seaborn",
-            "TensorFlow",
-            "MVT",
-            "OpenCV",
-            "Tesseract OCR"
-        ]
+            "Objective-C",
+            "Objective-C++",
+            "Ruby",
+            "Starlark",
+            "React Native",
+            "Firestore",
+            "Firebase",
+            "Accelerometer",
+            "Cross-Platform",
+            "JSON",
+            "JSX",
+            "Material Design",
+            "OOP",
+            "RxJS",
+            "Sensors"
+        ],
+        "images": []
     },
     {
         "name": "mobileApp2_Ireland_Literature_Map",
         "title": "React Native App: Ireland Literature Map",
         "html_url": "https://github.com/mateusfonseca/mobileApp2_Ireland_Literature_Map",
-        "updated_at": "2026-11-16T21:05:14Z",
+        "updated_at": "2026-11-17T20:02:09Z",
         "created_at": "2022-12-06T22:58:15Z",
         "language": "JavaScript",
         "description": {
@@ -613,13 +770,13 @@
             ],
             "database": [],
             "domain": [
-                "Hybrid Development",
                 "Mobile Development"
             ],
             "infrastructure": [],
             "data_science": [],
             "others": [
                 "API",
+                "Cross-Platform",
                 "Geolocation",
                 "Google Maps API",
                 "Google Photos API",
@@ -631,7 +788,6 @@
         },
         "combined_tags": [
             "Academic (BSc)",
-            "Hybrid Development",
             "Mobile Development",
             "C++",
             "Java",
@@ -642,6 +798,7 @@
             "Starlark",
             "React Native",
             "API",
+            "Cross-Platform",
             "Geolocation",
             "Google Maps API",
             "Google Photos API",
@@ -649,13 +806,14 @@
             "JSON",
             "JSX",
             "OOP"
-        ]
+        ],
+        "images": []
     },
     {
         "name": "dorsetMusicCollection",
         "title": "Django Web App: Music Collection",
         "html_url": "https://github.com/mateusfonseca/dorsetMusicCollection",
-        "updated_at": "2026-11-16T21:02:33Z",
+        "updated_at": "2026-11-17T19:56:24Z",
         "created_at": "2022-11-21T21:43:40Z",
         "language": "Python",
         "description": {
@@ -692,7 +850,9 @@
             "data_science": [],
             "others": [
                 "API",
+                "CRUD",
                 "Discogs API",
+                "DTL",
                 "MVT",
                 "OOP",
                 "Pytest",
@@ -711,18 +871,21 @@
             "Django",
             "MySQL",
             "API",
+            "CRUD",
             "Discogs API",
+            "DTL",
             "MVT",
             "OOP",
             "Pytest",
             "TLS"
-        ]
+        ],
+        "images": []
     },
     {
         "name": "DorsetCollegeOnlineStore",
         "title": "ASP.NET Core MVC: Online Store Web App",
         "html_url": "https://github.com/mateusfonseca/DorsetCollegeOnlineStore",
-        "updated_at": "2026-11-16T20:56:16Z",
+        "updated_at": "2026-11-17T19:50:25Z",
         "created_at": "2022-05-03T22:43:22Z",
         "language": "C#",
         "description": {
@@ -758,9 +921,11 @@
             "data_science": [],
             "others": [
                 "API",
+                "CRUD",
                 "Fake Store API",
                 "MVC",
-                "OOP"
+                "OOP",
+                "Razor"
             ]
         },
         "combined_tags": [
@@ -775,10 +940,13 @@
             "EF Core",
             "SQLite",
             "API",
+            "CRUD",
             "Fake Store API",
             "MVC",
-            "OOP"
-        ]
+            "OOP",
+            "Razor"
+        ],
+        "images": []
     },
     {
         "name": "mobileApp1_Online_Shopping",
@@ -833,7 +1001,8 @@
             "MVVM",
             "OOP",
             "Retrofit"
-        ]
+        ],
+        "images": []
     },
     {
         "name": "mobileApp1_GitHub_Repos",
@@ -886,7 +1055,8 @@
             "Material Design",
             "OkHttp",
             "OOP"
-        ]
+        ],
+        "images": []
     },
     {
         "name": "mobileApp1_About_Me",
@@ -931,7 +1101,8 @@
             "Android",
             "Material Design",
             "OOP"
-        ]
+        ],
+        "images": []
     },
     {
         "name": "mobileApp1_Movie_Booking",
@@ -980,7 +1151,8 @@
             "JSON",
             "Material Design",
             "OOP"
-        ]
+        ],
+        "images": []
     },
     {
         "name": "DorsetCollege.ID24088.CA1.BankApp",
@@ -1025,6 +1197,7 @@
             ".NET",
             "Console Application",
             "OOP"
-        ]
+        ],
+        "images": []
     }
 ]

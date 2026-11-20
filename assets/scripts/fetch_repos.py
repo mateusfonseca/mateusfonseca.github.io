@@ -105,7 +105,6 @@ TAXONOMY_MAP = {
     "hybrid-development": ("domain", "Hybrid Development"),
     "cryptography": ("domain", "Cryptography"),
     # Others
-    "console-application": ("others", "Console Application"),
     "opencv": ("others", "OpenCV"),
     "tenseal": ("others", "TenSEAL"),
     "aes": ("others", "AES"),
@@ -129,13 +128,16 @@ TAXONOMY_MAP = {
     "webstorm": ("others", "WebStorm"),
     "github-api": ("others", "GitHub API"),
     "okhttp": ("others", "OkHttp"),
-    "retrofit": ("others", "Retrofit"),
     "mvvm-architecture": ("others", "MVVM"),
     "rxjs": ("others", "RxJS"),
     "tesseract-ocr": ("others", "Tesseract OCR"),
-    "vite": ("others", "Vite"),
-    "pytest": ("others", "Pytest"),
     "jwt": ("others", "JWT"),
+    "crud": ("others", "CRUD"),
+    "dtl": ("others", "DTL"),
+    "cross-platform": ("others", "Cross-Platform"),
+    "erp": ("others", "ERP"),
+    "dnf": ("others", "DNF"),
+    "erd": ("others", "ERD"),
 }
 
 CATEGORY_ORDER = [
@@ -205,6 +207,74 @@ def fetch_wiki_data(repo_name: str) -> dict:
             "bullet_points": bullet_points,
         },
     }
+
+
+def fetch_repo_images(repo_name: str, default_branch: str = "main") -> list:
+    """Recursively fetches relevant screenshots and diagrams from the repository tree."""
+    headers = {"Accept": "application/vnd.github+json"}
+    token = os.environ.get("GITHUB_TOKEN")
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+
+    tree_url = f"https://api.github.com/repos/{OWNER}/{repo_name}/git/trees/{default_branch}?recursive=1"
+    resp = requests.get(tree_url, headers=headers)
+
+    if resp.status_code == 404 and default_branch == "main":
+        tree_url = f"https://api.github.com/repos/{OWNER}/{repo_name}/git/trees/master?recursive=1"
+        resp = requests.get(tree_url, headers=headers)
+
+    if resp.status_code != 200:
+        return []
+
+    tree_data = resp.json().get("tree", [])
+    image_extensions = (".png", ".jpg", ".jpeg")
+
+    # Excluded keywords (icons, badges, coverage reports, licenses)
+    excluded_keywords = [
+        "icon",
+        "favicon",
+        "badge",
+        "coverage",
+        "coveralls",
+        "license",
+        "hello-world",
+        "hello_world",
+    ]
+    # Allowed parent folder keywords
+    allowed_folders = ["screenshots", "diagrams", "charts"]
+
+    images = []
+    for item in tree_data:
+        path = item.get("path", "")
+        if item.get("type") == "blob" and path.lower().endswith(image_extensions):
+            lower_path = path.lower()
+
+            # Skip unwanted images
+            if any(kw in lower_path for kw in excluded_keywords):
+                continue
+
+            # Ensure image is in root or in an allowed folder category
+            path_parts = lower_path.split("/")
+            is_allowed = len(path_parts) == 1 or any(
+                any(af in part for af in allowed_folders) for part in path_parts[:-1]
+            )
+
+            if is_allowed:
+                filename = os.path.basename(path)
+                name_without_ext = os.path.splitext(filename)[0]
+                # Derive clean title from filename
+                title = name_without_ext.replace("-", " ").replace("_", " ").title()
+                title = " ".join(
+                    [
+                        TAXONOMY_MAP.get(word.lower(), (None, word))[1]
+                        for word in title.split(" ")
+                    ]
+                )
+
+                raw_url = f"https://raw.githubusercontent.com/{OWNER}/{repo_name}/{default_branch}/{path}"
+                images.append({"url": raw_url, "title": title})
+
+    return images
 
 
 def main():
@@ -290,6 +360,9 @@ def main():
                 "description": wiki_data["description"],
                 "taxonomy": taxonomy,
                 "combined_tags": ordered_combined_tags,
+                "images": fetch_repo_images(
+                    repo_name, repo.get("default_branch", "main")
+                ),
             }
         )
 
